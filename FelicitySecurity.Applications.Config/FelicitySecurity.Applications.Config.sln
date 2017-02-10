@@ -1,0 +1,75 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FelicitySecurity.Applications.Config", "FelicitySecurity.Applications.Config\FelicitySecurity.Applications.Config.csproj", "{469FF10F-0463-4684-9940-ADED6619386A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Applications", "Applications", "{B48BEEDA-DDBD-4B11-8D3B-481C5D0E6B5D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{1E7F9DED-498C-43CA-9020-412DF3CD6203}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{A38A4764-5FC8-4E8A-9D23-7D6AF84C6542}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{2A03F040-8940-498D-87EE-71188CBEBF84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FelicitySecurity.Core", "..\FelicitySecurity.Core\FelicitySecurity.Core.csproj", "{25F1241C-4143-4E6A-A5D4-FCC8CB7B98C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FelicitySecurity.Core.Data", "..\FelicitySecurity.Core.Data\FelicitySecurity.Core.Data.csproj", "{A2E1306E-6C9C-4F10-9EE9-05C544FB4E57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FelicitySecurity.Services", "..\FelicitySecurity.Services\FelicitySecurity.Services.csproj", "{FF83934E-81FC-4770-9648-1A43F5023086}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FelicitySecurity.Applications.UnitTests", "..\FelicitySecurity.Applications.UnitTests\FelicitySecurity.Applications.UnitTests.csproj", "{E2D95320-7FB7-4A91-A27F-B21300C9F3E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FelicitySecurity.Core.Utils", "FelicitySecurity.Utils\FelicitySecurity.Core.Utils.csproj", "{D9B6DF98-9C5F-48CA-8673-1A6BC7CD05B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FelicitySecurity.Core.Data.UnitTests", "FelicitySecurity.Core.Data.UnitTests\FelicitySecurity.Core.Data.UnitTests.csproj", "{FBBE5C08-4898-4714-9C1C-2FFB64F4001A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{469FF10F-0463-4684-9940-ADED6619386A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{469FF10F-0463-4684-9940-ADED6619386A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{469FF10F-0463-4684-9940-ADED6619386A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{469FF10F-0463-4684-9940-ADED6619386A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25F1241C-4143-4E6A-A5D4-FCC8CB7B98C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25F1241C-4143-4E6A-A5D4-FCC8CB7B98C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25F1241C-4143-4E6A-A5D4-FCC8CB7B98C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25F1241C-4143-4E6A-A5D4-FCC8CB7B98C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2E1306E-6C9C-4F10-9EE9-05C544FB4E57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2E1306E-6C9C-4F10-9EE9-05C544FB4E57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2E1306E-6C9C-4F10-9EE9-05C544FB4E57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2E1306E-6C9C-4F10-9EE9-05C544FB4E57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF83934E-81FC-4770-9648-1A43F5023086}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF83934E-81FC-4770-9648-1A43F5023086}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF83934E-81FC-4770-9648-1A43F5023086}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF83934E-81FC-4770-9648-1A43F5023086}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2D95320-7FB7-4A91-A27F-B21300C9F3E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2D95320-7FB7-4A91-A27F-B21300C9F3E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2D95320-7FB7-4A91-A27F-B21300C9F3E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2D95320-7FB7-4A91-A27F-B21300C9F3E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9B6DF98-9C5F-48CA-8673-1A6BC7CD05B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9B6DF98-9C5F-48CA-8673-1A6BC7CD05B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9B6DF98-9C5F-48CA-8673-1A6BC7CD05B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9B6DF98-9C5F-48CA-8673-1A6BC7CD05B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBBE5C08-4898-4714-9C1C-2FFB64F4001A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBBE5C08-4898-4714-9C1C-2FFB64F4001A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBBE5C08-4898-4714-9C1C-2FFB64F4001A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBBE5C08-4898-4714-9C1C-2FFB64F4001A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{469FF10F-0463-4684-9940-ADED6619386A} = {B48BEEDA-DDBD-4B11-8D3B-481C5D0E6B5D}
+		{25F1241C-4143-4E6A-A5D4-FCC8CB7B98C9} = {1E7F9DED-498C-43CA-9020-412DF3CD6203}
+		{A2E1306E-6C9C-4F10-9EE9-05C544FB4E57} = {1E7F9DED-498C-43CA-9020-412DF3CD6203}
+		{FF83934E-81FC-4770-9648-1A43F5023086} = {A38A4764-5FC8-4E8A-9D23-7D6AF84C6542}
+		{E2D95320-7FB7-4A91-A27F-B21300C9F3E8} = {2A03F040-8940-498D-87EE-71188CBEBF84}
+		{D9B6DF98-9C5F-48CA-8673-1A6BC7CD05B5} = {1E7F9DED-498C-43CA-9020-412DF3CD6203}
+		{FBBE5C08-4898-4714-9C1C-2FFB64F4001A} = {2A03F040-8940-498D-87EE-71188CBEBF84}
+	EndGlobalSection
+EndGlobal
