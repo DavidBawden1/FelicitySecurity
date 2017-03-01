@@ -14,7 +14,10 @@ namespace FelicitySecurity.Applications.Config.ViewModels
     /// </summary>
     public class AdministratorsViewModel : IAdministratorsViewModel, INotifyPropertyChanged
     {
+        #region Declarations
         public event PropertyChangedEventHandler PropertyChanged;
+        #endregion
+
         #region Properties 
         private int _adminId;
         public int AdminID { get; set; }
@@ -119,19 +122,8 @@ namespace FelicitySecurity.Applications.Config.ViewModels
         {
             //clear the items and the listbox after its been populated to prevent duplicate lists. 
             form.Administrators_ListBox.Items.Clear();
-            switch(sortingType)
-            {
-                case CurrentSortingType.Default:
-                    controller.AllAdministratorsEmail(model);
-                    break;
-                case CurrentSortingType.Alphabetical:
-                    controller.AllAdministratorsEmail(model).Sort((x,y) =>string.Compare(x.AdminEmail,y.AdminEmail));
-                    break;
-                default:
-                    controller.AllAdministratorsEmail(model);
-                    break;
-            }
-            
+            AdministratorSorting(controller, model, sortingType);
+
             foreach (var item in model.ListOfAdministrators)
             {
                 ListboxItem administratorItem = new ListboxItem();
@@ -140,6 +132,28 @@ namespace FelicitySecurity.Applications.Config.ViewModels
                 form.Administrators_ListBox.Items.Add(administratorItem);
             }
             model.ListOfAdministrators.Clear();
+        }
+
+        /// <summary>
+        /// Depending on the CurrentSortingType, the list of administrators will be sorted with either: Default or Alphabetical. 
+        /// </summary>
+        /// <param name="controller"></param>
+        /// <param name="model"></param>
+        /// <param name="sortingType">default or alphabetical</param>
+        private static void AdministratorSorting(AdministratorsController controller, AdministratorsModel model, CurrentSortingType sortingType)
+        {
+            switch (sortingType)
+            {
+                case CurrentSortingType.Default:
+                    controller.AllAdministratorsEmail(model);
+                    break;
+                case CurrentSortingType.Alphabetical:
+                    controller.AllAdministratorsEmail(model).Sort((x, y) => string.Compare(x.AdminEmail, y.AdminEmail));
+                    break;
+                default:
+                    controller.AllAdministratorsEmail(model);
+                    break;
+            }
         }
 
         /// <summary>

@@ -11,7 +11,7 @@ namespace FelicitySecurity.Applications.Config
 {
     public partial class RegisterAdministratorsForm : Form, IDataErrorInfo
     {
-        #region Properties 
+        #region Declarations
         private TextBox _textbox;
         AdministratorsController controller = new AdministratorsController();
         AdministratorsModel model = new AdministratorsModel();
@@ -19,6 +19,9 @@ namespace FelicitySecurity.Applications.Config
         ValidationBase validation = new ValidationBase();
         ValidateExistingEmail ValidateEmail = new ValidateExistingEmail();
         CurrentSortingType sortingType;
+        #endregion
+
+        #region Properties 
         /// <summary>
         /// Validate the controls here. if validation fails return the specific error message.  
         /// </summary>
@@ -150,6 +153,12 @@ namespace FelicitySecurity.Applications.Config
             string administratorsEmail = (Administrators_ListBox.SelectedItem as ListboxItem).ItemText;
             viewModel.DisplayAdministratorsDetails(this, administratorsEmail, controller, model);
         }
+
+        /// <summary>
+        /// Re-orders the administrators list box depending on the selected sortingType. i.e: Default or Alphabetical
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CurrentSortComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Enum.TryParse(CurrentSortComboBox.SelectedValue.ToString(), out sortingType);
