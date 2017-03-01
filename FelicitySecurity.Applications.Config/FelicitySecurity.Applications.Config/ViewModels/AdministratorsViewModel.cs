@@ -7,6 +7,7 @@ using FelicitySecurity.Core.Models;
 
 namespace FelicitySecurity.Applications.Config.ViewModels
 {
+    public enum CurrentSortingType { Default, Alphabetical }
     /// <summary>
     /// The View Model for Administrator related views. Implements INotifyPropertyChanged 
     /// </summary>
@@ -102,23 +103,35 @@ namespace FelicitySecurity.Applications.Config.ViewModels
         /// <param name="form"> The view</param>
         /// <param name="viewModel">The Administrators ViewModel</param>
         /// <param name="textbox"> The Textbox Controls</param>
-        public void BindTextboxControls(RegisterAdministratorsForm form, AdministratorsViewModel viewModel, TextBox textbox)
+        public void BindFormControls(RegisterAdministratorsForm form, AdministratorsViewModel viewModel, TextBox textbox)
         {
             Binding _emailBinding = new Binding(form.EnterEmail_TextBox.Text, viewModel, "Email");
             Binding _usernameBinding = new Binding(form.CreateUsername_TextBox.Text, viewModel, "Username");
             Binding _pinCodeBinding = new Binding(form.EnterPin_TextBox.Text, viewModel, "PinCode");
             Binding _reEnterPinCodeBinding = new Binding(form.ReEnterPin_TextBox.Text, viewModel, "PinCodeConfirmed");
+            Binding _currentSortBinding = new Binding(form.CurrentSortComboBox.SelectedValue.ToString(), viewModel, "CurrentSortingType");
         }
 
         /// <summary>
         /// Returns all of the administrators
         /// </summary>
-        public void DisplayAdministratorEmails(RegisterAdministratorsForm form, AdministratorsController controller, AdministratorsModel model)
+        public void DisplayAdministratorEmails(RegisterAdministratorsForm form, AdministratorsController controller, AdministratorsModel model, CurrentSortingType sortAdministrators)
         {
             //clear the items and the listbox after its been populated to prevent duplicate lists. 
             form.Administrators_ListBox.Items.Clear();
-            controller.AllAdministratorsEmail(model);
-
+            switch(sortAdministrators)
+            {
+                case CurrentSortingType.Default:
+                    controller.AllAdministratorsEmail(model);
+                    break;
+                case CurrentSortingType.Alphabetical:
+                    controller.AllAdministratorsEmail(model).Sort((x,y) =>string.Compare(x.AdminEmail,y.AdminEmail));
+                    break;
+                default:
+                    controller.AllAdministratorsEmail(model);
+                    break;
+            }
+            
             foreach (var item in model.ListOfAdministrators)
             {
                 ListboxItem administratorItem = new ListboxItem();
