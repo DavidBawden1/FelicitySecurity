@@ -51,8 +51,8 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.Logo_GroupBox = new System.Windows.Forms.GroupBox();
             this.ListOfAdministrators_GroupBox = new System.Windows.Forms.GroupBox();
-            this.Administrators_ListBox = new System.Windows.Forms.ListBox();
             this.CurrentSortComboBox = new System.Windows.Forms.ComboBox();
+            this.Administrators_ListBox = new System.Windows.Forms.ListBox();
             this.Layout_Background.SuspendLayout();
             this.RegisterAdmin_GroupBox.SuspendLayout();
             this.Layout_RegisterAdminstratorControls.SuspendLayout();
@@ -345,6 +345,18 @@
             this.ListOfAdministrators_GroupBox.TabStop = false;
             this.ListOfAdministrators_GroupBox.Text = "List of Administrators";
             // 
+            // CurrentSortComboBox
+            // 
+            this.CurrentSortComboBox.FormattingEnabled = true;
+            this.CurrentSortComboBox.Items.AddRange(new object[] {
+            "Alphabetical",
+            "Default"});
+            this.CurrentSortComboBox.Location = new System.Drawing.Point(589, 0);
+            this.CurrentSortComboBox.Name = "CurrentSortComboBox";
+            this.CurrentSortComboBox.Size = new System.Drawing.Size(121, 21);
+            this.CurrentSortComboBox.TabIndex = 5;
+            this.CurrentSortComboBox.SelectedIndexChanged += new System.EventHandler(this.CurrentSortComboBox_SelectedIndexChanged);
+            // 
             // Administrators_ListBox
             // 
             this.Administrators_ListBox.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -354,17 +366,6 @@
             this.Administrators_ListBox.Size = new System.Drawing.Size(707, 180);
             this.Administrators_ListBox.TabIndex = 4;
             this.Administrators_ListBox.SelectedIndexChanged += new System.EventHandler(this.Administrators_ListBox_SelectedIndexChanged);
-            // 
-            // CurrentSortComboBox
-            // 
-            this.CurrentSortComboBox.FormattingEnabled = true;
-            this.CurrentSortComboBox.Items.AddRange(new object[] {
-            "Alphabetical,",
-            "Default"});
-            this.CurrentSortComboBox.Location = new System.Drawing.Point(589, 0);
-            this.CurrentSortComboBox.Name = "CurrentSortComboBox";
-            this.CurrentSortComboBox.Size = new System.Drawing.Size(121, 21);
-            this.CurrentSortComboBox.TabIndex = 5;
             // 
             // RegisterAdministratorsForm
             // 

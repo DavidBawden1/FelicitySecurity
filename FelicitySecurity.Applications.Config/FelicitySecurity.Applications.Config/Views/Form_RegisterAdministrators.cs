@@ -18,6 +18,7 @@ namespace FelicitySecurity.Applications.Config
         AdministratorsViewModel viewModel = new AdministratorsViewModel();
         ValidationBase validation = new ValidationBase();
         ValidateExistingEmail ValidateEmail = new ValidateExistingEmail();
+        CurrentSortingType sortingType;
         /// <summary>
         /// Validate the controls here. if validation fails return the specific error message.  
         /// </summary>
@@ -104,7 +105,7 @@ namespace FelicitySecurity.Applications.Config
                     viewModel.BindFormControls(this, viewModel, _textbox);
                     controller.AddAdministrators(EnterEmail_TextBox.Text, CreateUsername_TextBox.Text, EnterPin_TextBox.Text);
                     MessageBox.Show("Administrator added successfully.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    viewModel.DisplayAdministratorEmails(this, controller, model);
+                    viewModel.DisplayAdministratorEmails(this, controller, model, sortingType);
                 }
                 else
                 {
@@ -135,7 +136,8 @@ namespace FelicitySecurity.Applications.Config
         /// <param name="e"></param>
         private void RegisterAdministratorsForm_Load(object sender, EventArgs e)
         {
-            viewModel.DisplayAdministratorEmails(this, controller, model);
+            CurrentSortComboBox.DataSource = Enum.GetValues(typeof(CurrentSortingType));
+            viewModel.DisplayAdministratorEmails(this, controller, model, sortingType);
         }
 
         /// <summary>
@@ -148,8 +150,13 @@ namespace FelicitySecurity.Applications.Config
             string administratorsEmail = (Administrators_ListBox.SelectedItem as ListboxItem).ItemText;
             viewModel.DisplayAdministratorsDetails(this, administratorsEmail, controller, model);
         }
-        #endregion
+        private void CurrentSortComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Enum.TryParse(CurrentSortComboBox.SelectedValue.ToString(), out sortingType);
+            viewModel.DisplayAdministratorEmails(this, controller, model, sortingType);
+        }
 
+        #endregion
 
     }
 }

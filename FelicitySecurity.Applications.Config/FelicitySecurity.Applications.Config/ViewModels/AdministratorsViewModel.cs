@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using FelicitySecurity.Applications.Config.Resources.Controls;
 using FelicitySecurity.Core.Models;
+using System;
 
 namespace FelicitySecurity.Applications.Config.ViewModels
 {
@@ -115,12 +116,11 @@ namespace FelicitySecurity.Applications.Config.ViewModels
         /// <summary>
         /// Returns all of the administrators
         /// </summary>
-        public void DisplayAdministratorEmails(RegisterAdministratorsForm form, AdministratorsController controller, AdministratorsModel model)
+        public void DisplayAdministratorEmails(RegisterAdministratorsForm form, AdministratorsController controller, AdministratorsModel model, CurrentSortingType sortingType)
         {
-            CurrentSortingType sortAdministrators = new CurrentSortingType();
             //clear the items and the listbox after its been populated to prevent duplicate lists. 
             form.Administrators_ListBox.Items.Clear();
-            switch(sortAdministrators)
+            switch(sortingType)
             {
                 case CurrentSortingType.Default:
                     controller.AllAdministratorsEmail(model);
