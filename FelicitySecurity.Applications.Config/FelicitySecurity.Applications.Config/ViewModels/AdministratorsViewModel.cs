@@ -115,8 +115,9 @@ namespace FelicitySecurity.Applications.Config.ViewModels
         /// <summary>
         /// Returns all of the administrators
         /// </summary>
-        public void DisplayAdministratorEmails(RegisterAdministratorsForm form, AdministratorsController controller, AdministratorsModel model, CurrentSortingType sortAdministrators)
+        public void DisplayAdministratorEmails(RegisterAdministratorsForm form, AdministratorsController controller, AdministratorsModel model)
         {
+            CurrentSortingType sortAdministrators = new CurrentSortingType();
             //clear the items and the listbox after its been populated to prevent duplicate lists. 
             form.Administrators_ListBox.Items.Clear();
             switch(sortAdministrators)

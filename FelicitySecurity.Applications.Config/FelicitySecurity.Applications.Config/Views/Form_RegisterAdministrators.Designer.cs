@@ -365,7 +365,6 @@
             this.CurrentSortComboBox.Name = "CurrentSortComboBox";
             this.CurrentSortComboBox.Size = new System.Drawing.Size(121, 21);
             this.CurrentSortComboBox.TabIndex = 5;
-            this.CurrentSortComboBox.SelectedIndexChanged += new System.EventHandler(this.CurrentSortComboBox_SelectedIndexChanged);
             // 
             // RegisterAdministratorsForm
             // 

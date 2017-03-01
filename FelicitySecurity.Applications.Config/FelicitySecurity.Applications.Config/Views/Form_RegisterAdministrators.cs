@@ -101,7 +101,7 @@ namespace FelicitySecurity.Applications.Config
                 //if error is null then validation has passed so continue otherwise return the error message. 
                 if (string.IsNullOrEmpty(Error.ToString()))
                 {
-                    viewModel.BindTextboxControls(this, viewModel, _textbox);
+                    viewModel.BindFormControls(this, viewModel, _textbox);
                     controller.AddAdministrators(EnterEmail_TextBox.Text, CreateUsername_TextBox.Text, EnterPin_TextBox.Text);
                     MessageBox.Show("Administrator added successfully.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     viewModel.DisplayAdministratorEmails(this, controller, model);
