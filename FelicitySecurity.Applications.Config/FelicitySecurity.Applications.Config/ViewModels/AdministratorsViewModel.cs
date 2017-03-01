@@ -104,13 +104,12 @@ namespace FelicitySecurity.Applications.Config.ViewModels
         /// <param name="form"> The view</param>
         /// <param name="viewModel">The Administrators ViewModel</param>
         /// <param name="textbox"> The Textbox Controls</param>
-        public void BindFormControls(RegisterAdministratorsForm form, AdministratorsViewModel viewModel, TextBox textbox)
+        public void BindTextboxControls(RegisterAdministratorsForm form, AdministratorsViewModel viewModel, TextBox textbox)
         {
             Binding _emailBinding = new Binding(form.EnterEmail_TextBox.Text, viewModel, "Email");
             Binding _usernameBinding = new Binding(form.CreateUsername_TextBox.Text, viewModel, "Username");
             Binding _pinCodeBinding = new Binding(form.EnterPin_TextBox.Text, viewModel, "PinCode");
             Binding _reEnterPinCodeBinding = new Binding(form.ReEnterPin_TextBox.Text, viewModel, "PinCodeConfirmed");
-            Binding _currentSortBinding = new Binding(form.CurrentSortComboBox.SelectedValue.ToString(), viewModel, "CurrentSortingType");
         }
 
         /// <summary>

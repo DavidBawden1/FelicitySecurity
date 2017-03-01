@@ -13,7 +13,7 @@ namespace FelicitySecurity.Applications.Config.Interfaces
         string PinCode { get; set; }
         string PinCodeConfirmed { get; set; }
         void Clear(RegisterAdministratorsForm form);
-        void BindFormControls(RegisterAdministratorsForm form, AdministratorsViewModel viewModel, TextBox textbox);
+        void BindTextboxControls(RegisterAdministratorsForm form, AdministratorsViewModel viewModel, TextBox textbox);
         void DisplayAdministratorEmails(RegisterAdministratorsForm form, AdministratorsController controller, AdministratorsModel model, CurrentSortingType sortingType);
         void OnPropertyChanged(string propertyName);
     }
