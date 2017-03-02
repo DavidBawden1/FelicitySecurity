@@ -166,6 +166,5 @@ namespace FelicitySecurity.Applications.Config
         }
 
         #endregion
-
     }
 }
