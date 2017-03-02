@@ -51,6 +51,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.Logo_GroupBox = new System.Windows.Forms.GroupBox();
             this.ListOfAdministrators_GroupBox = new System.Windows.Forms.GroupBox();
+
             this.AdministratorListControlsTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.Administrators_ListBox = new System.Windows.Forms.ListBox();
             this.AdministratorsListControlsGroupBox = new System.Windows.Forms.GroupBox();
