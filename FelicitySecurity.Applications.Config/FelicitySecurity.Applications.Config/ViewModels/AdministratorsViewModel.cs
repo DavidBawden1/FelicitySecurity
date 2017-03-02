@@ -9,6 +9,7 @@ using System;
 namespace FelicitySecurity.Applications.Config.ViewModels
 {
     public enum CurrentSortingType { Default, Alphabetical }
+  
     /// <summary>
     /// The View Model for Administrator related views. Implements INotifyPropertyChanged 
     /// </summary>
@@ -123,7 +124,6 @@ namespace FelicitySecurity.Applications.Config.ViewModels
             //clear the items and the listbox after its been populated to prevent duplicate lists. 
             form.Administrators_ListBox.Items.Clear();
             AdministratorSorting(controller, model, sortingType);
-
             foreach (var item in model.ListOfAdministrators)
             {
                 ListboxItem administratorItem = new ListboxItem();
@@ -169,6 +169,7 @@ namespace FelicitySecurity.Applications.Config.ViewModels
             form.CreateUsername_TextBox.Text = administratorsDetails.AdminName.ToString();
             form.EnterEmail_TextBox.Text = administratorsDetails.AdminEmail.ToString();
         }
+        
         public void InitialiseControlDataSources(RegisterAdministratorsForm form)
         {
             form.CurrentSortComboBox.DataSource = Enum.GetValues(typeof(CurrentSortingType));

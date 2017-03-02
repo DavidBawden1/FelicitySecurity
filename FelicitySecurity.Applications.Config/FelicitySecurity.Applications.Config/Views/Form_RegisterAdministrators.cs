@@ -142,9 +142,7 @@ namespace FelicitySecurity.Applications.Config
             viewModel.InitialiseControlDataSources(this);
             viewModel.DisplayAdministratorEmails(this, controller, model, sortingType);
         }
-
         
-
         /// <summary>
         /// Takes the Selected item and returns the parent objects data by querying by that item. 
         /// </summary>
