@@ -1,0 +1,339 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="FelicityLiveModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AdminTable">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdminName" Type="varchar(max)" />
+          <Property Name="AdminEmail" Type="varchar(max)" />
+          <Property Name="AdminPinCode" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="FacesTable">
+          <Key>
+            <PropertyRef Name="FaceID" />
+          </Key>
+          <Property Name="FaceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MemFace0" Type="image" />
+          <Property Name="MemFace1" Type="image" />
+          <Property Name="MemFace2" Type="image" />
+          <Property Name="MemFace3" Type="image" />
+          <Property Name="MemFace4" Type="image" />
+          <Property Name="MemFace5" Type="image" />
+          <Property Name="MemFace6" Type="image" />
+          <Property Name="MemFace7" Type="image" />
+          <Property Name="MemFace8" Type="image" />
+          <Property Name="MemFace9" Type="image" />
+          <Property Name="MemFace10" Type="image" />
+          <Property Name="MemFace11" Type="image" />
+          <Property Name="MemFace12" Type="image" />
+          <Property Name="MemFace13" Type="image" />
+          <Property Name="MemFace14" Type="image" />
+          <Property Name="MemFace15" Type="image" />
+          <Property Name="MemFace16" Type="image" />
+          <Property Name="MemFace17" Type="image" />
+          <Property Name="MemFace18" Type="image" />
+          <Property Name="MemFace19" Type="image" />
+          <Property Name="MemFace20" Type="image" />
+          <Property Name="MemID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MemberTable">
+          <Key>
+            <PropertyRef Name="MemID" />
+          </Key>
+          <Property Name="MemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MemFirstname" Type="varchar(max)" />
+          <Property Name="MemLastname" Type="varchar(max)" />
+          <Property Name="MemPhonenumber" Type="varchar(max)" />
+          <Property Name="MemDOB" Type="date" />
+          <Property Name="MemPostcode" Type="varchar(max)" />
+          <Property Name="MemStatus" Type="bit" />
+          <Property Name="MemRegDate" Type="date" />
+          <Property Name="AdminID" Type="int" Nullable="false" />
+          <Property Name="IsStaff" Type="bit" />
+        </EntityType>
+        <EntityType Name="StaffTable">
+          <Key>
+            <PropertyRef Name="StaffID" />
+          </Key>
+          <Property Name="StaffID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BadgeNo" Type="int" />
+          <Property Name="MemID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__FacesTabl__MemID__32E0915F">
+          <End Role="MemberTable" Type="Self.MemberTable" Multiplicity="1" />
+          <End Role="FacesTable" Type="Self.FacesTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MemberTable">
+              <PropertyRef Name="MemID" />
+            </Principal>
+            <Dependent Role="FacesTable">
+              <PropertyRef Name="MemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MemberTab__Admin__49C3F6B7">
+          <End Role="AdminTable" Type="Self.AdminTable" Multiplicity="1" />
+          <End Role="MemberTable" Type="Self.MemberTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdminTable">
+              <PropertyRef Name="AdminID" />
+            </Principal>
+            <Dependent Role="MemberTable">
+              <PropertyRef Name="AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StaffTabl__MemID__33D4B598">
+          <End Role="MemberTable" Type="Self.MemberTable" Multiplicity="1" />
+          <End Role="StaffTable" Type="Self.StaffTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MemberTable">
+              <PropertyRef Name="MemID" />
+            </Principal>
+            <Dependent Role="StaffTable">
+              <PropertyRef Name="MemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FelicityLiveModelStoreContainer">
+          <EntitySet Name="AdminTable" EntityType="Self.AdminTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FacesTable" EntityType="Self.FacesTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MemberTable" EntityType="Self.MemberTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StaffTable" EntityType="Self.StaffTable" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__FacesTabl__MemID__32E0915F" Association="Self.FK__FacesTabl__MemID__32E0915F">
+            <End Role="MemberTable" EntitySet="MemberTable" />
+            <End Role="FacesTable" EntitySet="FacesTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MemberTab__Admin__49C3F6B7" Association="Self.FK__MemberTab__Admin__49C3F6B7">
+            <End Role="AdminTable" EntitySet="AdminTable" />
+            <End Role="MemberTable" EntitySet="MemberTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StaffTabl__MemID__33D4B598" Association="Self.FK__StaffTabl__MemID__33D4B598">
+            <End Role="MemberTable" EntitySet="MemberTable" />
+            <End Role="StaffTable" EntitySet="StaffTable" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FelicityLiveModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="FelicityLiveEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AdminTable" EntityType="FelicityLiveModel.AdminTable" />
+          <EntitySet Name="FacesTable" EntityType="FelicityLiveModel.FacesTable" />
+          <EntitySet Name="MemberTable" EntityType="FelicityLiveModel.MemberTable" />
+          <EntitySet Name="StaffTable" EntityType="FelicityLiveModel.StaffTable" />
+          <AssociationSet Name="FK__MemberTab__Admin__49C3F6B7" Association="FelicityLiveModel.FK__MemberTab__Admin__49C3F6B7">
+            <End Role="AdminTable" EntitySet="AdminTable" />
+            <End Role="MemberTable" EntitySet="MemberTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FacesTabl__MemID__32E0915F" Association="FelicityLiveModel.FK__FacesTabl__MemID__32E0915F">
+            <End Role="MemberTable" EntitySet="MemberTable" />
+            <End Role="FacesTable" EntitySet="FacesTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StaffTabl__MemID__33D4B598" Association="FelicityLiveModel.FK__StaffTabl__MemID__33D4B598">
+            <End Role="MemberTable" EntitySet="MemberTable" />
+            <End Role="StaffTable" EntitySet="StaffTable" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AdminTable">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdminName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AdminEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AdminPinCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="MemberTable" Relationship="FelicityLiveModel.FK__MemberTab__Admin__49C3F6B7" FromRole="AdminTable" ToRole="MemberTable" />
+        </EntityType>
+        <EntityType Name="FacesTable">
+          <Key>
+            <PropertyRef Name="FaceID" />
+          </Key>
+          <Property Name="FaceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MemFace0" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="MemFace1" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="MemFace2" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="MemFace3" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="MemFace4" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="MemFace5" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="MemFace6" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="MemFace7" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="MemFace8" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="MemFace9" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="MemFace10" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="MemFace11" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="MemFace12" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="MemFace13" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="MemFace14" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="MemFace15" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="MemFace16" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="MemFace17" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="MemFace18" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="MemFace19" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="MemFace20" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="MemID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MemberTable" Relationship="FelicityLiveModel.FK__FacesTabl__MemID__32E0915F" FromRole="FacesTable" ToRole="MemberTable" />
+        </EntityType>
+        <EntityType Name="MemberTable">
+          <Key>
+            <PropertyRef Name="MemID" />
+          </Key>
+          <Property Name="MemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MemFirstname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MemLastname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MemPhonenumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MemDOB" Type="DateTime" Precision="0" />
+          <Property Name="MemPostcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MemStatus" Type="Boolean" />
+          <Property Name="MemRegDate" Type="DateTime" Precision="0" />
+          <Property Name="AdminID" Type="Int32" Nullable="false" />
+          <Property Name="IsStaff" Type="Boolean" />
+          <NavigationProperty Name="AdminTable" Relationship="FelicityLiveModel.FK__MemberTab__Admin__49C3F6B7" FromRole="MemberTable" ToRole="AdminTable" />
+          <NavigationProperty Name="FacesTable" Relationship="FelicityLiveModel.FK__FacesTabl__MemID__32E0915F" FromRole="MemberTable" ToRole="FacesTable" />
+          <NavigationProperty Name="StaffTable" Relationship="FelicityLiveModel.FK__StaffTabl__MemID__33D4B598" FromRole="MemberTable" ToRole="StaffTable" />
+        </EntityType>
+        <EntityType Name="StaffTable">
+          <Key>
+            <PropertyRef Name="StaffID" />
+          </Key>
+          <Property Name="StaffID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BadgeNo" Type="Int32" />
+          <Property Name="MemID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MemberTable" Relationship="FelicityLiveModel.FK__StaffTabl__MemID__33D4B598" FromRole="StaffTable" ToRole="MemberTable" />
+        </EntityType>
+        <Association Name="FK__MemberTab__Admin__49C3F6B7">
+          <End Type="FelicityLiveModel.AdminTable" Role="AdminTable" Multiplicity="1" />
+          <End Type="FelicityLiveModel.MemberTable" Role="MemberTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdminTable">
+              <PropertyRef Name="AdminID" />
+            </Principal>
+            <Dependent Role="MemberTable">
+              <PropertyRef Name="AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FacesTabl__MemID__32E0915F">
+          <End Type="FelicityLiveModel.MemberTable" Role="MemberTable" Multiplicity="1" />
+          <End Type="FelicityLiveModel.FacesTable" Role="FacesTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MemberTable">
+              <PropertyRef Name="MemID" />
+            </Principal>
+            <Dependent Role="FacesTable">
+              <PropertyRef Name="MemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StaffTabl__MemID__33D4B598">
+          <End Type="FelicityLiveModel.MemberTable" Role="MemberTable" Multiplicity="1" />
+          <End Type="FelicityLiveModel.StaffTable" Role="StaffTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MemberTable">
+              <PropertyRef Name="MemID" />
+            </Principal>
+            <Dependent Role="StaffTable">
+              <PropertyRef Name="MemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FelicityLiveModelStoreContainer" CdmEntityContainer="FelicityLiveEntities">
+          <EntitySetMapping Name="AdminTable">
+            <EntityTypeMapping TypeName="FelicityLiveModel.AdminTable">
+              <MappingFragment StoreEntitySet="AdminTable">
+                <ScalarProperty Name="AdminPinCode" ColumnName="AdminPinCode" />
+                <ScalarProperty Name="AdminEmail" ColumnName="AdminEmail" />
+                <ScalarProperty Name="AdminName" ColumnName="AdminName" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FacesTable">
+            <EntityTypeMapping TypeName="FelicityLiveModel.FacesTable">
+              <MappingFragment StoreEntitySet="FacesTable">
+                <ScalarProperty Name="MemID" ColumnName="MemID" />
+                <ScalarProperty Name="MemFace20" ColumnName="MemFace20" />
+                <ScalarProperty Name="MemFace19" ColumnName="MemFace19" />
+                <ScalarProperty Name="MemFace18" ColumnName="MemFace18" />
+                <ScalarProperty Name="MemFace17" ColumnName="MemFace17" />
+                <ScalarProperty Name="MemFace16" ColumnName="MemFace16" />
+                <ScalarProperty Name="MemFace15" ColumnName="MemFace15" />
+                <ScalarProperty Name="MemFace14" ColumnName="MemFace14" />
+                <ScalarProperty Name="MemFace13" ColumnName="MemFace13" />
+                <ScalarProperty Name="MemFace12" ColumnName="MemFace12" />
+                <ScalarProperty Name="MemFace11" ColumnName="MemFace11" />
+                <ScalarProperty Name="MemFace10" ColumnName="MemFace10" />
+                <ScalarProperty Name="MemFace9" ColumnName="MemFace9" />
+                <ScalarProperty Name="MemFace8" ColumnName="MemFace8" />
+                <ScalarProperty Name="MemFace7" ColumnName="MemFace7" />
+                <ScalarProperty Name="MemFace6" ColumnName="MemFace6" />
+                <ScalarProperty Name="MemFace5" ColumnName="MemFace5" />
+                <ScalarProperty Name="MemFace4" ColumnName="MemFace4" />
+                <ScalarProperty Name="MemFace3" ColumnName="MemFace3" />
+                <ScalarProperty Name="MemFace2" ColumnName="MemFace2" />
+                <ScalarProperty Name="MemFace1" ColumnName="MemFace1" />
+                <ScalarProperty Name="MemFace0" ColumnName="MemFace0" />
+                <ScalarProperty Name="FaceID" ColumnName="FaceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MemberTable">
+            <EntityTypeMapping TypeName="FelicityLiveModel.MemberTable">
+              <MappingFragment StoreEntitySet="MemberTable">
+                <ScalarProperty Name="IsStaff" ColumnName="IsStaff" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="MemRegDate" ColumnName="MemRegDate" />
+                <ScalarProperty Name="MemStatus" ColumnName="MemStatus" />
+                <ScalarProperty Name="MemPostcode" ColumnName="MemPostcode" />
+                <ScalarProperty Name="MemDOB" ColumnName="MemDOB" />
+                <ScalarProperty Name="MemPhonenumber" ColumnName="MemPhonenumber" />
+                <ScalarProperty Name="MemLastname" ColumnName="MemLastname" />
+                <ScalarProperty Name="MemFirstname" ColumnName="MemFirstname" />
+                <ScalarProperty Name="MemID" ColumnName="MemID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StaffTable">
+            <EntityTypeMapping TypeName="FelicityLiveModel.StaffTable">
+              <MappingFragment StoreEntitySet="StaffTable">
+                <ScalarProperty Name="MemID" ColumnName="MemID" />
+                <ScalarProperty Name="BadgeNo" ColumnName="BadgeNo" />
+                <ScalarProperty Name="StaffID" ColumnName="StaffID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
