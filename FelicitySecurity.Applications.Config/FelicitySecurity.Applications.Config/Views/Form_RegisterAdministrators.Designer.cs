@@ -51,7 +51,12 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.Logo_GroupBox = new System.Windows.Forms.GroupBox();
             this.ListOfAdministrators_GroupBox = new System.Windows.Forms.GroupBox();
+
+            this.AdministratorListControlsTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.Administrators_ListBox = new System.Windows.Forms.ListBox();
+            this.AdministratorsListControlsGroupBox = new System.Windows.Forms.GroupBox();
+            this.CurrentSortComboBox = new System.Windows.Forms.ComboBox();
+            this.SortAdministratorsLabel = new System.Windows.Forms.Label();
             this.Layout_Background.SuspendLayout();
             this.RegisterAdmin_GroupBox.SuspendLayout();
             this.Layout_RegisterAdminstratorControls.SuspendLayout();
@@ -59,6 +64,8 @@
             this.AdministratorsListBoxAndLogo_GroupBox.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.ListOfAdministrators_GroupBox.SuspendLayout();
+            this.AdministratorListControlsTableLayoutPanel.SuspendLayout();
+            this.AdministratorsListControlsGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // Layout_Background
@@ -334,7 +341,7 @@
             // 
             // ListOfAdministrators_GroupBox
             // 
-            this.ListOfAdministrators_GroupBox.Controls.Add(this.Administrators_ListBox);
+            this.ListOfAdministrators_GroupBox.Controls.Add(this.AdministratorListControlsTableLayoutPanel);
             this.ListOfAdministrators_GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ListOfAdministrators_GroupBox.Location = new System.Drawing.Point(3, 381);
             this.ListOfAdministrators_GroupBox.Name = "ListOfAdministrators_GroupBox";
@@ -343,15 +350,64 @@
             this.ListOfAdministrators_GroupBox.TabStop = false;
             this.ListOfAdministrators_GroupBox.Text = "List of Administrators";
             // 
+            // AdministratorListControlsTableLayoutPanel
+            // 
+            this.AdministratorListControlsTableLayoutPanel.ColumnCount = 1;
+            this.AdministratorListControlsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.AdministratorListControlsTableLayoutPanel.Controls.Add(this.Administrators_ListBox, 0, 1);
+            this.AdministratorListControlsTableLayoutPanel.Controls.Add(this.AdministratorsListControlsGroupBox, 0, 0);
+            this.AdministratorListControlsTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AdministratorListControlsTableLayoutPanel.Location = new System.Drawing.Point(3, 16);
+            this.AdministratorListControlsTableLayoutPanel.Name = "AdministratorListControlsTableLayoutPanel";
+            this.AdministratorListControlsTableLayoutPanel.RowCount = 2;
+            this.AdministratorListControlsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22F));
+            this.AdministratorListControlsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 78F));
+            this.AdministratorListControlsTableLayoutPanel.Size = new System.Drawing.Size(707, 180);
+            this.AdministratorListControlsTableLayoutPanel.TabIndex = 7;
+            // 
             // Administrators_ListBox
             // 
             this.Administrators_ListBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Administrators_ListBox.FormattingEnabled = true;
-            this.Administrators_ListBox.Location = new System.Drawing.Point(3, 16);
+            this.Administrators_ListBox.Location = new System.Drawing.Point(3, 42);
             this.Administrators_ListBox.Name = "Administrators_ListBox";
-            this.Administrators_ListBox.Size = new System.Drawing.Size(707, 180);
+            this.Administrators_ListBox.Size = new System.Drawing.Size(701, 135);
             this.Administrators_ListBox.TabIndex = 4;
             this.Administrators_ListBox.SelectedIndexChanged += new System.EventHandler(this.Administrators_ListBox_SelectedIndexChanged);
+            // 
+            // AdministratorsListControlsGroupBox
+            // 
+            this.AdministratorsListControlsGroupBox.Controls.Add(this.SortAdministratorsLabel);
+            this.AdministratorsListControlsGroupBox.Controls.Add(this.CurrentSortComboBox);
+            this.AdministratorsListControlsGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AdministratorsListControlsGroupBox.Location = new System.Drawing.Point(3, 3);
+            this.AdministratorsListControlsGroupBox.Name = "AdministratorsListControlsGroupBox";
+            this.AdministratorsListControlsGroupBox.Size = new System.Drawing.Size(701, 33);
+            this.AdministratorsListControlsGroupBox.TabIndex = 6;
+            this.AdministratorsListControlsGroupBox.TabStop = false;
+            // 
+            // CurrentSortComboBox
+            // 
+            this.CurrentSortComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.CurrentSortComboBox.FormattingEnabled = true;
+            this.CurrentSortComboBox.Items.AddRange(new object[] {
+            "Alphabetical",
+            "Default"});
+            this.CurrentSortComboBox.Location = new System.Drawing.Point(580, 9);
+            this.CurrentSortComboBox.Name = "CurrentSortComboBox";
+            this.CurrentSortComboBox.Size = new System.Drawing.Size(121, 21);
+            this.CurrentSortComboBox.TabIndex = 5;
+            this.CurrentSortComboBox.SelectedIndexChanged += new System.EventHandler(this.CurrentSortComboBox_SelectedIndexChanged);
+            // 
+            // SortAdministratorsLabel
+            // 
+            this.SortAdministratorsLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.SortAdministratorsLabel.AutoSize = true;
+            this.SortAdministratorsLabel.Location = new System.Drawing.Point(522, 12);
+            this.SortAdministratorsLabel.Name = "SortAdministratorsLabel";
+            this.SortAdministratorsLabel.Size = new System.Drawing.Size(52, 13);
+            this.SortAdministratorsLabel.TabIndex = 6;
+            this.SortAdministratorsLabel.Text = "Order List";
             // 
             // RegisterAdministratorsForm
             // 
@@ -371,6 +427,9 @@
             this.AdministratorsListBoxAndLogo_GroupBox.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ListOfAdministrators_GroupBox.ResumeLayout(false);
+            this.AdministratorListControlsTableLayoutPanel.ResumeLayout(false);
+            this.AdministratorsListControlsGroupBox.ResumeLayout(false);
+            this.AdministratorsListControlsGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -401,6 +460,10 @@
         public System.Windows.Forms.TextBox ReEnterPin_TextBox;
         public System.Windows.Forms.TextBox EnterEmail_TextBox;
         public System.Windows.Forms.ListBox Administrators_ListBox;
+        public System.Windows.Forms.ComboBox CurrentSortComboBox;
+        private System.Windows.Forms.TableLayoutPanel AdministratorListControlsTableLayoutPanel;
+        private System.Windows.Forms.GroupBox AdministratorsListControlsGroupBox;
+        public System.Windows.Forms.Label SortAdministratorsLabel;
     }
 }
 

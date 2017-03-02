@@ -14,7 +14,7 @@ namespace FelicitySecurity.Applications.Config.Interfaces
         string PinCodeConfirmed { get; set; }
         void Clear(RegisterAdministratorsForm form);
         void BindTextboxControls(RegisterAdministratorsForm form, AdministratorsViewModel viewModel, TextBox textbox);
-        void DisplayAdministratorEmails(RegisterAdministratorsForm form, AdministratorsController controller, AdministratorsModel model);
+        void DisplayAdministratorEmails(RegisterAdministratorsForm form, AdministratorsController controller, AdministratorsModel model, CurrentSortingType sortingType);
         void OnPropertyChanged(string propertyName);
     }
 

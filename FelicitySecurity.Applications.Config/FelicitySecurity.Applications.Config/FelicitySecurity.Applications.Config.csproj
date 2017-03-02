@@ -90,7 +90,7 @@
     <Compile Include="Interfaces\IAdministratorsController.cs" />
     <Compile Include="Interfaces\IAdministratorsViewModel.cs" />
     <Compile Include="Interfaces\IValidation.cs" />
-    <Compile Include="Models\AdminsitratorsModel.cs" />
+    <Compile Include="Models\AdminstratorsModel.cs" />
     <Compile Include="Resources\Controls\ListboxItem.cs" />
     <Compile Include="Resources\Validation\ValidateExistingEmail.cs" />
     <Compile Include="Resources\Validation\ValidationBase.cs" />
