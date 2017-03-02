@@ -169,5 +169,9 @@ namespace FelicitySecurity.Applications.Config.ViewModels
             form.CreateUsername_TextBox.Text = administratorsDetails.AdminName.ToString();
             form.EnterEmail_TextBox.Text = administratorsDetails.AdminEmail.ToString();
         }
+        public void InitialiseControlDataSources(RegisterAdministratorsForm form)
+        {
+            form.CurrentSortComboBox.DataSource = Enum.GetValues(typeof(CurrentSortingType));
+        }
     }
 }

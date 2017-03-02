@@ -139,9 +139,11 @@ namespace FelicitySecurity.Applications.Config
         /// <param name="e"></param>
         private void RegisterAdministratorsForm_Load(object sender, EventArgs e)
         {
-            CurrentSortComboBox.DataSource = Enum.GetValues(typeof(CurrentSortingType));
+            viewModel.InitialiseControlDataSources(this);
             viewModel.DisplayAdministratorEmails(this, controller, model, sortingType);
         }
+
+        
 
         /// <summary>
         /// Takes the Selected item and returns the parent objects data by querying by that item. 
