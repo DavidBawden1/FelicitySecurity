@@ -283,6 +283,21 @@ namespace FelicitySecurity.Core.Data.Repository
                 return staffResults.ToList();
             }
         }
+        
+        /// <summary>
+        /// Takes a specified administratorId and then removes the administrator associated with it.
+        /// </summary>
+        /// <param name="administratorId">The administrator to remove</param>
+        public void RemoveAdministrator(int administratorId)
+        {
+            using (FelicityLiveEntities dbContext = (FelicityLiveEntities)GetDBContext())
+            {
+                AdminTable administratorToRemove = new AdminTable() { AdminID = administratorId };
+                dbContext.AdminTable.Attach(administratorToRemove);
+                dbContext.AdminTable.Remove(administratorToRemove);
+                dbContext.SaveChanges();
+            }
+        }
     }
 }
 #endregion

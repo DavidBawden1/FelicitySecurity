@@ -29,7 +29,7 @@ namespace FelicitySecurity.Applications.Config
         {
             get
             {
-                if(string.IsNullOrEmpty(CreateUsername_TextBox.Text) && string.IsNullOrEmpty(EnterEmail_TextBox.Text)
+                if (string.IsNullOrEmpty(CreateUsername_TextBox.Text) && string.IsNullOrEmpty(EnterEmail_TextBox.Text)
                     && string.IsNullOrEmpty(EnterPin_TextBox.Text) && string.IsNullOrEmpty(ReEnterPin_TextBox.Text))
                 {
                     return "Please fill in your details!";
@@ -79,6 +79,11 @@ namespace FelicitySecurity.Applications.Config
                 return Error;
             }
         }
+
+        /// <summary>
+        /// set when the user selects an administrator from the list. 
+        /// </summary>
+        public int SelectedAdministratorId { get; set; }
 
         #endregion
         #region Constructors
@@ -142,7 +147,7 @@ namespace FelicitySecurity.Applications.Config
             viewModel.InitialiseControlDataSources(this);
             viewModel.DisplayAdministratorEmails(this, controller, model, sortingType);
         }
-        
+
         /// <summary>
         /// Takes the Selected item and returns the parent objects data by querying by that item. 
         /// </summary>
@@ -166,5 +171,27 @@ namespace FelicitySecurity.Applications.Config
         }
 
         #endregion
+
+        /// <summary>
+        /// Removes the selected administrator from the database. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RemoveAdministratorButton_Click(object sender, EventArgs e)
+        {
+            PopulateModelWithTargetedId();
+            viewModel.RemoveSelectedAdministrator(model, controller);
+            viewModel.DisplayAdministratorEmails(this, controller, model, sortingType);
+            viewModel.Clear(this);
+        }
+
+        /// <summary>
+        /// populates the Administrators Model properties with those of the selected administrator. 
+        /// </summary>
+        private void PopulateModelWithTargetedId()
+        {
+            SelectedAdministratorId = (Administrators_ListBox.SelectedItem as ListboxItem).Value;
+            model.AdminID = SelectedAdministratorId;
+        }
     }
 }

@@ -170,6 +170,16 @@ namespace FelicitySecurity.Applications.Config.ViewModels
             form.EnterEmail_TextBox.Text = administratorsDetails.AdminEmail.ToString();
         }
         
+        /// <summary>
+        /// Calls the controller method to remove the selected administrator. 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <param name="controller"></param>
+        public void RemoveSelectedAdministrator(AdministratorsModel model, AdministratorsController controller)
+        {
+            controller.RemoveSelectedAdministrator(model);
+        }
+        
         public void InitialiseControlDataSources(RegisterAdministratorsForm form)
         {
             form.CurrentSortComboBox.DataSource = Enum.GetValues(typeof(CurrentSortingType));

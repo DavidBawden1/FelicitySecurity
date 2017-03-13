@@ -14,6 +14,7 @@ namespace FelicitySecurity.Core.Data.Interfaces
         bool TrySaveChanges(DbContext dbContext);
         bool SaveChanges();
         bool SaveChanges(DbContext dbContext);
+        void RemoveAdministrator(int administratorsId);
         
     }
 }
