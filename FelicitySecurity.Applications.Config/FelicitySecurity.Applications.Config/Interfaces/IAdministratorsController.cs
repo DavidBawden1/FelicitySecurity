@@ -9,5 +9,6 @@ namespace FelicitySecurity.Applications.Config.Interfaces
         void IAdministratorsController(FelicitySecurityRepository engineRepository);
         void AddAdministrators(string email, string username, string pin);
         List<AdministratorsModel> AllAdministratorsEmail(AdministratorsModel model);
+        void RemoveSelectedAdministrator(AdministratorsModel model);
     }
 }

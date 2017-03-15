@@ -1,6 +1,7 @@
 ﻿using FelicitySecurity.Core.Data.DataModel;
 using FelicitySecurity.Core.Data.Interfaces;
 using FelicitySecurity.Core.DataTransferObjects;
+using FelicitySecurity.Core.Utils;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -20,7 +21,7 @@ namespace FelicitySecurity.Core.Data.Repository
         /// initiates the Engine repository, responsible for handling database transactions for 
         /// administrators, members, facial image datasets and staff. 
         /// </summary>
-        public FelicitySecurityRepository(): base()
+        public FelicitySecurityRepository() : base()
         {
 
         }
@@ -74,41 +75,53 @@ namespace FelicitySecurity.Core.Data.Repository
         /// <returns>a result list of all administrators in the system</returns>
         public List<Administrators_dto> FindAllAdministrators()
         {
-            using (FelicityLiveEntities dbContext = (FelicityLiveEntities)GetDBContext())
+            List<Administrators_dto> administratorsResult = new List<Administrators_dto>();
+            try
             {
-                List<Administrators_dto> administratorsResult = new List<Administrators_dto>();
-
-                foreach (var item in dbContext.AdminTable)
+                using (FelicityLiveEntities dbContext = (FelicityLiveEntities)GetDBContext())
                 {
-                    Administrators_dto dto = new Administrators_dto();
-                    dto.AdminID = item.AdminID;
-                    dto.AdminEmail = item.AdminEmail;
-                    dto.AdminName = item.AdminName;
-                    dto.AdminPinCode = item.AdminPinCode;
-                    administratorsResult.Add(dto);
+                    foreach (var item in dbContext.AdminTable)
+                    {
+                        Administrators_dto dto = new Administrators_dto();
+                        dto.AdminID = item.AdminID;
+                        dto.AdminEmail = item.AdminEmail;
+                        dto.AdminName = item.AdminName;
+                        dto.AdminPinCode = item.AdminPinCode;
+                        administratorsResult.Add(dto);
+                    }
                 }
-                return administratorsResult.ToList();
             }
+            catch (Exception e)
+            {
+                Logging.LogErrorEvent(null, e);
+            }
+            return administratorsResult.ToList();
         }
-        
 
         /// <summary>
         /// Adds an administer to the AdminTable when the registration scenario is applied. 
         /// </summary>
         public Administrators_dto AddAdministrator(Administrators_dto item)
         {
-            using (DbContext dbContext = (FelicityLiveEntities)GetDBContext())
+            try
             {
-                var entity = new AdminTable()
+                using (DbContext dbContext = (FelicityLiveEntities)GetDBContext())
                 {
-                    AdminEmail = item.AdminEmail,
-                    AdminName = item.AdminName,
-                    AdminPinCode = item.AdminPinCode
-                };
-                dbContext.Entry(entity).State = EntityState.Added;
-                dbContext.SaveChanges();
-                return item;
+                    var entity = new AdminTable()
+                    {
+                        AdminEmail = item.AdminEmail,
+                        AdminName = item.AdminName,
+                        AdminPinCode = item.AdminPinCode
+                    };
+                    dbContext.Entry(entity).State = EntityState.Added;
+                    dbContext.SaveChanges();
+                }
             }
+            catch (Exception e)
+            {
+                Logging.LogErrorEvent(null, e);
+            }
+            return item;
         }
 
         /// <summary>
@@ -117,25 +130,31 @@ namespace FelicitySecurity.Core.Data.Repository
         /// <returns> a result list of all members of the system</returns>
         public List<Members_dto> FindAllMembers()
         {
-            using (FelicityLiveEntities dbContext = (FelicityLiveEntities)GetDBContext())
+            List<Members_dto> membersResult = new List<Members_dto>();
+            try
             {
-                List<Members_dto> membersResult = new List<Members_dto>();
-
-                foreach (var item in dbContext.MemberTable)
+                using (FelicityLiveEntities dbContext = (FelicityLiveEntities)GetDBContext())
                 {
-                    Members_dto dto = new Members_dto();
-                    dto.MemID = item.MemID;
-                    dto.MemFirstname = item.MemFirstname;
-                    dto.MemLastname = item.MemLastname;
-                    dto.MemPhonenumber = item.MemPhonenumber;
-                    dto.MemDOB = item.MemDOB;
-                    dto.MemRegDate = item.MemRegDate;
-                    dto.MemStatus = item.MemStatus;
-                    dto.IsStaff = item.IsStaff;
-                    dto.AdminID = item.AdminID;
+                    foreach (var item in dbContext.MemberTable)
+                    {
+                        Members_dto dto = new Members_dto();
+                        dto.MemID = item.MemID;
+                        dto.MemFirstname = item.MemFirstname;
+                        dto.MemLastname = item.MemLastname;
+                        dto.MemPhonenumber = item.MemPhonenumber;
+                        dto.MemDOB = item.MemDOB;
+                        dto.MemRegDate = item.MemRegDate;
+                        dto.MemStatus = item.MemStatus;
+                        dto.IsStaff = item.IsStaff;
+                        dto.AdminID = item.AdminID;
+                    }
                 }
-                return membersResult.ToList();
             }
+            catch (Exception e)
+            {
+                Logging.LogErrorEvent(null, e);
+            }
+            return membersResult.ToList();
         }
 
         /// <summary>
@@ -143,24 +162,30 @@ namespace FelicitySecurity.Core.Data.Repository
         /// </summary>
         public Members_dto AddMember(Members_dto item)
         {
-            using (DbContext dbContext = (FelicityLiveEntities)GetDBContext())
+            try
             {
-                var entity = new MemberTable()
+                using (DbContext dbContext = (FelicityLiveEntities)GetDBContext())
                 {
-                    MemFirstname = item.MemFirstname,
-                    MemLastname = item.MemLastname,
-                    MemPhonenumber = item.MemPhonenumber,
-                    MemPostcode = item.MemPostcode,
-                    MemStatus= item.MemStatus,
-                    MemDOB = item.MemDOB,
-                    MemRegDate = item.MemRegDate,
-                    AdminID = item.AdminID
-                
-                };
-                dbContext.Entry(entity).State = EntityState.Added;
-                dbContext.SaveChanges();
-                return item;
+                    var entity = new MemberTable()
+                    {
+                        MemFirstname = item.MemFirstname,
+                        MemLastname = item.MemLastname,
+                        MemPhonenumber = item.MemPhonenumber,
+                        MemPostcode = item.MemPostcode,
+                        MemStatus = item.MemStatus,
+                        MemDOB = item.MemDOB,
+                        MemRegDate = item.MemRegDate,
+                        AdminID = item.AdminID
+                    };
+                    dbContext.Entry(entity).State = EntityState.Added;
+                    dbContext.SaveChanges();
+                }
             }
+            catch (Exception e)
+            {
+                Logging.LogErrorEvent(null, e);
+            }
+            return item;
         }
 
 
@@ -171,40 +196,45 @@ namespace FelicitySecurity.Core.Data.Repository
         /// <returns>a result list of faces that can be used for a dataset to run recognition on.</returns>
         public List<Faces_dto> FindALLMembersFaces()
         {
-            using (FelicityLiveEntities dbContext = (FelicityLiveEntities)GetDBContext())
+            List<Faces_dto> facesResult = new List<Faces_dto>();
+            try
             {
-                List<Faces_dto> facesResult = new List<Faces_dto>();
-
-                foreach (var item in dbContext.FacesTable)
+                using (FelicityLiveEntities dbContext = (FelicityLiveEntities)GetDBContext())
                 {
-                    Faces_dto dto = new Faces_dto();
-                    dto.FaceID = item.FaceID;
-                    dto.MemFace0 = item.MemFace0;
-                    dto.MemFace1 = item.MemFace1;
-                    dto.MemFace2 = item.MemFace2;
-                    dto.MemFace3 = item.MemFace3;
-                    dto.MemFace4 = item.MemFace4;
-                    dto.MemFace5 = item.MemFace5;
-                    dto.MemFace6 = item.MemFace6;
-                    dto.MemFace7 = item.MemFace7;
-                    dto.MemFace8 = item.MemFace8;
-                    dto.MemFace9 = item.MemFace9;
-                    dto.MemFace10 = item.MemFace10;
-                    dto.MemFace11 = item.MemFace11;
-                    dto.MemFace12 = item.MemFace12;
-                    dto.MemFace13 = item.MemFace13;
-                    dto.MemFace14 = item.MemFace14;
-                    dto.MemFace15 = item.MemFace15;
-                    dto.MemFace16 = item.MemFace16;
-                    dto.MemFace17 = item.MemFace17;
-                    dto.MemFace18 = item.MemFace18;
-                    dto.MemFace19 = item.MemFace19;
-                    dto.MemFace20 = item.MemFace20;
-                    dto.MemID = item.MemID;
-
+                    foreach (var item in dbContext.FacesTable)
+                    {
+                        Faces_dto dto = new Faces_dto();
+                        dto.FaceID = item.FaceID;
+                        dto.MemFace0 = item.MemFace0;
+                        dto.MemFace1 = item.MemFace1;
+                        dto.MemFace2 = item.MemFace2;
+                        dto.MemFace3 = item.MemFace3;
+                        dto.MemFace4 = item.MemFace4;
+                        dto.MemFace5 = item.MemFace5;
+                        dto.MemFace6 = item.MemFace6;
+                        dto.MemFace7 = item.MemFace7;
+                        dto.MemFace8 = item.MemFace8;
+                        dto.MemFace9 = item.MemFace9;
+                        dto.MemFace10 = item.MemFace10;
+                        dto.MemFace11 = item.MemFace11;
+                        dto.MemFace12 = item.MemFace12;
+                        dto.MemFace13 = item.MemFace13;
+                        dto.MemFace14 = item.MemFace14;
+                        dto.MemFace15 = item.MemFace15;
+                        dto.MemFace16 = item.MemFace16;
+                        dto.MemFace17 = item.MemFace17;
+                        dto.MemFace18 = item.MemFace18;
+                        dto.MemFace19 = item.MemFace19;
+                        dto.MemFace20 = item.MemFace20;
+                        dto.MemID = item.MemID;
+                    }
                 }
-                return facesResult.ToList();
             }
+            catch (Exception e)
+            {
+                Logging.LogErrorEvent(null, e);
+            }
+            return facesResult.ToList();
         }
 
         /// <summary>
@@ -212,37 +242,44 @@ namespace FelicitySecurity.Core.Data.Repository
         /// </summary>
         public Faces_dto AddFaces(Faces_dto item)
         {
-            using (DbContext dbContext = (FelicityLiveEntities)GetDBContext())
+            try
             {
-                var entity = new FacesTable()
+                using (DbContext dbContext = (FelicityLiveEntities)GetDBContext())
                 {
-                    MemFace0 = item.MemFace0,
-                    MemFace1 = item.MemFace1,
-                    MemFace2 = item.MemFace2,
-                    MemFace3 = item.MemFace3,
-                    MemFace4 = item.MemFace4,
-                    MemFace5 = item.MemFace5,
-                    MemFace6 = item.MemFace6,
-                    MemFace7 = item.MemFace7,
-                    MemFace8 = item.MemFace8,
-                    MemFace9 = item.MemFace9,
-                    MemFace10 = item.MemFace10,
-                    MemFace11 = item.MemFace11,
-                    MemFace12 = item.MemFace12,
-                    MemFace13 = item.MemFace13,
-                    MemFace14 = item.MemFace14,
-                    MemFace15 = item.MemFace15,
-                    MemFace16 = item.MemFace16,
-                    MemFace17 = item.MemFace17,
-                    MemFace18 = item.MemFace18,
-                    MemFace19 = item.MemFace19,
-                    MemFace20 = item.MemFace20,
-                    MemID = item.MemID
-                };
-                dbContext.Entry(entity).State = EntityState.Added;
-                dbContext.SaveChanges();
-                return item;
+                    var entity = new FacesTable()
+                    {
+                        MemFace0 = item.MemFace0,
+                        MemFace1 = item.MemFace1,
+                        MemFace2 = item.MemFace2,
+                        MemFace3 = item.MemFace3,
+                        MemFace4 = item.MemFace4,
+                        MemFace5 = item.MemFace5,
+                        MemFace6 = item.MemFace6,
+                        MemFace7 = item.MemFace7,
+                        MemFace8 = item.MemFace8,
+                        MemFace9 = item.MemFace9,
+                        MemFace10 = item.MemFace10,
+                        MemFace11 = item.MemFace11,
+                        MemFace12 = item.MemFace12,
+                        MemFace13 = item.MemFace13,
+                        MemFace14 = item.MemFace14,
+                        MemFace15 = item.MemFace15,
+                        MemFace16 = item.MemFace16,
+                        MemFace17 = item.MemFace17,
+                        MemFace18 = item.MemFace18,
+                        MemFace19 = item.MemFace19,
+                        MemFace20 = item.MemFace20,
+                        MemID = item.MemID
+                    };
+                    dbContext.Entry(entity).State = EntityState.Added;
+                    dbContext.SaveChanges();
+                }
             }
+            catch (Exception e)
+            {
+                Logging.LogErrorEvent(null, e);
+            }
+            return item;
         }
 
 
@@ -251,17 +288,24 @@ namespace FelicitySecurity.Core.Data.Repository
         /// </summary>
         public Staff_dto AddStaff(Staff_dto item)
         {
-            using (DbContext dbContext = (FelicityLiveEntities)GetDBContext())
+            try
             {
-                var entity = new StaffTable()
+                using (DbContext dbContext = (FelicityLiveEntities)GetDBContext())
                 {
-                    BadgeNo = item.BadgeNo,
-                    MemID = item.MemID
-                };
-                dbContext.Entry(entity).State = EntityState.Added;
-                dbContext.SaveChanges();
-                return item;
+                    var entity = new StaffTable()
+                    {
+                        BadgeNo = item.BadgeNo,
+                        MemID = item.MemID
+                    };
+                    dbContext.Entry(entity).State = EntityState.Added;
+                    dbContext.SaveChanges();
+                }
             }
+            catch (Exception e)
+            {
+                Logging.LogErrorEvent(null, e);
+            }
+            return item;
         }
 
         /// <summary>
@@ -270,17 +314,46 @@ namespace FelicitySecurity.Core.Data.Repository
         /// <returns>a result list of all staff members within the system</returns>
         public List<Staff_dto> FindALLStaff()
         {
-            using (FelicityLiveEntities dbContext = (FelicityLiveEntities)GetDBContext())
+            List<Staff_dto> staffResults = new List<Staff_dto>();
+            try
             {
-                List<Staff_dto> staffResults = new List<Staff_dto>();
-                foreach(var item in dbContext.StaffTable)
+                using (FelicityLiveEntities dbContext = (FelicityLiveEntities)GetDBContext())
                 {
-                    Staff_dto dto = new Staff_dto();
-                    dto.StaffID = item.StaffID;
-                    dto.BadgeNo = item.BadgeNo;
-                    dto.MemID = item.MemID;
+                    foreach (var item in dbContext.StaffTable)
+                    {
+                        Staff_dto dto = new Staff_dto();
+                        dto.StaffID = item.StaffID;
+                        dto.BadgeNo = item.BadgeNo;
+                        dto.MemID = item.MemID;
+                    }
                 }
-                return staffResults.ToList();
+            }
+            catch (Exception e)
+            {
+                Logging.LogErrorEvent(null, e);
+            }
+            return staffResults.ToList();
+        }
+
+        /// <summary>
+        /// Takes a specified administratorId and then removes the administrator associated with it.
+        /// </summary>
+        /// <param name="administratorId">The administrator to remove</param>
+        public void RemoveAdministrator(int administratorId)
+        {
+            try
+            {
+                using (FelicityLiveEntities dbContext = (FelicityLiveEntities)GetDBContext())
+                {
+                    AdminTable administratorToRemove = new AdminTable() { AdminID = administratorId };
+                    dbContext.AdminTable.Attach(administratorToRemove);
+                    dbContext.AdminTable.Remove(administratorToRemove);
+                    dbContext.SaveChanges();
+                }
+            }
+            catch (Exception e)
+            {
+                Logging.LogErrorEvent(null, e);
             }
         }
     }

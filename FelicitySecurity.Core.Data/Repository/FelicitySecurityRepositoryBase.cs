@@ -367,7 +367,10 @@ namespace FelicitySecurity.Core.Data.Repository
             }
         }
 
-       
+        public void RemoveAdministrator(int administratorsId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

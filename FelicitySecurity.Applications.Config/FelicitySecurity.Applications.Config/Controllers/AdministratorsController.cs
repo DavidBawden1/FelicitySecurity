@@ -63,5 +63,14 @@ namespace FelicitySecurity.Applications.Config.Controllers
         {
             return engineRepository.FindAllAdministrators().Where(e => e.AdminEmail == email).FirstOrDefault();
         }
+
+        /// <summary>
+        /// Calls the repository to remove the specified administrator. 
+        /// </summary>
+        /// <param name="model"></param>
+        public void RemoveSelectedAdministrator(AdministratorsModel model)
+        {
+            engineRepository.RemoveAdministrator(model.AdminID);
+        }
     }
 }
