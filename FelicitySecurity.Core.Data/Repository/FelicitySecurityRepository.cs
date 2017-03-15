@@ -1,6 +1,7 @@
 ﻿using FelicitySecurity.Core.Data.DataModel;
 using FelicitySecurity.Core.Data.Interfaces;
 using FelicitySecurity.Core.DataTransferObjects;
+using FelicitySecurity.Core.Utils;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -20,7 +21,7 @@ namespace FelicitySecurity.Core.Data.Repository
         /// initiates the Engine repository, responsible for handling database transactions for 
         /// administrators, members, facial image datasets and staff. 
         /// </summary>
-        public FelicitySecurityRepository(): base()
+        public FelicitySecurityRepository() : base()
         {
 
         }
@@ -74,41 +75,53 @@ namespace FelicitySecurity.Core.Data.Repository
         /// <returns>a result list of all administrators in the system</returns>
         public List<Administrators_dto> FindAllAdministrators()
         {
-            using (FelicityLiveEntities dbContext = (FelicityLiveEntities)GetDBContext())
+            List<Administrators_dto> administratorsResult = new List<Administrators_dto>();
+            try
             {
-                List<Administrators_dto> administratorsResult = new List<Administrators_dto>();
-
-                foreach (var item in dbContext.AdminTable)
+                using (FelicityLiveEntities dbContext = (FelicityLiveEntities)GetDBContext())
                 {
-                    Administrators_dto dto = new Administrators_dto();
-                    dto.AdminID = item.AdminID;
-                    dto.AdminEmail = item.AdminEmail;
-                    dto.AdminName = item.AdminName;
-                    dto.AdminPinCode = item.AdminPinCode;
-                    administratorsResult.Add(dto);
+                    foreach (var item in dbContext.AdminTable)
+                    {
+                        Administrators_dto dto = new Administrators_dto();
+                        dto.AdminID = item.AdminID;
+                        dto.AdminEmail = item.AdminEmail;
+                        dto.AdminName = item.AdminName;
+                        dto.AdminPinCode = item.AdminPinCode;
+                        administratorsResult.Add(dto);
+                    }
                 }
-                return administratorsResult.ToList();
             }
+            catch (Exception e)
+            {
+                Logging.LogErrorEvent(null, e);
+            }
+            return administratorsResult.ToList();
         }
-        
 
         /// <summary>
         /// Adds an administer to the AdminTable when the registration scenario is applied. 
         /// </summary>
         public Administrators_dto AddAdministrator(Administrators_dto item)
         {
-            using (DbContext dbContext = (FelicityLiveEntities)GetDBContext())
+            try
             {
-                var entity = new AdminTable()
+                using (DbContext dbContext = (FelicityLiveEntities)GetDBContext())
                 {
-                    AdminEmail = item.AdminEmail,
-                    AdminName = item.AdminName,
-                    AdminPinCode = item.AdminPinCode
-                };
-                dbContext.Entry(entity).State = EntityState.Added;
-                dbContext.SaveChanges();
-                return item;
+                    var entity = new AdminTable()
+                    {
+                        AdminEmail = item.AdminEmail,
+                        AdminName = item.AdminName,
+                        AdminPinCode = item.AdminPinCode
+                    };
+                    dbContext.Entry(entity).State = EntityState.Added;
+                    dbContext.SaveChanges();
+                }
             }
+            catch (Exception e)
+            {
+                Logging.LogErrorEvent(null, e);
+            }
+            return item;
         }
 
         /// <summary>
@@ -151,11 +164,11 @@ namespace FelicitySecurity.Core.Data.Repository
                     MemLastname = item.MemLastname,
                     MemPhonenumber = item.MemPhonenumber,
                     MemPostcode = item.MemPostcode,
-                    MemStatus= item.MemStatus,
+                    MemStatus = item.MemStatus,
                     MemDOB = item.MemDOB,
                     MemRegDate = item.MemRegDate,
                     AdminID = item.AdminID
-                
+
                 };
                 dbContext.Entry(entity).State = EntityState.Added;
                 dbContext.SaveChanges();
@@ -273,7 +286,7 @@ namespace FelicitySecurity.Core.Data.Repository
             using (FelicityLiveEntities dbContext = (FelicityLiveEntities)GetDBContext())
             {
                 List<Staff_dto> staffResults = new List<Staff_dto>();
-                foreach(var item in dbContext.StaffTable)
+                foreach (var item in dbContext.StaffTable)
                 {
                     Staff_dto dto = new Staff_dto();
                     dto.StaffID = item.StaffID;
@@ -283,7 +296,7 @@ namespace FelicitySecurity.Core.Data.Repository
                 return staffResults.ToList();
             }
         }
-        
+
         /// <summary>
         /// Takes a specified administratorId and then removes the administrator associated with it.
         /// </summary>
