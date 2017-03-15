@@ -186,9 +186,16 @@ namespace FelicitySecurity.Applications.Config
         /// <param name="e"></param>
         private void RemoveAdministratorButton_Click(object sender, EventArgs e)
         {
-            PopulateModelWithSelectedAdminId();
-            viewModel.RemoveSelectedAdministrator(model, controller);
-            RefreshUIPostDeletionOfAdmin();
+            if (Administrators_ListBox.SelectedItem == null)
+            {
+                MessageBox.Show("Please select an Administrator to remove.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                PopulateModelWithSelectedAdminId();
+                viewModel.RemoveSelectedAdministrator(model, controller);
+                RefreshUIPostDeletionOfAdmin();
+            }
         }
 
         /// <summary>
