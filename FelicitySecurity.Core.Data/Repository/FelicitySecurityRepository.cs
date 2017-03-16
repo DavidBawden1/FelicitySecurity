@@ -14,7 +14,7 @@ namespace FelicitySecurity.Core.Data.Repository
     /// The Engine repository, responsible for handling database transactions for 
     /// administrators, members, facial image datasets and staff. 
     /// </summary>
-    public class FelicitySecurityRepository : FelicitySecurityRepositoryBase, IFelicitySecurityRepository
+    public class FelicitySecurityRepository : FelicitySecurityRepositoryBase, IFelicitySecurityRepository, IFelicitySecurityRepositoryBase
     {
         #region Constructors
         /// <summary>
@@ -339,7 +339,7 @@ namespace FelicitySecurity.Core.Data.Repository
         /// Takes a specified administratorId and then removes the administrator associated with it.
         /// </summary>
         /// <param name="administratorId">The administrator to remove</param>
-        public void RemoveAdministrator(int administratorId)
+        public new void RemoveAdministrator(int administratorId)
         {
             try
             {
@@ -352,6 +352,25 @@ namespace FelicitySecurity.Core.Data.Repository
                 }
             }
             catch (Exception e)
+            {
+                Logging.LogErrorEvent(null, e);
+            }
+        }
+
+        public void UpdateAdministrator(Administrators_dto admin_dto)
+        {
+            try
+            {
+                using (FelicityLiveEntities dbContext = (FelicityLiveEntities)GetDBContext())
+                {
+                    AdminTable administratorToUpdate = new AdminTable() { AdminID = admin_dto.AdminID };
+                    administratorToUpdate.AdminEmail = admin_dto.AdminEmail;
+                    administratorToUpdate.AdminName = admin_dto.AdminName;
+                    administratorToUpdate.AdminPinCode = admin_dto.AdminPinCode;
+                    dbContext.SaveChanges();
+                }
+            }
+            catch(Exception e)
             {
                 Logging.LogErrorEvent(null, e);
             }
