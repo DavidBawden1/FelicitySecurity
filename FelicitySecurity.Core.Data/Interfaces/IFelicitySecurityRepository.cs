@@ -1,20 +1,24 @@
-﻿using FelicitySecurity.Core.Data.Repository;
-using System.Data.Common;
-using System.Data.Entity;
+﻿using FelicitySecurity.Core.DataTransferObjects;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace FelicitySecurity.Core.Data.Interfaces
 {
     public interface IFelicitySecurityRepository
     {
-        void FelicitySecurityRepositoryBase();
-        void FelicitySecurityRepositoryBase(RepositoryCommitMode commitMode);
-        void FelicitySecurityRepositoryBase(DbConnection connection);
-        void FelicitySecurityRepositoryBase(string connectionString);
-        DbContext GetDBContext();
-        bool TrySaveChanges(DbContext dbContext);
-        bool SaveChanges();
-        bool SaveChanges(DbContext dbContext);
+        List<Administrators_dto> FindAllAdministrators();
+        Administrators_dto AddAdministrator(Administrators_dto item);
+        List<Members_dto> FindAllMembers();
+        Members_dto AddMember(Members_dto item);
+        List<Faces_dto> FindALLMembersFaces();
+        Faces_dto AddFaces(Faces_dto item);
+        Staff_dto AddStaff(Staff_dto item);
+        List<Staff_dto> FindALLStaff();
         void RemoveAdministrator(int administratorsId);
-        
+        void UpdateAdministrator(Administrators_dto admin);
+
     }
 }

@@ -178,15 +178,9 @@ namespace FelicitySecurity.Applications.Config.ViewModels
         }
 
         /// <summary>
-        /// Calls the controller method to remove the selected administrator. 
+        /// populates the combobox with the sortying types.  
         /// </summary>
-        /// <param name="model"></param>
-        /// <param name="controller"></param>
-        public void RemoveSelectedAdministrator(AdministratorsModel model, AdministratorsController controller)
-        {
-            controller.RemoveSelectedAdministrator(model);
-        }
-
+        /// <param name="form"></param>
         public void InitialiseControlDataSources(RegisterAdministratorsForm form)
         {
             form.CurrentSortComboBox.DataSource = Enum.GetValues(typeof(CurrentSortingType));

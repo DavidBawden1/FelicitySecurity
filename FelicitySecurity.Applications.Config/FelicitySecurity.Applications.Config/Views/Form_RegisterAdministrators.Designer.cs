@@ -33,6 +33,7 @@
             this.Layout_RegisterAdminstratorControls = new System.Windows.Forms.TableLayoutPanel();
             this.RegisterAdministratorTitle_GroupBox = new System.Windows.Forms.GroupBox();
             this.RegisterAdministratorControls_GroupBox = new System.Windows.Forms.GroupBox();
+            this.RemoveAdministratorButton = new System.Windows.Forms.Button();
             this.RegisterCancel_Button = new System.Windows.Forms.Button();
             this.RegisterBack_Button = new System.Windows.Forms.Button();
             this.Register_Button = new System.Windows.Forms.Button();
@@ -56,7 +57,7 @@
             this.AdministratorsListControlsGroupBox = new System.Windows.Forms.GroupBox();
             this.SortAdministratorsLabel = new System.Windows.Forms.Label();
             this.CurrentSortComboBox = new System.Windows.Forms.ComboBox();
-            this.RemoveAdministratorButton = new System.Windows.Forms.Button();
+            this.UpdateAdministratorButton = new System.Windows.Forms.Button();
             this.Layout_Background.SuspendLayout();
             this.RegisterAdmin_GroupBox.SuspendLayout();
             this.Layout_RegisterAdminstratorControls.SuspendLayout();
@@ -121,6 +122,7 @@
             // 
             // RegisterAdministratorControls_GroupBox
             // 
+            this.RegisterAdministratorControls_GroupBox.Controls.Add(this.UpdateAdministratorButton);
             this.RegisterAdministratorControls_GroupBox.Controls.Add(this.RemoveAdministratorButton);
             this.RegisterAdministratorControls_GroupBox.Controls.Add(this.RegisterCancel_Button);
             this.RegisterAdministratorControls_GroupBox.Controls.Add(this.RegisterBack_Button);
@@ -144,6 +146,19 @@
             this.RegisterAdministratorControls_GroupBox.TabIndex = 1;
             this.RegisterAdministratorControls_GroupBox.TabStop = false;
             this.RegisterAdministratorControls_GroupBox.Text = "Controls";
+            // 
+            // RemoveAdministratorButton
+            // 
+            this.RemoveAdministratorButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.RemoveAdministratorButton.Location = new System.Drawing.Point(99, 158);
+            this.RemoveAdministratorButton.Margin = new System.Windows.Forms.Padding(8);
+            this.RemoveAdministratorButton.Name = "RemoveAdministratorButton";
+            this.RemoveAdministratorButton.Padding = new System.Windows.Forms.Padding(1);
+            this.RemoveAdministratorButton.Size = new System.Drawing.Size(90, 30);
+            this.RemoveAdministratorButton.TabIndex = 13;
+            this.RemoveAdministratorButton.Text = "Remove";
+            this.RemoveAdministratorButton.UseVisualStyleBackColor = true;
+            this.RemoveAdministratorButton.Click += new System.EventHandler(this.RemoveAdministratorButton_Click);
             // 
             // RegisterCancel_Button
             // 
@@ -410,18 +425,18 @@
             this.CurrentSortComboBox.TabIndex = 5;
             this.CurrentSortComboBox.SelectedIndexChanged += new System.EventHandler(this.CurrentSortComboBox_SelectedIndexChanged);
             // 
-            // RemoveAdministratorButton
+            // UpdateAdministratorButton
             // 
-            this.RemoveAdministratorButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.RemoveAdministratorButton.Location = new System.Drawing.Point(99, 158);
-            this.RemoveAdministratorButton.Margin = new System.Windows.Forms.Padding(8);
-            this.RemoveAdministratorButton.Name = "RemoveAdministratorButton";
-            this.RemoveAdministratorButton.Padding = new System.Windows.Forms.Padding(1);
-            this.RemoveAdministratorButton.Size = new System.Drawing.Size(90, 30);
-            this.RemoveAdministratorButton.TabIndex = 13;
-            this.RemoveAdministratorButton.Text = "Remove";
-            this.RemoveAdministratorButton.UseVisualStyleBackColor = true;
-            this.RemoveAdministratorButton.Click += new System.EventHandler(this.RemoveAdministratorButton_Click);
+            this.UpdateAdministratorButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.UpdateAdministratorButton.Location = new System.Drawing.Point(200, 158);
+            this.UpdateAdministratorButton.Margin = new System.Windows.Forms.Padding(8);
+            this.UpdateAdministratorButton.Name = "UpdateAdministratorButton";
+            this.UpdateAdministratorButton.Padding = new System.Windows.Forms.Padding(1);
+            this.UpdateAdministratorButton.Size = new System.Drawing.Size(90, 30);
+            this.UpdateAdministratorButton.TabIndex = 14;
+            this.UpdateAdministratorButton.Text = "Update";
+            this.UpdateAdministratorButton.UseVisualStyleBackColor = true;
+            this.UpdateAdministratorButton.Click += new System.EventHandler(this.UpdateAdministratorButton_Click);
             // 
             // RegisterAdministratorsForm
             // 
@@ -479,6 +494,7 @@
         private System.Windows.Forms.GroupBox AdministratorsListControlsGroupBox;
         public System.Windows.Forms.Label SortAdministratorsLabel;
         private System.Windows.Forms.Button RemoveAdministratorButton;
+        private System.Windows.Forms.Button UpdateAdministratorButton;
     }
 }
 
