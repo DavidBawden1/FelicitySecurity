@@ -127,6 +127,30 @@ namespace FelicitySecurity.Applications.Config
             }
         }
 
+        private void UpdateAdministratorButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //if error is null then validation has passed so continue otherwise return the error message. 
+                if (string.IsNullOrEmpty(Error.ToString()))
+                {
+                    viewModel.BindTextboxControls(this, viewModel, _textbox);
+                    controller.UpdateSelectedAdministrator(EnterEmail_TextBox.Text, CreateUsername_TextBox.Text, EnterPin_TextBox.Text);
+                    MessageBox.Show("Administrator updated successfully.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    viewModel.DisplayAdministratorEmails(this, controller, model, sortingType);
+                }
+                else
+                {
+                    MessageBox.Show(Error, "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+        }
+
         /// <summary>
         /// Cancels the user input on this form. 
         /// </summary>
@@ -160,7 +184,7 @@ namespace FelicitySecurity.Applications.Config
                 string administratorsEmail = (Administrators_ListBox.SelectedItem as ListboxItem).ItemText;
                 viewModel.DisplayAdministratorsDetails(this, administratorsEmail, controller, model);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + "\n\nYou must select an Administrator.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -206,6 +230,12 @@ namespace FelicitySecurity.Applications.Config
             viewModel.DisplayAdministratorEmails(this, controller, model, sortingType);
             viewModel.Clear(this);
             MessageBox.Show("Administrator removed successfully.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        private void RefreshUIPostUpdatingAdministrator()
+        {
+            viewModel.DisplayAdministratorEmails(this, controller, model, sortingType);
+            viewModel.Clear(this);
+            MessageBox.Show("Administrator updated successfully.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         /// <summary>

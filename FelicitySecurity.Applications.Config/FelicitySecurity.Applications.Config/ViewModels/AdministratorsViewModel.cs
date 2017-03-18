@@ -187,6 +187,10 @@ namespace FelicitySecurity.Applications.Config.ViewModels
             controller.RemoveSelectedAdministrator(model);
         }
 
+        /// <summary>
+        /// populates the combobox with the sortying types.  
+        /// </summary>
+        /// <param name="form"></param>
         public void InitialiseControlDataSources(RegisterAdministratorsForm form)
         {
             form.CurrentSortComboBox.DataSource = Enum.GetValues(typeof(CurrentSortingType));

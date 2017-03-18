@@ -357,6 +357,10 @@ namespace FelicitySecurity.Core.Data.Repository
             }
         }
 
+        /// <summary>
+        /// Updates the selected Administrator
+        /// </summary>
+        /// <param name="admin_dto"></param>
         public void UpdateAdministrator(Administrators_dto admin_dto)
         {
             try

@@ -4,6 +4,9 @@ using FelicitySecurity.Core.Data.Repository;
 using FelicitySecurity.Core.DataTransferObjects;
 using FelicitySecurity.Applications.Config.Interfaces;
 using FelicitySecurity.Core.Models;
+using FelicitySecurity.Core.Utils;
+using FelicitySecurity.Applications.Config.ViewModels;
+using System;
 
 namespace FelicitySecurity.Applications.Config.Controllers
 {
@@ -15,9 +18,9 @@ namespace FelicitySecurity.Applications.Config.Controllers
         FelicitySecurityRepository engineRepository = new FelicitySecurityRepository();
         public void IAdministratorsController(FelicitySecurityRepository engineRepository)
         {
-           
+
         }
-        
+
         /// <summary>
         /// Creates an administrator and then returns a model of all of the administrators. 
         /// </summary>
@@ -32,7 +35,7 @@ namespace FelicitySecurity.Applications.Config.Controllers
             admin.AdminPinCode = pin;
             engineRepository.AddAdministrator(admin);
         }
-     
+
         /// <summary>
         /// Returns a list of all administrators. 
         /// </summary>
@@ -72,5 +75,17 @@ namespace FelicitySecurity.Applications.Config.Controllers
         {
             engineRepository.RemoveAdministrator(model.AdminID);
         }
+
+        public void UpdateSelectedAdministrator(string email, string username, string pincode)
+        {
+            Administrators_dto admin_dto = new Administrators_dto()
+            {
+                AdminEmail = email,
+                AdminName = username,
+                AdminPinCode = pincode
+            };
+            engineRepository.UpdateAdministrator(admin_dto);
+        }
     }
 }
+
