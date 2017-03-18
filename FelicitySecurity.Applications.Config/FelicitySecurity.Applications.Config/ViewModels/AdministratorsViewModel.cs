@@ -9,7 +9,7 @@ using System;
 namespace FelicitySecurity.Applications.Config.ViewModels
 {
     public enum CurrentSortingType { Default, Alphabetical }
-  
+
     /// <summary>
     /// The View Model for Administrator related views. Implements INotifyPropertyChanged 
     /// </summary>
@@ -31,7 +31,7 @@ namespace FelicitySecurity.Applications.Config.ViewModels
             }
             set
             {
-               
+
                 _email = value;
                 OnPropertyChanged("Email");
             }
@@ -124,12 +124,19 @@ namespace FelicitySecurity.Applications.Config.ViewModels
             //clear the items and the listbox after its been populated to prevent duplicate lists. 
             form.Administrators_ListBox.Items.Clear();
             AdministratorSorting(controller, model, sortingType);
-            foreach (var item in model.ListOfAdministrators)
+            if (model.ListOfAdministrators.Count != 0)
             {
-                ListboxItem administratorItem = new ListboxItem();
-                administratorItem.Value = item.AdminID;
-                administratorItem.ItemText = item.AdminEmail;
-                form.Administrators_ListBox.Items.Add(administratorItem);
+                foreach (var item in model.ListOfAdministrators)
+                {
+                    ListboxItem administratorItem = new ListboxItem();
+                    administratorItem.Value = item.AdminID;
+                    administratorItem.ItemText = item.AdminEmail;
+                    form.Administrators_ListBox.Items.Add(administratorItem);
+                }
+            }
+            else
+            {
+                form.Administrators_ListBox.Items.Add("Add an Administrator");
             }
             model.ListOfAdministrators.Clear();
         }
@@ -169,17 +176,11 @@ namespace FelicitySecurity.Applications.Config.ViewModels
             form.CreateUsername_TextBox.Text = administratorsDetails.AdminName.ToString();
             form.EnterEmail_TextBox.Text = administratorsDetails.AdminEmail.ToString();
         }
-        
+
         /// <summary>
-        /// Calls the controller method to remove the selected administrator. 
+        /// populates the combobox with the sortying types.  
         /// </summary>
-        /// <param name="model"></param>
-        /// <param name="controller"></param>
-        public void RemoveSelectedAdministrator(AdministratorsModel model, AdministratorsController controller)
-        {
-            controller.RemoveSelectedAdministrator(model);
-        }
-        
+        /// <param name="form"></param>
         public void InitialiseControlDataSources(RegisterAdministratorsForm form)
         {
             form.CurrentSortComboBox.DataSource = Enum.GetValues(typeof(CurrentSortingType));

@@ -143,6 +143,10 @@
       <Project>{25f1241c-4143-4e6a-a5d4-fcc8cb7b98c9}</Project>
       <Name>FelicitySecurity.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FelicitySecurity.Utils\FelicitySecurity.Core.Utils.csproj">
+      <Project>{D9B6DF98-9C5F-48CA-8673-1A6BC7CD05B5}</Project>
+      <Name>FelicitySecurity.Core.Utils</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -3,6 +3,7 @@ using FelicitySecurity.Core.Utils;
 using System;
 using System.Data.Common;
 using System.Data.Entity;
+using FelicitySecurity.Core.DataTransferObjects;
 
 namespace FelicitySecurity.Core.Data.Repository
 {
@@ -14,7 +15,7 @@ namespace FelicitySecurity.Core.Data.Repository
     /// <summary>
     /// the base repository layer. implements IDisposable for dud connections. 
     /// </summary>
-    public class FelicitySecurityRepositoryBase : IDisposable, IFelicitySecurityRepository
+    public class FelicitySecurityRepositoryBase : IDisposable, IFelicitySecurityRepositoryBase
     {
         #region Variables
         private DbContext _dbContext;
@@ -232,33 +233,33 @@ namespace FelicitySecurity.Core.Data.Repository
             }
         }
 
-        void IFelicitySecurityRepository.FelicitySecurityRepositoryBase()
+        void IFelicitySecurityRepositoryBase.FelicitySecurityRepositoryBase()
         {
             FetchChildObjects = true;
             CommitMode = RepositoryCommitMode.Auto;
         }
 
-        void IFelicitySecurityRepository.FelicitySecurityRepositoryBase(RepositoryCommitMode commitMode)
+        void IFelicitySecurityRepositoryBase.FelicitySecurityRepositoryBase(RepositoryCommitMode commitMode)
         {
             FetchChildObjects = true;
             CommitMode = commitMode;
         }
 
-        void IFelicitySecurityRepository.FelicitySecurityRepositoryBase(DbConnection connection)
+        void IFelicitySecurityRepositoryBase.FelicitySecurityRepositoryBase(DbConnection connection)
         {
             FetchChildObjects = true;
             CommitMode = RepositoryCommitMode.Auto;
             _connection = connection;
         }
 
-        void IFelicitySecurityRepository.FelicitySecurityRepositoryBase(string connectionString)
+        void IFelicitySecurityRepositoryBase.FelicitySecurityRepositoryBase(string connectionString)
         {
             FetchChildObjects = true;
             CommitMode = RepositoryCommitMode.Auto;
             _connectionString = connectionString;
         }
 
-        DbContext IFelicitySecurityRepository.GetDBContext()
+        DbContext IFelicitySecurityRepositoryBase.GetDBContext()
         {
             if (DbContextType == null)
             {
@@ -324,7 +325,7 @@ namespace FelicitySecurity.Core.Data.Repository
             }
         }
 
-        bool IFelicitySecurityRepository.TrySaveChanges(DbContext dbContext)
+        bool IFelicitySecurityRepositoryBase.TrySaveChanges(DbContext dbContext)
         {
             try
             {
@@ -341,12 +342,12 @@ namespace FelicitySecurity.Core.Data.Repository
             }
         }
 
-        bool IFelicitySecurityRepository.SaveChanges()
+        bool IFelicitySecurityRepositoryBase.SaveChanges()
         {
             return SaveChanges(_dbContext);
         }
 
-        bool IFelicitySecurityRepository.SaveChanges(DbContext dbContext)
+        bool IFelicitySecurityRepositoryBase.SaveChanges(DbContext dbContext)
         {
             try
             {
@@ -365,11 +366,6 @@ namespace FelicitySecurity.Core.Data.Repository
                 Logging.LogErrorEvent(this, e);
                 throw e;
             }
-        }
-
-        public void RemoveAdministrator(int administratorsId)
-        {
-            throw new NotImplementedException();
         }
     }
 }

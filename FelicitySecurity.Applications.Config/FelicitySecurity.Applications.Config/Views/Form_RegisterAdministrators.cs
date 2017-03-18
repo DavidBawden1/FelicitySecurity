@@ -22,6 +22,7 @@ namespace FelicitySecurity.Applications.Config
         #endregion
 
         #region Properties 
+        private string _error;
         /// <summary>
         /// Validate the controls here. if validation fails return the specific error message.  
         /// </summary>
@@ -29,42 +30,91 @@ namespace FelicitySecurity.Applications.Config
         {
             get
             {
-                if (string.IsNullOrEmpty(CreateUsername_TextBox.Text) && string.IsNullOrEmpty(EnterEmail_TextBox.Text)
-                    && string.IsNullOrEmpty(EnterPin_TextBox.Text) && string.IsNullOrEmpty(ReEnterPin_TextBox.Text))
-                {
-                    return "Please fill in your details!";
-                }
-                if (string.IsNullOrEmpty(CreateUsername_TextBox.Text))
-                {
-                    return "You must supply a username!";
-                }
-                if (CreateUsername_TextBox.TextLength > 50)
-                {
-                    return "Your username must be between 0 and 50 characters!";
-                }
-                if (string.IsNullOrEmpty(EnterEmail_TextBox.Text))
-                {
-                    return "You must supply an email address!";
-                }
-                if (!validation.IsValidEmail(EnterEmail_TextBox.Text))
-                {
-                    return "Your email address has to be valid! eg. woopiegoldberg@yahoo.co.uk";
-                }
-                if (string.IsNullOrEmpty(EnterPin_TextBox.Text) || EnterPin_TextBox.TextLength > 4)
-                {
-                    return "You must enter a 4 digit pin!";
-                }
-                if (EnterPin_TextBox.Text != ReEnterPin_TextBox.Text)
-                {
-                    return "please confirm your pincodes!";
-                }
-                if (ValidateEmail.DoesEmailExist(EnterEmail_TextBox.Text))
-                {
-                    return EnterEmail_TextBox.Text + " already exists!";
-                }
-
-                return string.Empty;
+                _error =ValidateRegisterButtonClick();
+                _error = ValidateUpdateButtonClick();
+                return _error;
             }
+        }
+
+        /// <summary>
+        /// implies specific validation logic for registration. 
+        /// </summary>
+        /// <returns></returns>
+        private string ValidateRegisterButtonClick()
+        {
+            if (string.IsNullOrEmpty(CreateUsername_TextBox.Text) && string.IsNullOrEmpty(EnterEmail_TextBox.Text)
+                                && string.IsNullOrEmpty(EnterPin_TextBox.Text) && string.IsNullOrEmpty(ReEnterPin_TextBox.Text))
+            {
+                return "Please fill in your details!";
+            }
+            if (string.IsNullOrEmpty(CreateUsername_TextBox.Text))
+            {
+                return "You must supply a username!";
+            }
+            if (CreateUsername_TextBox.TextLength > 50)
+            {
+                return "Your username must be between 0 and 50 characters!";
+            }
+            if (string.IsNullOrEmpty(EnterEmail_TextBox.Text))
+            {
+                return "You must supply an email address!";
+            }
+            if (!validation.IsValidEmail(EnterEmail_TextBox.Text))
+            {
+                return "Your email address has to be valid! eg. woopiegoldberg@yahoo.co.uk";
+            }
+            if (string.IsNullOrEmpty(EnterPin_TextBox.Text) || EnterPin_TextBox.TextLength > 4)
+            {
+                return "You must enter a 4 digit pin!";
+            }
+            if (EnterPin_TextBox.Text != ReEnterPin_TextBox.Text)
+            {
+                return "please confirm your pincodes!";
+            }
+            if (ValidateEmail.DoesEmailExist(EnterEmail_TextBox.Text))
+            {
+                return EnterEmail_TextBox.Text + " already exists!";
+            }
+
+            return string.Empty;
+        }
+
+        /// <summary>
+        /// implies specific validation logic for the update button. 
+        /// </summary>
+        /// <returns></returns>
+        private string ValidateUpdateButtonClick()
+        {
+            if (string.IsNullOrEmpty(CreateUsername_TextBox.Text) && string.IsNullOrEmpty(EnterEmail_TextBox.Text)
+                                && string.IsNullOrEmpty(EnterPin_TextBox.Text) && string.IsNullOrEmpty(ReEnterPin_TextBox.Text))
+            {
+                return "Please fill in your details!";
+            }
+            if (string.IsNullOrEmpty(CreateUsername_TextBox.Text))
+            {
+                return "You must supply a username!";
+            }
+            if (CreateUsername_TextBox.TextLength > 50)
+            {
+                return "Your username must be between 0 and 50 characters!";
+            }
+            if (string.IsNullOrEmpty(EnterEmail_TextBox.Text))
+            {
+                return "You must supply an email address!";
+            }
+            if (!validation.IsValidEmail(EnterEmail_TextBox.Text))
+            {
+                return "Your email address has to be valid! eg. woopiegoldberg@yahoo.co.uk";
+            }
+            if (string.IsNullOrEmpty(EnterPin_TextBox.Text) || EnterPin_TextBox.TextLength > 4)
+            {
+                return "You must enter a 4 digit pin!";
+            }
+            if (EnterPin_TextBox.Text != ReEnterPin_TextBox.Text)
+            {
+                return "please confirm your pincodes!";
+            }
+            return string.Empty;
         }
 
         /// <summary>
@@ -105,25 +155,37 @@ namespace FelicitySecurity.Applications.Config
         /// <param name="e"></param>
         private void Register_Button_Click(object sender, EventArgs e)
         {
-            try
+            //if error is null then validation has passed so continue otherwise return the error message. 
+            if (string.IsNullOrEmpty(Error.ToString()))
             {
-                //if error is null then validation has passed so continue otherwise return the error message. 
-                if (string.IsNullOrEmpty(Error.ToString()))
-                {
-                    viewModel.BindTextboxControls(this, viewModel, _textbox);
-                    controller.AddAdministrators(EnterEmail_TextBox.Text, CreateUsername_TextBox.Text, EnterPin_TextBox.Text);
-                    MessageBox.Show("Administrator added successfully.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    viewModel.DisplayAdministratorEmails(this, controller, model, sortingType);
-                }
-                else
-                {
-                    MessageBox.Show(Error, "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                viewModel.BindTextboxControls(this, viewModel, _textbox);
+                controller.AddAdministrators(EnterEmail_TextBox.Text, CreateUsername_TextBox.Text, EnterPin_TextBox.Text);
+                MessageBox.Show("Administrator added successfully.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                viewModel.DisplayAdministratorEmails(this, controller, model, sortingType);
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message, "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                MessageBox.Show(Error, "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// updates the selected Administrator with the new details provided.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void UpdateAdministratorButton_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(Error.ToString()))
+            {
+                viewModel.BindTextboxControls(this, viewModel, _textbox);
+                PopulateModelWithSelectedAdminId();
+                controller.UpdateSelectedAdministrator(model);
+                RefreshUIPostUpdatingAdministrator();
+            }
+            else
+            {
+                MessageBox.Show(Error, "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -160,7 +222,7 @@ namespace FelicitySecurity.Applications.Config
                 string administratorsEmail = (Administrators_ListBox.SelectedItem as ListboxItem).ItemText;
                 viewModel.DisplayAdministratorsDetails(this, administratorsEmail, controller, model);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + "\n\nYou must select an Administrator.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -186,9 +248,16 @@ namespace FelicitySecurity.Applications.Config
         /// <param name="e"></param>
         private void RemoveAdministratorButton_Click(object sender, EventArgs e)
         {
-            PopulateModelWithSelectedAdminId();
-            viewModel.RemoveSelectedAdministrator(model, controller);
-            RefreshUIPostDeletionOfAdmin();
+            if (Administrators_ListBox.SelectedItem == null)
+            {
+                MessageBox.Show("Please select an Administrator to remove.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                PopulateModelWithSelectedAdminId();
+                controller.RemoveSelectedAdministrator(model);
+                RefreshUIPostDeletionOfAdmin();
+            }
         }
 
         /// <summary>
@@ -202,12 +271,27 @@ namespace FelicitySecurity.Applications.Config
         }
 
         /// <summary>
+        /// refreshes UI after updating the administrator. 
+        /// </summary>
+        private void RefreshUIPostUpdatingAdministrator()
+        {
+            viewModel.DisplayAdministratorEmails(this, controller, model, sortingType);
+            EnterPin_TextBox.Clear();
+            ReEnterPin_TextBox.Clear();
+            MessageBox.Show("Administrator updated successfully.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        /// <summary>
         /// populates the Administrators Model properties with those of the selected administrator. 
         /// </summary>
         private void PopulateModelWithSelectedAdminId()
         {
             SelectedAdministratorId = (Administrators_ListBox.SelectedItem as ListboxItem).Value;
             model.AdminID = SelectedAdministratorId;
+            model.AdminEmail = EnterEmail_TextBox.Text;
+            model.AdminName = CreateUsername_TextBox.Text;
+            model.AdminPinCode = EnterPin_TextBox.Text;
         }
+        
     }
 }
