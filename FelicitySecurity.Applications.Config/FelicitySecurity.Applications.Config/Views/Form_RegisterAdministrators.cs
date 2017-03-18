@@ -36,6 +36,10 @@ namespace FelicitySecurity.Applications.Config
             }
         }
 
+        /// <summary>
+        /// implies specific validation logic for registration. 
+        /// </summary>
+        /// <returns></returns>
         private string ValidateRegisterButtonClick()
         {
             if (string.IsNullOrEmpty(CreateUsername_TextBox.Text) && string.IsNullOrEmpty(EnterEmail_TextBox.Text)
@@ -75,6 +79,10 @@ namespace FelicitySecurity.Applications.Config
             return string.Empty;
         }
 
+        /// <summary>
+        /// implies specific validation logic for the update button. 
+        /// </summary>
+        /// <returns></returns>
         private string ValidateUpdateButtonClick()
         {
             if (string.IsNullOrEmpty(CreateUsername_TextBox.Text) && string.IsNullOrEmpty(EnterEmail_TextBox.Text)
@@ -173,9 +181,7 @@ namespace FelicitySecurity.Applications.Config
                 viewModel.BindTextboxControls(this, viewModel, _textbox);
                 PopulateModelWithSelectedAdminId();
                 controller.UpdateSelectedAdministrator(model);
-                MessageBox.Show("Administrator updated successfully.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                viewModel.DisplayAdministratorEmails(this, controller, model, sortingType);
-                viewModel.Clear(this);
+                RefreshUIPostUpdatingAdministrator();
             }
             else
             {
@@ -263,10 +269,15 @@ namespace FelicitySecurity.Applications.Config
             viewModel.Clear(this);
             MessageBox.Show("Administrator removed successfully.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        /// <summary>
+        /// refreshes UI after updating the administrator. 
+        /// </summary>
         private void RefreshUIPostUpdatingAdministrator()
         {
             viewModel.DisplayAdministratorEmails(this, controller, model, sortingType);
-            viewModel.Clear(this);
+            EnterPin_TextBox.Clear();
+            ReEnterPin_TextBox.Clear();
             MessageBox.Show("Administrator updated successfully.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
