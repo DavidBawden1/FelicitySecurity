@@ -16,7 +16,6 @@ namespace FelicitySecurity.Applications.Config.Interfaces
         void BindTextboxControls(RegisterAdministratorsForm form, AdministratorsViewModel viewModel, TextBox textbox);
         void DisplayAdministratorEmails(RegisterAdministratorsForm form, AdministratorsController controller, AdministratorsModel model, CurrentSortingType sortingType);
         void OnPropertyChanged(string propertyName);
-        void RemoveSelectedAdministrator(AdministratorsModel model, AdministratorsController controller);
     }
 
 }

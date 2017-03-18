@@ -178,16 +178,6 @@ namespace FelicitySecurity.Applications.Config.ViewModels
         }
 
         /// <summary>
-        /// Calls the controller method to remove the selected administrator. 
-        /// </summary>
-        /// <param name="model"></param>
-        /// <param name="controller"></param>
-        public void RemoveSelectedAdministrator(AdministratorsModel model, AdministratorsController controller)
-        {
-            controller.RemoveSelectedAdministrator(model);
-        }
-
-        /// <summary>
         /// populates the combobox with the sortying types.  
         /// </summary>
         /// <param name="form"></param>

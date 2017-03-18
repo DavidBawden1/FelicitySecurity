@@ -217,7 +217,7 @@ namespace FelicitySecurity.Applications.Config
             else
             {
                 PopulateModelWithSelectedAdminId();
-                viewModel.RemoveSelectedAdministrator(model, controller);
+                controller.RemoveSelectedAdministrator(model);
                 RefreshUIPostDeletionOfAdmin();
             }
         }
