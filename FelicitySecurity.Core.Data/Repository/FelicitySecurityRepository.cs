@@ -367,7 +367,7 @@ namespace FelicitySecurity.Core.Data.Repository
             {
                 using (FelicityLiveEntities dbContext = (FelicityLiveEntities)GetDBContext())
                 {
-                    AdminTable administratorToUpdate = new AdminTable() { AdminID = admin_dto.AdminID };
+                    var administratorToUpdate = dbContext.AdminTable.SingleOrDefault(i => i.AdminID == admin_dto.AdminID);
                     administratorToUpdate.AdminEmail = admin_dto.AdminEmail;
                     administratorToUpdate.AdminName = admin_dto.AdminName;
                     administratorToUpdate.AdminPinCode = admin_dto.AdminPinCode;

@@ -161,18 +161,25 @@ namespace FelicitySecurity.Applications.Config
             }
         }
 
+        /// <summary>
+        /// updates the selected Administrator with the new details provided.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void UpdateAdministratorButton_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(Error.ToString()))
             {
                 viewModel.BindTextboxControls(this, viewModel, _textbox);
-                controller.UpdateSelectedAdministrator(EnterEmail_TextBox.Text, CreateUsername_TextBox.Text, EnterPin_TextBox.Text);
+                PopulateModelWithSelectedAdminId();
+                controller.UpdateSelectedAdministrator(model);
                 MessageBox.Show("Administrator updated successfully.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 viewModel.DisplayAdministratorEmails(this, controller, model, sortingType);
+                viewModel.Clear(this);
             }
             else
             {
-                MessageBox.Show(Error, "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(Error, "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -270,6 +277,10 @@ namespace FelicitySecurity.Applications.Config
         {
             SelectedAdministratorId = (Administrators_ListBox.SelectedItem as ListboxItem).Value;
             model.AdminID = SelectedAdministratorId;
+            model.AdminEmail = EnterEmail_TextBox.Text;
+            model.AdminName = CreateUsername_TextBox.Text;
+            model.AdminPinCode = EnterPin_TextBox.Text;
         }
+        
     }
 }

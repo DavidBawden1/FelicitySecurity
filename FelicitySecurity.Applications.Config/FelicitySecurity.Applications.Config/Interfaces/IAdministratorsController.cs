@@ -11,6 +11,6 @@ namespace FelicitySecurity.Applications.Config.Interfaces
         void AddAdministrators(string email, string username, string pincode);
         List<AdministratorsModel> AllAdministratorsEmail(AdministratorsModel model);
         void RemoveSelectedAdministrator(AdministratorsModel model);
-        void UpdateSelectedAdministrator(string email, string username, string pincode);
+        void UpdateSelectedAdministrator(AdministratorsModel model);
     }
 }

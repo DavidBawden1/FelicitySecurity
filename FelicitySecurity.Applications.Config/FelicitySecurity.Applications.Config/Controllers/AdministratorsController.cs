@@ -76,13 +76,18 @@ namespace FelicitySecurity.Applications.Config.Controllers
             engineRepository.RemoveAdministrator(model.AdminID);
         }
 
-        public void UpdateSelectedAdministrator(string email, string username, string pincode)
+        /// <summary>
+        /// updates the old Administrators dto with the new Administrators model. 
+        /// </summary>
+        /// <param name="model"></param>
+        public void UpdateSelectedAdministrator(AdministratorsModel model)
         {
             Administrators_dto admin_dto = new Administrators_dto()
             {
-                AdminEmail = email,
-                AdminName = username,
-                AdminPinCode = pincode
+                AdminID = model.AdminID,
+                AdminEmail = model.AdminEmail,
+                AdminName = model.AdminName,
+                AdminPinCode = model.AdminPinCode
             };
             engineRepository.UpdateAdministrator(admin_dto);
         }
