@@ -30,9 +30,7 @@ namespace FelicitySecurity.Applications.Config
         {
             get
             {
-                _error =ValidateRegisterButtonClick();
-                _error = ValidateUpdateButtonClick();
-                return _error;
+                return _error = BasicFieldValidation();
             }
         }
 
@@ -40,50 +38,7 @@ namespace FelicitySecurity.Applications.Config
         /// implies specific validation logic for registration. 
         /// </summary>
         /// <returns></returns>
-        private string ValidateRegisterButtonClick()
-        {
-            if (string.IsNullOrEmpty(CreateUsername_TextBox.Text) && string.IsNullOrEmpty(EnterEmail_TextBox.Text)
-                                && string.IsNullOrEmpty(EnterPin_TextBox.Text) && string.IsNullOrEmpty(ReEnterPin_TextBox.Text))
-            {
-                return "Please fill in your details!";
-            }
-            if (string.IsNullOrEmpty(CreateUsername_TextBox.Text))
-            {
-                return "You must supply a username!";
-            }
-            if (CreateUsername_TextBox.TextLength > 50)
-            {
-                return "Your username must be between 0 and 50 characters!";
-            }
-            if (string.IsNullOrEmpty(EnterEmail_TextBox.Text))
-            {
-                return "You must supply an email address!";
-            }
-            if (!validation.IsValidEmail(EnterEmail_TextBox.Text))
-            {
-                return "Your email address has to be valid! eg. woopiegoldberg@yahoo.co.uk";
-            }
-            if (string.IsNullOrEmpty(EnterPin_TextBox.Text) || EnterPin_TextBox.TextLength > 4)
-            {
-                return "You must enter a 4 digit pin!";
-            }
-            if (EnterPin_TextBox.Text != ReEnterPin_TextBox.Text)
-            {
-                return "please confirm your pincodes!";
-            }
-            if (ValidateEmail.DoesEmailExist(EnterEmail_TextBox.Text))
-            {
-                return EnterEmail_TextBox.Text + " already exists!";
-            }
-
-            return string.Empty;
-        }
-
-        /// <summary>
-        /// implies specific validation logic for the update button. 
-        /// </summary>
-        /// <returns></returns>
-        private string ValidateUpdateButtonClick()
+        private string BasicFieldValidation()
         {
             if (string.IsNullOrEmpty(CreateUsername_TextBox.Text) && string.IsNullOrEmpty(EnterEmail_TextBox.Text)
                                 && string.IsNullOrEmpty(EnterPin_TextBox.Text) && string.IsNullOrEmpty(ReEnterPin_TextBox.Text))
@@ -158,10 +113,17 @@ namespace FelicitySecurity.Applications.Config
             //if error is null then validation has passed so continue otherwise return the error message. 
             if (string.IsNullOrEmpty(Error.ToString()))
             {
-                viewModel.BindTextboxControls(this, viewModel, _textbox);
-                controller.AddAdministrators(EnterEmail_TextBox.Text, CreateUsername_TextBox.Text, EnterPin_TextBox.Text);
-                MessageBox.Show("Administrator added successfully.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                viewModel.DisplayAdministratorEmails(this, controller, model, sortingType);
+                if (!ValidateEmail.DoesEmailExist(EnterEmail_TextBox.Text))
+                {
+                    viewModel.BindTextboxControls(this, viewModel, _textbox);
+                    controller.AddAdministrators(EnterEmail_TextBox.Text, CreateUsername_TextBox.Text, EnterPin_TextBox.Text);
+                    MessageBox.Show("Administrator added successfully.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    viewModel.DisplayAdministratorEmails(this, controller, model, sortingType);
+                }
+                else
+                {
+                    MessageBox.Show(EnterEmail_TextBox.Text + "already exists!", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
@@ -178,10 +140,17 @@ namespace FelicitySecurity.Applications.Config
         {
             if (string.IsNullOrEmpty(Error.ToString()))
             {
-                viewModel.BindTextboxControls(this, viewModel, _textbox);
-                PopulateModelWithSelectedAdminId();
-                controller.UpdateSelectedAdministrator(model);
-                RefreshUIPostUpdatingAdministrator();
+                if (SelectedAdministratorId != 0)
+                {
+                    viewModel.BindTextboxControls(this, viewModel, _textbox);
+                    PopulateModelWithSelectedAdminId();
+                    controller.UpdateSelectedAdministrator(model);
+                    RefreshUIPostUpdatingAdministrator();
+                }
+                else
+                {
+                    MessageBox.Show("You must select an Administrator to update!.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
@@ -292,6 +261,6 @@ namespace FelicitySecurity.Applications.Config
             model.AdminName = CreateUsername_TextBox.Text;
             model.AdminPinCode = EnterPin_TextBox.Text;
         }
-        
     }
 }
+
