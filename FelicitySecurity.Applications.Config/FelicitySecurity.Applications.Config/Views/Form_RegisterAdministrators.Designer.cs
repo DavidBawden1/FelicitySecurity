@@ -33,6 +33,7 @@
             this.Layout_RegisterAdminstratorControls = new System.Windows.Forms.TableLayoutPanel();
             this.RegisterAdministratorTitle_GroupBox = new System.Windows.Forms.GroupBox();
             this.RegisterAdministratorControls_GroupBox = new System.Windows.Forms.GroupBox();
+            this.UpdateAdministratorButton = new System.Windows.Forms.Button();
             this.RemoveAdministratorButton = new System.Windows.Forms.Button();
             this.RegisterCancel_Button = new System.Windows.Forms.Button();
             this.RegisterBack_Button = new System.Windows.Forms.Button();
@@ -57,7 +58,6 @@
             this.AdministratorsListControlsGroupBox = new System.Windows.Forms.GroupBox();
             this.SortAdministratorsLabel = new System.Windows.Forms.Label();
             this.CurrentSortComboBox = new System.Windows.Forms.ComboBox();
-            this.UpdateAdministratorButton = new System.Windows.Forms.Button();
             this.Layout_Background.SuspendLayout();
             this.RegisterAdmin_GroupBox.SuspendLayout();
             this.Layout_RegisterAdminstratorControls.SuspendLayout();
@@ -147,6 +147,19 @@
             this.RegisterAdministratorControls_GroupBox.TabStop = false;
             this.RegisterAdministratorControls_GroupBox.Text = "Controls";
             // 
+            // UpdateAdministratorButton
+            // 
+            this.UpdateAdministratorButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.UpdateAdministratorButton.Location = new System.Drawing.Point(200, 158);
+            this.UpdateAdministratorButton.Margin = new System.Windows.Forms.Padding(8);
+            this.UpdateAdministratorButton.Name = "UpdateAdministratorButton";
+            this.UpdateAdministratorButton.Padding = new System.Windows.Forms.Padding(1);
+            this.UpdateAdministratorButton.Size = new System.Drawing.Size(90, 30);
+            this.UpdateAdministratorButton.TabIndex = 14;
+            this.UpdateAdministratorButton.Text = "Update";
+            this.UpdateAdministratorButton.UseVisualStyleBackColor = true;
+            this.UpdateAdministratorButton.Click += new System.EventHandler(this.UpdateAdministratorButton_Click);
+            // 
             // RemoveAdministratorButton
             // 
             this.RemoveAdministratorButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -184,6 +197,7 @@
             this.RegisterBack_Button.TabIndex = 11;
             this.RegisterBack_Button.Text = "Back";
             this.RegisterBack_Button.UseVisualStyleBackColor = true;
+            this.RegisterBack_Button.Click += new System.EventHandler(this.RegisterBack_Button_Click);
             // 
             // Register_Button
             // 
@@ -425,19 +439,6 @@
             this.CurrentSortComboBox.TabIndex = 5;
             this.CurrentSortComboBox.SelectedIndexChanged += new System.EventHandler(this.CurrentSortComboBox_SelectedIndexChanged);
             // 
-            // UpdateAdministratorButton
-            // 
-            this.UpdateAdministratorButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.UpdateAdministratorButton.Location = new System.Drawing.Point(200, 158);
-            this.UpdateAdministratorButton.Margin = new System.Windows.Forms.Padding(8);
-            this.UpdateAdministratorButton.Name = "UpdateAdministratorButton";
-            this.UpdateAdministratorButton.Padding = new System.Windows.Forms.Padding(1);
-            this.UpdateAdministratorButton.Size = new System.Drawing.Size(90, 30);
-            this.UpdateAdministratorButton.TabIndex = 14;
-            this.UpdateAdministratorButton.Text = "Update";
-            this.UpdateAdministratorButton.UseVisualStyleBackColor = true;
-            this.UpdateAdministratorButton.Click += new System.EventHandler(this.UpdateAdministratorButton_Click);
-            // 
             // RegisterAdministratorsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -446,7 +447,7 @@
             this.Controls.Add(this.Layout_Background);
             this.MinimumSize = new System.Drawing.Size(1025, 608);
             this.Name = "RegisterAdministratorsForm";
-            this.Text = "Form1";
+            this.Text = "Registration";
             this.Load += new System.EventHandler(this.RegisterAdministratorsForm_Load);
             this.Layout_Background.ResumeLayout(false);
             this.RegisterAdmin_GroupBox.ResumeLayout(false);

@@ -263,6 +263,11 @@ namespace FelicitySecurity.Applications.Config
             model.AdminName = CreateUsername_TextBox.Text;
             model.AdminPinCode = EnterPin_TextBox.Text;
         }
+
+        private void RegisterBack_Button_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
 
