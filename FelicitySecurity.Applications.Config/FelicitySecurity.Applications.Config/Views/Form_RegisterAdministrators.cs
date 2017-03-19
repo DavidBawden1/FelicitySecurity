@@ -110,10 +110,11 @@ namespace FelicitySecurity.Applications.Config
         /// <param name="e"></param>
         private void Register_Button_Click(object sender, EventArgs e)
         {
+            
             //if error is null then validation has passed so continue otherwise return the error message. 
-            if (string.IsNullOrEmpty(Error.ToString()))
+            if (!ValidateEmail.DoesEmailExist(EnterEmail_TextBox.Text))
             {
-                if (!ValidateEmail.DoesEmailExist(EnterEmail_TextBox.Text))
+                if (string.IsNullOrEmpty(Error.ToString()))
                 {
                     viewModel.BindTextboxControls(this, viewModel, _textbox);
                     controller.AddAdministrators(EnterEmail_TextBox.Text, CreateUsername_TextBox.Text, EnterPin_TextBox.Text);
@@ -122,12 +123,13 @@ namespace FelicitySecurity.Applications.Config
                 }
                 else
                 {
-                    MessageBox.Show(EnterEmail_TextBox.Text + "already exists!", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Error, "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show(Error, "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(EnterEmail_TextBox.Text + " already exists!", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                viewModel.Clear(this);
             }
         }
 
@@ -140,10 +142,10 @@ namespace FelicitySecurity.Applications.Config
         {
             if (string.IsNullOrEmpty(Error.ToString()))
             {
+                viewModel.BindTextboxControls(this, viewModel, _textbox);
+                PopulateModelWithSelectedAdminId();
                 if (SelectedAdministratorId != 0)
                 {
-                    viewModel.BindTextboxControls(this, viewModel, _textbox);
-                    PopulateModelWithSelectedAdminId();
                     controller.UpdateSelectedAdministrator(model);
                     RefreshUIPostUpdatingAdministrator();
                 }

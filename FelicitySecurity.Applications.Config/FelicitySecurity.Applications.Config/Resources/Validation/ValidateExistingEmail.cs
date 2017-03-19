@@ -1,5 +1,6 @@
 ﻿using FelicitySecurity.Core.Data.Repository;
 using FelicitySecurity.Core.DataTransferObjects;
+using System.Linq;
 
 namespace FelicitySecurity.Applications.Config.Resources.Validation
 {
@@ -18,7 +19,7 @@ namespace FelicitySecurity.Applications.Config.Resources.Validation
             bool isValid = false;
             FelicitySecurityRepository repository = new FelicitySecurityRepository();
             Administrators_dto adminDto = new Administrators_dto();
-            var emailList = repository.FindAllAdministrators();
+            var emailList = repository.FindAllAdministrators().Where(e => e.AdminEmail == email);
             foreach (var item in emailList)
             {
                 if (email != item.AdminEmail)
