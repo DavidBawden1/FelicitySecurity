@@ -266,7 +266,7 @@ namespace FelicitySecurity.Applications.Config
         }
 
         /// <summary>
-        /// Opens the Authentication form and closes this form. 
+        /// Closes the this form and opens Authentication form. 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -281,7 +281,7 @@ namespace FelicitySecurity.Applications.Config
         /// </summary>
         private void CloseThisForm()
         {
-            this.Close();
+            Close();
         }
 
         /// <summary>
