@@ -58,6 +58,8 @@
             this.AdministratorsListControlsGroupBox = new System.Windows.Forms.GroupBox();
             this.SortAdministratorsLabel = new System.Windows.Forms.Label();
             this.CurrentSortComboBox = new System.Windows.Forms.ComboBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Layout_Background.SuspendLayout();
             this.RegisterAdmin_GroupBox.SuspendLayout();
             this.Layout_RegisterAdminstratorControls.SuspendLayout();
@@ -67,6 +69,7 @@
             this.ListOfAdministrators_GroupBox.SuspendLayout();
             this.AdministratorListControlsTableLayoutPanel.SuspendLayout();
             this.AdministratorsListControlsGroupBox.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Layout_Background
@@ -77,11 +80,11 @@
             this.Layout_Background.Controls.Add(this.RegisterAdmin_GroupBox, 0, 0);
             this.Layout_Background.Controls.Add(this.AdministratorsListBoxAndLogo_GroupBox, 1, 0);
             this.Layout_Background.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Layout_Background.Location = new System.Drawing.Point(0, 0);
+            this.Layout_Background.Location = new System.Drawing.Point(0, 24);
             this.Layout_Background.Name = "Layout_Background";
             this.Layout_Background.RowCount = 1;
             this.Layout_Background.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.Layout_Background.Size = new System.Drawing.Size(1096, 608);
+            this.Layout_Background.Size = new System.Drawing.Size(1096, 584);
             this.Layout_Background.TabIndex = 0;
             // 
             // RegisterAdmin_GroupBox
@@ -90,7 +93,7 @@
             this.RegisterAdmin_GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RegisterAdmin_GroupBox.Location = new System.Drawing.Point(3, 3);
             this.RegisterAdmin_GroupBox.Name = "RegisterAdmin_GroupBox";
-            this.RegisterAdmin_GroupBox.Size = new System.Drawing.Size(359, 602);
+            this.RegisterAdmin_GroupBox.Size = new System.Drawing.Size(359, 578);
             this.RegisterAdmin_GroupBox.TabIndex = 0;
             this.RegisterAdmin_GroupBox.TabStop = false;
             this.RegisterAdmin_GroupBox.Text = "Register Administrators";
@@ -108,7 +111,7 @@
             this.Layout_RegisterAdminstratorControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.Layout_RegisterAdminstratorControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.Layout_RegisterAdminstratorControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.Layout_RegisterAdminstratorControls.Size = new System.Drawing.Size(353, 583);
+            this.Layout_RegisterAdminstratorControls.Size = new System.Drawing.Size(353, 559);
             this.Layout_RegisterAdminstratorControls.TabIndex = 0;
             // 
             // RegisterAdministratorTitle_GroupBox
@@ -116,7 +119,7 @@
             this.RegisterAdministratorTitle_GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RegisterAdministratorTitle_GroupBox.Location = new System.Drawing.Point(3, 3);
             this.RegisterAdministratorTitle_GroupBox.Name = "RegisterAdministratorTitle_GroupBox";
-            this.RegisterAdministratorTitle_GroupBox.Size = new System.Drawing.Size(347, 343);
+            this.RegisterAdministratorTitle_GroupBox.Size = new System.Drawing.Size(347, 329);
             this.RegisterAdministratorTitle_GroupBox.TabIndex = 0;
             this.RegisterAdministratorTitle_GroupBox.TabStop = false;
             // 
@@ -139,10 +142,10 @@
             this.RegisterAdministratorControls_GroupBox.Controls.Add(this.ReEnterPin_TextBox);
             this.RegisterAdministratorControls_GroupBox.Controls.Add(this.EnterEmail_TextBox);
             this.RegisterAdministratorControls_GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RegisterAdministratorControls_GroupBox.Location = new System.Drawing.Point(3, 352);
+            this.RegisterAdministratorControls_GroupBox.Location = new System.Drawing.Point(3, 338);
             this.RegisterAdministratorControls_GroupBox.Name = "RegisterAdministratorControls_GroupBox";
             this.RegisterAdministratorControls_GroupBox.Padding = new System.Windows.Forms.Padding(1);
-            this.RegisterAdministratorControls_GroupBox.Size = new System.Drawing.Size(347, 228);
+            this.RegisterAdministratorControls_GroupBox.Size = new System.Drawing.Size(347, 218);
             this.RegisterAdministratorControls_GroupBox.TabIndex = 1;
             this.RegisterAdministratorControls_GroupBox.TabStop = false;
             this.RegisterAdministratorControls_GroupBox.Text = "Controls";
@@ -150,7 +153,7 @@
             // UpdateAdministratorButton
             // 
             this.UpdateAdministratorButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.UpdateAdministratorButton.Location = new System.Drawing.Point(200, 158);
+            this.UpdateAdministratorButton.Location = new System.Drawing.Point(200, 148);
             this.UpdateAdministratorButton.Margin = new System.Windows.Forms.Padding(8);
             this.UpdateAdministratorButton.Name = "UpdateAdministratorButton";
             this.UpdateAdministratorButton.Padding = new System.Windows.Forms.Padding(1);
@@ -163,7 +166,7 @@
             // RemoveAdministratorButton
             // 
             this.RemoveAdministratorButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.RemoveAdministratorButton.Location = new System.Drawing.Point(99, 158);
+            this.RemoveAdministratorButton.Location = new System.Drawing.Point(99, 148);
             this.RemoveAdministratorButton.Margin = new System.Windows.Forms.Padding(8);
             this.RemoveAdministratorButton.Name = "RemoveAdministratorButton";
             this.RemoveAdministratorButton.Padding = new System.Windows.Forms.Padding(1);
@@ -176,7 +179,7 @@
             // RegisterCancel_Button
             // 
             this.RegisterCancel_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.RegisterCancel_Button.Location = new System.Drawing.Point(200, 197);
+            this.RegisterCancel_Button.Location = new System.Drawing.Point(200, 187);
             this.RegisterCancel_Button.Margin = new System.Windows.Forms.Padding(8);
             this.RegisterCancel_Button.Name = "RegisterCancel_Button";
             this.RegisterCancel_Button.Padding = new System.Windows.Forms.Padding(1);
@@ -189,7 +192,7 @@
             // RegisterBack_Button
             // 
             this.RegisterBack_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.RegisterBack_Button.Location = new System.Drawing.Point(99, 196);
+            this.RegisterBack_Button.Location = new System.Drawing.Point(99, 186);
             this.RegisterBack_Button.Margin = new System.Windows.Forms.Padding(8);
             this.RegisterBack_Button.Name = "RegisterBack_Button";
             this.RegisterBack_Button.Padding = new System.Windows.Forms.Padding(1);
@@ -202,7 +205,7 @@
             // Register_Button
             // 
             this.Register_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Register_Button.Location = new System.Drawing.Point(-1, 196);
+            this.Register_Button.Location = new System.Drawing.Point(-1, 186);
             this.Register_Button.Margin = new System.Windows.Forms.Padding(8);
             this.Register_Button.Name = "Register_Button";
             this.Register_Button.Padding = new System.Windows.Forms.Padding(1);
@@ -215,7 +218,7 @@
             // RegisterAdministrator_Button
             // 
             this.RegisterAdministrator_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.RegisterAdministrator_Button.Location = new System.Drawing.Point(5, 255);
+            this.RegisterAdministrator_Button.Location = new System.Drawing.Point(5, 245);
             this.RegisterAdministrator_Button.Margin = new System.Windows.Forms.Padding(8);
             this.RegisterAdministrator_Button.Name = "RegisterAdministrator_Button";
             this.RegisterAdministrator_Button.Padding = new System.Windows.Forms.Padding(1);
@@ -227,7 +230,7 @@
             // Cancel_Button
             // 
             this.Cancel_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Cancel_Button.Location = new System.Drawing.Point(205, 255);
+            this.Cancel_Button.Location = new System.Drawing.Point(205, 245);
             this.Cancel_Button.Margin = new System.Windows.Forms.Padding(8);
             this.Cancel_Button.Name = "Cancel_Button";
             this.Cancel_Button.Padding = new System.Windows.Forms.Padding(1);
@@ -250,7 +253,7 @@
             // Back_Button
             // 
             this.Back_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Back_Button.Location = new System.Drawing.Point(105, 255);
+            this.Back_Button.Location = new System.Drawing.Point(105, 245);
             this.Back_Button.Margin = new System.Windows.Forms.Padding(8);
             this.Back_Button.Name = "Back_Button";
             this.Back_Button.Padding = new System.Windows.Forms.Padding(1);
@@ -340,7 +343,7 @@
             this.AdministratorsListBoxAndLogo_GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AdministratorsListBoxAndLogo_GroupBox.Location = new System.Drawing.Point(368, 3);
             this.AdministratorsListBoxAndLogo_GroupBox.Name = "AdministratorsListBoxAndLogo_GroupBox";
-            this.AdministratorsListBoxAndLogo_GroupBox.Size = new System.Drawing.Size(725, 602);
+            this.AdministratorsListBoxAndLogo_GroupBox.Size = new System.Drawing.Size(725, 578);
             this.AdministratorsListBoxAndLogo_GroupBox.TabIndex = 1;
             this.AdministratorsListBoxAndLogo_GroupBox.TabStop = false;
             this.AdministratorsListBoxAndLogo_GroupBox.Text = "Logo";
@@ -357,7 +360,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(719, 583);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(719, 559);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // Logo_GroupBox
@@ -365,7 +368,7 @@
             this.Logo_GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Logo_GroupBox.Location = new System.Drawing.Point(3, 3);
             this.Logo_GroupBox.Name = "Logo_GroupBox";
-            this.Logo_GroupBox.Size = new System.Drawing.Size(713, 372);
+            this.Logo_GroupBox.Size = new System.Drawing.Size(713, 357);
             this.Logo_GroupBox.TabIndex = 0;
             this.Logo_GroupBox.TabStop = false;
             // 
@@ -373,9 +376,9 @@
             // 
             this.ListOfAdministrators_GroupBox.Controls.Add(this.AdministratorListControlsTableLayoutPanel);
             this.ListOfAdministrators_GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ListOfAdministrators_GroupBox.Location = new System.Drawing.Point(3, 381);
+            this.ListOfAdministrators_GroupBox.Location = new System.Drawing.Point(3, 366);
             this.ListOfAdministrators_GroupBox.Name = "ListOfAdministrators_GroupBox";
-            this.ListOfAdministrators_GroupBox.Size = new System.Drawing.Size(713, 199);
+            this.ListOfAdministrators_GroupBox.Size = new System.Drawing.Size(713, 190);
             this.ListOfAdministrators_GroupBox.TabIndex = 1;
             this.ListOfAdministrators_GroupBox.TabStop = false;
             this.ListOfAdministrators_GroupBox.Text = "List of Administrators";
@@ -392,16 +395,16 @@
             this.AdministratorListControlsTableLayoutPanel.RowCount = 2;
             this.AdministratorListControlsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22F));
             this.AdministratorListControlsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 78F));
-            this.AdministratorListControlsTableLayoutPanel.Size = new System.Drawing.Size(707, 180);
+            this.AdministratorListControlsTableLayoutPanel.Size = new System.Drawing.Size(707, 171);
             this.AdministratorListControlsTableLayoutPanel.TabIndex = 7;
             // 
             // Administrators_ListBox
             // 
             this.Administrators_ListBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Administrators_ListBox.FormattingEnabled = true;
-            this.Administrators_ListBox.Location = new System.Drawing.Point(3, 42);
+            this.Administrators_ListBox.Location = new System.Drawing.Point(3, 40);
             this.Administrators_ListBox.Name = "Administrators_ListBox";
-            this.Administrators_ListBox.Size = new System.Drawing.Size(701, 135);
+            this.Administrators_ListBox.Size = new System.Drawing.Size(701, 128);
             this.Administrators_ListBox.TabIndex = 4;
             this.Administrators_ListBox.SelectedIndexChanged += new System.EventHandler(this.Administrators_ListBox_SelectedIndexChanged);
             // 
@@ -412,7 +415,7 @@
             this.AdministratorsListControlsGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AdministratorsListControlsGroupBox.Location = new System.Drawing.Point(3, 3);
             this.AdministratorsListControlsGroupBox.Name = "AdministratorsListControlsGroupBox";
-            this.AdministratorsListControlsGroupBox.Size = new System.Drawing.Size(701, 33);
+            this.AdministratorsListControlsGroupBox.Size = new System.Drawing.Size(701, 31);
             this.AdministratorsListControlsGroupBox.TabIndex = 6;
             this.AdministratorsListControlsGroupBox.TabStop = false;
             // 
@@ -420,7 +423,7 @@
             // 
             this.SortAdministratorsLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.SortAdministratorsLabel.AutoSize = true;
-            this.SortAdministratorsLabel.Location = new System.Drawing.Point(522, 12);
+            this.SortAdministratorsLabel.Location = new System.Drawing.Point(522, 10);
             this.SortAdministratorsLabel.Name = "SortAdministratorsLabel";
             this.SortAdministratorsLabel.Size = new System.Drawing.Size(52, 13);
             this.SortAdministratorsLabel.TabIndex = 6;
@@ -433,11 +436,27 @@
             this.CurrentSortComboBox.Items.AddRange(new object[] {
             "Alphabetical",
             "Default"});
-            this.CurrentSortComboBox.Location = new System.Drawing.Point(580, 9);
+            this.CurrentSortComboBox.Location = new System.Drawing.Point(580, 7);
             this.CurrentSortComboBox.Name = "CurrentSortComboBox";
             this.CurrentSortComboBox.Size = new System.Drawing.Size(121, 21);
             this.CurrentSortComboBox.TabIndex = 5;
             this.CurrentSortComboBox.SelectedIndexChanged += new System.EventHandler(this.CurrentSortComboBox_SelectedIndexChanged);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1096, 24);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
             // 
             // RegisterAdministratorsForm
             // 
@@ -445,6 +464,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1096, 608);
             this.Controls.Add(this.Layout_Background);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(1025, 608);
             this.Name = "RegisterAdministratorsForm";
             this.Text = "Registration";
@@ -460,7 +481,10 @@
             this.AdministratorListControlsTableLayoutPanel.ResumeLayout(false);
             this.AdministratorsListControlsGroupBox.ResumeLayout(false);
             this.AdministratorsListControlsGroupBox.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -496,6 +520,8 @@
         public System.Windows.Forms.Label SortAdministratorsLabel;
         private System.Windows.Forms.Button RemoveAdministratorButton;
         private System.Windows.Forms.Button UpdateAdministratorButton;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
     }
 }
 

@@ -46,8 +46,8 @@
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-            this.closeToolStripMenuItem.Text = "Close";
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.closeToolStripMenuItem.Text = "File";
             // 
             // Form_AuthenticateAdministrator
             // 
