@@ -2,6 +2,7 @@
 using FelicitySecurity.Applications.Config.Resources.Controls;
 using FelicitySecurity.Applications.Config.Resources.Validation;
 using FelicitySecurity.Applications.Config.ViewModels;
+using FelicitySecurity.Applications.Config.Views;
 using FelicitySecurity.Core.Models;
 using System;
 using System.ComponentModel;
@@ -264,9 +265,32 @@ namespace FelicitySecurity.Applications.Config
             model.AdminPinCode = EnterPin_TextBox.Text;
         }
 
+        /// <summary>
+        /// Opens the Authentication form and closes this form. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RegisterBack_Button_Click(object sender, EventArgs e)
         {
+            InitialiseAuthenticationForm();
+            CloseThisForm();
+        }
+
+        /// <summary>
+        /// Closes this form. 
+        /// </summary>
+        private void CloseThisForm()
+        {
             this.Close();
+        }
+
+        /// <summary>
+        /// Opens the authentication form. 
+        /// </summary>
+        private static void InitialiseAuthenticationForm()
+        {
+            Form_AuthenticateAdministrator authenticationForm = new Form_AuthenticateAdministrator();
+            authenticationForm.Show();
         }
     }
 }

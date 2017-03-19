@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.GeneralControlsMenuStrip = new System.Windows.Forms.MenuStrip();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AuthenticationBackgroundLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.AuthenticationFormCredentialsBackgroudGroupBox = new System.Windows.Forms.GroupBox();
@@ -42,7 +42,7 @@
             this.AdministratorsListTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.AdministratorSortingGroupBox = new System.Windows.Forms.GroupBox();
             this.AdministratorsGroupBox = new System.Windows.Forms.GroupBox();
-            this.menuStrip1.SuspendLayout();
+            this.GeneralControlsMenuStrip.SuspendLayout();
             this.AuthenticationBackgroundLayoutPanel.SuspendLayout();
             this.AuthenticationFormCredentialsBackgroudGroupBox.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -52,15 +52,14 @@
             this.AdministratorsListTableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // GeneralControlsMenuStrip
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.GeneralControlsMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.closeToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1096, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.GeneralControlsMenuStrip.Location = new System.Drawing.Point(0, 0);
+            this.GeneralControlsMenuStrip.Name = "GeneralControlsMenuStrip";
+            this.GeneralControlsMenuStrip.Size = new System.Drawing.Size(1096, 24);
+            this.GeneralControlsMenuStrip.TabIndex = 0;
             // 
             // closeToolStripMenuItem
             // 
@@ -212,13 +211,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1096, 608);
             this.Controls.Add(this.AuthenticationBackgroundLayoutPanel);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.Controls.Add(this.GeneralControlsMenuStrip);
+            this.MainMenuStrip = this.GeneralControlsMenuStrip;
             this.MinimumSize = new System.Drawing.Size(1025, 608);
             this.Name = "Form_AuthenticateAdministrator";
             this.Text = "Authentication";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.GeneralControlsMenuStrip.ResumeLayout(false);
+            this.GeneralControlsMenuStrip.PerformLayout();
             this.AuthenticationBackgroundLayoutPanel.ResumeLayout(false);
             this.AuthenticationFormCredentialsBackgroudGroupBox.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -233,7 +232,7 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip GeneralControlsMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
         private System.Windows.Forms.TableLayoutPanel AuthenticationBackgroundLayoutPanel;
         private System.Windows.Forms.GroupBox AuthenticationFormCredentialsBackgroudGroupBox;
