@@ -50,7 +50,7 @@
             this.ReEnterPin_TextBox = new System.Windows.Forms.TextBox();
             this.EnterEmail_TextBox = new System.Windows.Forms.TextBox();
             this.AdministratorsListBoxAndLogo_GroupBox = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.RegisterFormBackground_TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.Logo_GroupBox = new System.Windows.Forms.GroupBox();
             this.ListOfAdministrators_GroupBox = new System.Windows.Forms.GroupBox();
             this.AdministratorListControlsTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
@@ -58,18 +58,18 @@
             this.AdministratorsListControlsGroupBox = new System.Windows.Forms.GroupBox();
             this.SortAdministratorsLabel = new System.Windows.Forms.Label();
             this.CurrentSortComboBox = new System.Windows.Forms.ComboBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.GeneralControlsMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Layout_Background.SuspendLayout();
             this.RegisterAdmin_GroupBox.SuspendLayout();
             this.Layout_RegisterAdminstratorControls.SuspendLayout();
             this.RegisterAdministratorControls_GroupBox.SuspendLayout();
             this.AdministratorsListBoxAndLogo_GroupBox.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.RegisterFormBackground_TableLayoutPanel.SuspendLayout();
             this.ListOfAdministrators_GroupBox.SuspendLayout();
             this.AdministratorListControlsTableLayoutPanel.SuspendLayout();
             this.AdministratorsListControlsGroupBox.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
+            this.GeneralControlsMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // Layout_Background
@@ -339,7 +339,7 @@
             // 
             // AdministratorsListBoxAndLogo_GroupBox
             // 
-            this.AdministratorsListBoxAndLogo_GroupBox.Controls.Add(this.tableLayoutPanel1);
+            this.AdministratorsListBoxAndLogo_GroupBox.Controls.Add(this.RegisterFormBackground_TableLayoutPanel);
             this.AdministratorsListBoxAndLogo_GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AdministratorsListBoxAndLogo_GroupBox.Location = new System.Drawing.Point(368, 3);
             this.AdministratorsListBoxAndLogo_GroupBox.Name = "AdministratorsListBoxAndLogo_GroupBox";
@@ -348,20 +348,20 @@
             this.AdministratorsListBoxAndLogo_GroupBox.TabStop = false;
             this.AdministratorsListBoxAndLogo_GroupBox.Text = "Logo";
             // 
-            // tableLayoutPanel1
+            // RegisterFormBackground_TableLayoutPanel
             // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.Logo_GroupBox, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.ListOfAdministrators_GroupBox, 0, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 16);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(719, 559);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.RegisterFormBackground_TableLayoutPanel.ColumnCount = 1;
+            this.RegisterFormBackground_TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.RegisterFormBackground_TableLayoutPanel.Controls.Add(this.Logo_GroupBox, 0, 0);
+            this.RegisterFormBackground_TableLayoutPanel.Controls.Add(this.ListOfAdministrators_GroupBox, 0, 1);
+            this.RegisterFormBackground_TableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RegisterFormBackground_TableLayoutPanel.Location = new System.Drawing.Point(3, 16);
+            this.RegisterFormBackground_TableLayoutPanel.Name = "RegisterFormBackground_TableLayoutPanel";
+            this.RegisterFormBackground_TableLayoutPanel.RowCount = 2;
+            this.RegisterFormBackground_TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65F));
+            this.RegisterFormBackground_TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.RegisterFormBackground_TableLayoutPanel.Size = new System.Drawing.Size(719, 559);
+            this.RegisterFormBackground_TableLayoutPanel.TabIndex = 0;
             // 
             // Logo_GroupBox
             // 
@@ -442,15 +442,15 @@
             this.CurrentSortComboBox.TabIndex = 5;
             this.CurrentSortComboBox.SelectedIndexChanged += new System.EventHandler(this.CurrentSortComboBox_SelectedIndexChanged);
             // 
-            // menuStrip1
+            // GeneralControlsMenuStrip
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.GeneralControlsMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1096, 24);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
+            this.GeneralControlsMenuStrip.Location = new System.Drawing.Point(0, 0);
+            this.GeneralControlsMenuStrip.Name = "GeneralControlsMenuStrip";
+            this.GeneralControlsMenuStrip.Size = new System.Drawing.Size(1096, 24);
+            this.GeneralControlsMenuStrip.TabIndex = 1;
+            this.GeneralControlsMenuStrip.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
@@ -464,8 +464,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1096, 608);
             this.Controls.Add(this.Layout_Background);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.Controls.Add(this.GeneralControlsMenuStrip);
+            this.MainMenuStrip = this.GeneralControlsMenuStrip;
             this.MinimumSize = new System.Drawing.Size(1025, 608);
             this.Name = "RegisterAdministratorsForm";
             this.Text = "Registration";
@@ -476,13 +476,13 @@
             this.RegisterAdministratorControls_GroupBox.ResumeLayout(false);
             this.RegisterAdministratorControls_GroupBox.PerformLayout();
             this.AdministratorsListBoxAndLogo_GroupBox.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.RegisterFormBackground_TableLayoutPanel.ResumeLayout(false);
             this.ListOfAdministrators_GroupBox.ResumeLayout(false);
             this.AdministratorListControlsTableLayoutPanel.ResumeLayout(false);
             this.AdministratorsListControlsGroupBox.ResumeLayout(false);
             this.AdministratorsListControlsGroupBox.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.GeneralControlsMenuStrip.ResumeLayout(false);
+            this.GeneralControlsMenuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -503,7 +503,7 @@
         private System.Windows.Forms.Button Cancel_Button;
         private System.Windows.Forms.Button Back_Button;
         private System.Windows.Forms.GroupBox AdministratorsListBoxAndLogo_GroupBox;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel RegisterFormBackground_TableLayoutPanel;
         private System.Windows.Forms.GroupBox Logo_GroupBox;
         private System.Windows.Forms.GroupBox ListOfAdministrators_GroupBox;
         private System.Windows.Forms.Button RegisterCancel_Button;
@@ -520,7 +520,7 @@
         public System.Windows.Forms.Label SortAdministratorsLabel;
         private System.Windows.Forms.Button RemoveAdministratorButton;
         private System.Windows.Forms.Button UpdateAdministratorButton;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip GeneralControlsMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
     }
 }
