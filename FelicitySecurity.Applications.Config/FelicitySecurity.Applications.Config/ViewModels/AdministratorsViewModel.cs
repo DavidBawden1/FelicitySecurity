@@ -94,7 +94,7 @@ namespace FelicitySecurity.Applications.Config.ViewModels
         /// <summary>
         /// Clears the Textboxes of all data entered by the user. 
         /// </summary>
-        public void Clear(RegisterAdministratorsForm form)
+        public void Clear(RegisterAdministrators_Form form)
         {
             form.EnterEmail_TextBox.Clear();
             form.CreateUsername_TextBox.Clear();
@@ -108,7 +108,7 @@ namespace FelicitySecurity.Applications.Config.ViewModels
         /// <param name="form"> The view</param>
         /// <param name="viewModel">The Administrators ViewModel</param>
         /// <param name="textbox"> The Textbox Controls</param>
-        public void BindTextboxControls(RegisterAdministratorsForm form, AdministratorsViewModel viewModel, TextBox textbox)
+        public void BindTextboxControls(RegisterAdministrators_Form form, AdministratorsViewModel viewModel, TextBox textbox)
         {
             Binding _emailBinding = new Binding(form.EnterEmail_TextBox.Text, viewModel, "Email");
             Binding _usernameBinding = new Binding(form.CreateUsername_TextBox.Text, viewModel, "Username");
@@ -119,7 +119,7 @@ namespace FelicitySecurity.Applications.Config.ViewModels
         /// <summary>
         /// Returns all of the administrators
         /// </summary>
-        public void DisplayAdministratorEmails(RegisterAdministratorsForm form, AdministratorsController controller, AdministratorsModel model, CurrentSortingType sortingType)
+        public void DisplayAdministratorEmails(RegisterAdministrators_Form form, AdministratorsController controller, AdministratorsModel model, CurrentSortingType sortingType)
         {
             //clear the items and the listbox after its been populated to prevent duplicate lists. 
             form.Administrators_ListBox.Items.Clear();
@@ -170,7 +170,7 @@ namespace FelicitySecurity.Applications.Config.ViewModels
         /// <param name="email"> The selected Email</param>
         /// <param name="controller">The Administrators controller</param>
         /// <param name="model">The Admininstrators viewModel </param>
-        public void DisplayAdministratorsDetails(RegisterAdministratorsForm form, string email, AdministratorsController controller, AdministratorsModel model)
+        public void DisplayAdministratorsDetails(RegisterAdministrators_Form form, string email, AdministratorsController controller, AdministratorsModel model)
         {
             var administratorsDetails = controller.ReturnAdministratorByEmail(email);
             form.CreateUsername_TextBox.Text = administratorsDetails.AdminName.ToString();
@@ -181,9 +181,9 @@ namespace FelicitySecurity.Applications.Config.ViewModels
         /// populates the combobox with the sortying types.  
         /// </summary>
         /// <param name="form"></param>
-        public void InitialiseControlDataSources(RegisterAdministratorsForm form)
+        public void InitialiseControlDataSources(RegisterAdministrators_Form form)
         {
-            form.CurrentSortComboBox.DataSource = Enum.GetValues(typeof(CurrentSortingType));
+            form.CurrentSortCombo_Box.DataSource = Enum.GetValues(typeof(CurrentSortingType));
         }
     }
 }

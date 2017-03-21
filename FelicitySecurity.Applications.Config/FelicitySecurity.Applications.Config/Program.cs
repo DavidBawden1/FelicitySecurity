@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FelicitySecurity.Applications.Config.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace FelicitySecurity.Applications.Config
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RegisterAdministratorsForm());
+            Application.Run(new AuthenticateAdministrators_Form());
         }
     }
 }

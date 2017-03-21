@@ -95,6 +95,12 @@
     <Compile Include="Resources\Validation\ValidateExistingEmail.cs" />
     <Compile Include="Resources\Validation\ValidationBase.cs" />
     <Compile Include="ViewModels\AdministratorsViewModel.cs" />
+    <Compile Include="Views\Form_AuthenticateAdministrator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Form_AuthenticateAdministrator.Designer.cs">
+      <DependentUpon>Form_AuthenticateAdministrator.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Form_RegisterAdministrators.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +109,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Views\Form_AuthenticateAdministrator.resx">
+      <DependentUpon>Form_AuthenticateAdministrator.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Form_RegisterAdministrators.resx">
       <DependentUpon>Form_RegisterAdministrators.cs</DependentUpon>
     </EmbeddedResource>
