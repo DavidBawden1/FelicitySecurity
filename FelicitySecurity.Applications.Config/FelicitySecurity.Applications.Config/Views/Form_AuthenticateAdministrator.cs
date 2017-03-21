@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FelicitySecurity.Applications.Config;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +11,33 @@ using System.Windows.Forms;
 
 namespace FelicitySecurity.Applications.Config.Views
 {
-    public partial class Form_AuthenticateAdministrator : Form
+    public partial class AuthenticateAdministrators_Form : Form
     {
-        public Form_AuthenticateAdministrator()
+        public AuthenticateAdministrators_Form()
         {
             InitializeComponent();
+        }
+
+        private void RegisterAdministratorButton_Click(object sender, EventArgs e)
+        {
+       
+        }
+
+        private void Back_MenuItem_Click(object sender, EventArgs e)
+        {
+            InitialiseRegistrationForm();
+            CloseThisForm();
+        }
+
+        private void CloseThisForm()
+        {
+            Hide();
+        }
+
+        private void InitialiseRegistrationForm()
+        {
+            RegisterAdministratorsForm registerForm = new RegisterAdministratorsForm();
+            registerForm.Show();
         }
     }
 }

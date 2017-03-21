@@ -289,7 +289,7 @@ namespace FelicitySecurity.Applications.Config
         /// </summary>
         private static void InitialiseAuthenticationForm()
         {
-            Form_AuthenticateAdministrator authenticationForm = new Form_AuthenticateAdministrator();
+            AuthenticateAdministrators_Form authenticationForm = new AuthenticateAdministrators_Form();
             authenticationForm.Show();
         }
     }
