@@ -47,6 +47,8 @@
             this.AuthenticationTextBoxControls_TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.AuthenticationTextBoxControls_GroupBox = new System.Windows.Forms.GroupBox();
             this.AuthenticationButtonControls_TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.SignIn_Button = new System.Windows.Forms.Button();
+            this.Clear_Button = new System.Windows.Forms.Button();
             this.GeneralControls_MenuStrip.SuspendLayout();
             this.AuthenticationBackground_TableLayoutPanel.SuspendLayout();
             this.AuthenticationFormCredentialsBackgroud_GroupBox.SuspendLayout();
@@ -57,6 +59,7 @@
             this.AdministratorsBackground_GroupBox.SuspendLayout();
             this.AdministratorsList_TableLayoutPanel.SuspendLayout();
             this.AuthenticationTextBoxControls_TableLayoutPanel.SuspendLayout();
+            this.AuthenticationButtonControls_TableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // GeneralControls_MenuStrip
@@ -260,6 +263,8 @@
             this.AuthenticationButtonControls_TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.AuthenticationButtonControls_TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.AuthenticationButtonControls_TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.AuthenticationButtonControls_TableLayoutPanel.Controls.Add(this.SignIn_Button, 0, 0);
+            this.AuthenticationButtonControls_TableLayoutPanel.Controls.Add(this.Clear_Button, 1, 0);
             this.AuthenticationButtonControls_TableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AuthenticationButtonControls_TableLayoutPanel.Location = new System.Drawing.Point(3, 162);
             this.AuthenticationButtonControls_TableLayoutPanel.Name = "AuthenticationButtonControls_TableLayoutPanel";
@@ -267,6 +272,24 @@
             this.AuthenticationButtonControls_TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.AuthenticationButtonControls_TableLayoutPanel.Size = new System.Drawing.Size(276, 34);
             this.AuthenticationButtonControls_TableLayoutPanel.TabIndex = 1;
+            // 
+            // SignIn_Button
+            // 
+            this.SignIn_Button.Location = new System.Drawing.Point(3, 3);
+            this.SignIn_Button.Name = "SignIn_Button";
+            this.SignIn_Button.Size = new System.Drawing.Size(63, 23);
+            this.SignIn_Button.TabIndex = 0;
+            this.SignIn_Button.Text = "Sign in ";
+            this.SignIn_Button.UseVisualStyleBackColor = true;
+            // 
+            // Clear_Button
+            // 
+            this.Clear_Button.Location = new System.Drawing.Point(72, 3);
+            this.Clear_Button.Name = "Clear_Button";
+            this.Clear_Button.Size = new System.Drawing.Size(63, 23);
+            this.Clear_Button.TabIndex = 1;
+            this.Clear_Button.Text = "Clear";
+            this.Clear_Button.UseVisualStyleBackColor = true;
             // 
             // AuthenticateAdministrators_Form
             // 
@@ -290,6 +313,7 @@
             this.AdministratorsBackground_GroupBox.ResumeLayout(false);
             this.AdministratorsList_TableLayoutPanel.ResumeLayout(false);
             this.AuthenticationTextBoxControls_TableLayoutPanel.ResumeLayout(false);
+            this.AuthenticationButtonControls_TableLayoutPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -316,5 +340,7 @@
         private System.Windows.Forms.TableLayoutPanel AuthenticationTextBoxControls_TableLayoutPanel;
         private System.Windows.Forms.GroupBox AuthenticationTextBoxControls_GroupBox;
         private System.Windows.Forms.TableLayoutPanel AuthenticationButtonControls_TableLayoutPanel;
+        private System.Windows.Forms.Button SignIn_Button;
+        private System.Windows.Forms.Button Clear_Button;
     }
 }
