@@ -33,24 +33,28 @@
             this.RegisterAdminstratorControls_TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.RegisterAdministratorTitle_GroupBox = new System.Windows.Forms.GroupBox();
             this.RegisterAdministratorControls_GroupBox = new System.Windows.Forms.GroupBox();
+            this.RegistrationCredentials_TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.RegistrationTextBoxControls_GroupBox = new System.Windows.Forms.GroupBox();
+            this.ReEnterPin_TextBox = new System.Windows.Forms.TextBox();
+            this.EnterEmail_Label = new System.Windows.Forms.Label();
+            this.EnterPin_TextBox = new System.Windows.Forms.TextBox();
+            this.EnterPin_Label = new System.Windows.Forms.Label();
+            this.EnterEmail_TextBox = new System.Windows.Forms.TextBox();
+            this.ReEnterPin_Label = new System.Windows.Forms.Label();
+            this.CreateUsername_Label = new System.Windows.Forms.Label();
+            this.CreateUsername_TextBox = new System.Windows.Forms.TextBox();
+            this.RegistrationControlButtons_TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.UpdateAdministrator_Button = new System.Windows.Forms.Button();
-            this.RemoveAdministrator_Button = new System.Windows.Forms.Button();
             this.RegisterCancel_Button = new System.Windows.Forms.Button();
+            this.RemoveAdministrator_Button = new System.Windows.Forms.Button();
             this.Register_Button = new System.Windows.Forms.Button();
             this.RegisterAdministrator_Button = new System.Windows.Forms.Button();
             this.Cancel_Button = new System.Windows.Forms.Button();
-            this.EnterPin_Label = new System.Windows.Forms.Label();
             this.Back_Button = new System.Windows.Forms.Button();
-            this.EnterPin_TextBox = new System.Windows.Forms.TextBox();
-            this.ReEnterPin_Label = new System.Windows.Forms.Label();
-            this.CreateUsername_Label = new System.Windows.Forms.Label();
-            this.EnterEmail_Label = new System.Windows.Forms.Label();
-            this.CreateUsername_TextBox = new System.Windows.Forms.TextBox();
-            this.ReEnterPin_TextBox = new System.Windows.Forms.TextBox();
-            this.EnterEmail_TextBox = new System.Windows.Forms.TextBox();
             this.AdministratorsListBoxAndLogo_GroupBox = new System.Windows.Forms.GroupBox();
             this.RegisterFormBackground_TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.Logo_GroupBox = new System.Windows.Forms.GroupBox();
+            this.RegistrationControlButtons_GroupBox = new System.Windows.Forms.GroupBox();
             this.ListOfAdministrators_GroupBox = new System.Windows.Forms.GroupBox();
             this.AdministratorListControlsTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.Administrators_ListBox = new System.Windows.Forms.ListBox();
@@ -60,14 +64,14 @@
             this.GeneralControls_MenuStrip = new System.Windows.Forms.MenuStrip();
             this.File_MenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Authentication_MenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.RegistrationCredentials_TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.RegistrationTextBoxControls_GroupBox = new System.Windows.Forms.GroupBox();
-            this.RegistrationControlButtons_GroupBox = new System.Windows.Forms.GroupBox();
-            this.RegistrationControlButtons_TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.Close_MenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Background_TableLayoutPanel.SuspendLayout();
             this.RegisterAdmin_GroupBox.SuspendLayout();
             this.RegisterAdminstratorControls_TableLayoutPanel.SuspendLayout();
             this.RegisterAdministratorControls_GroupBox.SuspendLayout();
+            this.RegistrationCredentials_TableLayoutPanel.SuspendLayout();
+            this.RegistrationTextBoxControls_GroupBox.SuspendLayout();
+            this.RegistrationControlButtons_TableLayoutPanel.SuspendLayout();
             this.AdministratorsListBoxAndLogo_GroupBox.SuspendLayout();
             this.RegisterFormBackground_TableLayoutPanel.SuspendLayout();
             this.Logo_GroupBox.SuspendLayout();
@@ -75,9 +79,6 @@
             this.AdministratorListControlsTableLayoutPanel.SuspendLayout();
             this.AdministratorsListControls_GroupBox.SuspendLayout();
             this.GeneralControls_MenuStrip.SuspendLayout();
-            this.RegistrationCredentials_TableLayoutPanel.SuspendLayout();
-            this.RegistrationTextBoxControls_GroupBox.SuspendLayout();
-            this.RegistrationControlButtons_TableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // Background_TableLayoutPanel
@@ -145,6 +146,143 @@
             this.RegisterAdministratorControls_GroupBox.TabStop = false;
             this.RegisterAdministratorControls_GroupBox.Text = "Controls";
             // 
+            // RegistrationCredentials_TableLayoutPanel
+            // 
+            this.RegistrationCredentials_TableLayoutPanel.ColumnCount = 1;
+            this.RegistrationCredentials_TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.RegistrationCredentials_TableLayoutPanel.Controls.Add(this.RegistrationTextBoxControls_GroupBox, 0, 0);
+            this.RegistrationCredentials_TableLayoutPanel.Controls.Add(this.RegistrationControlButtons_TableLayoutPanel, 0, 1);
+            this.RegistrationCredentials_TableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RegistrationCredentials_TableLayoutPanel.Location = new System.Drawing.Point(1, 14);
+            this.RegistrationCredentials_TableLayoutPanel.Name = "RegistrationCredentials_TableLayoutPanel";
+            this.RegistrationCredentials_TableLayoutPanel.RowCount = 2;
+            this.RegistrationCredentials_TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 78F));
+            this.RegistrationCredentials_TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22F));
+            this.RegistrationCredentials_TableLayoutPanel.Size = new System.Drawing.Size(345, 209);
+            this.RegistrationCredentials_TableLayoutPanel.TabIndex = 11;
+            // 
+            // RegistrationTextBoxControls_GroupBox
+            // 
+            this.RegistrationTextBoxControls_GroupBox.Controls.Add(this.ReEnterPin_TextBox);
+            this.RegistrationTextBoxControls_GroupBox.Controls.Add(this.EnterEmail_Label);
+            this.RegistrationTextBoxControls_GroupBox.Controls.Add(this.EnterPin_TextBox);
+            this.RegistrationTextBoxControls_GroupBox.Controls.Add(this.EnterPin_Label);
+            this.RegistrationTextBoxControls_GroupBox.Controls.Add(this.EnterEmail_TextBox);
+            this.RegistrationTextBoxControls_GroupBox.Controls.Add(this.ReEnterPin_Label);
+            this.RegistrationTextBoxControls_GroupBox.Controls.Add(this.CreateUsername_Label);
+            this.RegistrationTextBoxControls_GroupBox.Controls.Add(this.CreateUsername_TextBox);
+            this.RegistrationTextBoxControls_GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RegistrationTextBoxControls_GroupBox.Location = new System.Drawing.Point(3, 3);
+            this.RegistrationTextBoxControls_GroupBox.Name = "RegistrationTextBoxControls_GroupBox";
+            this.RegistrationTextBoxControls_GroupBox.Size = new System.Drawing.Size(339, 157);
+            this.RegistrationTextBoxControls_GroupBox.TabIndex = 0;
+            this.RegistrationTextBoxControls_GroupBox.TabStop = false;
+            // 
+            // ReEnterPin_TextBox
+            // 
+            this.ReEnterPin_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.ReEnterPin_TextBox.Location = new System.Drawing.Point(6, 136);
+            this.ReEnterPin_TextBox.Name = "ReEnterPin_TextBox";
+            this.ReEnterPin_TextBox.PasswordChar = '*';
+            this.ReEnterPin_TextBox.Size = new System.Drawing.Size(89, 20);
+            this.ReEnterPin_TextBox.TabIndex = 3;
+            // 
+            // EnterEmail_Label
+            // 
+            this.EnterEmail_Label.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.EnterEmail_Label.AutoSize = true;
+            this.EnterEmail_Label.Location = new System.Drawing.Point(2, -1);
+            this.EnterEmail_Label.Name = "EnterEmail_Label";
+            this.EnterEmail_Label.Size = new System.Drawing.Size(60, 13);
+            this.EnterEmail_Label.TabIndex = 3;
+            this.EnterEmail_Label.Text = "Enter Email";
+            // 
+            // EnterPin_TextBox
+            // 
+            this.EnterPin_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.EnterPin_TextBox.Location = new System.Drawing.Point(6, 96);
+            this.EnterPin_TextBox.Name = "EnterPin_TextBox";
+            this.EnterPin_TextBox.PasswordChar = '*';
+            this.EnterPin_TextBox.Size = new System.Drawing.Size(89, 20);
+            this.EnterPin_TextBox.TabIndex = 2;
+            // 
+            // EnterPin_Label
+            // 
+            this.EnterPin_Label.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.EnterPin_Label.AutoSize = true;
+            this.EnterPin_Label.Location = new System.Drawing.Point(2, 80);
+            this.EnterPin_Label.Name = "EnterPin_Label";
+            this.EnterPin_Label.Size = new System.Drawing.Size(50, 13);
+            this.EnterPin_Label.TabIndex = 8;
+            this.EnterPin_Label.Text = "Enter Pin";
+            // 
+            // EnterEmail_TextBox
+            // 
+            this.EnterEmail_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.EnterEmail_TextBox.Location = new System.Drawing.Point(6, 15);
+            this.EnterEmail_TextBox.Name = "EnterEmail_TextBox";
+            this.EnterEmail_TextBox.Size = new System.Drawing.Size(296, 20);
+            this.EnterEmail_TextBox.TabIndex = 0;
+            // 
+            // ReEnterPin_Label
+            // 
+            this.ReEnterPin_Label.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.ReEnterPin_Label.AutoSize = true;
+            this.ReEnterPin_Label.Location = new System.Drawing.Point(2, 120);
+            this.ReEnterPin_Label.Name = "ReEnterPin_Label";
+            this.ReEnterPin_Label.Size = new System.Drawing.Size(66, 13);
+            this.ReEnterPin_Label.TabIndex = 6;
+            this.ReEnterPin_Label.Text = "Re-enter Pin";
+            // 
+            // CreateUsername_Label
+            // 
+            this.CreateUsername_Label.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.CreateUsername_Label.AutoSize = true;
+            this.CreateUsername_Label.Location = new System.Drawing.Point(3, 38);
+            this.CreateUsername_Label.Name = "CreateUsername_Label";
+            this.CreateUsername_Label.Size = new System.Drawing.Size(89, 13);
+            this.CreateUsername_Label.TabIndex = 4;
+            this.CreateUsername_Label.Text = "Create Username";
+            // 
+            // CreateUsername_TextBox
+            // 
+            this.CreateUsername_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.CreateUsername_TextBox.Location = new System.Drawing.Point(6, 54);
+            this.CreateUsername_TextBox.Name = "CreateUsername_TextBox";
+            this.CreateUsername_TextBox.Size = new System.Drawing.Size(296, 20);
+            this.CreateUsername_TextBox.TabIndex = 1;
+            // 
+            // RegistrationControlButtons_TableLayoutPanel
+            // 
+            this.RegistrationControlButtons_TableLayoutPanel.ColumnCount = 4;
+            this.RegistrationControlButtons_TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.RegistrationControlButtons_TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.RegistrationControlButtons_TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.RegistrationControlButtons_TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.RegistrationControlButtons_TableLayoutPanel.Controls.Add(this.UpdateAdministrator_Button, 1, 0);
+            this.RegistrationControlButtons_TableLayoutPanel.Controls.Add(this.RegisterCancel_Button, 2, 0);
+            this.RegistrationControlButtons_TableLayoutPanel.Controls.Add(this.RemoveAdministrator_Button, 3, 0);
+            this.RegistrationControlButtons_TableLayoutPanel.Controls.Add(this.Register_Button, 0, 0);
+            this.RegistrationControlButtons_TableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RegistrationControlButtons_TableLayoutPanel.Location = new System.Drawing.Point(3, 166);
+            this.RegistrationControlButtons_TableLayoutPanel.Name = "RegistrationControlButtons_TableLayoutPanel";
+            this.RegistrationControlButtons_TableLayoutPanel.RowCount = 1;
+            this.RegistrationControlButtons_TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.RegistrationControlButtons_TableLayoutPanel.Size = new System.Drawing.Size(339, 40);
+            this.RegistrationControlButtons_TableLayoutPanel.TabIndex = 1;
+            // 
             // UpdateAdministrator_Button
             // 
             this.UpdateAdministrator_Button.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -158,19 +296,6 @@
             this.UpdateAdministrator_Button.UseVisualStyleBackColor = true;
             this.UpdateAdministrator_Button.Click += new System.EventHandler(this.UpdateAdministratorButton_Click);
             // 
-            // RemoveAdministrator_Button
-            // 
-            this.RemoveAdministrator_Button.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.RemoveAdministrator_Button.Location = new System.Drawing.Point(260, 8);
-            this.RemoveAdministrator_Button.Margin = new System.Windows.Forms.Padding(8);
-            this.RemoveAdministrator_Button.Name = "RemoveAdministrator_Button";
-            this.RemoveAdministrator_Button.Padding = new System.Windows.Forms.Padding(1);
-            this.RemoveAdministrator_Button.Size = new System.Drawing.Size(71, 24);
-            this.RemoveAdministrator_Button.TabIndex = 13;
-            this.RemoveAdministrator_Button.Text = "Remove";
-            this.RemoveAdministrator_Button.UseVisualStyleBackColor = true;
-            this.RemoveAdministrator_Button.Click += new System.EventHandler(this.RemoveAdministratorButton_Click);
-            // 
             // RegisterCancel_Button
             // 
             this.RegisterCancel_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -183,6 +308,19 @@
             this.RegisterCancel_Button.Text = "Cancel";
             this.RegisterCancel_Button.UseVisualStyleBackColor = true;
             this.RegisterCancel_Button.Click += new System.EventHandler(this.RegisterCancel_Button_Click);
+            // 
+            // RemoveAdministrator_Button
+            // 
+            this.RemoveAdministrator_Button.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.RemoveAdministrator_Button.Location = new System.Drawing.Point(260, 8);
+            this.RemoveAdministrator_Button.Margin = new System.Windows.Forms.Padding(8);
+            this.RemoveAdministrator_Button.Name = "RemoveAdministrator_Button";
+            this.RemoveAdministrator_Button.Padding = new System.Windows.Forms.Padding(1);
+            this.RemoveAdministrator_Button.Size = new System.Drawing.Size(71, 24);
+            this.RemoveAdministrator_Button.TabIndex = 13;
+            this.RemoveAdministrator_Button.Text = "Remove";
+            this.RemoveAdministrator_Button.UseVisualStyleBackColor = true;
+            this.RemoveAdministrator_Button.Click += new System.EventHandler(this.RemoveAdministratorButton_Click);
             // 
             // Register_Button
             // 
@@ -221,17 +359,6 @@
             this.Cancel_Button.Text = "Cancel";
             this.Cancel_Button.UseVisualStyleBackColor = true;
             // 
-            // EnterPin_Label
-            // 
-            this.EnterPin_Label.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.EnterPin_Label.AutoSize = true;
-            this.EnterPin_Label.Location = new System.Drawing.Point(2, 80);
-            this.EnterPin_Label.Name = "EnterPin_Label";
-            this.EnterPin_Label.Size = new System.Drawing.Size(50, 13);
-            this.EnterPin_Label.TabIndex = 8;
-            this.EnterPin_Label.Text = "Enter Pin";
-            // 
             // Back_Button
             // 
             this.Back_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -243,81 +370,6 @@
             this.Back_Button.TabIndex = 9;
             this.Back_Button.Text = "Back";
             this.Back_Button.UseVisualStyleBackColor = true;
-            // 
-            // EnterPin_TextBox
-            // 
-            this.EnterPin_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.EnterPin_TextBox.Location = new System.Drawing.Point(6, 96);
-            this.EnterPin_TextBox.Name = "EnterPin_TextBox";
-            this.EnterPin_TextBox.PasswordChar = '*';
-            this.EnterPin_TextBox.Size = new System.Drawing.Size(89, 20);
-            this.EnterPin_TextBox.TabIndex = 2;
-            // 
-            // ReEnterPin_Label
-            // 
-            this.ReEnterPin_Label.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.ReEnterPin_Label.AutoSize = true;
-            this.ReEnterPin_Label.Location = new System.Drawing.Point(2, 120);
-            this.ReEnterPin_Label.Name = "ReEnterPin_Label";
-            this.ReEnterPin_Label.Size = new System.Drawing.Size(66, 13);
-            this.ReEnterPin_Label.TabIndex = 6;
-            this.ReEnterPin_Label.Text = "Re-enter Pin";
-            // 
-            // CreateUsername_Label
-            // 
-            this.CreateUsername_Label.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.CreateUsername_Label.AutoSize = true;
-            this.CreateUsername_Label.Location = new System.Drawing.Point(3, 38);
-            this.CreateUsername_Label.Name = "CreateUsername_Label";
-            this.CreateUsername_Label.Size = new System.Drawing.Size(89, 13);
-            this.CreateUsername_Label.TabIndex = 4;
-            this.CreateUsername_Label.Text = "Create Username";
-            // 
-            // EnterEmail_Label
-            // 
-            this.EnterEmail_Label.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.EnterEmail_Label.AutoSize = true;
-            this.EnterEmail_Label.Location = new System.Drawing.Point(2, -1);
-            this.EnterEmail_Label.Name = "EnterEmail_Label";
-            this.EnterEmail_Label.Size = new System.Drawing.Size(60, 13);
-            this.EnterEmail_Label.TabIndex = 3;
-            this.EnterEmail_Label.Text = "Enter Email";
-            // 
-            // CreateUsername_TextBox
-            // 
-            this.CreateUsername_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.CreateUsername_TextBox.Location = new System.Drawing.Point(6, 54);
-            this.CreateUsername_TextBox.Name = "CreateUsername_TextBox";
-            this.CreateUsername_TextBox.Size = new System.Drawing.Size(296, 20);
-            this.CreateUsername_TextBox.TabIndex = 1;
-            // 
-            // ReEnterPin_TextBox
-            // 
-            this.ReEnterPin_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.ReEnterPin_TextBox.Location = new System.Drawing.Point(6, 136);
-            this.ReEnterPin_TextBox.Name = "ReEnterPin_TextBox";
-            this.ReEnterPin_TextBox.PasswordChar = '*';
-            this.ReEnterPin_TextBox.Size = new System.Drawing.Size(89, 20);
-            this.ReEnterPin_TextBox.TabIndex = 3;
-            // 
-            // EnterEmail_TextBox
-            // 
-            this.EnterEmail_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.EnterEmail_TextBox.Location = new System.Drawing.Point(6, 15);
-            this.EnterEmail_TextBox.Name = "EnterEmail_TextBox";
-            this.EnterEmail_TextBox.Size = new System.Drawing.Size(296, 20);
-            this.EnterEmail_TextBox.TabIndex = 0;
             // 
             // AdministratorsListBoxAndLogo_GroupBox
             // 
@@ -354,6 +406,14 @@
             this.Logo_GroupBox.Size = new System.Drawing.Size(713, 357);
             this.Logo_GroupBox.TabIndex = 0;
             this.Logo_GroupBox.TabStop = false;
+            // 
+            // RegistrationControlButtons_GroupBox
+            // 
+            this.RegistrationControlButtons_GroupBox.Location = new System.Drawing.Point(278, 147);
+            this.RegistrationControlButtons_GroupBox.Name = "RegistrationControlButtons_GroupBox";
+            this.RegistrationControlButtons_GroupBox.Size = new System.Drawing.Size(200, 35);
+            this.RegistrationControlButtons_GroupBox.TabIndex = 1;
+            this.RegistrationControlButtons_GroupBox.TabStop = false;
             // 
             // ListOfAdministrators_GroupBox
             // 
@@ -438,7 +498,8 @@
             // File_MenuItem
             // 
             this.File_MenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Authentication_MenuItem});
+            this.Authentication_MenuItem,
+            this.Close_MenuItem});
             this.File_MenuItem.Name = "File_MenuItem";
             this.File_MenuItem.Size = new System.Drawing.Size(37, 20);
             this.File_MenuItem.Text = "File";
@@ -450,64 +511,12 @@
             this.Authentication_MenuItem.Text = "Authentication";
             this.Authentication_MenuItem.Click += new System.EventHandler(this.Authentication_MenuItem_Click);
             // 
-            // RegistrationCredentials_TableLayoutPanel
+            // Close_MenuItem
             // 
-            this.RegistrationCredentials_TableLayoutPanel.ColumnCount = 1;
-            this.RegistrationCredentials_TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.RegistrationCredentials_TableLayoutPanel.Controls.Add(this.RegistrationTextBoxControls_GroupBox, 0, 0);
-            this.RegistrationCredentials_TableLayoutPanel.Controls.Add(this.RegistrationControlButtons_TableLayoutPanel, 0, 1);
-            this.RegistrationCredentials_TableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RegistrationCredentials_TableLayoutPanel.Location = new System.Drawing.Point(1, 14);
-            this.RegistrationCredentials_TableLayoutPanel.Name = "RegistrationCredentials_TableLayoutPanel";
-            this.RegistrationCredentials_TableLayoutPanel.RowCount = 2;
-            this.RegistrationCredentials_TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 78F));
-            this.RegistrationCredentials_TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22F));
-            this.RegistrationCredentials_TableLayoutPanel.Size = new System.Drawing.Size(345, 209);
-            this.RegistrationCredentials_TableLayoutPanel.TabIndex = 11;
-            // 
-            // RegistrationTextBoxControls_GroupBox
-            // 
-            this.RegistrationTextBoxControls_GroupBox.Controls.Add(this.ReEnterPin_TextBox);
-            this.RegistrationTextBoxControls_GroupBox.Controls.Add(this.EnterEmail_Label);
-            this.RegistrationTextBoxControls_GroupBox.Controls.Add(this.EnterPin_TextBox);
-            this.RegistrationTextBoxControls_GroupBox.Controls.Add(this.EnterPin_Label);
-            this.RegistrationTextBoxControls_GroupBox.Controls.Add(this.EnterEmail_TextBox);
-            this.RegistrationTextBoxControls_GroupBox.Controls.Add(this.ReEnterPin_Label);
-            this.RegistrationTextBoxControls_GroupBox.Controls.Add(this.CreateUsername_Label);
-            this.RegistrationTextBoxControls_GroupBox.Controls.Add(this.CreateUsername_TextBox);
-            this.RegistrationTextBoxControls_GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RegistrationTextBoxControls_GroupBox.Location = new System.Drawing.Point(3, 3);
-            this.RegistrationTextBoxControls_GroupBox.Name = "RegistrationTextBoxControls_GroupBox";
-            this.RegistrationTextBoxControls_GroupBox.Size = new System.Drawing.Size(339, 157);
-            this.RegistrationTextBoxControls_GroupBox.TabIndex = 0;
-            this.RegistrationTextBoxControls_GroupBox.TabStop = false;
-            // 
-            // RegistrationControlButtons_GroupBox
-            // 
-            this.RegistrationControlButtons_GroupBox.Location = new System.Drawing.Point(278, 147);
-            this.RegistrationControlButtons_GroupBox.Name = "RegistrationControlButtons_GroupBox";
-            this.RegistrationControlButtons_GroupBox.Size = new System.Drawing.Size(200, 35);
-            this.RegistrationControlButtons_GroupBox.TabIndex = 1;
-            this.RegistrationControlButtons_GroupBox.TabStop = false;
-            // 
-            // RegistrationControlButtons_TableLayoutPanel
-            // 
-            this.RegistrationControlButtons_TableLayoutPanel.ColumnCount = 4;
-            this.RegistrationControlButtons_TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.RegistrationControlButtons_TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.RegistrationControlButtons_TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.RegistrationControlButtons_TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.RegistrationControlButtons_TableLayoutPanel.Controls.Add(this.UpdateAdministrator_Button, 1, 0);
-            this.RegistrationControlButtons_TableLayoutPanel.Controls.Add(this.RegisterCancel_Button, 2, 0);
-            this.RegistrationControlButtons_TableLayoutPanel.Controls.Add(this.RemoveAdministrator_Button, 3, 0);
-            this.RegistrationControlButtons_TableLayoutPanel.Controls.Add(this.Register_Button, 0, 0);
-            this.RegistrationControlButtons_TableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RegistrationControlButtons_TableLayoutPanel.Location = new System.Drawing.Point(3, 166);
-            this.RegistrationControlButtons_TableLayoutPanel.Name = "RegistrationControlButtons_TableLayoutPanel";
-            this.RegistrationControlButtons_TableLayoutPanel.RowCount = 1;
-            this.RegistrationControlButtons_TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.RegistrationControlButtons_TableLayoutPanel.Size = new System.Drawing.Size(339, 40);
-            this.RegistrationControlButtons_TableLayoutPanel.TabIndex = 1;
+            this.Close_MenuItem.Name = "Close_MenuItem";
+            this.Close_MenuItem.Size = new System.Drawing.Size(153, 22);
+            this.Close_MenuItem.Text = "Close";
+            this.Close_MenuItem.Click += new System.EventHandler(this.Close_MenuItem_Click);
             // 
             // RegisterAdministrators_Form
             // 
@@ -525,6 +534,10 @@
             this.RegisterAdmin_GroupBox.ResumeLayout(false);
             this.RegisterAdminstratorControls_TableLayoutPanel.ResumeLayout(false);
             this.RegisterAdministratorControls_GroupBox.ResumeLayout(false);
+            this.RegistrationCredentials_TableLayoutPanel.ResumeLayout(false);
+            this.RegistrationTextBoxControls_GroupBox.ResumeLayout(false);
+            this.RegistrationTextBoxControls_GroupBox.PerformLayout();
+            this.RegistrationControlButtons_TableLayoutPanel.ResumeLayout(false);
             this.AdministratorsListBoxAndLogo_GroupBox.ResumeLayout(false);
             this.RegisterFormBackground_TableLayoutPanel.ResumeLayout(false);
             this.Logo_GroupBox.ResumeLayout(false);
@@ -534,10 +547,6 @@
             this.AdministratorsListControls_GroupBox.PerformLayout();
             this.GeneralControls_MenuStrip.ResumeLayout(false);
             this.GeneralControls_MenuStrip.PerformLayout();
-            this.RegistrationCredentials_TableLayoutPanel.ResumeLayout(false);
-            this.RegistrationTextBoxControls_GroupBox.ResumeLayout(false);
-            this.RegistrationTextBoxControls_GroupBox.PerformLayout();
-            this.RegistrationControlButtons_TableLayoutPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -581,6 +590,7 @@
         private System.Windows.Forms.GroupBox RegistrationTextBoxControls_GroupBox;
         private System.Windows.Forms.GroupBox RegistrationControlButtons_GroupBox;
         private System.Windows.Forms.TableLayoutPanel RegistrationControlButtons_TableLayoutPanel;
+        private System.Windows.Forms.ToolStripMenuItem Close_MenuItem;
     }
 }
 

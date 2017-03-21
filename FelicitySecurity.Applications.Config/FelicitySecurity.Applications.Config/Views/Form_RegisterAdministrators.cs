@@ -292,6 +292,16 @@ namespace FelicitySecurity.Applications.Config
             InitialiseAuthenticationForm();
             CloseThisForm();
         }
+
+        /// <summary>
+        /// closes the application. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Close_MenuItem_Click(object sender, EventArgs e)
+        {
+            CloseThisForm();
+        }
     }
 }
 
