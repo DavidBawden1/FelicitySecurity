@@ -183,7 +183,7 @@ namespace FelicitySecurity.Applications.Config.ViewModels
         /// <param name="form"></param>
         public void InitialiseControlDataSources(RegisterAdministratorsForm form)
         {
-            form.CurrentSortComboBox.DataSource = Enum.GetValues(typeof(CurrentSortingType));
+            form.CurrentSortCombo_Box.DataSource = Enum.GetValues(typeof(CurrentSortingType));
         }
     }
 }
