@@ -26,10 +26,10 @@ namespace FelicitySecurity.Applications.Config.Views
         private void Back_MenuItem_Click(object sender, EventArgs e)
         {
             InitialiseRegistrationForm();
-            CloseThisForm();
+            HideThisForm();
         }
 
-        private void CloseThisForm()
+        private void HideThisForm()
         {
             Hide();
         }
@@ -38,6 +38,11 @@ namespace FelicitySecurity.Applications.Config.Views
         {
             RegisterAdministrators_Form registerForm = new RegisterAdministrators_Form();
             registerForm.Show();
+        }
+
+        private void Close_MenuItem_Click(object sender, EventArgs e)
+        {
+            HideThisForm();
         }
     }
 }

@@ -95,8 +95,9 @@
             // Close_MenuItem
             // 
             this.Close_MenuItem.Name = "Close_MenuItem";
-            this.Close_MenuItem.Size = new System.Drawing.Size(137, 22);
+            this.Close_MenuItem.Size = new System.Drawing.Size(152, 22);
             this.Close_MenuItem.Text = "Close";
+            this.Close_MenuItem.Click += new System.EventHandler(this.Close_MenuItem_Click);
             // 
             // AuthenticationBackground_TableLayoutPanel
             // 
