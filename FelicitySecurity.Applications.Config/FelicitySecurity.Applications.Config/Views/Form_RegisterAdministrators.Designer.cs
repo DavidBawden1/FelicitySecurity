@@ -1,6 +1,6 @@
 ﻿namespace FelicitySecurity.Applications.Config
 {
-    partial class RegisterAdministratorsForm
+    partial class RegisterAdministrators_Form
     {
         /// <summary>
         /// Required designer variable.
@@ -458,7 +458,7 @@
             this.File_MenuItem.Size = new System.Drawing.Size(37, 20);
             this.File_MenuItem.Text = "File";
             // 
-            // RegisterAdministratorsForm
+            // RegisterAdministrators_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -467,7 +467,7 @@
             this.Controls.Add(this.GeneralControls_MenuStrip);
             this.MainMenuStrip = this.GeneralControls_MenuStrip;
             this.MinimumSize = new System.Drawing.Size(1025, 608);
-            this.Name = "RegisterAdministratorsForm";
+            this.Name = "RegisterAdministrators_Form";
             this.Text = "Registration";
             this.Load += new System.EventHandler(this.RegisterAdministratorsForm_Load);
             this.Background_TableLayoutPanel.ResumeLayout(false);

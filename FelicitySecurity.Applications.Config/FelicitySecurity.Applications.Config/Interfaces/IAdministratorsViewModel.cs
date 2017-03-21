@@ -12,9 +12,9 @@ namespace FelicitySecurity.Applications.Config.Interfaces
         string Username { get; set; }
         string PinCode { get; set; }
         string PinCodeConfirmed { get; set; }
-        void Clear(RegisterAdministratorsForm form);
-        void BindTextboxControls(RegisterAdministratorsForm form, AdministratorsViewModel viewModel, TextBox textbox);
-        void DisplayAdministratorEmails(RegisterAdministratorsForm form, AdministratorsController controller, AdministratorsModel model, CurrentSortingType sortingType);
+        void Clear(RegisterAdministrators_Form form);
+        void BindTextboxControls(RegisterAdministrators_Form form, AdministratorsViewModel viewModel, TextBox textbox);
+        void DisplayAdministratorEmails(RegisterAdministrators_Form form, AdministratorsController controller, AdministratorsModel model, CurrentSortingType sortingType);
         void OnPropertyChanged(string propertyName);
     }
 

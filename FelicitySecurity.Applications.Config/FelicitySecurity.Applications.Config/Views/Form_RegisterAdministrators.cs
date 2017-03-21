@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace FelicitySecurity.Applications.Config
 {
-    public partial class RegisterAdministratorsForm : Form, IDataErrorInfo
+    public partial class RegisterAdministrators_Form : Form, IDataErrorInfo
     {
         #region Declarations
         private TextBox _textbox;
@@ -95,9 +95,9 @@ namespace FelicitySecurity.Applications.Config
         #region Constructors
 
         /// <summary>
-        /// Initialises the RegisterAdministratorsForm
+        /// Initialises the RegisterAdministrators_Form
         /// </summary>
-        public RegisterAdministratorsForm()
+        public RegisterAdministrators_Form()
         {
             InitializeComponent();
         }

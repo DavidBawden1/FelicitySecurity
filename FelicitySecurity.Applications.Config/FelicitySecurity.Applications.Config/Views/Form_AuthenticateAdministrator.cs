@@ -36,7 +36,7 @@ namespace FelicitySecurity.Applications.Config.Views
 
         private void InitialiseRegistrationForm()
         {
-            RegisterAdministratorsForm registerForm = new RegisterAdministratorsForm();
+            RegisterAdministrators_Form registerForm = new RegisterAdministrators_Form();
             registerForm.Show();
         }
     }
