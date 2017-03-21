@@ -196,9 +196,9 @@
             this.EnterEmail_Label.AutoSize = true;
             this.EnterEmail_Label.Location = new System.Drawing.Point(2, -1);
             this.EnterEmail_Label.Name = "EnterEmail_Label";
-            this.EnterEmail_Label.Size = new System.Drawing.Size(60, 13);
+            this.EnterEmail_Label.Size = new System.Drawing.Size(101, 13);
             this.EnterEmail_Label.TabIndex = 3;
-            this.EnterEmail_Label.Text = "Enter Email";
+            this.EnterEmail_Label.Text = "Enter Email Address";
             // 
             // EnterPin_TextBox
             // 
@@ -217,9 +217,9 @@
             this.EnterPin_Label.AutoSize = true;
             this.EnterPin_Label.Location = new System.Drawing.Point(2, 80);
             this.EnterPin_Label.Name = "EnterPin_Label";
-            this.EnterPin_Label.Size = new System.Drawing.Size(50, 13);
+            this.EnterPin_Label.Size = new System.Drawing.Size(78, 13);
             this.EnterPin_Label.TabIndex = 8;
-            this.EnterPin_Label.Text = "Enter Pin";
+            this.EnterPin_Label.Text = "Enter Pin Code";
             // 
             // EnterEmail_TextBox
             // 
@@ -238,9 +238,9 @@
             this.ReEnterPin_Label.AutoSize = true;
             this.ReEnterPin_Label.Location = new System.Drawing.Point(2, 120);
             this.ReEnterPin_Label.Name = "ReEnterPin_Label";
-            this.ReEnterPin_Label.Size = new System.Drawing.Size(66, 13);
+            this.ReEnterPin_Label.Size = new System.Drawing.Size(94, 13);
             this.ReEnterPin_Label.TabIndex = 6;
-            this.ReEnterPin_Label.Text = "Re-enter Pin";
+            this.ReEnterPin_Label.Text = "Re-enter Pin Code";
             // 
             // CreateUsername_Label
             // 
