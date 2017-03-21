@@ -266,17 +266,6 @@ namespace FelicitySecurity.Applications.Config
         }
 
         /// <summary>
-        /// Closes the this form and opens Authentication form. 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void RegisterBack_Button_Click(object sender, EventArgs e)
-        {
-            InitialiseAuthenticationForm();
-            CloseThisForm();
-        }
-
-        /// <summary>
         /// Closes this form. 
         /// </summary>
         private void CloseThisForm()
@@ -291,6 +280,17 @@ namespace FelicitySecurity.Applications.Config
         {
             AuthenticateAdministrators_Form authenticationForm = new AuthenticateAdministrators_Form();
             authenticationForm.Show();
+        }
+
+        /// <summary>
+        /// Closes the this form and opens Authentication form. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Authentication_MenuItem_Click(object sender, EventArgs e)
+        {
+            InitialiseAuthenticationForm();
+            CloseThisForm();
         }
     }
 }

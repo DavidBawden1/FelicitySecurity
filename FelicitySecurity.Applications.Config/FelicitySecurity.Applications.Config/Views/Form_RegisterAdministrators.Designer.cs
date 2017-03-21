@@ -36,7 +36,6 @@
             this.UpdateAdministrator_Button = new System.Windows.Forms.Button();
             this.RemoveAdministrator_Button = new System.Windows.Forms.Button();
             this.RegisterCancel_Button = new System.Windows.Forms.Button();
-            this.RegisterBack_Button = new System.Windows.Forms.Button();
             this.Register_Button = new System.Windows.Forms.Button();
             this.RegisterAdministrator_Button = new System.Windows.Forms.Button();
             this.Cancel_Button = new System.Windows.Forms.Button();
@@ -60,6 +59,7 @@
             this.CurrentSortCombo_Box = new System.Windows.Forms.ComboBox();
             this.GeneralControls_MenuStrip = new System.Windows.Forms.MenuStrip();
             this.File_MenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Authentication_MenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Background_TableLayoutPanel.SuspendLayout();
             this.RegisterAdmin_GroupBox.SuspendLayout();
             this.RegisterAdminstratorControls_TableLayoutPanel.SuspendLayout();
@@ -128,7 +128,6 @@
             this.RegisterAdministratorControls_GroupBox.Controls.Add(this.UpdateAdministrator_Button);
             this.RegisterAdministratorControls_GroupBox.Controls.Add(this.RemoveAdministrator_Button);
             this.RegisterAdministratorControls_GroupBox.Controls.Add(this.RegisterCancel_Button);
-            this.RegisterAdministratorControls_GroupBox.Controls.Add(this.RegisterBack_Button);
             this.RegisterAdministratorControls_GroupBox.Controls.Add(this.Register_Button);
             this.RegisterAdministratorControls_GroupBox.Controls.Add(this.RegisterAdministrator_Button);
             this.RegisterAdministratorControls_GroupBox.Controls.Add(this.Cancel_Button);
@@ -188,19 +187,6 @@
             this.RegisterCancel_Button.Text = "Cancel";
             this.RegisterCancel_Button.UseVisualStyleBackColor = true;
             this.RegisterCancel_Button.Click += new System.EventHandler(this.RegisterCancel_Button_Click);
-            // 
-            // RegisterBack_Button
-            // 
-            this.RegisterBack_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.RegisterBack_Button.Location = new System.Drawing.Point(99, 186);
-            this.RegisterBack_Button.Margin = new System.Windows.Forms.Padding(8);
-            this.RegisterBack_Button.Name = "RegisterBack_Button";
-            this.RegisterBack_Button.Padding = new System.Windows.Forms.Padding(1);
-            this.RegisterBack_Button.Size = new System.Drawing.Size(90, 30);
-            this.RegisterBack_Button.TabIndex = 11;
-            this.RegisterBack_Button.Text = "Back";
-            this.RegisterBack_Button.UseVisualStyleBackColor = true;
-            this.RegisterBack_Button.Click += new System.EventHandler(this.RegisterBack_Button_Click);
             // 
             // Register_Button
             // 
@@ -454,9 +440,18 @@
             // 
             // File_MenuItem
             // 
+            this.File_MenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Authentication_MenuItem});
             this.File_MenuItem.Name = "File_MenuItem";
             this.File_MenuItem.Size = new System.Drawing.Size(37, 20);
             this.File_MenuItem.Text = "File";
+            // 
+            // Authentication_MenuItem
+            // 
+            this.Authentication_MenuItem.Name = "Authentication_MenuItem";
+            this.Authentication_MenuItem.Size = new System.Drawing.Size(153, 22);
+            this.Authentication_MenuItem.Text = "Authentication";
+            this.Authentication_MenuItem.Click += new System.EventHandler(this.Authentication_MenuItem_Click);
             // 
             // RegisterAdministrators_Form
             // 
@@ -507,7 +502,6 @@
         private System.Windows.Forms.GroupBox Logo_GroupBox;
         private System.Windows.Forms.GroupBox ListOfAdministrators_GroupBox;
         private System.Windows.Forms.Button RegisterCancel_Button;
-        private System.Windows.Forms.Button RegisterBack_Button;
         private System.Windows.Forms.Button Register_Button;
         public System.Windows.Forms.TextBox EnterPin_TextBox;
         public System.Windows.Forms.TextBox CreateUsername_TextBox;
@@ -522,6 +516,7 @@
         private System.Windows.Forms.Button UpdateAdministrator_Button;
         private System.Windows.Forms.MenuStrip GeneralControls_MenuStrip;
         private System.Windows.Forms.ToolStripMenuItem File_MenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Authentication_MenuItem;
     }
 }
 
