@@ -30,6 +30,8 @@
         {
             this.GeneralControls_MenuStrip = new System.Windows.Forms.MenuStrip();
             this.File_MenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Back_MenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Close_MenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AuthenticationBackground_TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.AuthenticationFormCredentialsBackgroud_GroupBox = new System.Windows.Forms.GroupBox();
             this.AuthenticationHeadingAndCredentials_TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
@@ -42,16 +44,19 @@
             this.AdministratorSorting_GroupBox = new System.Windows.Forms.GroupBox();
             this.AdministratorsGroup_Box = new System.Windows.Forms.GroupBox();
             this.AuthenticationLogo_GroupBox = new System.Windows.Forms.GroupBox();
-            this.Back_MenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Close_MenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AuthenticationTextBoxControls_TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.AuthenticationTextBoxControls_GroupBox = new System.Windows.Forms.GroupBox();
+            this.AuthenticationButtonControls_TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.GeneralControls_MenuStrip.SuspendLayout();
             this.AuthenticationBackground_TableLayoutPanel.SuspendLayout();
             this.AuthenticationFormCredentialsBackgroud_GroupBox.SuspendLayout();
             this.AuthenticationHeadingAndCredentials_TableLayoutPanel.SuspendLayout();
+            this.AuthenticationCredentials_GroupBox.SuspendLayout();
             this.AuthenticationDetailsBackground_GroupBox.SuspendLayout();
             this.AuthenticationAdministratorsDetails_TableLayoutPanel.SuspendLayout();
             this.AdministratorsBackground_GroupBox.SuspendLayout();
             this.AdministratorsList_TableLayoutPanel.SuspendLayout();
+            this.AuthenticationTextBoxControls_TableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // GeneralControls_MenuStrip
@@ -71,6 +76,19 @@
             this.File_MenuItem.Name = "File_MenuItem";
             this.File_MenuItem.Size = new System.Drawing.Size(37, 20);
             this.File_MenuItem.Text = "File";
+            // 
+            // Back_MenuItem
+            // 
+            this.Back_MenuItem.Name = "Back_MenuItem";
+            this.Back_MenuItem.Size = new System.Drawing.Size(152, 22);
+            this.Back_MenuItem.Text = "Registration";
+            this.Back_MenuItem.Click += new System.EventHandler(this.Back_MenuItem_Click);
+            // 
+            // Close_MenuItem
+            // 
+            this.Close_MenuItem.Name = "Close_MenuItem";
+            this.Close_MenuItem.Size = new System.Drawing.Size(152, 22);
+            this.Close_MenuItem.Text = "Close";
             // 
             // AuthenticationBackground_TableLayoutPanel
             // 
@@ -114,6 +132,7 @@
             // 
             // AuthenticationCredentials_GroupBox
             // 
+            this.AuthenticationCredentials_GroupBox.Controls.Add(this.AuthenticationTextBoxControls_TableLayoutPanel);
             this.AuthenticationCredentials_GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AuthenticationCredentials_GroupBox.Location = new System.Drawing.Point(3, 338);
             this.AuthenticationCredentials_GroupBox.Name = "AuthenticationCredentials_GroupBox";
@@ -210,18 +229,44 @@
             this.AuthenticationLogo_GroupBox.TabIndex = 1;
             this.AuthenticationLogo_GroupBox.TabStop = false;
             // 
-            // Back_MenuItem
+            // AuthenticationTextBoxControls_TableLayoutPanel
             // 
-            this.Back_MenuItem.Name = "Back_MenuItem";
-            this.Back_MenuItem.Size = new System.Drawing.Size(152, 22);
-            this.Back_MenuItem.Text = "Registration";
-            this.Back_MenuItem.Click += new System.EventHandler(this.Back_MenuItem_Click);
+            this.AuthenticationTextBoxControls_TableLayoutPanel.ColumnCount = 1;
+            this.AuthenticationTextBoxControls_TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.AuthenticationTextBoxControls_TableLayoutPanel.Controls.Add(this.AuthenticationTextBoxControls_GroupBox, 0, 0);
+            this.AuthenticationTextBoxControls_TableLayoutPanel.Controls.Add(this.AuthenticationButtonControls_TableLayoutPanel, 0, 1);
+            this.AuthenticationTextBoxControls_TableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AuthenticationTextBoxControls_TableLayoutPanel.Location = new System.Drawing.Point(3, 16);
+            this.AuthenticationTextBoxControls_TableLayoutPanel.Name = "AuthenticationTextBoxControls_TableLayoutPanel";
+            this.AuthenticationTextBoxControls_TableLayoutPanel.RowCount = 2;
+            this.AuthenticationTextBoxControls_TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.AuthenticationTextBoxControls_TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.AuthenticationTextBoxControls_TableLayoutPanel.Size = new System.Drawing.Size(282, 199);
+            this.AuthenticationTextBoxControls_TableLayoutPanel.TabIndex = 0;
             // 
-            // Close_MenuItem
+            // AuthenticationTextBoxControls_GroupBox
             // 
-            this.Close_MenuItem.Name = "Close_MenuItem";
-            this.Close_MenuItem.Size = new System.Drawing.Size(152, 22);
-            this.Close_MenuItem.Text = "Close";
+            this.AuthenticationTextBoxControls_GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AuthenticationTextBoxControls_GroupBox.Location = new System.Drawing.Point(3, 3);
+            this.AuthenticationTextBoxControls_GroupBox.Name = "AuthenticationTextBoxControls_GroupBox";
+            this.AuthenticationTextBoxControls_GroupBox.Size = new System.Drawing.Size(276, 153);
+            this.AuthenticationTextBoxControls_GroupBox.TabIndex = 0;
+            this.AuthenticationTextBoxControls_GroupBox.TabStop = false;
+            // 
+            // AuthenticationButtonControls_TableLayoutPanel
+            // 
+            this.AuthenticationButtonControls_TableLayoutPanel.ColumnCount = 4;
+            this.AuthenticationButtonControls_TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.AuthenticationButtonControls_TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.AuthenticationButtonControls_TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.AuthenticationButtonControls_TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.AuthenticationButtonControls_TableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AuthenticationButtonControls_TableLayoutPanel.Location = new System.Drawing.Point(3, 162);
+            this.AuthenticationButtonControls_TableLayoutPanel.Name = "AuthenticationButtonControls_TableLayoutPanel";
+            this.AuthenticationButtonControls_TableLayoutPanel.RowCount = 1;
+            this.AuthenticationButtonControls_TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.AuthenticationButtonControls_TableLayoutPanel.Size = new System.Drawing.Size(276, 34);
+            this.AuthenticationButtonControls_TableLayoutPanel.TabIndex = 1;
             // 
             // AuthenticateAdministrators_Form
             // 
@@ -239,10 +284,12 @@
             this.AuthenticationBackground_TableLayoutPanel.ResumeLayout(false);
             this.AuthenticationFormCredentialsBackgroud_GroupBox.ResumeLayout(false);
             this.AuthenticationHeadingAndCredentials_TableLayoutPanel.ResumeLayout(false);
+            this.AuthenticationCredentials_GroupBox.ResumeLayout(false);
             this.AuthenticationDetailsBackground_GroupBox.ResumeLayout(false);
             this.AuthenticationAdministratorsDetails_TableLayoutPanel.ResumeLayout(false);
             this.AdministratorsBackground_GroupBox.ResumeLayout(false);
             this.AdministratorsList_TableLayoutPanel.ResumeLayout(false);
+            this.AuthenticationTextBoxControls_TableLayoutPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -266,5 +313,8 @@
         private System.Windows.Forms.GroupBox AdministratorsGroup_Box;
         private System.Windows.Forms.ToolStripMenuItem Back_MenuItem;
         private System.Windows.Forms.ToolStripMenuItem Close_MenuItem;
+        private System.Windows.Forms.TableLayoutPanel AuthenticationTextBoxControls_TableLayoutPanel;
+        private System.Windows.Forms.GroupBox AuthenticationTextBoxControls_GroupBox;
+        private System.Windows.Forms.TableLayoutPanel AuthenticationButtonControls_TableLayoutPanel;
     }
 }
