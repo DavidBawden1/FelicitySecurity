@@ -30,7 +30,7 @@
         {
             this.GeneralControls_MenuStrip = new System.Windows.Forms.MenuStrip();
             this.File_MenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Back_MenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Registration_MenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Close_MenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AuthenticationBackground_TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.AuthenticationFormCredentialsBackgroud_GroupBox = new System.Windows.Forms.GroupBox();
@@ -38,9 +38,9 @@
             this.AuthenticationCredentials_GroupBox = new System.Windows.Forms.GroupBox();
             this.AuthenticationTextBoxControls_TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.AuthenticationTextBoxControls_GroupBox = new System.Windows.Forms.GroupBox();
+            this.EnterEmailAddress_Label = new System.Windows.Forms.Label();
             this.PinCode_TextBox = new System.Windows.Forms.TextBox();
             this.EmailAddress_TextBox = new System.Windows.Forms.TextBox();
-            this.EnterEmailAddress_Label = new System.Windows.Forms.Label();
             this.EnterPinCode_Label = new System.Windows.Forms.Label();
             this.AuthenticationButtonControls_TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.SignIn_Button = new System.Windows.Forms.Button();
@@ -79,18 +79,18 @@
             // File_MenuItem
             // 
             this.File_MenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Back_MenuItem,
+            this.Registration_MenuItem,
             this.Close_MenuItem});
             this.File_MenuItem.Name = "File_MenuItem";
             this.File_MenuItem.Size = new System.Drawing.Size(37, 20);
             this.File_MenuItem.Text = "File";
             // 
-            // Back_MenuItem
+            // Registration_MenuItem
             // 
-            this.Back_MenuItem.Name = "Back_MenuItem";
-            this.Back_MenuItem.Size = new System.Drawing.Size(137, 22);
-            this.Back_MenuItem.Text = "Registration";
-            this.Back_MenuItem.Click += new System.EventHandler(this.Back_MenuItem_Click);
+            this.Registration_MenuItem.Name = "Registration_MenuItem";
+            this.Registration_MenuItem.Size = new System.Drawing.Size(152, 22);
+            this.Registration_MenuItem.Text = "Registration";
+            this.Registration_MenuItem.Click += new System.EventHandler(this.Registration_MenuItem_Click);
             // 
             // Close_MenuItem
             // 
@@ -178,6 +178,15 @@
             this.AuthenticationTextBoxControls_GroupBox.TabIndex = 0;
             this.AuthenticationTextBoxControls_GroupBox.TabStop = false;
             // 
+            // EnterEmailAddress_Label
+            // 
+            this.EnterEmailAddress_Label.AutoSize = true;
+            this.EnterEmailAddress_Label.Location = new System.Drawing.Point(3, 24);
+            this.EnterEmailAddress_Label.Name = "EnterEmailAddress_Label";
+            this.EnterEmailAddress_Label.Size = new System.Drawing.Size(101, 13);
+            this.EnterEmailAddress_Label.TabIndex = 2;
+            this.EnterEmailAddress_Label.Text = "Enter Email Address";
+            // 
             // PinCode_TextBox
             // 
             this.PinCode_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -193,15 +202,6 @@
             this.EmailAddress_TextBox.Name = "EmailAddress_TextBox";
             this.EmailAddress_TextBox.Size = new System.Drawing.Size(100, 20);
             this.EmailAddress_TextBox.TabIndex = 0;
-            // 
-            // EnterEmailAddress_Label
-            // 
-            this.EnterEmailAddress_Label.AutoSize = true;
-            this.EnterEmailAddress_Label.Location = new System.Drawing.Point(3, 24);
-            this.EnterEmailAddress_Label.Name = "EnterEmailAddress_Label";
-            this.EnterEmailAddress_Label.Size = new System.Drawing.Size(101, 13);
-            this.EnterEmailAddress_Label.TabIndex = 2;
-            this.EnterEmailAddress_Label.Text = "Enter Email Address";
             // 
             // EnterPinCode_Label
             // 
@@ -381,7 +381,7 @@
         private System.Windows.Forms.TableLayoutPanel AdministratorsList_TableLayoutPanel;
         private System.Windows.Forms.GroupBox AdministratorSorting_GroupBox;
         private System.Windows.Forms.GroupBox AdministratorsGroup_Box;
-        private System.Windows.Forms.ToolStripMenuItem Back_MenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Registration_MenuItem;
         private System.Windows.Forms.ToolStripMenuItem Close_MenuItem;
         private System.Windows.Forms.TableLayoutPanel AuthenticationTextBoxControls_TableLayoutPanel;
         private System.Windows.Forms.GroupBox AuthenticationTextBoxControls_GroupBox;

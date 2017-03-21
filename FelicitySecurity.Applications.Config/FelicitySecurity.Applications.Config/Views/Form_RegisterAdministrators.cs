@@ -270,7 +270,7 @@ namespace FelicitySecurity.Applications.Config
         /// </summary>
         private void CloseThisForm()
         {
-            Close();
+            Application.Exit();
         }
 
         /// <summary>
