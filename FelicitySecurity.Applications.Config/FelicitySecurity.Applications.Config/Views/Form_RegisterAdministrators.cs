@@ -21,7 +21,6 @@ namespace FelicitySecurity.Applications.Config
         ValidateExistingEmail ValidateEmail = new ValidateExistingEmail();
         CurrentSortingType sortingType;
         #endregion
-
         #region Properties 
         private string _error;
         /// <summary>
@@ -102,7 +101,57 @@ namespace FelicitySecurity.Applications.Config
             InitializeComponent();
         }
         #endregion
+        #region Methods
+        /// <summary>
+        /// When the administrator has been deleted, the list is repopulated and the UI controls are cleared. 
+        /// </summary>
+        private void RefreshUIPostDeletionOfAdmin()
+        {
+            viewModel.DisplayAdministratorEmails(this, controller, model, sortingType);
+            viewModel.Clear(this);
+            MessageBox.Show("Administrator removed successfully.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
 
+        /// <summary>
+        /// refreshes UI after updating the administrator. 
+        /// </summary>
+        private void RefreshUIPostUpdatingAdministrator()
+        {
+            viewModel.DisplayAdministratorEmails(this, controller, model, sortingType);
+            EnterPin_TextBox.Clear();
+            ReEnterPin_TextBox.Clear();
+            MessageBox.Show("Administrator updated successfully.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        /// <summary>
+        /// populates the Administrators Model properties with those of the selected administrator. 
+        /// </summary>
+        private void PopulateModelWithSelectedAdminId()
+        {
+            SelectedAdministratorId = (Administrators_ListBox.SelectedItem as ListboxItem).Value;
+            model.AdminID = SelectedAdministratorId;
+            model.AdminEmail = EnterEmail_TextBox.Text;
+            model.AdminName = CreateUsername_TextBox.Text;
+            model.AdminPinCode = EnterPin_TextBox.Text;
+        }
+
+        /// <summary>
+        /// Closes this form. 
+        /// </summary>
+        private void CloseThisForm()
+        {
+            Application.Exit();
+        }
+
+        /// <summary>
+        /// Opens the authentication form. 
+        /// </summary>
+        private static void InitialiseAuthenticationForm()
+        {
+            AuthenticateAdministrators_Form authenticationForm = new AuthenticateAdministrators_Form();
+            authenticationForm.Show();
+        }
+        #endregion
         #region EventHandlers
         /// <summary>
         /// Creates an administrator 
@@ -211,8 +260,6 @@ namespace FelicitySecurity.Applications.Config
             viewModel.DisplayAdministratorEmails(this, controller, model, sortingType);
         }
 
-        #endregion
-
         /// <summary>
         /// Removes the selected administrator from the database. 
         /// </summary>
@@ -230,56 +277,6 @@ namespace FelicitySecurity.Applications.Config
                 controller.RemoveSelectedAdministrator(model);
                 RefreshUIPostDeletionOfAdmin();
             }
-        }
-
-        /// <summary>
-        /// When the administrator has been deleted, the list is repopulated and the UI controls are cleared. 
-        /// </summary>
-        private void RefreshUIPostDeletionOfAdmin()
-        {
-            viewModel.DisplayAdministratorEmails(this, controller, model, sortingType);
-            viewModel.Clear(this);
-            MessageBox.Show("Administrator removed successfully.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        /// <summary>
-        /// refreshes UI after updating the administrator. 
-        /// </summary>
-        private void RefreshUIPostUpdatingAdministrator()
-        {
-            viewModel.DisplayAdministratorEmails(this, controller, model, sortingType);
-            EnterPin_TextBox.Clear();
-            ReEnterPin_TextBox.Clear();
-            MessageBox.Show("Administrator updated successfully.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        /// <summary>
-        /// populates the Administrators Model properties with those of the selected administrator. 
-        /// </summary>
-        private void PopulateModelWithSelectedAdminId()
-        {
-            SelectedAdministratorId = (Administrators_ListBox.SelectedItem as ListboxItem).Value;
-            model.AdminID = SelectedAdministratorId;
-            model.AdminEmail = EnterEmail_TextBox.Text;
-            model.AdminName = CreateUsername_TextBox.Text;
-            model.AdminPinCode = EnterPin_TextBox.Text;
-        }
-
-        /// <summary>
-        /// Closes this form. 
-        /// </summary>
-        private void CloseThisForm()
-        {
-            Application.Exit();
-        }
-
-        /// <summary>
-        /// Opens the authentication form. 
-        /// </summary>
-        private static void InitialiseAuthenticationForm()
-        {
-            AuthenticateAdministrators_Form authenticationForm = new AuthenticateAdministrators_Form();
-            authenticationForm.Show();
         }
 
         /// <summary>
@@ -302,6 +299,7 @@ namespace FelicitySecurity.Applications.Config
         {
             CloseThisForm();
         }
+        #endregion
     }
 }
 
