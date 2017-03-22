@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using FelicitySecurity.Applications.Config.Resources.Controls;
 using FelicitySecurity.Core.Models;
 using System;
+using FelicitySecurity.Applications.Config.Views;
 
 namespace FelicitySecurity.Applications.Config.ViewModels
 {
@@ -100,6 +101,12 @@ namespace FelicitySecurity.Applications.Config.ViewModels
             form.CreateUsername_TextBox.Clear();
             form.EnterPin_TextBox.Clear();
             form.ReEnterPin_TextBox.Clear();
+        }
+
+        public void Clear(AuthenticateAdministrators_Form form)
+        {
+            form.EnterEmail_TextBox.Clear();
+            form.EnterPinCode_TextBox.Clear();
         }
 
         /// <summary>

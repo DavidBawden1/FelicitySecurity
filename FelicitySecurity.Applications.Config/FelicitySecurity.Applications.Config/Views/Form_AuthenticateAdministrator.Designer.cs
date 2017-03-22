@@ -39,8 +39,8 @@
             this.AuthenticationTextBoxControls_TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.AuthenticationTextBoxControls_GroupBox = new System.Windows.Forms.GroupBox();
             this.EnterEmailAddress_Label = new System.Windows.Forms.Label();
-            this.PinCode_TextBox = new System.Windows.Forms.TextBox();
-            this.EmailAddress_TextBox = new System.Windows.Forms.TextBox();
+            this.EnterPinCode_TextBox = new System.Windows.Forms.TextBox();
+            this.EnterEmail_TextBox = new System.Windows.Forms.TextBox();
             this.EnterPinCode_Label = new System.Windows.Forms.Label();
             this.AuthenticationButtonControls_TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.SignIn_Button = new System.Windows.Forms.Button();
@@ -88,14 +88,14 @@
             // Registration_MenuItem
             // 
             this.Registration_MenuItem.Name = "Registration_MenuItem";
-            this.Registration_MenuItem.Size = new System.Drawing.Size(152, 22);
+            this.Registration_MenuItem.Size = new System.Drawing.Size(137, 22);
             this.Registration_MenuItem.Text = "Registration";
             this.Registration_MenuItem.Click += new System.EventHandler(this.Registration_MenuItem_Click);
             // 
             // Close_MenuItem
             // 
             this.Close_MenuItem.Name = "Close_MenuItem";
-            this.Close_MenuItem.Size = new System.Drawing.Size(152, 22);
+            this.Close_MenuItem.Size = new System.Drawing.Size(137, 22);
             this.Close_MenuItem.Text = "Close";
             this.Close_MenuItem.Click += new System.EventHandler(this.Close_MenuItem_Click);
             // 
@@ -168,8 +168,8 @@
             // AuthenticationTextBoxControls_GroupBox
             // 
             this.AuthenticationTextBoxControls_GroupBox.Controls.Add(this.EnterEmailAddress_Label);
-            this.AuthenticationTextBoxControls_GroupBox.Controls.Add(this.PinCode_TextBox);
-            this.AuthenticationTextBoxControls_GroupBox.Controls.Add(this.EmailAddress_TextBox);
+            this.AuthenticationTextBoxControls_GroupBox.Controls.Add(this.EnterPinCode_TextBox);
+            this.AuthenticationTextBoxControls_GroupBox.Controls.Add(this.EnterEmail_TextBox);
             this.AuthenticationTextBoxControls_GroupBox.Controls.Add(this.EnterPinCode_Label);
             this.AuthenticationTextBoxControls_GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AuthenticationTextBoxControls_GroupBox.Location = new System.Drawing.Point(3, 3);
@@ -187,21 +187,22 @@
             this.EnterEmailAddress_Label.TabIndex = 2;
             this.EnterEmailAddress_Label.Text = "Enter Email Address";
             // 
-            // PinCode_TextBox
+            // EnterPinCode_TextBox
             // 
-            this.PinCode_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.EnterPinCode_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.PinCode_TextBox.Location = new System.Drawing.Point(6, 40);
-            this.PinCode_TextBox.Name = "PinCode_TextBox";
-            this.PinCode_TextBox.Size = new System.Drawing.Size(264, 20);
-            this.PinCode_TextBox.TabIndex = 1;
+            this.EnterPinCode_TextBox.Location = new System.Drawing.Point(6, 96);
+            this.EnterPinCode_TextBox.Name = "EnterPinCode_TextBox";
+            this.EnterPinCode_TextBox.PasswordChar = '*';
+            this.EnterPinCode_TextBox.Size = new System.Drawing.Size(103, 20);
+            this.EnterPinCode_TextBox.TabIndex = 1;
             // 
-            // EmailAddress_TextBox
+            // EnterEmail_TextBox
             // 
-            this.EmailAddress_TextBox.Location = new System.Drawing.Point(6, 96);
-            this.EmailAddress_TextBox.Name = "EmailAddress_TextBox";
-            this.EmailAddress_TextBox.Size = new System.Drawing.Size(100, 20);
-            this.EmailAddress_TextBox.TabIndex = 0;
+            this.EnterEmail_TextBox.Location = new System.Drawing.Point(6, 43);
+            this.EnterEmail_TextBox.Name = "EnterEmail_TextBox";
+            this.EnterEmail_TextBox.Size = new System.Drawing.Size(264, 20);
+            this.EnterEmail_TextBox.TabIndex = 0;
             // 
             // EnterPinCode_Label
             // 
@@ -237,6 +238,7 @@
             this.SignIn_Button.TabIndex = 0;
             this.SignIn_Button.Text = "Sign in ";
             this.SignIn_Button.UseVisualStyleBackColor = true;
+            this.SignIn_Button.Click += new System.EventHandler(this.SignIn_Button_Click);
             // 
             // Clear_Button
             // 
@@ -246,6 +248,7 @@
             this.Clear_Button.TabIndex = 1;
             this.Clear_Button.Text = "Clear";
             this.Clear_Button.UseVisualStyleBackColor = true;
+            this.Clear_Button.Click += new System.EventHandler(this.Clear_Button_Click);
             // 
             // AuthenticationHeader_GroupBox
             // 
@@ -346,6 +349,7 @@
             this.MinimumSize = new System.Drawing.Size(1025, 608);
             this.Name = "AuthenticateAdministrators_Form";
             this.Text = "Authentication";
+            this.Load += new System.EventHandler(this.AuthenticateAdministrators_Form_Load);
             this.GeneralControls_MenuStrip.ResumeLayout(false);
             this.GeneralControls_MenuStrip.PerformLayout();
             this.AuthenticationBackground_TableLayoutPanel.ResumeLayout(false);
@@ -388,9 +392,9 @@
         private System.Windows.Forms.TableLayoutPanel AuthenticationButtonControls_TableLayoutPanel;
         private System.Windows.Forms.Button SignIn_Button;
         private System.Windows.Forms.Button Clear_Button;
-        private System.Windows.Forms.TextBox PinCode_TextBox;
-        private System.Windows.Forms.TextBox EmailAddress_TextBox;
         private System.Windows.Forms.Label EnterEmailAddress_Label;
         private System.Windows.Forms.Label EnterPinCode_Label;
+        public System.Windows.Forms.TextBox EnterPinCode_TextBox;
+        public System.Windows.Forms.TextBox EnterEmail_TextBox;
     }
 }
