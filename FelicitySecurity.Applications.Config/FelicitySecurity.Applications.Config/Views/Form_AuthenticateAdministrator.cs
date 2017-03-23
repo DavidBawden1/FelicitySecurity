@@ -84,7 +84,7 @@ namespace FelicitySecurity.Applications.Config.Views
         /// <summary>
         /// Closes the entire application
         /// </summary>
-        private void CloseThisForm()
+        private void CloseTheApplication()
         {
             Application.Exit();
         }
@@ -98,7 +98,7 @@ namespace FelicitySecurity.Applications.Config.Views
         /// <param name="e"></param>
         private void Close_MenuItem_Click(object sender, EventArgs e)
         {
-            CloseThisForm();
+            CloseTheApplication();
         }
 
         /// <summary>
@@ -138,6 +138,8 @@ namespace FelicitySecurity.Applications.Config.Views
                 if(viewModel.IsPersonAuthorised(this, EnterEmail_TextBox.Text, EnterPinCode_TextBox.Text, controller, model))
                 {
                     MessageBox.Show(EnterEmail_TextBox.Text + " logged in successfully.","Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    InitialiseMemberRegistrationForm();
+                    HideThisForm();
                 }
                 else
                 {
@@ -148,6 +150,12 @@ namespace FelicitySecurity.Applications.Config.Views
             {
                 MessageBox.Show(Error, "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void InitialiseMemberRegistrationForm()
+        {
+            RegisterMembers_Form membersForm = new RegisterMembers_Form();
+            membersForm.Show();
         }
 
         /// <summary>
