@@ -61,7 +61,7 @@ namespace FelicitySecurity.Applications.Config
             {
                 return "Your email address has to be valid! eg. woopiegoldberg@yahoo.co.uk";
             }
-            if (string.IsNullOrEmpty(EnterPin_TextBox.Text) || EnterPin_TextBox.TextLength > 4)
+            if (string.IsNullOrEmpty(EnterPin_TextBox.Text) || EnterPin_TextBox.TextLength > 4 || EnterPin_TextBox.Text.Length < 4)
             {
                 return "You must enter a 4 digit pin!";
             }
@@ -136,11 +136,19 @@ namespace FelicitySecurity.Applications.Config
         }
 
         /// <summary>
-        /// Closes this form. 
+        /// Closes the application. 
+        /// </summary>
+        private void CloseTheApplication()
+        {
+            Application.Exit();
+        }
+
+        /// <summary>
+        /// Closes this form only. 
         /// </summary>
         private void CloseThisForm()
         {
-            Application.Exit();
+            Close();
         }
 
         /// <summary>
@@ -256,7 +264,7 @@ namespace FelicitySecurity.Applications.Config
         /// <param name="e"></param>
         private void CurrentSortComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Enum.TryParse(CurrentSortCombo_Box.SelectedValue.ToString(), out sortingType);
+            Enum.TryParse(CurrentSort_ComboBox.SelectedValue.ToString(), out sortingType);
             viewModel.DisplayAdministratorEmails(this, controller, model, sortingType);
         }
 
@@ -297,7 +305,7 @@ namespace FelicitySecurity.Applications.Config
         /// <param name="e"></param>
         private void Close_MenuItem_Click(object sender, EventArgs e)
         {
-            CloseThisForm();
+            CloseTheApplication();
         }
         #endregion
     }
