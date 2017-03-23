@@ -53,6 +53,7 @@
             this.AdministratorSorting_GroupBox = new System.Windows.Forms.GroupBox();
             this.AdministratorsGroup_Box = new System.Windows.Forms.GroupBox();
             this.AuthenticationLogo_GroupBox = new System.Windows.Forms.GroupBox();
+            this.Administrators_ListBox = new System.Windows.Forms.ListBox();
             this.GeneralControls_MenuStrip.SuspendLayout();
             this.AuthenticationBackground_TableLayoutPanel.SuspendLayout();
             this.AuthenticationFormCredentialsBackgroud_GroupBox.SuspendLayout();
@@ -65,6 +66,7 @@
             this.AuthenticationAdministratorsDetails_TableLayoutPanel.SuspendLayout();
             this.AdministratorsBackground_GroupBox.SuspendLayout();
             this.AdministratorsList_TableLayoutPanel.SuspendLayout();
+            this.AdministratorsGroup_Box.SuspendLayout();
             this.SuspendLayout();
             // 
             // GeneralControls_MenuStrip
@@ -321,6 +323,7 @@
             // 
             // AdministratorsGroup_Box
             // 
+            this.AdministratorsGroup_Box.Controls.Add(this.Administrators_ListBox);
             this.AdministratorsGroup_Box.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AdministratorsGroup_Box.Location = new System.Drawing.Point(3, 46);
             this.AdministratorsGroup_Box.Name = "AdministratorsGroup_Box";
@@ -337,6 +340,15 @@
             this.AuthenticationLogo_GroupBox.Size = new System.Drawing.Size(772, 329);
             this.AuthenticationLogo_GroupBox.TabIndex = 1;
             this.AuthenticationLogo_GroupBox.TabStop = false;
+            // 
+            // Administrators_ListBox
+            // 
+            this.Administrators_ListBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Administrators_ListBox.FormattingEnabled = true;
+            this.Administrators_ListBox.Location = new System.Drawing.Point(3, 16);
+            this.Administrators_ListBox.Name = "Administrators_ListBox";
+            this.Administrators_ListBox.Size = new System.Drawing.Size(754, 131);
+            this.Administrators_ListBox.TabIndex = 0;
             // 
             // AuthenticateAdministrators_Form
             // 
@@ -364,6 +376,7 @@
             this.AuthenticationAdministratorsDetails_TableLayoutPanel.ResumeLayout(false);
             this.AdministratorsBackground_GroupBox.ResumeLayout(false);
             this.AdministratorsList_TableLayoutPanel.ResumeLayout(false);
+            this.AdministratorsGroup_Box.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -396,5 +409,6 @@
         private System.Windows.Forms.Label EnterPinCode_Label;
         public System.Windows.Forms.TextBox EnterPinCode_TextBox;
         public System.Windows.Forms.TextBox EnterEmail_TextBox;
+        public System.Windows.Forms.ListBox Administrators_ListBox;
     }
 }
