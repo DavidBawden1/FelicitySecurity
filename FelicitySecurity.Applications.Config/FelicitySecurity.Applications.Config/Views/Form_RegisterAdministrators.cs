@@ -256,7 +256,7 @@ namespace FelicitySecurity.Applications.Config
         /// <param name="e"></param>
         private void CurrentSortComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Enum.TryParse(CurrentSortCombo_Box.SelectedValue.ToString(), out sortingType);
+            Enum.TryParse(CurrentSort_ComboBox.SelectedValue.ToString(), out sortingType);
             viewModel.DisplayAdministratorEmails(this, controller, model, sortingType);
         }
 

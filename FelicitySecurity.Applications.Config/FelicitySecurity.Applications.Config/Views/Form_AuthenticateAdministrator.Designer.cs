@@ -54,6 +54,8 @@
             this.AdministratorsGroup_Box = new System.Windows.Forms.GroupBox();
             this.AuthenticationLogo_GroupBox = new System.Windows.Forms.GroupBox();
             this.Administrators_ListBox = new System.Windows.Forms.ListBox();
+            this.CurrentSort_ComboBox = new System.Windows.Forms.ComboBox();
+            this.CurrentSortComboBox_Label = new System.Windows.Forms.Label();
             this.GeneralControls_MenuStrip.SuspendLayout();
             this.AuthenticationBackground_TableLayoutPanel.SuspendLayout();
             this.AuthenticationFormCredentialsBackgroud_GroupBox.SuspendLayout();
@@ -66,6 +68,7 @@
             this.AuthenticationAdministratorsDetails_TableLayoutPanel.SuspendLayout();
             this.AdministratorsBackground_GroupBox.SuspendLayout();
             this.AdministratorsList_TableLayoutPanel.SuspendLayout();
+            this.AdministratorSorting_GroupBox.SuspendLayout();
             this.AdministratorsGroup_Box.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -314,6 +317,8 @@
             // 
             // AdministratorSorting_GroupBox
             // 
+            this.AdministratorSorting_GroupBox.Controls.Add(this.CurrentSortComboBox_Label);
+            this.AdministratorSorting_GroupBox.Controls.Add(this.CurrentSort_ComboBox);
             this.AdministratorSorting_GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AdministratorSorting_GroupBox.Location = new System.Drawing.Point(3, 3);
             this.AdministratorSorting_GroupBox.Name = "AdministratorSorting_GroupBox";
@@ -349,6 +354,27 @@
             this.Administrators_ListBox.Name = "Administrators_ListBox";
             this.Administrators_ListBox.Size = new System.Drawing.Size(754, 131);
             this.Administrators_ListBox.TabIndex = 0;
+            this.Administrators_ListBox.SelectedIndexChanged += new System.EventHandler(this.Administrators_ListBox_SelectedIndexChanged);
+            // 
+            // CurrentSort_ComboBox
+            // 
+            this.CurrentSort_ComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.CurrentSort_ComboBox.FormattingEnabled = true;
+            this.CurrentSort_ComboBox.Location = new System.Drawing.Point(633, 10);
+            this.CurrentSort_ComboBox.Name = "CurrentSort_ComboBox";
+            this.CurrentSort_ComboBox.Size = new System.Drawing.Size(121, 21);
+            this.CurrentSort_ComboBox.TabIndex = 0;
+            this.CurrentSort_ComboBox.SelectedIndexChanged += new System.EventHandler(this.CurrentSort_ComboBox_SelectedIndexChanged);
+            // 
+            // CurrentSortComboBox_Label
+            // 
+            this.CurrentSortComboBox_Label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.CurrentSortComboBox_Label.AutoSize = true;
+            this.CurrentSortComboBox_Label.Location = new System.Drawing.Point(575, 13);
+            this.CurrentSortComboBox_Label.Name = "CurrentSortComboBox_Label";
+            this.CurrentSortComboBox_Label.Size = new System.Drawing.Size(52, 13);
+            this.CurrentSortComboBox_Label.TabIndex = 1;
+            this.CurrentSortComboBox_Label.Text = "Order List";
             // 
             // AuthenticateAdministrators_Form
             // 
@@ -376,6 +402,8 @@
             this.AuthenticationAdministratorsDetails_TableLayoutPanel.ResumeLayout(false);
             this.AdministratorsBackground_GroupBox.ResumeLayout(false);
             this.AdministratorsList_TableLayoutPanel.ResumeLayout(false);
+            this.AdministratorSorting_GroupBox.ResumeLayout(false);
+            this.AdministratorSorting_GroupBox.PerformLayout();
             this.AdministratorsGroup_Box.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -410,5 +438,7 @@
         public System.Windows.Forms.TextBox EnterPinCode_TextBox;
         public System.Windows.Forms.TextBox EnterEmail_TextBox;
         public System.Windows.Forms.ListBox Administrators_ListBox;
+        public System.Windows.Forms.ComboBox CurrentSort_ComboBox;
+        private System.Windows.Forms.Label CurrentSortComboBox_Label;
     }
 }

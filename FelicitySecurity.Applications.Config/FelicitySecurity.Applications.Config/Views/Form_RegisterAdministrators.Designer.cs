@@ -60,7 +60,7 @@
             this.Administrators_ListBox = new System.Windows.Forms.ListBox();
             this.AdministratorsListControls_GroupBox = new System.Windows.Forms.GroupBox();
             this.SortAdministrators_Label = new System.Windows.Forms.Label();
-            this.CurrentSortCombo_Box = new System.Windows.Forms.ComboBox();
+            this.CurrentSort_ComboBox = new System.Windows.Forms.ComboBox();
             this.GeneralControls_MenuStrip = new System.Windows.Forms.MenuStrip();
             this.File_MenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Authentication_MenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -454,7 +454,7 @@
             // AdministratorsListControls_GroupBox
             // 
             this.AdministratorsListControls_GroupBox.Controls.Add(this.SortAdministrators_Label);
-            this.AdministratorsListControls_GroupBox.Controls.Add(this.CurrentSortCombo_Box);
+            this.AdministratorsListControls_GroupBox.Controls.Add(this.CurrentSort_ComboBox);
             this.AdministratorsListControls_GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AdministratorsListControls_GroupBox.Location = new System.Drawing.Point(3, 3);
             this.AdministratorsListControls_GroupBox.Name = "AdministratorsListControls_GroupBox";
@@ -472,18 +472,18 @@
             this.SortAdministrators_Label.TabIndex = 6;
             this.SortAdministrators_Label.Text = "Order List";
             // 
-            // CurrentSortCombo_Box
+            // CurrentSort_ComboBox
             // 
-            this.CurrentSortCombo_Box.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.CurrentSortCombo_Box.FormattingEnabled = true;
-            this.CurrentSortCombo_Box.Items.AddRange(new object[] {
+            this.CurrentSort_ComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.CurrentSort_ComboBox.FormattingEnabled = true;
+            this.CurrentSort_ComboBox.Items.AddRange(new object[] {
             "Alphabetical",
             "Default"});
-            this.CurrentSortCombo_Box.Location = new System.Drawing.Point(580, 7);
-            this.CurrentSortCombo_Box.Name = "CurrentSortCombo_Box";
-            this.CurrentSortCombo_Box.Size = new System.Drawing.Size(121, 21);
-            this.CurrentSortCombo_Box.TabIndex = 5;
-            this.CurrentSortCombo_Box.SelectedIndexChanged += new System.EventHandler(this.CurrentSortComboBox_SelectedIndexChanged);
+            this.CurrentSort_ComboBox.Location = new System.Drawing.Point(580, 7);
+            this.CurrentSort_ComboBox.Name = "CurrentSort_ComboBox";
+            this.CurrentSort_ComboBox.Size = new System.Drawing.Size(121, 21);
+            this.CurrentSort_ComboBox.TabIndex = 5;
+            this.CurrentSort_ComboBox.SelectedIndexChanged += new System.EventHandler(this.CurrentSortComboBox_SelectedIndexChanged);
             // 
             // GeneralControls_MenuStrip
             // 
@@ -577,7 +577,7 @@
         public System.Windows.Forms.TextBox ReEnterPin_TextBox;
         public System.Windows.Forms.TextBox EnterEmail_TextBox;
         public System.Windows.Forms.ListBox Administrators_ListBox;
-        public System.Windows.Forms.ComboBox CurrentSortCombo_Box;
+        public System.Windows.Forms.ComboBox CurrentSort_ComboBox;
         private System.Windows.Forms.TableLayoutPanel AdministratorListControlsTableLayoutPanel;
         private System.Windows.Forms.GroupBox AdministratorsListControls_GroupBox;
         public System.Windows.Forms.Label SortAdministrators_Label;

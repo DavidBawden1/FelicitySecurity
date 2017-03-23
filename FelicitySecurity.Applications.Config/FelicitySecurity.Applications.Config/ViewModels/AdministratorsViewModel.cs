@@ -149,6 +149,31 @@ namespace FelicitySecurity.Applications.Config.ViewModels
         }
 
         /// <summary>
+        /// Returns all of the administrators
+        /// </summary>
+        public void DisplayAdministratorEmails(AuthenticateAdministrators_Form form, AdministratorsController controller, AdministratorsModel model, CurrentSortingType sortingType)
+        {
+            //clear the items and the listbox after its been populated to prevent duplicate lists. 
+            form.Administrators_ListBox.Items.Clear();
+            AdministratorSorting(controller, model, sortingType);
+            if (model.ListOfAdministrators.Count != 0)
+            {
+                foreach (var item in model.ListOfAdministrators)
+                {
+                    ListboxItem administratorItem = new ListboxItem();
+                    administratorItem.Value = item.AdminID;
+                    administratorItem.ItemText = item.AdminEmail;
+                    form.Administrators_ListBox.Items.Add(administratorItem);
+                }
+            }
+            else
+            {
+                form.Administrators_ListBox.Items.Add("Add an Administrator");
+            }
+            model.ListOfAdministrators.Clear();
+        }
+
+        /// <summary>
         /// Depending on the CurrentSortingType, the list of administrators will be sorted with either: Default or Alphabetical. 
         /// </summary>
         /// <param name="controller"></param>
@@ -183,6 +208,18 @@ namespace FelicitySecurity.Applications.Config.ViewModels
             form.CreateUsername_TextBox.Text = administratorsDetails.AdminName.ToString();
             form.EnterEmail_TextBox.Text = administratorsDetails.AdminEmail.ToString();
         }
+        /// <summary>
+        /// Displays the Administrators details when an email is selected. 
+        /// </summary>
+        /// <param name="form">The Register Administrators form. </param>
+        /// <param name="email"> The selected Email</param>
+        /// <param name="controller">The Administrators controller</param>
+        /// <param name="model">The Admininstrators viewModel </param>
+        public void DisplayAdministratorsDetails(AuthenticateAdministrators_Form form, string email, AdministratorsController controller, AdministratorsModel model)
+        {
+            var administratorsEmail = controller.ReturnAdministratorByEmail(email);
+            form.EnterEmail_TextBox.Text = administratorsEmail.AdminEmail.ToString();
+        }
 
         /// <summary>
         /// Validates that the supplied credentials are an administrators. 
@@ -195,8 +232,8 @@ namespace FelicitySecurity.Applications.Config.ViewModels
         /// <returns>true if the credentials match. False if not authorized</returns>
         public bool IsPersonAuthorised(AuthenticateAdministrators_Form form, string email, string pinCode, AdministratorsController controller, AdministratorsModel model)
         {
-            var administratorsDetails = controller.ReturnAdministratorByEmail(email, pinCode);
-            if(administratorsDetails != null)
+            var authorisedAdministrators = controller.ReturnAdministratorByEmail(email, pinCode);
+            if(authorisedAdministrators != null)
             {
                 return true;
             }
@@ -212,7 +249,16 @@ namespace FelicitySecurity.Applications.Config.ViewModels
         /// <param name="form"></param>
         public void InitialiseControlDataSources(RegisterAdministrators_Form form)
         {
-            form.CurrentSortCombo_Box.DataSource = Enum.GetValues(typeof(CurrentSortingType));
+            form.CurrentSort_ComboBox.DataSource = Enum.GetValues(typeof(CurrentSortingType));
+        }
+
+        /// <summary>
+        /// populates the combobox with the sortying types.  
+        /// </summary>
+        /// <param name="form"></param>
+        public void InitialiseControlDataSources(AuthenticateAdministrators_Form form)
+        {
+            form.CurrentSort_ComboBox.DataSource = Enum.GetValues(typeof(CurrentSortingType));
         }
     }
 }

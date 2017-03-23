@@ -1,4 +1,5 @@
 ﻿using FelicitySecurity.Applications.Config.Controllers;
+using FelicitySecurity.Applications.Config.Resources.Controls;
 using FelicitySecurity.Applications.Config.Resources.Validation;
 using FelicitySecurity.Applications.Config.ViewModels;
 using FelicitySecurity.Core.Models;
@@ -110,12 +111,26 @@ namespace FelicitySecurity.Applications.Config.Views
             InitialiseRegistrationForm();
             HideThisForm();
         }
+
+        /// <summary>
+        /// Loads the form 
+        /// populates the ComboBox and ListBox 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AuthenticateAdministrators_Form_Load(object sender, EventArgs e)
         {
-
+            viewModel.InitialiseControlDataSources(this);
+            viewModel.DisplayAdministratorEmails(this, controller, model, sortingType);
         }
 
-
+        /// <summary>
+        /// Authenticates the Credentials provided
+        /// if authorised, proceeds to the next form 
+        /// otherwise an error is returned
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SignIn_Button_Click(object sender, EventArgs e)
         {
             if(string.IsNullOrEmpty(Error))
@@ -135,9 +150,43 @@ namespace FelicitySecurity.Applications.Config.Views
             }
         }
 
+        /// <summary>
+        /// Clears the forms Textbox controls. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Clear_Button_Click(object sender, EventArgs e)
         {
             viewModel.Clear(this);
+        }
+
+        /// <summary>
+        /// Populates the Email textbox with the selected administrator when selected.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Administrators_ListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string administratorsEmail = (Administrators_ListBox.SelectedItem as ListboxItem).ItemText;
+                viewModel.DisplayAdministratorsDetails(this, administratorsEmail, controller, model);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "\n\nYou must select an Administrator.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        /// <summary>
+        /// Orders the list by default or alphabetical sort. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CurrentSort_ComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Enum.TryParse(CurrentSort_ComboBox.SelectedValue.ToString(), out sortingType);
+            viewModel.DisplayAdministratorEmails(this, controller, model, sortingType);
         }
         #endregion
 
