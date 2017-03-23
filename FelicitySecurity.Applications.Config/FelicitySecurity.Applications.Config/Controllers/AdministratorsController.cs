@@ -67,6 +67,16 @@ namespace FelicitySecurity.Applications.Config.Controllers
             return engineRepository.FindAllAdministrators().Where(e => e.AdminEmail == email).FirstOrDefault();
         }
 
+
+        /// <summary>
+        /// Returns the Administrators details for the selected Administrators email. 
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns>The administrator</returns>
+        public Administrators_dto ReturnAdministratorByEmail(string email, string pinCode)
+        {
+            return engineRepository.FindAllAdministrators().Where(e => e.AdminEmail == email && e.AdminPinCode == pinCode).FirstOrDefault();
+        }
         /// <summary>
         /// Calls the repository to remove the specified administrator. 
         /// </summary>
