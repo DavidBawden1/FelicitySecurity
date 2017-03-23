@@ -185,6 +185,28 @@ namespace FelicitySecurity.Applications.Config.ViewModels
         }
 
         /// <summary>
+        /// Validates that the supplied credentials are an administrators. 
+        /// </summary>
+        /// <param name="form"></param>
+        /// <param name="email"></param>
+        /// <param name="pinCode"></param>
+        /// <param name="controller"></param>
+        /// <param name="model"></param>
+        /// <returns>true if the credentials match. False if not authorized</returns>
+        public bool IsPersonAuthorised(AuthenticateAdministrators_Form form, string email, string pinCode, AdministratorsController controller, AdministratorsModel model)
+        {
+            var administratorsDetails = controller.ReturnAdministratorByEmail(email, pinCode);
+            if(administratorsDetails != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
         /// populates the combobox with the sortying types.  
         /// </summary>
         /// <param name="form"></param>

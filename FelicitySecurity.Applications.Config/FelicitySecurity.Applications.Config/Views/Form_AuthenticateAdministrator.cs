@@ -119,7 +119,14 @@ namespace FelicitySecurity.Applications.Config.Views
         {
             if(string.IsNullOrEmpty(Error))
             {
-
+                if(viewModel.IsPersonAuthorised(this, EnterEmail_TextBox.Text, EnterPinCode_TextBox.Text, controller, model))
+                {
+                    MessageBox.Show(EnterEmail_TextBox.Text + " logged in successfully.","Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show(EnterEmail_TextBox.Text + " is not authorised", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
