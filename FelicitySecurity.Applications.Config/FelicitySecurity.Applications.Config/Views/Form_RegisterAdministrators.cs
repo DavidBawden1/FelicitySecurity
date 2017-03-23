@@ -136,11 +136,19 @@ namespace FelicitySecurity.Applications.Config
         }
 
         /// <summary>
-        /// Closes this form. 
+        /// Closes the application. 
+        /// </summary>
+        private void CloseTheApplication()
+        {
+            Application.Exit();
+        }
+
+        /// <summary>
+        /// Closes this form only. 
         /// </summary>
         private void CloseThisForm()
         {
-            Application.Exit();
+            Close();
         }
 
         /// <summary>
@@ -297,7 +305,7 @@ namespace FelicitySecurity.Applications.Config
         /// <param name="e"></param>
         private void Close_MenuItem_Click(object sender, EventArgs e)
         {
-            CloseThisForm();
+            CloseTheApplication();
         }
         #endregion
     }

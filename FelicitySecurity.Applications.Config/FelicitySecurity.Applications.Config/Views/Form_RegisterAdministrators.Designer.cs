@@ -144,7 +144,7 @@
             this.RegisterAdministratorControls_GroupBox.Size = new System.Drawing.Size(347, 224);
             this.RegisterAdministratorControls_GroupBox.TabIndex = 1;
             this.RegisterAdministratorControls_GroupBox.TabStop = false;
-            this.RegisterAdministratorControls_GroupBox.Text = "Controls";
+            this.RegisterAdministratorControls_GroupBox.Text = "Registration Credentials";
             // 
             // RegistrationCredentials_TableLayoutPanel
             // 
