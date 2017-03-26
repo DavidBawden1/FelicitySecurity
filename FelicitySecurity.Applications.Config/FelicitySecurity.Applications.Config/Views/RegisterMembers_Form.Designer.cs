@@ -212,7 +212,6 @@
             this.MembersListSortingControls_GroupBox.Size = new System.Drawing.Size(235, 32);
             this.MembersListSortingControls_GroupBox.TabIndex = 0;
             this.MembersListSortingControls_GroupBox.TabStop = false;
-            this.MembersListSortingControls_GroupBox.Text = "Sort";
             // 
             // ExistingMembers_ListBox
             // 
