@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterMembers_Form));
             this.GeneralControls_MenuStrip = new System.Windows.Forms.MenuStrip();
-            this.RegisterMembersBackground_TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RegisterMembersBackground_TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.MembersFacialCameraFeed_GroupBox = new System.Windows.Forms.GroupBox();
             this.NewMemberCredentialsAndCameraControls_TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.NewMemberCredentials_GroupBox = new System.Windows.Forms.GroupBox();
@@ -38,17 +40,29 @@
             this.MemberRegistrationControls_GroupBox = new System.Windows.Forms.GroupBox();
             this.MoreMemberCredentials_GroupBox = new System.Windows.Forms.GroupBox();
             this.ExistingMembers_GroupBox = new System.Windows.Forms.GroupBox();
-            this.FacialDetectionFeedbackGroupBox = new System.Windows.Forms.GroupBox();
-            this.FacialDetectionFeedBackImages_TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.ExistingMembersListboxSorting_TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.MembersListSortingControls_GroupBox = new System.Windows.Forms.GroupBox();
             this.ExistingMembers_ListBox = new System.Windows.Forms.ListBox();
+            this.FacialDetectionFeedbackGroupBox = new System.Windows.Forms.GroupBox();
+            this.FacialDetectionFeedBackImages_TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.UsersFace = new Emgu.CV.UI.ImageBox();
+            this.CroppedFace_GroupBox = new System.Windows.Forms.GroupBox();
+            this.RecognisedMember_GroupBox = new System.Windows.Forms.GroupBox();
+            this.CroppedDetectedFace_EmguImageBox = new Emgu.CV.UI.ImageBox();
+            this.RecognisedMember_EmguImageBox = new Emgu.CV.UI.ImageBox();
             this.GeneralControls_MenuStrip.SuspendLayout();
             this.RegisterMembersBackground_TableLayoutPanel.SuspendLayout();
+            this.MembersFacialCameraFeed_GroupBox.SuspendLayout();
             this.NewMemberCredentialsAndCameraControls_TableLayoutPanel.SuspendLayout();
             this.ExistingMembers_GroupBox.SuspendLayout();
-            this.FacialDetectionFeedbackGroupBox.SuspendLayout();
             this.ExistingMembersListboxSorting_TableLayoutPanel.SuspendLayout();
+            this.FacialDetectionFeedbackGroupBox.SuspendLayout();
+            this.FacialDetectionFeedBackImages_TableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.UsersFace)).BeginInit();
+            this.CroppedFace_GroupBox.SuspendLayout();
+            this.RecognisedMember_GroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CroppedDetectedFace_EmguImageBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RecognisedMember_EmguImageBox)).BeginInit();
             this.SuspendLayout();
             // 
             // GeneralControls_MenuStrip
@@ -59,6 +73,12 @@
             this.GeneralControls_MenuStrip.Name = "GeneralControls_MenuStrip";
             this.GeneralControls_MenuStrip.Size = new System.Drawing.Size(1009, 24);
             this.GeneralControls_MenuStrip.TabIndex = 0;
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
             // 
             // RegisterMembersBackground_TableLayoutPanel
             // 
@@ -78,14 +98,9 @@
             this.RegisterMembersBackground_TableLayoutPanel.Size = new System.Drawing.Size(1009, 545);
             this.RegisterMembersBackground_TableLayoutPanel.TabIndex = 1;
             // 
-            // fileToolStripMenuItem
-            // 
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
-            // 
             // MembersFacialCameraFeed_GroupBox
             // 
+            this.MembersFacialCameraFeed_GroupBox.Controls.Add(this.UsersFace);
             this.MembersFacialCameraFeed_GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MembersFacialCameraFeed_GroupBox.Location = new System.Drawing.Point(3, 3);
             this.MembersFacialCameraFeed_GroupBox.Name = "MembersFacialCameraFeed_GroupBox";
@@ -163,31 +178,6 @@
             this.ExistingMembers_GroupBox.TabStop = false;
             this.ExistingMembers_GroupBox.Text = "Existing Members ";
             // 
-            // FacialDetectionFeedbackGroupBox
-            // 
-            this.FacialDetectionFeedbackGroupBox.Controls.Add(this.FacialDetectionFeedBackImages_TableLayoutPanel);
-            this.FacialDetectionFeedbackGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FacialDetectionFeedbackGroupBox.Location = new System.Drawing.Point(759, 3);
-            this.FacialDetectionFeedbackGroupBox.Name = "FacialDetectionFeedbackGroupBox";
-            this.FacialDetectionFeedbackGroupBox.Size = new System.Drawing.Size(247, 321);
-            this.FacialDetectionFeedbackGroupBox.TabIndex = 3;
-            this.FacialDetectionFeedbackGroupBox.TabStop = false;
-            this.FacialDetectionFeedbackGroupBox.Text = "Facial Detection Feedback ";
-            // 
-            // FacialDetectionFeedBackImages_TableLayoutPanel
-            // 
-            this.FacialDetectionFeedBackImages_TableLayoutPanel.ColumnCount = 1;
-            this.FacialDetectionFeedBackImages_TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.FacialDetectionFeedBackImages_TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.FacialDetectionFeedBackImages_TableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FacialDetectionFeedBackImages_TableLayoutPanel.Location = new System.Drawing.Point(3, 16);
-            this.FacialDetectionFeedBackImages_TableLayoutPanel.Name = "FacialDetectionFeedBackImages_TableLayoutPanel";
-            this.FacialDetectionFeedBackImages_TableLayoutPanel.RowCount = 2;
-            this.FacialDetectionFeedBackImages_TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.FacialDetectionFeedBackImages_TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.FacialDetectionFeedBackImages_TableLayoutPanel.Size = new System.Drawing.Size(241, 302);
-            this.FacialDetectionFeedBackImages_TableLayoutPanel.TabIndex = 0;
-            // 
             // ExistingMembersListboxSorting_TableLayoutPanel
             // 
             this.ExistingMembersListboxSorting_TableLayoutPanel.ColumnCount = 1;
@@ -222,6 +212,93 @@
             this.ExistingMembers_ListBox.Size = new System.Drawing.Size(235, 149);
             this.ExistingMembers_ListBox.TabIndex = 1;
             // 
+            // FacialDetectionFeedbackGroupBox
+            // 
+            this.FacialDetectionFeedbackGroupBox.Controls.Add(this.FacialDetectionFeedBackImages_TableLayoutPanel);
+            this.FacialDetectionFeedbackGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FacialDetectionFeedbackGroupBox.Location = new System.Drawing.Point(759, 3);
+            this.FacialDetectionFeedbackGroupBox.Name = "FacialDetectionFeedbackGroupBox";
+            this.FacialDetectionFeedbackGroupBox.Size = new System.Drawing.Size(247, 321);
+            this.FacialDetectionFeedbackGroupBox.TabIndex = 3;
+            this.FacialDetectionFeedbackGroupBox.TabStop = false;
+            this.FacialDetectionFeedbackGroupBox.Text = "Facial Detection Feedback ";
+            // 
+            // FacialDetectionFeedBackImages_TableLayoutPanel
+            // 
+            this.FacialDetectionFeedBackImages_TableLayoutPanel.ColumnCount = 1;
+            this.FacialDetectionFeedBackImages_TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.FacialDetectionFeedBackImages_TableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.FacialDetectionFeedBackImages_TableLayoutPanel.Controls.Add(this.CroppedFace_GroupBox, 0, 0);
+            this.FacialDetectionFeedBackImages_TableLayoutPanel.Controls.Add(this.RecognisedMember_GroupBox, 0, 1);
+            this.FacialDetectionFeedBackImages_TableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FacialDetectionFeedBackImages_TableLayoutPanel.Location = new System.Drawing.Point(3, 16);
+            this.FacialDetectionFeedBackImages_TableLayoutPanel.Name = "FacialDetectionFeedBackImages_TableLayoutPanel";
+            this.FacialDetectionFeedBackImages_TableLayoutPanel.RowCount = 2;
+            this.FacialDetectionFeedBackImages_TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.FacialDetectionFeedBackImages_TableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.FacialDetectionFeedBackImages_TableLayoutPanel.Size = new System.Drawing.Size(241, 302);
+            this.FacialDetectionFeedBackImages_TableLayoutPanel.TabIndex = 0;
+            // 
+            // UsersFace
+            // 
+            this.UsersFace.BackColor = System.Drawing.Color.Transparent;
+            this.UsersFace.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("UsersFace.BackgroundImage")));
+            this.UsersFace.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.UsersFace.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UsersFace.Location = new System.Drawing.Point(3, 16);
+            this.UsersFace.Margin = new System.Windows.Forms.Padding(2);
+            this.UsersFace.Name = "UsersFace";
+            this.UsersFace.Size = new System.Drawing.Size(744, 302);
+            this.UsersFace.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.UsersFace.TabIndex = 5;
+            this.UsersFace.TabStop = false;
+            // 
+            // CroppedFace_GroupBox
+            // 
+            this.CroppedFace_GroupBox.Controls.Add(this.CroppedDetectedFace_EmguImageBox);
+            this.CroppedFace_GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CroppedFace_GroupBox.Location = new System.Drawing.Point(3, 3);
+            this.CroppedFace_GroupBox.Name = "CroppedFace_GroupBox";
+            this.CroppedFace_GroupBox.Size = new System.Drawing.Size(235, 145);
+            this.CroppedFace_GroupBox.TabIndex = 0;
+            this.CroppedFace_GroupBox.TabStop = false;
+            this.CroppedFace_GroupBox.Text = "Cropped Image (Live)";
+            // 
+            // RecognisedMember_GroupBox
+            // 
+            this.RecognisedMember_GroupBox.Controls.Add(this.RecognisedMember_EmguImageBox);
+            this.RecognisedMember_GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RecognisedMember_GroupBox.Location = new System.Drawing.Point(3, 154);
+            this.RecognisedMember_GroupBox.Name = "RecognisedMember_GroupBox";
+            this.RecognisedMember_GroupBox.Size = new System.Drawing.Size(235, 145);
+            this.RecognisedMember_GroupBox.TabIndex = 1;
+            this.RecognisedMember_GroupBox.TabStop = false;
+            this.RecognisedMember_GroupBox.Text = "Recognised Member";
+            // 
+            // CroppedDetectedFace_EmguImageBox
+            // 
+            this.CroppedDetectedFace_EmguImageBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.CroppedDetectedFace_EmguImageBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CroppedDetectedFace_EmguImageBox.Location = new System.Drawing.Point(3, 16);
+            this.CroppedDetectedFace_EmguImageBox.Margin = new System.Windows.Forms.Padding(2);
+            this.CroppedDetectedFace_EmguImageBox.Name = "CroppedDetectedFace_EmguImageBox";
+            this.CroppedDetectedFace_EmguImageBox.Size = new System.Drawing.Size(229, 126);
+            this.CroppedDetectedFace_EmguImageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.CroppedDetectedFace_EmguImageBox.TabIndex = 6;
+            this.CroppedDetectedFace_EmguImageBox.TabStop = false;
+            // 
+            // RecognisedMember_EmguImageBox
+            // 
+            this.RecognisedMember_EmguImageBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.RecognisedMember_EmguImageBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RecognisedMember_EmguImageBox.Location = new System.Drawing.Point(3, 16);
+            this.RecognisedMember_EmguImageBox.Margin = new System.Windows.Forms.Padding(2);
+            this.RecognisedMember_EmguImageBox.Name = "RecognisedMember_EmguImageBox";
+            this.RecognisedMember_EmguImageBox.Size = new System.Drawing.Size(229, 126);
+            this.RecognisedMember_EmguImageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.RecognisedMember_EmguImageBox.TabIndex = 7;
+            this.RecognisedMember_EmguImageBox.TabStop = false;
+            // 
             // RegisterMembers_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -236,10 +313,17 @@
             this.GeneralControls_MenuStrip.ResumeLayout(false);
             this.GeneralControls_MenuStrip.PerformLayout();
             this.RegisterMembersBackground_TableLayoutPanel.ResumeLayout(false);
+            this.MembersFacialCameraFeed_GroupBox.ResumeLayout(false);
             this.NewMemberCredentialsAndCameraControls_TableLayoutPanel.ResumeLayout(false);
             this.ExistingMembers_GroupBox.ResumeLayout(false);
-            this.FacialDetectionFeedbackGroupBox.ResumeLayout(false);
             this.ExistingMembersListboxSorting_TableLayoutPanel.ResumeLayout(false);
+            this.FacialDetectionFeedbackGroupBox.ResumeLayout(false);
+            this.FacialDetectionFeedBackImages_TableLayoutPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.UsersFace)).EndInit();
+            this.CroppedFace_GroupBox.ResumeLayout(false);
+            this.RecognisedMember_GroupBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.CroppedDetectedFace_EmguImageBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RecognisedMember_EmguImageBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -262,5 +346,10 @@
         private System.Windows.Forms.TableLayoutPanel ExistingMembersListboxSorting_TableLayoutPanel;
         private System.Windows.Forms.GroupBox MembersListSortingControls_GroupBox;
         public System.Windows.Forms.ListBox ExistingMembers_ListBox;
+        public Emgu.CV.UI.ImageBox UsersFace;
+        private System.Windows.Forms.GroupBox CroppedFace_GroupBox;
+        private System.Windows.Forms.GroupBox RecognisedMember_GroupBox;
+        public Emgu.CV.UI.ImageBox CroppedDetectedFace_EmguImageBox;
+        public Emgu.CV.UI.ImageBox RecognisedMember_EmguImageBox;
     }
 }
