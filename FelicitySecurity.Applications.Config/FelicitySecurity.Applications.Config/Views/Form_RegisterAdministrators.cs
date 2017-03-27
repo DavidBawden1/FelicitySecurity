@@ -128,19 +128,11 @@ namespace FelicitySecurity.Applications.Config
         /// </summary>
         private void PopulateModelWithSelectedAdminId()
         {
-            if (Administrators_ListBox.SelectedValue != null)
-            {
                 SelectedAdministratorId = (Administrators_ListBox.SelectedItem as ListboxItem).Value;
                 model.AdminID = SelectedAdministratorId;
                 model.AdminEmail = EnterEmail_TextBox.Text;
                 model.AdminName = CreateUsername_TextBox.Text;
                 model.AdminPinCode = EnterPin_TextBox.Text;
-            }
-            else
-            {
-                MessageBox.Show("You must select an administrator to update.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
         }
 
         /// <summary>
@@ -208,16 +200,16 @@ namespace FelicitySecurity.Applications.Config
         {
             if (string.IsNullOrEmpty(Error.ToString()))
             {
-                viewModel.BindTextboxControls(this, viewModel, _textbox);
-                PopulateModelWithSelectedAdminId();
-                if (SelectedAdministratorId != 0)
+                if (Administrators_ListBox.SelectedItem != null)
                 {
+                    viewModel.BindTextboxControls(this, viewModel, _textbox);
+                    PopulateModelWithSelectedAdminId();
                     controller.UpdateSelectedAdministrator(model);
                     RefreshUIPostUpdatingAdministrator();
                 }
                 else
                 {
-                    MessageBox.Show("You must select an Administrator to update!.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Please select an Administrator to update!.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else
