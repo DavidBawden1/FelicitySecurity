@@ -2,7 +2,7 @@
 using System.Data.Common;
 using System.Data.Entity;
 
-namespace FelicitySecurity.Core.Data.Interfaces
+namespace FelicitySecurity.Data.Interfaces
 {
     public interface IFelicitySecurityRepositoryBase
     {

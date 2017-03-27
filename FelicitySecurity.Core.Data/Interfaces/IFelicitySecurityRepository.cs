@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FelicitySecurity.Core.Data.Interfaces
+namespace FelicitySecurity.Data.Interfaces
 {
     public interface IFelicitySecurityRepository
     {

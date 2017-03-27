@@ -125,9 +125,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FelicitySecurity.Core.Data\FelicitySecurity.Core.Data.csproj">
+    <ProjectReference Include="..\FelicitySecurity.Core.Data\FelicitySecurity.Data.csproj">
       <Project>{A2E1306E-6C9C-4F10-9EE9-05C544FB4E57}</Project>
-      <Name>FelicitySecurity.Core.Data</Name>
+      <Name>FelicitySecurity.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\FelicitySecurity.Core\FelicitySecurity.Core.csproj">
       <Project>{25F1241C-4143-4E6A-A5D4-FCC8CB7B98C9}</Project>

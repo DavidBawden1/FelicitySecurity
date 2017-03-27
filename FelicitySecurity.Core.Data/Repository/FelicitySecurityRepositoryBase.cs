@@ -1,4 +1,4 @@
-﻿using FelicitySecurity.Core.Data.Interfaces;
+﻿using FelicitySecurity.Data.Interfaces;
 using FelicitySecurity.Core.Utils;
 using System;
 using System.Data.Common;
