@@ -161,6 +161,10 @@
       <Project>{25f1241c-4143-4e6a-a5d4-fcc8cb7b98c9}</Project>
       <Name>FelicitySecurity.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\FelicitySecurity.Services\FelicitySecurity.Data.Services.csproj">
+      <Project>{ff83934e-81fc-4770-9648-1a43f5023086}</Project>
+      <Name>FelicitySecurity.Data.Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FelicitySecurity.Utils\FelicitySecurity.Core.Utils.csproj">
       <Project>{D9B6DF98-9C5F-48CA-8673-1A6BC7CD05B5}</Project>
       <Name>FelicitySecurity.Core.Utils</Name>
