@@ -20,12 +20,6 @@ namespace FelicitySecurity.Data.Services
         #endregion
 
         #region Methods
-        public string GetData(int value)
-        {
-            return string.Format("You entered: {0}", value);
-        }
-
-       
         public void AddAdministrator(Administrators_dto item)
         {
             repository.AddAdministrator(item); 
