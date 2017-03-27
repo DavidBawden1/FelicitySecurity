@@ -194,7 +194,7 @@ namespace FelicitySecurity.Core.Data.Repository
         /// returns all of the members faces 
         /// </summary>
         /// <returns>a result list of faces that can be used for a dataset to run recognition on.</returns>
-        public List<Faces_dto> FindALLMembersFaces()
+        public List<Faces_dto> FindAllMembersFaces()
         {
             List<Faces_dto> facesResult = new List<Faces_dto>();
             try
