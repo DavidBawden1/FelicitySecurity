@@ -128,11 +128,19 @@ namespace FelicitySecurity.Applications.Config
         /// </summary>
         private void PopulateModelWithSelectedAdminId()
         {
-            SelectedAdministratorId = (Administrators_ListBox.SelectedItem as ListboxItem).Value;
-            model.AdminID = SelectedAdministratorId;
-            model.AdminEmail = EnterEmail_TextBox.Text;
-            model.AdminName = CreateUsername_TextBox.Text;
-            model.AdminPinCode = EnterPin_TextBox.Text;
+            if (Administrators_ListBox.SelectedValue != null)
+            {
+                SelectedAdministratorId = (Administrators_ListBox.SelectedItem as ListboxItem).Value;
+                model.AdminID = SelectedAdministratorId;
+                model.AdminEmail = EnterEmail_TextBox.Text;
+                model.AdminName = CreateUsername_TextBox.Text;
+                model.AdminPinCode = EnterPin_TextBox.Text;
+            }
+            else
+            {
+                MessageBox.Show("You must select an administrator to update.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         /// <summary>
@@ -168,7 +176,7 @@ namespace FelicitySecurity.Applications.Config
         /// <param name="e"></param>
         private void Register_Button_Click(object sender, EventArgs e)
         {
-            
+
             //if error is null then validation has passed so continue otherwise return the error message. 
             if (!ValidateEmail.DoesEmailExist(EnterEmail_TextBox.Text))
             {

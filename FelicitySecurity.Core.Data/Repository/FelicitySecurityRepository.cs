@@ -1,5 +1,5 @@
 ﻿using FelicitySecurity.Core.Data.DataModel;
-using FelicitySecurity.Core.Data.Interfaces;
+using FelicitySecurity.Data.Interfaces;
 using FelicitySecurity.Core.DataTransferObjects;
 using FelicitySecurity.Core.Utils;
 using System;

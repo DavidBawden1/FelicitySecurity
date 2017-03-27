@@ -153,9 +153,9 @@
     <Folder Include="Resources\Images\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\FelicitySecurity.Core.Data\FelicitySecurity.Core.Data.csproj">
+    <ProjectReference Include="..\..\FelicitySecurity.Core.Data\FelicitySecurity.Data.csproj">
       <Project>{a2e1306e-6c9c-4f10-9ee9-05c544fb4e57}</Project>
-      <Name>FelicitySecurity.Core.Data</Name>
+      <Name>FelicitySecurity.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\FelicitySecurity.Core\FelicitySecurity.Core.csproj">
       <Project>{25f1241c-4143-4e6a-a5d4-fcc8cb7b98c9}</Project>
