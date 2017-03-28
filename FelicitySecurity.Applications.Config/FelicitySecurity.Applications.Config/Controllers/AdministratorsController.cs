@@ -4,6 +4,7 @@ using FelicitySecurity.Core.DataTransferObjects;
 using FelicitySecurity.Applications.Config.Interfaces;
 using FelicitySecurity.Core.Models;
 using FelicitySecurity.Services;
+using FelicitySecurity.Applications.Config.FelicitySecurityServiceReference;
 
 namespace FelicitySecurity.Applications.Config.Controllers
 {
@@ -13,6 +14,7 @@ namespace FelicitySecurity.Applications.Config.Controllers
     public class AdministratorsController : IAdministratorsController
     {
         FelicitySecurityDataService  dataService = new FelicitySecurityDataService();
+        FelicitySecurityDataServiceClient client = new FelicitySecurityDataServiceClient();
         public void IAdministratorsController(FelicitySecurityDataService dataService)
         {
 
