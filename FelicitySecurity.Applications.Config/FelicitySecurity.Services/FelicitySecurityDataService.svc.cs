@@ -7,6 +7,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using System.Web.Services;
 
 namespace FelicitySecurity.Services
 {
@@ -48,6 +49,7 @@ namespace FelicitySecurity.Services
             return composite;
         }
 
+        [WebMethod]
         /// <summary>
         /// calls the Add Administrator Repository method
         /// </summary>
@@ -57,6 +59,7 @@ namespace FelicitySecurity.Services
             repository.AddAdministrator(item);
         }
 
+        [WebMethod]
         /// <summary>
         /// calls the Find All Administrator Repository method
         /// </summary>
@@ -66,6 +69,7 @@ namespace FelicitySecurity.Services
             return repository.FindAllAdministrators();
         }
 
+        [WebMethod]
         /// <summary>
         /// calls the Add Member Repository method
         /// </summary>
@@ -75,6 +79,7 @@ namespace FelicitySecurity.Services
             repository.AddMember(item);
         }
 
+        [WebMethod]
         /// <summary>
         /// calls the Find All Members Repository method
         /// </summary>
@@ -84,6 +89,7 @@ namespace FelicitySecurity.Services
             return repository.FindAllMembers();
         }
 
+        [WebMethod]
         /// <summary>
         /// calls the Add Faces Repository method
         /// </summary>
@@ -93,6 +99,7 @@ namespace FelicitySecurity.Services
             repository.AddFaces(item);
         }
 
+        [WebMethod]
         /// <summary>
         /// calls the Find All Faces Repository method
         /// </summary>
@@ -102,6 +109,7 @@ namespace FelicitySecurity.Services
             return repository.FindAllMembersFaces();
         }
 
+        [WebMethod]
         /// <summary>
         /// calls the Add Staff Repository method
         /// </summary>
@@ -111,6 +119,7 @@ namespace FelicitySecurity.Services
             repository.AddStaff(item);
         }
 
+        [WebMethod]
         /// <summary>
         /// calls the Find All Staff Repository method
         /// </summary>
@@ -120,6 +129,7 @@ namespace FelicitySecurity.Services
             return repository.FindALLStaff();
         }
 
+        [WebMethod]
         /// <summary>
         /// Calls the Remove Administrator Repository method
         /// </summary>
@@ -129,6 +139,7 @@ namespace FelicitySecurity.Services
             repository.RemoveAdministrator(administratorId);
         }
 
+        [WebMethod]
         /// <summary>
         /// Calls the Update Administrator Repository method
         /// </summary>
