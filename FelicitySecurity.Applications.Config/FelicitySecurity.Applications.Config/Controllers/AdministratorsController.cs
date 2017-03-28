@@ -14,7 +14,7 @@ namespace FelicitySecurity.Applications.Config.Controllers
     public class AdministratorsController : IAdministratorsController
     {
         FelicitySecurityDataService  dataService = new FelicitySecurityDataService();
-        FelicitySecurityDataServiceClient client = new FelicitySecurityDataServiceClient();
+        //FelicitySecurityDataServiceClient client = new FelicitySecurityDataServiceClient();
         public void IAdministratorsController(FelicitySecurityDataService dataService)
         {
 

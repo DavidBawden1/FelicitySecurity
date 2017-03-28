@@ -96,7 +96,7 @@
     <Compile Include="Resources\Controls\ListboxItem.cs" />
     <Compile Include="Resources\Validation\ValidateExistingEmail.cs" />
     <Compile Include="Resources\Validation\ValidationBase.cs" />
-    <Compile Include="Service References\ServiceReference1\Reference.cs">
+    <Compile Include="Service References\FelicitySecurityServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -152,14 +152,14 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Service References\ServiceReference1\FelicitySecurityDataService.wsdl" />
-    <None Include="Service References\ServiceReference1\FelicitySecurityDataService.xsd">
+    <None Include="Service References\FelicitySecurityServiceReference\FelicitySecurityDataService.wsdl" />
+    <None Include="Service References\FelicitySecurityServiceReference\FelicitySecurityDataService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference1\FelicitySecurityDataService1.xsd">
+    <None Include="Service References\FelicitySecurityServiceReference\FelicitySecurityDataService1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference1\FelicitySecurityDataService2.xsd">
+    <None Include="Service References\FelicitySecurityServiceReference\FelicitySecurityDataService2.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -192,19 +192,19 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
+    <WCFMetadataStorage Include="Service References\FelicitySecurityServiceReference\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceReference1\FelicitySecurityDataService.disco" />
+    <None Include="Service References\FelicitySecurityServiceReference\FelicitySecurityDataService.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
+    <None Include="Service References\FelicitySecurityServiceReference\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
+    <None Include="Service References\FelicitySecurityServiceReference\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceReference1\Reference.svcmap">
+    <None Include="Service References\FelicitySecurityServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
