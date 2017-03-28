@@ -209,7 +209,7 @@ namespace FelicitySecurity.Applications.Config
                 }
                 else
                 {
-                    MessageBox.Show("Please select an Administrator to update!.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Please select an Administrator to update.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else

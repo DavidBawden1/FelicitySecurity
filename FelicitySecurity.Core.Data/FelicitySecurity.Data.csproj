@@ -84,6 +84,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogic\FelicitySecurityBusinessLogic.cs" />
     <Compile Include="DataModel\AdminTable.cs">
       <DependentUpon>FelicitySecurity.tt</DependentUpon>
     </Compile>
@@ -111,6 +112,7 @@
     <Compile Include="DataModel\StaffTable.cs">
       <DependentUpon>FelicitySecurity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IFelicitySecurityBusinessLogic.cs" />
     <Compile Include="Interfaces\IFelicitySecurityRepository.cs" />
     <Compile Include="Interfaces\IFelicitySecurityRepositoryBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
