@@ -1,8 +1,6 @@
-﻿using FelicitySecurity.Applications.Config.ViewModels;
-using FelicitySecurity.Core.Data.Repository;
-using FelicitySecurity.Core.DataTransferObjects;
+﻿using FelicitySecurity.Core.DataTransferObjects;
 using FelicitySecurity.Core.Models;
-using FelicitySecurity.Data.Services;
+using FelicitySecurity.Services;
 using System.Collections.Generic;
 
 namespace FelicitySecurity.Applications.Config.Interfaces

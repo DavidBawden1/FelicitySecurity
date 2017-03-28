@@ -4,7 +4,7 @@ using FelicitySecurity.Core.Data.Repository;
 using FelicitySecurity.Core.DataTransferObjects;
 using FelicitySecurity.Applications.Config.Interfaces;
 using FelicitySecurity.Core.Models;
-using FelicitySecurity.Data.Services;
+using FelicitySecurity.Services;
 
 namespace FelicitySecurity.Applications.Config.Controllers
 {
