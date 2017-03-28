@@ -312,7 +312,7 @@ namespace FelicitySecurity.Core.Data.Repository
         /// returns a list of all staff and their data. 
         /// </summary>
         /// <returns>a result list of all staff members within the system</returns>
-        public List<Staff_dto> FindALLStaff()
+        public List<Staff_dto> FindAllStaff()
         {
             List<Staff_dto> staffResults = new List<Staff_dto>();
             try

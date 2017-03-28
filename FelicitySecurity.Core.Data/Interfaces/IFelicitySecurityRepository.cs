@@ -16,7 +16,7 @@ namespace FelicitySecurity.Data.Interfaces
         List<Faces_dto> FindAllMembersFaces();
         Faces_dto AddFaces(Faces_dto item);
         Staff_dto AddStaff(Staff_dto item);
-        List<Staff_dto> FindALLStaff();
+        List<Staff_dto> FindAllStaff();
         void RemoveAdministrator(int administratorsId);
         void UpdateAdministrator(Administrators_dto admin);
 
