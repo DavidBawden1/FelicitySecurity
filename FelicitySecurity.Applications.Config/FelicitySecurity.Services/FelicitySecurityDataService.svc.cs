@@ -6,8 +6,9 @@ using System.Web.Services;
 
 namespace FelicitySecurity.Services
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "FelicitySecurityDataService" in code, svc and config file together.
-    // NOTE: In order to launch WCF Test Client for testing this service, please select FelicitySecurityDataService.svc or FelicitySecurityDataService.svc.cs at the Solution Explorer and start debugging.
+   
+    [WebService(Namespace ="http://wwww.FelicitySecurity.net")]
+    [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     public class FelicitySecurityDataService : IFelicitySecurityDataService
     {
         #region Declarations
