@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using FelicitySecurity.Core.DataTransferObjects;
 using System.Web.Services;
+using System.ServiceModel;
 
 namespace FelicitySecurity.Services
 {
@@ -18,6 +19,7 @@ namespace FelicitySecurity.Services
         #endregion
 
         #region Methods
+        [OperationContract]
         [WebMethod]
         /// <summary>
         /// calls the Add Administrator businessLogic method
@@ -29,6 +31,7 @@ namespace FelicitySecurity.Services
         }
 
         [WebMethod]
+        [OperationContract]
         /// <summary>
         /// calls the Find All Administrator businessLogic method
         /// </summary>
@@ -39,6 +42,7 @@ namespace FelicitySecurity.Services
         }
 
         [WebMethod]
+        [OperationContract]
         /// <summary>
         /// calls the Add Member businessLogic method
         /// </summary>
@@ -49,6 +53,7 @@ namespace FelicitySecurity.Services
         }
 
         [WebMethod]
+        [OperationContract]
         /// <summary>
         /// calls the Find All Members businessLogic method
         /// </summary>
@@ -59,6 +64,7 @@ namespace FelicitySecurity.Services
         }
 
         [WebMethod]
+        [OperationContract]
         /// <summary>
         /// calls the Add Faces businessLogic method
         /// </summary>
@@ -69,6 +75,7 @@ namespace FelicitySecurity.Services
         }
 
         [WebMethod]
+        [OperationContract]
         /// <summary>
         /// calls the Find All Faces businessLogic method
         /// </summary>
@@ -79,6 +86,7 @@ namespace FelicitySecurity.Services
         }
 
         [WebMethod]
+        [OperationContract]
         /// <summary>
         /// calls the Add Staff businessLogic method
         /// </summary>
@@ -89,6 +97,7 @@ namespace FelicitySecurity.Services
         }
 
         [WebMethod]
+        [OperationContract]
         /// <summary>
         /// calls the Find All Staff businessLogic method
         /// </summary>
@@ -99,6 +108,7 @@ namespace FelicitySecurity.Services
         }
 
         [WebMethod]
+        [OperationContract]
         /// <summary>
         /// Calls the Remove Administrator businessLogic method
         /// </summary>
@@ -109,6 +119,7 @@ namespace FelicitySecurity.Services
         }
 
         [WebMethod]
+        [OperationContract]
         /// <summary>
         /// Calls the Update Administrator businessLogic method
         /// </summary>
