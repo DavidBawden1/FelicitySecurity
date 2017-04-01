@@ -2,16 +2,6 @@
 <wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
-      <s:element name="HelloWorld">
-        <s:complexType />
-      </s:element>
-      <s:element name="HelloWorldResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
       <s:element name="AddAdministrator">
         <s:complexType>
           <s:sequence>
@@ -157,17 +147,13 @@
       <s:element name="AddStaffResponse">
         <s:complexType />
       </s:element>
-      <s:element name="FindALLStaff">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="item" type="tns:Staff_dto" />
-          </s:sequence>
-        </s:complexType>
+      <s:element name="FindAllStaff">
+        <s:complexType />
       </s:element>
-      <s:element name="FindALLStaffResponse">
+      <s:element name="FindAllStaffResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="FindALLStaffResult" type="tns:ArrayOfStaff_dto" />
+            <s:element minOccurs="0" maxOccurs="1" name="FindAllStaffResult" type="tns:ArrayOfStaff_dto" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -198,12 +184,6 @@
       </s:element>
     </s:schema>
   </wsdl:types>
-  <wsdl:message name="HelloWorldSoapIn">
-    <wsdl:part name="parameters" element="tns:HelloWorld" />
-  </wsdl:message>
-  <wsdl:message name="HelloWorldSoapOut">
-    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
-  </wsdl:message>
   <wsdl:message name="AddAdministratorSoapIn">
     <wsdl:part name="parameters" element="tns:AddAdministrator" />
   </wsdl:message>
@@ -246,11 +226,11 @@
   <wsdl:message name="AddStaffSoapOut">
     <wsdl:part name="parameters" element="tns:AddStaffResponse" />
   </wsdl:message>
-  <wsdl:message name="FindALLStaffSoapIn">
-    <wsdl:part name="parameters" element="tns:FindALLStaff" />
+  <wsdl:message name="FindAllStaffSoapIn">
+    <wsdl:part name="parameters" element="tns:FindAllStaff" />
   </wsdl:message>
-  <wsdl:message name="FindALLStaffSoapOut">
-    <wsdl:part name="parameters" element="tns:FindALLStaffResponse" />
+  <wsdl:message name="FindAllStaffSoapOut">
+    <wsdl:part name="parameters" element="tns:FindAllStaffResponse" />
   </wsdl:message>
   <wsdl:message name="RemoveAdministratorSoapIn">
     <wsdl:part name="parameters" element="tns:RemoveAdministrator" />
@@ -265,10 +245,6 @@
     <wsdl:part name="parameters" element="tns:UpdateAdministratorResponse" />
   </wsdl:message>
   <wsdl:portType name="FelicitySecurityDataServiceSoap">
-    <wsdl:operation name="HelloWorld">
-      <wsdl:input message="tns:HelloWorldSoapIn" />
-      <wsdl:output message="tns:HelloWorldSoapOut" />
-    </wsdl:operation>
     <wsdl:operation name="AddAdministrator">
       <wsdl:input message="tns:AddAdministratorSoapIn" />
       <wsdl:output message="tns:AddAdministratorSoapOut" />
@@ -297,9 +273,9 @@
       <wsdl:input message="tns:AddStaffSoapIn" />
       <wsdl:output message="tns:AddStaffSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="FindALLStaff">
-      <wsdl:input message="tns:FindALLStaffSoapIn" />
-      <wsdl:output message="tns:FindALLStaffSoapOut" />
+    <wsdl:operation name="FindAllStaff">
+      <wsdl:input message="tns:FindAllStaffSoapIn" />
+      <wsdl:output message="tns:FindAllStaffSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="RemoveAdministrator">
       <wsdl:input message="tns:RemoveAdministratorSoapIn" />
@@ -312,15 +288,6 @@
   </wsdl:portType>
   <wsdl:binding name="FelicitySecurityDataServiceSoap" type="tns:FelicitySecurityDataServiceSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="HelloWorld">
-      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="AddAdministrator">
       <soap:operation soapAction="http://tempuri.org/AddAdministrator" style="document" />
       <wsdl:input>
@@ -384,8 +351,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="FindALLStaff">
-      <soap:operation soapAction="http://tempuri.org/FindALLStaff" style="document" />
+    <wsdl:operation name="FindAllStaff">
+      <soap:operation soapAction="http://tempuri.org/FindAllStaff" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -414,15 +381,6 @@
   </wsdl:binding>
   <wsdl:binding name="FelicitySecurityDataServiceSoap12" type="tns:FelicitySecurityDataServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="HelloWorld">
-      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="AddAdministrator">
       <soap12:operation soapAction="http://tempuri.org/AddAdministrator" style="document" />
       <wsdl:input>
@@ -486,8 +444,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="FindALLStaff">
-      <soap12:operation soapAction="http://tempuri.org/FindALLStaff" style="document" />
+    <wsdl:operation name="FindAllStaff">
+      <soap12:operation soapAction="http://tempuri.org/FindAllStaff" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

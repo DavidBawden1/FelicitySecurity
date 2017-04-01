@@ -1,6 +1,6 @@
-﻿using FelicitySecurity.Core.BusinessLogic;
-using FelicitySecurity.Core.DataTransferObjects;
+﻿using FelicitySecurity.Core.Data.Repository;
 using System.Collections.Generic;
+using FelicitySecurity.Core.DataTransferObjects;
 using System.Web.Services;
 
 namespace FelicitySecurity.Services
@@ -14,7 +14,7 @@ namespace FelicitySecurity.Services
     public class FelicitySecurityDataService : System.Web.Services.WebService, IFelicitySecurityDataService
     {
         #region Decalarations
-        FelicitySecurityBusinessLogic businessLogic = new FelicitySecurityBusinessLogic();
+        FelicitySecurityRepository repository = new FelicitySecurityRepository();
         #endregion
 
         #region Methods
@@ -25,7 +25,7 @@ namespace FelicitySecurity.Services
         /// <param name="item">Administrators_dto</param>
         public void AddAdministrator(Administrators_dto item)
         {
-            businessLogic.AddAdministrator(item);
+            repository.AddAdministrator(item);
         }
 
         [WebMethod]
@@ -35,7 +35,7 @@ namespace FelicitySecurity.Services
         /// <param name="item">Administrators_dto</param>
         public List<Administrators_dto> FindAllAdministrators()
         {
-            return businessLogic.FindAllAdministrators();
+            return repository.FindAllAdministrators();
         }
 
         [WebMethod]
@@ -45,7 +45,7 @@ namespace FelicitySecurity.Services
         /// <param name="item">Members_dto</param>
         public void AddMember(Members_dto item)
         {
-            businessLogic.AddMember(item);
+            repository.AddMember(item);
         }
 
         [WebMethod]
@@ -55,7 +55,7 @@ namespace FelicitySecurity.Services
         /// <param name="item">Members_dto</param>
         public List<Members_dto> FindAllMembers()
         {
-            return businessLogic.FindAllMembers();
+            return repository.FindAllMembers();
         }
 
         [WebMethod]
@@ -65,7 +65,7 @@ namespace FelicitySecurity.Services
         /// <param name="item">Faces_dto</param>
         public void AddFaces(Faces_dto item)
         {
-            businessLogic.AddFaces(item);
+            repository.AddFaces(item);
         }
 
         [WebMethod]
@@ -75,7 +75,7 @@ namespace FelicitySecurity.Services
         /// <param name="item">Faces_dto</param>
         public List<Faces_dto> FindAllMembersFaces()
         {
-            return businessLogic.FindAllMembersFaces();
+            return repository.FindAllMembersFaces();
         }
 
         [WebMethod]
@@ -85,7 +85,7 @@ namespace FelicitySecurity.Services
         /// <param name="item">Staff_dto</param>
         public void AddStaff(Staff_dto item)
         {
-            businessLogic.AddStaff(item);
+            repository.AddStaff(item);
         }
 
         [WebMethod]
@@ -93,9 +93,9 @@ namespace FelicitySecurity.Services
         /// calls the Find All Staff businessLogic method
         /// </summary>
         /// <param name="item">Staff_dto</param>
-        public List<Staff_dto> FindALLStaff(Staff_dto item)
+        public List<Staff_dto> FindAllStaff()
         {
-            return businessLogic.FindAllStaff(item);
+            return repository.FindAllStaff();
         }
 
         [WebMethod]
@@ -105,7 +105,7 @@ namespace FelicitySecurity.Services
         /// <param name="administratorId"></param>
         public void RemoveAdministrator(int administratorId)
         {
-            businessLogic.RemoveAdministrator(administratorId);
+            repository.RemoveAdministrator(administratorId);
         }
 
         [WebMethod]
@@ -115,7 +115,7 @@ namespace FelicitySecurity.Services
         /// <param name="item"></param>
         public void UpdateAdministrator(Administrators_dto item)
         {
-            businessLogic.UpdateAdministrator(item);
+            repository.UpdateAdministrator(item);
         }
         #endregion
     }

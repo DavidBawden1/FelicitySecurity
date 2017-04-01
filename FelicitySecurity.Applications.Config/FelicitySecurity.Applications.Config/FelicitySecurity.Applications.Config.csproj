@@ -97,11 +97,6 @@
     <Compile Include="Resources\Controls\ListboxItem.cs" />
     <Compile Include="Resources\Validation\ValidateExistingEmail.cs" />
     <Compile Include="Resources\Validation\ValidationBase.cs" />
-    <Compile Include="Service References\FelicitySecurityDataServiceReference\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="ViewModels\AdministratorsViewModel.cs" />
     <Compile Include="Views\Form_AuthenticateAdministrator.cs">
       <SubType>Form</SubType>
@@ -153,7 +148,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Service References\FelicitySecurityDataServiceReference\FelicitySecurityDataService.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -179,27 +173,6 @@
       <Project>{D9B6DF98-9C5F-48CA-8673-1A6BC7CD05B5}</Project>
       <Name>FelicitySecurity.Core.Utils</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\FelicitySecurityDataServiceReference\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\FelicitySecurityDataServiceReference\FelicitySecurityDataService.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\FelicitySecurityDataServiceReference\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\FelicitySecurityDataServiceReference\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\FelicitySecurityDataServiceReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

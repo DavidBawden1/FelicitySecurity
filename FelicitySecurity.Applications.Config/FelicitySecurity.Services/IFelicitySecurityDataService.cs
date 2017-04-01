@@ -1,11 +1,6 @@
 ﻿using FelicitySecurity.Core.DataTransferObjects;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
 using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
 
 namespace FelicitySecurity.Services
 {
@@ -22,7 +17,7 @@ namespace FelicitySecurity.Services
         void AddFaces(Faces_dto item);
         List<Faces_dto> FindAllMembersFaces();
         void AddStaff(Staff_dto item);
-        List<Staff_dto> FindALLStaff(Staff_dto item);
+        List<Staff_dto> FindAllStaff();
         void RemoveAdministrator(int administratorId);
         void UpdateAdministrator(Administrators_dto item);
     }
