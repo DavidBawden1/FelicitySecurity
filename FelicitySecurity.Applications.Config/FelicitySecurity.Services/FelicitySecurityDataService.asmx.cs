@@ -1,11 +1,7 @@
 ﻿using FelicitySecurity.Core.BusinessLogic;
 using FelicitySecurity.Core.DataTransferObjects;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Services;
-using System.Xml.Serialization;
 
 namespace FelicitySecurity.Services
 {
