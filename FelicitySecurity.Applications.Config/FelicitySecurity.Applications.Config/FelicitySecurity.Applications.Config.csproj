@@ -102,11 +102,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Service References\FelicitySecurityWebServiceReference\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="ViewModels\AdministratorsViewModel.cs" />
     <Compile Include="Views\Form_AuthenticateAdministrator.cs">
       <SubType>Form</SubType>
@@ -159,16 +154,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="Service References\FelicitySecurityDataServiceReference\FelicitySecurityDataService.wsdl" />
-    <None Include="Service References\FelicitySecurityWebServiceReference\FelicitySecurityDataService.wsdl" />
-    <None Include="Service References\FelicitySecurityWebServiceReference\FelicitySecurityDataService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\FelicitySecurityWebServiceReference\FelicitySecurityDataService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\FelicitySecurityWebServiceReference\FelicitySecurityDataService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -200,22 +185,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\FelicitySecurityDataServiceReference\" />
-    <WCFMetadataStorage Include="Service References\FelicitySecurityWebServiceReference\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\FelicitySecurityWebServiceReference\FelicitySecurityDataService.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\FelicitySecurityWebServiceReference\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\FelicitySecurityWebServiceReference\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\FelicitySecurityWebServiceReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\FelicitySecurityDataServiceReference\FelicitySecurityDataService.disco" />

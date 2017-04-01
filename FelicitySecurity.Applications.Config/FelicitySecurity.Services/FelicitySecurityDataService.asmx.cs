@@ -10,23 +10,18 @@ using System.Xml.Serialization;
 namespace FelicitySecurity.Services
 {
     /// <summary>
-    /// Summary description for FelicitySecurityDataService
+    /// Handles all data operations between the configuration Client and the Server. 
     /// </summary>
     [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
-    // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
-    // [System.Web.Script.Services.ScriptService]
-    public class FelicitySecurityDataService : System.Web.Services.WebService
+    public class FelicitySecurityDataService : System.Web.Services.WebService, IFelicitySecurityDataService
     {
+        #region Decalarations
         FelicitySecurityBusinessLogic businessLogic = new FelicitySecurityBusinessLogic();
+        #endregion
 
-        [WebMethod]
-        public string HelloWorld()
-        {
-            return "Hello World";
-        }
-
+        #region Methods
         [WebMethod]
         /// <summary>
         /// calls the Add Administrator businessLogic method
@@ -126,6 +121,6 @@ namespace FelicitySecurity.Services
         {
             businessLogic.UpdateAdministrator(item);
         }
-
+        #endregion
     }
 }
