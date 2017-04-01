@@ -54,7 +54,6 @@
             this.AdministratorsListBoxAndLogo_GroupBox = new System.Windows.Forms.GroupBox();
             this.RegisterFormBackground_TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.Logo_GroupBox = new System.Windows.Forms.GroupBox();
-            this.RegistrationControlButtons_GroupBox = new System.Windows.Forms.GroupBox();
             this.ListOfAdministrators_GroupBox = new System.Windows.Forms.GroupBox();
             this.AdministratorListControlsTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.Administrators_ListBox = new System.Windows.Forms.ListBox();
@@ -74,7 +73,6 @@
             this.RegistrationControlButtons_TableLayoutPanel.SuspendLayout();
             this.AdministratorsListBoxAndLogo_GroupBox.SuspendLayout();
             this.RegisterFormBackground_TableLayoutPanel.SuspendLayout();
-            this.Logo_GroupBox.SuspendLayout();
             this.ListOfAdministrators_GroupBox.SuspendLayout();
             this.AdministratorListControlsTableLayoutPanel.SuspendLayout();
             this.AdministratorsListControls_GroupBox.SuspendLayout();
@@ -399,21 +397,12 @@
             // 
             // Logo_GroupBox
             // 
-            this.Logo_GroupBox.Controls.Add(this.RegistrationControlButtons_GroupBox);
             this.Logo_GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Logo_GroupBox.Location = new System.Drawing.Point(3, 3);
             this.Logo_GroupBox.Name = "Logo_GroupBox";
             this.Logo_GroupBox.Size = new System.Drawing.Size(713, 357);
             this.Logo_GroupBox.TabIndex = 0;
             this.Logo_GroupBox.TabStop = false;
-            // 
-            // RegistrationControlButtons_GroupBox
-            // 
-            this.RegistrationControlButtons_GroupBox.Location = new System.Drawing.Point(278, 147);
-            this.RegistrationControlButtons_GroupBox.Name = "RegistrationControlButtons_GroupBox";
-            this.RegistrationControlButtons_GroupBox.Size = new System.Drawing.Size(200, 35);
-            this.RegistrationControlButtons_GroupBox.TabIndex = 1;
-            this.RegistrationControlButtons_GroupBox.TabStop = false;
             // 
             // ListOfAdministrators_GroupBox
             // 
@@ -540,7 +529,6 @@
             this.RegistrationControlButtons_TableLayoutPanel.ResumeLayout(false);
             this.AdministratorsListBoxAndLogo_GroupBox.ResumeLayout(false);
             this.RegisterFormBackground_TableLayoutPanel.ResumeLayout(false);
-            this.Logo_GroupBox.ResumeLayout(false);
             this.ListOfAdministrators_GroupBox.ResumeLayout(false);
             this.AdministratorListControlsTableLayoutPanel.ResumeLayout(false);
             this.AdministratorsListControls_GroupBox.ResumeLayout(false);
@@ -588,7 +576,6 @@
         private System.Windows.Forms.ToolStripMenuItem Authentication_MenuItem;
         private System.Windows.Forms.TableLayoutPanel RegistrationCredentials_TableLayoutPanel;
         private System.Windows.Forms.GroupBox RegistrationTextBoxControls_GroupBox;
-        private System.Windows.Forms.GroupBox RegistrationControlButtons_GroupBox;
         private System.Windows.Forms.TableLayoutPanel RegistrationControlButtons_TableLayoutPanel;
         private System.Windows.Forms.ToolStripMenuItem Close_MenuItem;
     }

@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddAdministrator">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="item" type="tns:Administrators_dto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Administrators_dto">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="AdminID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdminName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdminEmail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdminPinCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddAdministratorResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="FindAllAdministrators">
+        <s:complexType />
+      </s:element>
+      <s:element name="FindAllAdministratorsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FindAllAdministratorsResult" type="tns:ArrayOfAdministrators_dto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAdministrators_dto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Administrators_dto" nillable="true" type="tns:Administrators_dto" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddMember">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="item" type="tns:Members_dto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Members_dto">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MemID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemFirstname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemLastname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemPhonenumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemDOB" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemPostcode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemStatus" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemRegDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsStaff" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AdminID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResponsibleAdministrators" type="tns:ArrayOfAdministrators_dto" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddMemberResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="FindAllMembers">
+        <s:complexType />
+      </s:element>
+      <s:element name="FindAllMembersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FindAllMembersResult" type="tns:ArrayOfMembers_dto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMembers_dto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Members_dto" nillable="true" type="tns:Members_dto" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddFaces">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="item" type="tns:Faces_dto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Faces_dto">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="FaceID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemFace0" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemFace1" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemFace2" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemFace3" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemFace4" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemFace5" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemFace6" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemFace7" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemFace8" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemFace9" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemFace10" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemFace11" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemFace12" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemFace13" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemFace14" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemFace15" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemFace16" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemFace17" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemFace18" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemFace19" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemFace20" type="s:base64Binary" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="MembersFaces" type="tns:ArrayOfMembers_dto" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddFacesResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="FindAllMembersFaces">
+        <s:complexType />
+      </s:element>
+      <s:element name="FindAllMembersFacesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FindAllMembersFacesResult" type="tns:ArrayOfFaces_dto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfFaces_dto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Faces_dto" nillable="true" type="tns:Faces_dto" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddStaff">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="item" type="tns:Staff_dto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Staff_dto">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="StaffID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsStaff" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="BadgeNo" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="StaffMembers" type="tns:ArrayOfMembers_dto" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddStaffResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="FindALLStaff">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="item" type="tns:Staff_dto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindALLStaffResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FindALLStaffResult" type="tns:ArrayOfStaff_dto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfStaff_dto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Staff_dto" nillable="true" type="tns:Staff_dto" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RemoveAdministrator">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="administratorId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveAdministratorResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateAdministrator">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="item" type="tns:Administrators_dto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAdministratorResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddAdministratorSoapIn">
+    <wsdl:part name="parameters" element="tns:AddAdministrator" />
+  </wsdl:message>
+  <wsdl:message name="AddAdministratorSoapOut">
+    <wsdl:part name="parameters" element="tns:AddAdministratorResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindAllAdministratorsSoapIn">
+    <wsdl:part name="parameters" element="tns:FindAllAdministrators" />
+  </wsdl:message>
+  <wsdl:message name="FindAllAdministratorsSoapOut">
+    <wsdl:part name="parameters" element="tns:FindAllAdministratorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddMemberSoapIn">
+    <wsdl:part name="parameters" element="tns:AddMember" />
+  </wsdl:message>
+  <wsdl:message name="AddMemberSoapOut">
+    <wsdl:part name="parameters" element="tns:AddMemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindAllMembersSoapIn">
+    <wsdl:part name="parameters" element="tns:FindAllMembers" />
+  </wsdl:message>
+  <wsdl:message name="FindAllMembersSoapOut">
+    <wsdl:part name="parameters" element="tns:FindAllMembersResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddFacesSoapIn">
+    <wsdl:part name="parameters" element="tns:AddFaces" />
+  </wsdl:message>
+  <wsdl:message name="AddFacesSoapOut">
+    <wsdl:part name="parameters" element="tns:AddFacesResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindAllMembersFacesSoapIn">
+    <wsdl:part name="parameters" element="tns:FindAllMembersFaces" />
+  </wsdl:message>
+  <wsdl:message name="FindAllMembersFacesSoapOut">
+    <wsdl:part name="parameters" element="tns:FindAllMembersFacesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddStaffSoapIn">
+    <wsdl:part name="parameters" element="tns:AddStaff" />
+  </wsdl:message>
+  <wsdl:message name="AddStaffSoapOut">
+    <wsdl:part name="parameters" element="tns:AddStaffResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindALLStaffSoapIn">
+    <wsdl:part name="parameters" element="tns:FindALLStaff" />
+  </wsdl:message>
+  <wsdl:message name="FindALLStaffSoapOut">
+    <wsdl:part name="parameters" element="tns:FindALLStaffResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveAdministratorSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveAdministrator" />
+  </wsdl:message>
+  <wsdl:message name="RemoveAdministratorSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveAdministratorResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAdministratorSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateAdministrator" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAdministratorSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateAdministratorResponse" />
+  </wsdl:message>
+  <wsdl:portType name="FelicitySecurityDataServiceSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAdministrator">
+      <wsdl:input message="tns:AddAdministratorSoapIn" />
+      <wsdl:output message="tns:AddAdministratorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindAllAdministrators">
+      <wsdl:input message="tns:FindAllAdministratorsSoapIn" />
+      <wsdl:output message="tns:FindAllAdministratorsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMember">
+      <wsdl:input message="tns:AddMemberSoapIn" />
+      <wsdl:output message="tns:AddMemberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindAllMembers">
+      <wsdl:input message="tns:FindAllMembersSoapIn" />
+      <wsdl:output message="tns:FindAllMembersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFaces">
+      <wsdl:input message="tns:AddFacesSoapIn" />
+      <wsdl:output message="tns:AddFacesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindAllMembersFaces">
+      <wsdl:input message="tns:FindAllMembersFacesSoapIn" />
+      <wsdl:output message="tns:FindAllMembersFacesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddStaff">
+      <wsdl:input message="tns:AddStaffSoapIn" />
+      <wsdl:output message="tns:AddStaffSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindALLStaff">
+      <wsdl:input message="tns:FindALLStaffSoapIn" />
+      <wsdl:output message="tns:FindALLStaffSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAdministrator">
+      <wsdl:input message="tns:RemoveAdministratorSoapIn" />
+      <wsdl:output message="tns:RemoveAdministratorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAdministrator">
+      <wsdl:input message="tns:UpdateAdministratorSoapIn" />
+      <wsdl:output message="tns:UpdateAdministratorSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FelicitySecurityDataServiceSoap" type="tns:FelicitySecurityDataServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAdministrator">
+      <soap:operation soapAction="http://tempuri.org/AddAdministrator" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindAllAdministrators">
+      <soap:operation soapAction="http://tempuri.org/FindAllAdministrators" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMember">
+      <soap:operation soapAction="http://tempuri.org/AddMember" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindAllMembers">
+      <soap:operation soapAction="http://tempuri.org/FindAllMembers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFaces">
+      <soap:operation soapAction="http://tempuri.org/AddFaces" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindAllMembersFaces">
+      <soap:operation soapAction="http://tempuri.org/FindAllMembersFaces" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddStaff">
+      <soap:operation soapAction="http://tempuri.org/AddStaff" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindALLStaff">
+      <soap:operation soapAction="http://tempuri.org/FindALLStaff" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAdministrator">
+      <soap:operation soapAction="http://tempuri.org/RemoveAdministrator" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAdministrator">
+      <soap:operation soapAction="http://tempuri.org/UpdateAdministrator" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FelicitySecurityDataServiceSoap12" type="tns:FelicitySecurityDataServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAdministrator">
+      <soap12:operation soapAction="http://tempuri.org/AddAdministrator" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindAllAdministrators">
+      <soap12:operation soapAction="http://tempuri.org/FindAllAdministrators" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMember">
+      <soap12:operation soapAction="http://tempuri.org/AddMember" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindAllMembers">
+      <soap12:operation soapAction="http://tempuri.org/FindAllMembers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFaces">
+      <soap12:operation soapAction="http://tempuri.org/AddFaces" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindAllMembersFaces">
+      <soap12:operation soapAction="http://tempuri.org/FindAllMembersFaces" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddStaff">
+      <soap12:operation soapAction="http://tempuri.org/AddStaff" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindALLStaff">
+      <soap12:operation soapAction="http://tempuri.org/FindALLStaff" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAdministrator">
+      <soap12:operation soapAction="http://tempuri.org/RemoveAdministrator" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAdministrator">
+      <soap12:operation soapAction="http://tempuri.org/UpdateAdministrator" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FelicitySecurityDataService">
+    <wsdl:port name="FelicitySecurityDataServiceSoap" binding="tns:FelicitySecurityDataServiceSoap">
+      <soap:address location="http://localhost:51333/FelicitySecurityDataService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FelicitySecurityDataServiceSoap12" binding="tns:FelicitySecurityDataServiceSoap12">
+      <soap12:address location="http://localhost:51333/FelicitySecurityDataService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

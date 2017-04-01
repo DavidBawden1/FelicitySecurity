@@ -19,7 +19,7 @@ namespace FelicitySecurity.Core.DataTransferObjects
         public Nullable<bool> IsStaff { get; set; }
         public int AdminID { get; set; }
 
-        public virtual IEnumerable <Administrators_dto> ResponsibleAdministrators { get; set; }
+        public virtual List<Administrators_dto> ResponsibleAdministrators { get; set; }
   
 
     }

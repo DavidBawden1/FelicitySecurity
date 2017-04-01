@@ -2,47 +2,29 @@
 using FelicitySecurity.Core.DataTransferObjects;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Web.Services;
+using System.Xml.Serialization;
 
 namespace FelicitySecurity.Services
 {
-   
-    [WebService(Namespace ="http://wwww.FelicitySecurity.net")]
+    /// <summary>
+    /// Summary description for FelicitySecurityDataService
+    /// </summary>
+    [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
-    public class FelicitySecurityWebService : IFelicitySecurityDataService
+    [System.ComponentModel.ToolboxItem(false)]
+    // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
+    // [System.Web.Script.Services.ScriptService]
+    public class FelicitySecurityDataService : System.Web.Services.WebService
     {
-        #region Declarations
         FelicitySecurityBusinessLogic businessLogic = new FelicitySecurityBusinessLogic();
-        #endregion
 
-        #region Properties 
-        #endregion
-
-        #region Constructors
-        #endregion
-
-        #region Methods
-        public void DoWork()
+        [WebMethod]
+        public string HelloWorld()
         {
-
-        }
-
-        public string GetData(int value)
-        {
-            return string.Format("You entered: {0}", value);
-        }
-
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
-        {
-            if (composite == null)
-            {
-                throw new ArgumentNullException("composite");
-            }
-            if (composite.BoolValue)
-            {
-                composite.StringValue += "Suffix";
-            }
-            return composite;
+            return "Hello World";
         }
 
         [WebMethod]
@@ -144,6 +126,6 @@ namespace FelicitySecurity.Services
         {
             businessLogic.UpdateAdministrator(item);
         }
-        #endregion
+
     }
 }

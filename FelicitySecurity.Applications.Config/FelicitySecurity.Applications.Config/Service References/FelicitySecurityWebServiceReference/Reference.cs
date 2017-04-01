@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FelicitySecurity.Applications.Config.FelicitySecurityServiceReference {
+namespace FelicitySecurity.Applications.Config.FelicitySecurityWebServiceReference {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="FelicitySecurityServiceReference.IFelicitySecurityDataService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="FelicitySecurityWebServiceReference.IFelicitySecurityDataService")]
     public interface IFelicitySecurityDataService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFelicitySecurityDataService/GetData", ReplyAction="http://tempuri.org/IFelicitySecurityDataService/GetDataResponse")]
@@ -35,12 +35,12 @@ namespace FelicitySecurity.Applications.Config.FelicitySecurityServiceReference 
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IFelicitySecurityDataServiceChannel : FelicitySecurity.Applications.Config.FelicitySecurityServiceReference.IFelicitySecurityDataService, System.ServiceModel.IClientChannel {
+    public interface IFelicitySecurityDataServiceChannel : FelicitySecurity.Applications.Config.FelicitySecurityWebServiceReference.IFelicitySecurityDataService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class FelicitySecurityDataServiceClient : System.ServiceModel.ClientBase<FelicitySecurity.Applications.Config.FelicitySecurityServiceReference.IFelicitySecurityDataService>, FelicitySecurity.Applications.Config.FelicitySecurityServiceReference.IFelicitySecurityDataService {
+    public partial class FelicitySecurityDataServiceClient : System.ServiceModel.ClientBase<FelicitySecurity.Applications.Config.FelicitySecurityWebServiceReference.IFelicitySecurityDataService>, FelicitySecurity.Applications.Config.FelicitySecurityWebServiceReference.IFelicitySecurityDataService {
         
         public FelicitySecurityDataServiceClient() {
         }
