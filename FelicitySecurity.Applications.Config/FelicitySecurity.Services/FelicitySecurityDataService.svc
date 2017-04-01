@@ -1,1 +1,1 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="FelicitySecurity.Services.FelicitySecurityDataService" CodeBehind="FelicitySecurityDataService.svc.cs" %>
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="FelicitySecurity.Services.FelicitySecurityWebService" CodeBehind="FelicitySecurityDataService.svc.cs" %>

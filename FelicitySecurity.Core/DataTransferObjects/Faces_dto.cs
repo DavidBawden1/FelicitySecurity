@@ -32,6 +32,6 @@ namespace FelicitySecurity.Core.DataTransferObjects
         public byte[] MemFace20 { get; set; }
         public int MemID { get; set; }
 
-        public virtual IEnumerable <Members_dto> MembersFaces { get; set; }
+        public virtual List<Members_dto> MembersFaces { get; set; }
     }
 }

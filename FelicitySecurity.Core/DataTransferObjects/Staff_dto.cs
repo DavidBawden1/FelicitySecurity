@@ -14,6 +14,6 @@ namespace FelicitySecurity.Core.DataTransferObjects
         public Nullable<int> BadgeNo { get; set; }
         public int MemID { get; set; }
 
-        public virtual IEnumerable<Members_dto> StaffMembers { get; set; }
+        public virtual List<Members_dto> StaffMembers { get; set; }
     }
 }
