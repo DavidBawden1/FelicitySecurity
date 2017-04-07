@@ -12,7 +12,7 @@ namespace FelicitySecurity.Services
     [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
-    public class FelicitySecurityDataService : System.Web.Services.WebService, IFelicitySecurityDataService
+    public class FelicitySecurityDataService : WebService, IFelicitySecurityDataService
     {
         #region Decalarations
         FelicitySecurityRepository repository = new FelicitySecurityRepository();
