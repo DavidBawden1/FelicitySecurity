@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b145d893-6173-4e4e-997f-3846f587f332" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0780af85-07b1-4617-979f-32f54b82586c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,8 +22,8 @@
     <MetadataSource Address="http://localhost:51333/FelicitySecurityDataService.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="FelicitySecurityDataService.wsdl" MetadataType="Wsdl" ID="8f46f43f-fca5-4601-9e75-25235072aa55" SourceId="1" SourceUrl="http://localhost:51333/FelicitySecurityDataService.asmx?wsdl" />
-    <MetadataFile FileName="FelicitySecurityDataService.disco" MetadataType="Disco" ID="c47500d3-4731-4bd2-95e5-c8dbd2b1e408" SourceId="1" SourceUrl="http://localhost:51333/FelicitySecurityDataService.asmx?disco" />
+    <MetadataFile FileName="FelicitySecurityDataService.wsdl" MetadataType="Wsdl" ID="e91f0757-9604-4c50-a68f-98b5a900ed56" SourceId="1" SourceUrl="http://localhost:51333/FelicitySecurityDataService.asmx?wsdl" />
+    <MetadataFile FileName="FelicitySecurityDataService.disco" MetadataType="Disco" ID="ce73e8fd-61d8-43ec-80e4-82136e5c9bb2" SourceId="1" SourceUrl="http://localhost:51333/FelicitySecurityDataService.asmx?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
