@@ -1,6 +1,6 @@
-﻿using FelicitySecurity.Core.Data.Repository;
-using FelicitySecurity.Core.DataTransferObjects;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using FelicitySecurity.Core.FelicitySecurityDataServiceReference;
+using System.Linq;
 
 namespace FelicitySecurity.Core.BusinessLogic
 {
@@ -10,10 +10,15 @@ namespace FelicitySecurity.Core.BusinessLogic
     public class FelicitySecurityBusinessLogic
     {
         #region Declarations
-        FelicitySecurityRepository repository = new FelicitySecurityRepository();
+        FelicitySecurityDataServiceSoapClient client = new FelicitySecurityDataServiceSoapClient("BasicHttpBinding_IFelicityDataService");
         #endregion
 
         #region Constructors
+        public FelicitySecurityBusinessLogic()
+        {
+            client.ClientCredentials.UserName.UserName = "User";
+            client.ClientCredentials.UserName.Password = "Pass";
+        }
         #endregion
         #region Methods
         /// <summary>
@@ -22,7 +27,7 @@ namespace FelicitySecurity.Core.BusinessLogic
         /// <param name="item">Administrators_dto</param>
         public void AddAdministrator(Administrators_dto item)
         {
-            repository.AddAdministrator(item);
+            client.AddAdministrator(item);
         }
 
         /// <summary>
@@ -31,7 +36,7 @@ namespace FelicitySecurity.Core.BusinessLogic
         /// <param name="item">Administrators_dto</param>
         public List<Administrators_dto> FindAllAdministrators()
         {
-            return repository.FindAllAdministrators();
+            return client.FindAllAdministrators().ToList();
         }
 
         /// <summary>
@@ -40,7 +45,7 @@ namespace FelicitySecurity.Core.BusinessLogic
         /// <param name="item">Members_dto</param>
         public void AddMember(Members_dto item)
         {
-            repository.AddMember(item);
+            client.AddMember(item);
         }
 
         /// <summary>
@@ -49,7 +54,7 @@ namespace FelicitySecurity.Core.BusinessLogic
         /// <param name="item">Members_dto</param>
         public List<Members_dto> FindAllMembers()
         {
-            return repository.FindAllMembers();
+            return client.FindAllMembers().ToList();
         }
 
         /// <summary>
@@ -58,7 +63,7 @@ namespace FelicitySecurity.Core.BusinessLogic
         /// <param name="item">Faces_dto</param>
         public void AddFaces(Faces_dto item)
         {
-            repository.AddFaces(item);
+            client.AddFaces(item);
         }
 
         /// <summary>
@@ -67,7 +72,7 @@ namespace FelicitySecurity.Core.BusinessLogic
         /// <param name="item">Faces_dto</param>
         public List<Faces_dto> FindAllMembersFaces()
         {
-            return repository.FindAllMembersFaces();
+            return client.FindAllMembersFaces().ToList();
         }
 
         /// <summary>
@@ -76,7 +81,7 @@ namespace FelicitySecurity.Core.BusinessLogic
         /// <param name="item">Staff_dto</param>
         public void AddStaff(Staff_dto item)
         {
-            repository.AddStaff(item);
+            client.AddStaff(item);
         }
 
         /// <summary>
@@ -85,7 +90,7 @@ namespace FelicitySecurity.Core.BusinessLogic
         /// <param name="item">Staff_dto</param>
         public List<Staff_dto> FindAllStaff(Staff_dto item)
         {
-            return repository.FindAllStaff();
+            return client.FindAllStaff().ToList();
         }
 
         /// <summary>
@@ -94,7 +99,7 @@ namespace FelicitySecurity.Core.BusinessLogic
         /// <param name="administratorId"></param>
         public void RemoveAdministrator(int administratorId)
         {
-            repository.RemoveAdministrator(administratorId);
+            client.RemoveAdministrator(administratorId);
         }
 
         /// <summary>
@@ -103,7 +108,7 @@ namespace FelicitySecurity.Core.BusinessLogic
         /// <param name="item"></param>
         public void UpdateAdministrator(Administrators_dto item)
         {
-            repository.UpdateAdministrator(item);
+            client.UpdateAdministrator(item);
         }
         #endregion
     }
