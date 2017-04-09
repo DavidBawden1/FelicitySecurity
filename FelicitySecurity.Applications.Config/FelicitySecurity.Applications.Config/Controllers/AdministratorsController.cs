@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using FelicitySecurity.Core.DataTransferObjects;
 using FelicitySecurity.Applications.Config.Interfaces;
 using FelicitySecurity.Core.Models;
-using FelicitySecurity.Services;
-using System;
+using FelicitySecurity.Core.FelicitySecurityDataServiceReference;
+using FelicitySecurity.Core.BusinessLogic;
 
 namespace FelicitySecurity.Applications.Config.Controllers
 {
@@ -13,9 +12,8 @@ namespace FelicitySecurity.Applications.Config.Controllers
     /// </summary>
     public class AdministratorsController : IAdministratorsController
     {
-        FelicitySecurityDataService  dataService = new FelicitySecurityDataService();
-        //FelicitySecurityDataServiceClient client = new FelicitySecurityDataServiceClient();
-        public void IAdministratorsController(FelicitySecurityDataService dataService)
+        FelicitySecurityBusinessLogic businessLogic = new FelicitySecurityBusinessLogic();
+        public void IAdministratorsController(FelicitySecurityBusinessLogic businessLogic)
         {
 
         }
@@ -32,7 +30,7 @@ namespace FelicitySecurity.Applications.Config.Controllers
             admin.AdminEmail = email;
             admin.AdminName = username;
             admin.AdminPinCode = pin;
-            dataService.AddAdministrator(admin);
+            businessLogic.AddAdministrator(admin);
         }
 
         /// <summary>
@@ -42,7 +40,7 @@ namespace FelicitySecurity.Applications.Config.Controllers
         /// <returns>model</returns>
         public List<AdministratorsModel> AllAdministratorsEmail(AdministratorsModel model)
         {
-            List<Administrators_dto> allAdministrators = dataService.FindAllAdministrators();
+            List<Administrators_dto> allAdministrators = businessLogic.FindAllAdministrators();
 
             foreach (Administrators_dto admin in allAdministrators)
             {
@@ -63,7 +61,7 @@ namespace FelicitySecurity.Applications.Config.Controllers
         /// <returns>The administrator</returns>
         public Administrators_dto ReturnAdministratorByEmail(string email)
         {
-            return dataService.FindAllAdministrators().Where(e => e.AdminEmail == email).FirstOrDefault();
+            return businessLogic.FindAllAdministrators().Where(e => e.AdminEmail == email).FirstOrDefault();
         }
 
 
@@ -74,7 +72,7 @@ namespace FelicitySecurity.Applications.Config.Controllers
         /// <returns>The administrator</returns>
         public Administrators_dto ReturnAdministratorByEmail(string email, string pinCode)
         {
-            return dataService.FindAllAdministrators().Where(e => e.AdminEmail == email && e.AdminPinCode == pinCode).FirstOrDefault();
+            return businessLogic.FindAllAdministrators().Where(e => e.AdminEmail == email && e.AdminPinCode == pinCode).FirstOrDefault();
         }
         /// <summary>
         /// Calls the repository to remove the specified administrator. 
@@ -82,7 +80,7 @@ namespace FelicitySecurity.Applications.Config.Controllers
         /// <param name="model"></param>
         public void RemoveSelectedAdministrator(AdministratorsModel model)
         {
-            dataService.RemoveAdministrator(model.AdminID);
+            businessLogic.RemoveAdministrator(model.AdminID);
         }
 
         /// <summary>
@@ -98,7 +96,7 @@ namespace FelicitySecurity.Applications.Config.Controllers
                 AdminName = model.AdminName,
                 AdminPinCode = model.AdminPinCode
             };
-            dataService.UpdateAdministrator(admin_dto);
+            businessLogic.UpdateAdministrator(admin_dto);
         }
     }
 }

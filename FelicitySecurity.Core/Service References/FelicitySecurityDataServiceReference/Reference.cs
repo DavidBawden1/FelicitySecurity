@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference {
+namespace FelicitySecurity.Core.FelicitySecurityDataServiceReference {
     using System.Runtime.Serialization;
     using System;
     
@@ -139,7 +139,7 @@ namespace FelicitySecurity.Applications.Config.FelicitySecurityDataServiceRefere
         private int AdminIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Administrators_dto[] ResponsibleAdministratorsField;
+        private FelicitySecurity.Core.FelicitySecurityDataServiceReference.Administrators_dto[] ResponsibleAdministratorsField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -282,7 +282,7 @@ namespace FelicitySecurity.Applications.Config.FelicitySecurityDataServiceRefere
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=10)]
-        public FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Administrators_dto[] ResponsibleAdministrators {
+        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.Administrators_dto[] ResponsibleAdministrators {
             get {
                 return this.ResponsibleAdministratorsField;
             }
@@ -381,7 +381,7 @@ namespace FelicitySecurity.Applications.Config.FelicitySecurityDataServiceRefere
         private int MemIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Members_dto[] MembersFacesField;
+        private FelicitySecurity.Core.FelicitySecurityDataServiceReference.Members_dto[] MembersFacesField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -693,7 +693,7 @@ namespace FelicitySecurity.Applications.Config.FelicitySecurityDataServiceRefere
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=23)]
-        public FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Members_dto[] MembersFaces {
+        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.Members_dto[] MembersFaces {
             get {
                 return this.MembersFacesField;
             }
@@ -733,7 +733,7 @@ namespace FelicitySecurity.Applications.Config.FelicitySecurityDataServiceRefere
         private int MemIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Members_dto[] StaffMembersField;
+        private FelicitySecurity.Core.FelicitySecurityDataServiceReference.Members_dto[] StaffMembersField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -798,7 +798,7 @@ namespace FelicitySecurity.Applications.Config.FelicitySecurityDataServiceRefere
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
-        public FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Members_dto[] StaffMembers {
+        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.Members_dto[] StaffMembers {
             get {
                 return this.StaffMembersField;
             }
@@ -824,68 +824,61 @@ namespace FelicitySecurity.Applications.Config.FelicitySecurityDataServiceRefere
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap")]
     public interface FelicitySecurityDataServiceSoap {
         
-        // CODEGEN: Generating message contract since element name HelloWorldResult from namespace http://tempuri.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HelloWorld", ReplyAction="*")]
-        FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.HelloWorldResponse HelloWorld(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.HelloWorldRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HelloWorld", ReplyAction="*")]
-        System.Threading.Tasks.Task<FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.HelloWorldResponse> HelloWorldAsync(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.HelloWorldRequest request);
-        
         // CODEGEN: Generating message contract since element name item from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddAdministrator", ReplyAction="*")]
-        FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddAdministratorResponse AddAdministrator(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddAdministratorRequest request);
+        FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddAdministratorResponse AddAdministrator(FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddAdministratorRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddAdministrator", ReplyAction="*")]
-        System.Threading.Tasks.Task<FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddAdministratorResponse> AddAdministratorAsync(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddAdministratorRequest request);
+        System.Threading.Tasks.Task<FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddAdministratorResponse> AddAdministratorAsync(FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddAdministratorRequest request);
         
         // CODEGEN: Generating message contract since element name FindAllAdministratorsResult from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FindAllAdministrators", ReplyAction="*")]
-        FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllAdministratorsResponse FindAllAdministrators(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllAdministratorsRequest request);
+        FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllAdministratorsResponse FindAllAdministrators(FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllAdministratorsRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FindAllAdministrators", ReplyAction="*")]
-        System.Threading.Tasks.Task<FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllAdministratorsResponse> FindAllAdministratorsAsync(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllAdministratorsRequest request);
+        System.Threading.Tasks.Task<FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllAdministratorsResponse> FindAllAdministratorsAsync(FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllAdministratorsRequest request);
         
         // CODEGEN: Generating message contract since element name item from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddMember", ReplyAction="*")]
-        FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddMemberResponse AddMember(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddMemberRequest request);
+        FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddMemberResponse AddMember(FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddMemberRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddMember", ReplyAction="*")]
-        System.Threading.Tasks.Task<FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddMemberResponse> AddMemberAsync(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddMemberRequest request);
+        System.Threading.Tasks.Task<FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddMemberResponse> AddMemberAsync(FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddMemberRequest request);
         
         // CODEGEN: Generating message contract since element name FindAllMembersResult from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FindAllMembers", ReplyAction="*")]
-        FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllMembersResponse FindAllMembers(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllMembersRequest request);
+        FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersResponse FindAllMembers(FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FindAllMembers", ReplyAction="*")]
-        System.Threading.Tasks.Task<FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllMembersResponse> FindAllMembersAsync(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllMembersRequest request);
+        System.Threading.Tasks.Task<FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersResponse> FindAllMembersAsync(FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersRequest request);
         
         // CODEGEN: Generating message contract since element name item from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddFaces", ReplyAction="*")]
-        FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddFacesResponse AddFaces(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddFacesRequest request);
+        FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddFacesResponse AddFaces(FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddFacesRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddFaces", ReplyAction="*")]
-        System.Threading.Tasks.Task<FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddFacesResponse> AddFacesAsync(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddFacesRequest request);
+        System.Threading.Tasks.Task<FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddFacesResponse> AddFacesAsync(FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddFacesRequest request);
         
         // CODEGEN: Generating message contract since element name FindAllMembersFacesResult from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FindAllMembersFaces", ReplyAction="*")]
-        FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllMembersFacesResponse FindAllMembersFaces(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllMembersFacesRequest request);
+        FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersFacesResponse FindAllMembersFaces(FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersFacesRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FindAllMembersFaces", ReplyAction="*")]
-        System.Threading.Tasks.Task<FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllMembersFacesResponse> FindAllMembersFacesAsync(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllMembersFacesRequest request);
+        System.Threading.Tasks.Task<FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersFacesResponse> FindAllMembersFacesAsync(FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersFacesRequest request);
         
         // CODEGEN: Generating message contract since element name item from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddStaff", ReplyAction="*")]
-        FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddStaffResponse AddStaff(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddStaffRequest request);
+        FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddStaffResponse AddStaff(FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddStaffRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddStaff", ReplyAction="*")]
-        System.Threading.Tasks.Task<FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddStaffResponse> AddStaffAsync(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddStaffRequest request);
+        System.Threading.Tasks.Task<FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddStaffResponse> AddStaffAsync(FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddStaffRequest request);
         
-        // CODEGEN: Generating message contract since element name item from namespace http://tempuri.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FindALLStaff", ReplyAction="*")]
-        FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindALLStaffResponse FindALLStaff(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindALLStaffRequest request);
+        // CODEGEN: Generating message contract since element name FindAllStaffResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FindAllStaff", ReplyAction="*")]
+        FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllStaffResponse FindAllStaff(FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllStaffRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FindALLStaff", ReplyAction="*")]
-        System.Threading.Tasks.Task<FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindALLStaffResponse> FindALLStaffAsync(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindALLStaffRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FindAllStaff", ReplyAction="*")]
+        System.Threading.Tasks.Task<FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllStaffResponse> FindAllStaffAsync(FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllStaffRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RemoveAdministrator", ReplyAction="*")]
         void RemoveAdministrator(int administratorId);
@@ -895,71 +888,10 @@ namespace FelicitySecurity.Applications.Config.FelicitySecurityDataServiceRefere
         
         // CODEGEN: Generating message contract since element name item from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateAdministrator", ReplyAction="*")]
-        FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.UpdateAdministratorResponse UpdateAdministrator(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.UpdateAdministratorRequest request);
+        FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateAdministratorResponse UpdateAdministrator(FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateAdministratorRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateAdministrator", ReplyAction="*")]
-        System.Threading.Tasks.Task<FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.UpdateAdministratorResponse> UpdateAdministratorAsync(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.UpdateAdministratorRequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class HelloWorldRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="HelloWorld", Namespace="http://tempuri.org/", Order=0)]
-        public FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.HelloWorldRequestBody Body;
-        
-        public HelloWorldRequest() {
-        }
-        
-        public HelloWorldRequest(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.HelloWorldRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute()]
-    public partial class HelloWorldRequestBody {
-        
-        public HelloWorldRequestBody() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class HelloWorldResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="HelloWorldResponse", Namespace="http://tempuri.org/", Order=0)]
-        public FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.HelloWorldResponseBody Body;
-        
-        public HelloWorldResponse() {
-        }
-        
-        public HelloWorldResponse(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.HelloWorldResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class HelloWorldResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string HelloWorldResult;
-        
-        public HelloWorldResponseBody() {
-        }
-        
-        public HelloWorldResponseBody(string HelloWorldResult) {
-            this.HelloWorldResult = HelloWorldResult;
-        }
+        System.Threading.Tasks.Task<FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateAdministratorResponse> UpdateAdministratorAsync(FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateAdministratorRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -969,12 +901,12 @@ namespace FelicitySecurity.Applications.Config.FelicitySecurityDataServiceRefere
     public partial class AddAdministratorRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="AddAdministrator", Namespace="http://tempuri.org/", Order=0)]
-        public FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddAdministratorRequestBody Body;
+        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddAdministratorRequestBody Body;
         
         public AddAdministratorRequest() {
         }
         
-        public AddAdministratorRequest(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddAdministratorRequestBody Body) {
+        public AddAdministratorRequest(FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddAdministratorRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -986,12 +918,12 @@ namespace FelicitySecurity.Applications.Config.FelicitySecurityDataServiceRefere
     public partial class AddAdministratorRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Administrators_dto item;
+        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.Administrators_dto item;
         
         public AddAdministratorRequestBody() {
         }
         
-        public AddAdministratorRequestBody(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Administrators_dto item) {
+        public AddAdministratorRequestBody(FelicitySecurity.Core.FelicitySecurityDataServiceReference.Administrators_dto item) {
             this.item = item;
         }
     }
@@ -1003,12 +935,12 @@ namespace FelicitySecurity.Applications.Config.FelicitySecurityDataServiceRefere
     public partial class AddAdministratorResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="AddAdministratorResponse", Namespace="http://tempuri.org/", Order=0)]
-        public FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddAdministratorResponseBody Body;
+        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddAdministratorResponseBody Body;
         
         public AddAdministratorResponse() {
         }
         
-        public AddAdministratorResponse(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddAdministratorResponseBody Body) {
+        public AddAdministratorResponse(FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddAdministratorResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -1030,12 +962,12 @@ namespace FelicitySecurity.Applications.Config.FelicitySecurityDataServiceRefere
     public partial class FindAllAdministratorsRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="FindAllAdministrators", Namespace="http://tempuri.org/", Order=0)]
-        public FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllAdministratorsRequestBody Body;
+        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllAdministratorsRequestBody Body;
         
         public FindAllAdministratorsRequest() {
         }
         
-        public FindAllAdministratorsRequest(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllAdministratorsRequestBody Body) {
+        public FindAllAdministratorsRequest(FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllAdministratorsRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -1057,12 +989,12 @@ namespace FelicitySecurity.Applications.Config.FelicitySecurityDataServiceRefere
     public partial class FindAllAdministratorsResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="FindAllAdministratorsResponse", Namespace="http://tempuri.org/", Order=0)]
-        public FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllAdministratorsResponseBody Body;
+        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllAdministratorsResponseBody Body;
         
         public FindAllAdministratorsResponse() {
         }
         
-        public FindAllAdministratorsResponse(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllAdministratorsResponseBody Body) {
+        public FindAllAdministratorsResponse(FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllAdministratorsResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -1074,12 +1006,12 @@ namespace FelicitySecurity.Applications.Config.FelicitySecurityDataServiceRefere
     public partial class FindAllAdministratorsResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Administrators_dto[] FindAllAdministratorsResult;
+        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.Administrators_dto[] FindAllAdministratorsResult;
         
         public FindAllAdministratorsResponseBody() {
         }
         
-        public FindAllAdministratorsResponseBody(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Administrators_dto[] FindAllAdministratorsResult) {
+        public FindAllAdministratorsResponseBody(FelicitySecurity.Core.FelicitySecurityDataServiceReference.Administrators_dto[] FindAllAdministratorsResult) {
             this.FindAllAdministratorsResult = FindAllAdministratorsResult;
         }
     }
@@ -1091,12 +1023,12 @@ namespace FelicitySecurity.Applications.Config.FelicitySecurityDataServiceRefere
     public partial class AddMemberRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="AddMember", Namespace="http://tempuri.org/", Order=0)]
-        public FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddMemberRequestBody Body;
+        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddMemberRequestBody Body;
         
         public AddMemberRequest() {
         }
         
-        public AddMemberRequest(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddMemberRequestBody Body) {
+        public AddMemberRequest(FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddMemberRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -1108,12 +1040,12 @@ namespace FelicitySecurity.Applications.Config.FelicitySecurityDataServiceRefere
     public partial class AddMemberRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Members_dto item;
+        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.Members_dto item;
         
         public AddMemberRequestBody() {
         }
         
-        public AddMemberRequestBody(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Members_dto item) {
+        public AddMemberRequestBody(FelicitySecurity.Core.FelicitySecurityDataServiceReference.Members_dto item) {
             this.item = item;
         }
     }
@@ -1125,12 +1057,12 @@ namespace FelicitySecurity.Applications.Config.FelicitySecurityDataServiceRefere
     public partial class AddMemberResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="AddMemberResponse", Namespace="http://tempuri.org/", Order=0)]
-        public FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddMemberResponseBody Body;
+        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddMemberResponseBody Body;
         
         public AddMemberResponse() {
         }
         
-        public AddMemberResponse(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddMemberResponseBody Body) {
+        public AddMemberResponse(FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddMemberResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -1152,12 +1084,12 @@ namespace FelicitySecurity.Applications.Config.FelicitySecurityDataServiceRefere
     public partial class FindAllMembersRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="FindAllMembers", Namespace="http://tempuri.org/", Order=0)]
-        public FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllMembersRequestBody Body;
+        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersRequestBody Body;
         
         public FindAllMembersRequest() {
         }
         
-        public FindAllMembersRequest(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllMembersRequestBody Body) {
+        public FindAllMembersRequest(FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -1179,12 +1111,12 @@ namespace FelicitySecurity.Applications.Config.FelicitySecurityDataServiceRefere
     public partial class FindAllMembersResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="FindAllMembersResponse", Namespace="http://tempuri.org/", Order=0)]
-        public FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllMembersResponseBody Body;
+        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersResponseBody Body;
         
         public FindAllMembersResponse() {
         }
         
-        public FindAllMembersResponse(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllMembersResponseBody Body) {
+        public FindAllMembersResponse(FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -1196,12 +1128,12 @@ namespace FelicitySecurity.Applications.Config.FelicitySecurityDataServiceRefere
     public partial class FindAllMembersResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Members_dto[] FindAllMembersResult;
+        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.Members_dto[] FindAllMembersResult;
         
         public FindAllMembersResponseBody() {
         }
         
-        public FindAllMembersResponseBody(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Members_dto[] FindAllMembersResult) {
+        public FindAllMembersResponseBody(FelicitySecurity.Core.FelicitySecurityDataServiceReference.Members_dto[] FindAllMembersResult) {
             this.FindAllMembersResult = FindAllMembersResult;
         }
     }
@@ -1213,12 +1145,12 @@ namespace FelicitySecurity.Applications.Config.FelicitySecurityDataServiceRefere
     public partial class AddFacesRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="AddFaces", Namespace="http://tempuri.org/", Order=0)]
-        public FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddFacesRequestBody Body;
+        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddFacesRequestBody Body;
         
         public AddFacesRequest() {
         }
         
-        public AddFacesRequest(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddFacesRequestBody Body) {
+        public AddFacesRequest(FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddFacesRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -1230,12 +1162,12 @@ namespace FelicitySecurity.Applications.Config.FelicitySecurityDataServiceRefere
     public partial class AddFacesRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Faces_dto item;
+        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.Faces_dto item;
         
         public AddFacesRequestBody() {
         }
         
-        public AddFacesRequestBody(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Faces_dto item) {
+        public AddFacesRequestBody(FelicitySecurity.Core.FelicitySecurityDataServiceReference.Faces_dto item) {
             this.item = item;
         }
     }
@@ -1247,12 +1179,12 @@ namespace FelicitySecurity.Applications.Config.FelicitySecurityDataServiceRefere
     public partial class AddFacesResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="AddFacesResponse", Namespace="http://tempuri.org/", Order=0)]
-        public FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddFacesResponseBody Body;
+        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddFacesResponseBody Body;
         
         public AddFacesResponse() {
         }
         
-        public AddFacesResponse(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddFacesResponseBody Body) {
+        public AddFacesResponse(FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddFacesResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -1274,12 +1206,12 @@ namespace FelicitySecurity.Applications.Config.FelicitySecurityDataServiceRefere
     public partial class FindAllMembersFacesRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="FindAllMembersFaces", Namespace="http://tempuri.org/", Order=0)]
-        public FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllMembersFacesRequestBody Body;
+        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersFacesRequestBody Body;
         
         public FindAllMembersFacesRequest() {
         }
         
-        public FindAllMembersFacesRequest(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllMembersFacesRequestBody Body) {
+        public FindAllMembersFacesRequest(FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersFacesRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -1301,12 +1233,12 @@ namespace FelicitySecurity.Applications.Config.FelicitySecurityDataServiceRefere
     public partial class FindAllMembersFacesResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="FindAllMembersFacesResponse", Namespace="http://tempuri.org/", Order=0)]
-        public FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllMembersFacesResponseBody Body;
+        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersFacesResponseBody Body;
         
         public FindAllMembersFacesResponse() {
         }
         
-        public FindAllMembersFacesResponse(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllMembersFacesResponseBody Body) {
+        public FindAllMembersFacesResponse(FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersFacesResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -1318,12 +1250,12 @@ namespace FelicitySecurity.Applications.Config.FelicitySecurityDataServiceRefere
     public partial class FindAllMembersFacesResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Faces_dto[] FindAllMembersFacesResult;
+        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.Faces_dto[] FindAllMembersFacesResult;
         
         public FindAllMembersFacesResponseBody() {
         }
         
-        public FindAllMembersFacesResponseBody(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Faces_dto[] FindAllMembersFacesResult) {
+        public FindAllMembersFacesResponseBody(FelicitySecurity.Core.FelicitySecurityDataServiceReference.Faces_dto[] FindAllMembersFacesResult) {
             this.FindAllMembersFacesResult = FindAllMembersFacesResult;
         }
     }
@@ -1335,12 +1267,12 @@ namespace FelicitySecurity.Applications.Config.FelicitySecurityDataServiceRefere
     public partial class AddStaffRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="AddStaff", Namespace="http://tempuri.org/", Order=0)]
-        public FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddStaffRequestBody Body;
+        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddStaffRequestBody Body;
         
         public AddStaffRequest() {
         }
         
-        public AddStaffRequest(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddStaffRequestBody Body) {
+        public AddStaffRequest(FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddStaffRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -1352,12 +1284,12 @@ namespace FelicitySecurity.Applications.Config.FelicitySecurityDataServiceRefere
     public partial class AddStaffRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Staff_dto item;
+        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.Staff_dto item;
         
         public AddStaffRequestBody() {
         }
         
-        public AddStaffRequestBody(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Staff_dto item) {
+        public AddStaffRequestBody(FelicitySecurity.Core.FelicitySecurityDataServiceReference.Staff_dto item) {
             this.item = item;
         }
     }
@@ -1369,12 +1301,12 @@ namespace FelicitySecurity.Applications.Config.FelicitySecurityDataServiceRefere
     public partial class AddStaffResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="AddStaffResponse", Namespace="http://tempuri.org/", Order=0)]
-        public FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddStaffResponseBody Body;
+        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddStaffResponseBody Body;
         
         public AddStaffResponse() {
         }
         
-        public AddStaffResponse(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddStaffResponseBody Body) {
+        public AddStaffResponse(FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddStaffResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -1393,15 +1325,15 @@ namespace FelicitySecurity.Applications.Config.FelicitySecurityDataServiceRefere
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class FindALLStaffRequest {
+    public partial class FindAllStaffRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="FindALLStaff", Namespace="http://tempuri.org/", Order=0)]
-        public FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindALLStaffRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="FindAllStaff", Namespace="http://tempuri.org/", Order=0)]
+        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllStaffRequestBody Body;
         
-        public FindALLStaffRequest() {
+        public FindAllStaffRequest() {
         }
         
-        public FindALLStaffRequest(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindALLStaffRequestBody Body) {
+        public FindAllStaffRequest(FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllStaffRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -1409,17 +1341,10 @@ namespace FelicitySecurity.Applications.Config.FelicitySecurityDataServiceRefere
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class FindALLStaffRequestBody {
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class FindAllStaffRequestBody {
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Staff_dto item;
-        
-        public FindALLStaffRequestBody() {
-        }
-        
-        public FindALLStaffRequestBody(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Staff_dto item) {
-            this.item = item;
+        public FindAllStaffRequestBody() {
         }
     }
     
@@ -1427,15 +1352,15 @@ namespace FelicitySecurity.Applications.Config.FelicitySecurityDataServiceRefere
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class FindALLStaffResponse {
+    public partial class FindAllStaffResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="FindALLStaffResponse", Namespace="http://tempuri.org/", Order=0)]
-        public FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindALLStaffResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="FindAllStaffResponse", Namespace="http://tempuri.org/", Order=0)]
+        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllStaffResponseBody Body;
         
-        public FindALLStaffResponse() {
+        public FindAllStaffResponse() {
         }
         
-        public FindALLStaffResponse(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindALLStaffResponseBody Body) {
+        public FindAllStaffResponse(FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllStaffResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -1444,16 +1369,16 @@ namespace FelicitySecurity.Applications.Config.FelicitySecurityDataServiceRefere
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class FindALLStaffResponseBody {
+    public partial class FindAllStaffResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Staff_dto[] FindALLStaffResult;
+        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.Staff_dto[] FindAllStaffResult;
         
-        public FindALLStaffResponseBody() {
+        public FindAllStaffResponseBody() {
         }
         
-        public FindALLStaffResponseBody(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Staff_dto[] FindALLStaffResult) {
-            this.FindALLStaffResult = FindALLStaffResult;
+        public FindAllStaffResponseBody(FelicitySecurity.Core.FelicitySecurityDataServiceReference.Staff_dto[] FindAllStaffResult) {
+            this.FindAllStaffResult = FindAllStaffResult;
         }
     }
     
@@ -1464,12 +1389,12 @@ namespace FelicitySecurity.Applications.Config.FelicitySecurityDataServiceRefere
     public partial class UpdateAdministratorRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdateAdministrator", Namespace="http://tempuri.org/", Order=0)]
-        public FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.UpdateAdministratorRequestBody Body;
+        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateAdministratorRequestBody Body;
         
         public UpdateAdministratorRequest() {
         }
         
-        public UpdateAdministratorRequest(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.UpdateAdministratorRequestBody Body) {
+        public UpdateAdministratorRequest(FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateAdministratorRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -1481,12 +1406,12 @@ namespace FelicitySecurity.Applications.Config.FelicitySecurityDataServiceRefere
     public partial class UpdateAdministratorRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Administrators_dto item;
+        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.Administrators_dto item;
         
         public UpdateAdministratorRequestBody() {
         }
         
-        public UpdateAdministratorRequestBody(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Administrators_dto item) {
+        public UpdateAdministratorRequestBody(FelicitySecurity.Core.FelicitySecurityDataServiceReference.Administrators_dto item) {
             this.item = item;
         }
     }
@@ -1498,12 +1423,12 @@ namespace FelicitySecurity.Applications.Config.FelicitySecurityDataServiceRefere
     public partial class UpdateAdministratorResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdateAdministratorResponse", Namespace="http://tempuri.org/", Order=0)]
-        public FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.UpdateAdministratorResponseBody Body;
+        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateAdministratorResponseBody Body;
         
         public UpdateAdministratorResponse() {
         }
         
-        public UpdateAdministratorResponse(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.UpdateAdministratorResponseBody Body) {
+        public UpdateAdministratorResponse(FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateAdministratorResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -1519,12 +1444,12 @@ namespace FelicitySecurity.Applications.Config.FelicitySecurityDataServiceRefere
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface FelicitySecurityDataServiceSoapChannel : FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap, System.ServiceModel.IClientChannel {
+    public interface FelicitySecurityDataServiceSoapChannel : FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class FelicitySecurityDataServiceSoapClient : System.ServiceModel.ClientBase<FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap>, FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap {
+    public partial class FelicitySecurityDataServiceSoapClient : System.ServiceModel.ClientBase<FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap>, FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap {
         
         public FelicitySecurityDataServiceSoapClient() {
         }
@@ -1546,216 +1471,191 @@ namespace FelicitySecurity.Applications.Config.FelicitySecurityDataServiceRefere
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.HelloWorldResponse FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.HelloWorld(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.HelloWorldRequest request) {
-            return base.Channel.HelloWorld(request);
-        }
-        
-        public string HelloWorld() {
-            FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.HelloWorldRequest inValue = new FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.HelloWorldRequest();
-            inValue.Body = new FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.HelloWorldRequestBody();
-            FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.HelloWorldResponse retVal = ((FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).HelloWorld(inValue);
-            return retVal.Body.HelloWorldResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.HelloWorldResponse> FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.HelloWorldAsync(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.HelloWorldRequest request) {
-            return base.Channel.HelloWorldAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.HelloWorldResponse> HelloWorldAsync() {
-            FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.HelloWorldRequest inValue = new FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.HelloWorldRequest();
-            inValue.Body = new FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.HelloWorldRequestBody();
-            return ((FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).HelloWorldAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddAdministratorResponse FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.AddAdministrator(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddAdministratorRequest request) {
+        FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddAdministratorResponse FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.AddAdministrator(FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddAdministratorRequest request) {
             return base.Channel.AddAdministrator(request);
         }
         
-        public void AddAdministrator(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Administrators_dto item) {
-            FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddAdministratorRequest inValue = new FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddAdministratorRequest();
-            inValue.Body = new FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddAdministratorRequestBody();
+        public void AddAdministrator(FelicitySecurity.Core.FelicitySecurityDataServiceReference.Administrators_dto item) {
+            FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddAdministratorRequest inValue = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddAdministratorRequest();
+            inValue.Body = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddAdministratorRequestBody();
             inValue.Body.item = item;
-            FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddAdministratorResponse retVal = ((FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).AddAdministrator(inValue);
+            FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddAdministratorResponse retVal = ((FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).AddAdministrator(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddAdministratorResponse> FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.AddAdministratorAsync(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddAdministratorRequest request) {
+        System.Threading.Tasks.Task<FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddAdministratorResponse> FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.AddAdministratorAsync(FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddAdministratorRequest request) {
             return base.Channel.AddAdministratorAsync(request);
         }
         
-        public System.Threading.Tasks.Task<FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddAdministratorResponse> AddAdministratorAsync(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Administrators_dto item) {
-            FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddAdministratorRequest inValue = new FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddAdministratorRequest();
-            inValue.Body = new FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddAdministratorRequestBody();
+        public System.Threading.Tasks.Task<FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddAdministratorResponse> AddAdministratorAsync(FelicitySecurity.Core.FelicitySecurityDataServiceReference.Administrators_dto item) {
+            FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddAdministratorRequest inValue = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddAdministratorRequest();
+            inValue.Body = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddAdministratorRequestBody();
             inValue.Body.item = item;
-            return ((FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).AddAdministratorAsync(inValue);
+            return ((FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).AddAdministratorAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllAdministratorsResponse FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.FindAllAdministrators(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllAdministratorsRequest request) {
+        FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllAdministratorsResponse FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.FindAllAdministrators(FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllAdministratorsRequest request) {
             return base.Channel.FindAllAdministrators(request);
         }
         
-        public FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Administrators_dto[] FindAllAdministrators() {
-            FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllAdministratorsRequest inValue = new FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllAdministratorsRequest();
-            inValue.Body = new FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllAdministratorsRequestBody();
-            FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllAdministratorsResponse retVal = ((FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).FindAllAdministrators(inValue);
+        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.Administrators_dto[] FindAllAdministrators() {
+            FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllAdministratorsRequest inValue = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllAdministratorsRequest();
+            inValue.Body = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllAdministratorsRequestBody();
+            FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllAdministratorsResponse retVal = ((FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).FindAllAdministrators(inValue);
             return retVal.Body.FindAllAdministratorsResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllAdministratorsResponse> FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.FindAllAdministratorsAsync(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllAdministratorsRequest request) {
+        System.Threading.Tasks.Task<FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllAdministratorsResponse> FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.FindAllAdministratorsAsync(FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllAdministratorsRequest request) {
             return base.Channel.FindAllAdministratorsAsync(request);
         }
         
-        public System.Threading.Tasks.Task<FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllAdministratorsResponse> FindAllAdministratorsAsync() {
-            FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllAdministratorsRequest inValue = new FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllAdministratorsRequest();
-            inValue.Body = new FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllAdministratorsRequestBody();
-            return ((FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).FindAllAdministratorsAsync(inValue);
+        public System.Threading.Tasks.Task<FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllAdministratorsResponse> FindAllAdministratorsAsync() {
+            FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllAdministratorsRequest inValue = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllAdministratorsRequest();
+            inValue.Body = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllAdministratorsRequestBody();
+            return ((FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).FindAllAdministratorsAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddMemberResponse FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.AddMember(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddMemberRequest request) {
+        FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddMemberResponse FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.AddMember(FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddMemberRequest request) {
             return base.Channel.AddMember(request);
         }
         
-        public void AddMember(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Members_dto item) {
-            FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddMemberRequest inValue = new FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddMemberRequest();
-            inValue.Body = new FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddMemberRequestBody();
+        public void AddMember(FelicitySecurity.Core.FelicitySecurityDataServiceReference.Members_dto item) {
+            FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddMemberRequest inValue = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddMemberRequest();
+            inValue.Body = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddMemberRequestBody();
             inValue.Body.item = item;
-            FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddMemberResponse retVal = ((FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).AddMember(inValue);
+            FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddMemberResponse retVal = ((FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).AddMember(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddMemberResponse> FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.AddMemberAsync(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddMemberRequest request) {
+        System.Threading.Tasks.Task<FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddMemberResponse> FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.AddMemberAsync(FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddMemberRequest request) {
             return base.Channel.AddMemberAsync(request);
         }
         
-        public System.Threading.Tasks.Task<FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddMemberResponse> AddMemberAsync(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Members_dto item) {
-            FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddMemberRequest inValue = new FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddMemberRequest();
-            inValue.Body = new FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddMemberRequestBody();
+        public System.Threading.Tasks.Task<FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddMemberResponse> AddMemberAsync(FelicitySecurity.Core.FelicitySecurityDataServiceReference.Members_dto item) {
+            FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddMemberRequest inValue = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddMemberRequest();
+            inValue.Body = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddMemberRequestBody();
             inValue.Body.item = item;
-            return ((FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).AddMemberAsync(inValue);
+            return ((FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).AddMemberAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllMembersResponse FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.FindAllMembers(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllMembersRequest request) {
+        FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersResponse FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.FindAllMembers(FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersRequest request) {
             return base.Channel.FindAllMembers(request);
         }
         
-        public FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Members_dto[] FindAllMembers() {
-            FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllMembersRequest inValue = new FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllMembersRequest();
-            inValue.Body = new FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllMembersRequestBody();
-            FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllMembersResponse retVal = ((FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).FindAllMembers(inValue);
+        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.Members_dto[] FindAllMembers() {
+            FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersRequest inValue = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersRequest();
+            inValue.Body = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersRequestBody();
+            FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersResponse retVal = ((FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).FindAllMembers(inValue);
             return retVal.Body.FindAllMembersResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllMembersResponse> FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.FindAllMembersAsync(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllMembersRequest request) {
+        System.Threading.Tasks.Task<FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersResponse> FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.FindAllMembersAsync(FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersRequest request) {
             return base.Channel.FindAllMembersAsync(request);
         }
         
-        public System.Threading.Tasks.Task<FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllMembersResponse> FindAllMembersAsync() {
-            FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllMembersRequest inValue = new FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllMembersRequest();
-            inValue.Body = new FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllMembersRequestBody();
-            return ((FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).FindAllMembersAsync(inValue);
+        public System.Threading.Tasks.Task<FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersResponse> FindAllMembersAsync() {
+            FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersRequest inValue = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersRequest();
+            inValue.Body = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersRequestBody();
+            return ((FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).FindAllMembersAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddFacesResponse FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.AddFaces(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddFacesRequest request) {
+        FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddFacesResponse FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.AddFaces(FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddFacesRequest request) {
             return base.Channel.AddFaces(request);
         }
         
-        public void AddFaces(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Faces_dto item) {
-            FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddFacesRequest inValue = new FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddFacesRequest();
-            inValue.Body = new FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddFacesRequestBody();
+        public void AddFaces(FelicitySecurity.Core.FelicitySecurityDataServiceReference.Faces_dto item) {
+            FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddFacesRequest inValue = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddFacesRequest();
+            inValue.Body = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddFacesRequestBody();
             inValue.Body.item = item;
-            FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddFacesResponse retVal = ((FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).AddFaces(inValue);
+            FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddFacesResponse retVal = ((FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).AddFaces(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddFacesResponse> FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.AddFacesAsync(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddFacesRequest request) {
+        System.Threading.Tasks.Task<FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddFacesResponse> FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.AddFacesAsync(FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddFacesRequest request) {
             return base.Channel.AddFacesAsync(request);
         }
         
-        public System.Threading.Tasks.Task<FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddFacesResponse> AddFacesAsync(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Faces_dto item) {
-            FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddFacesRequest inValue = new FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddFacesRequest();
-            inValue.Body = new FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddFacesRequestBody();
+        public System.Threading.Tasks.Task<FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddFacesResponse> AddFacesAsync(FelicitySecurity.Core.FelicitySecurityDataServiceReference.Faces_dto item) {
+            FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddFacesRequest inValue = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddFacesRequest();
+            inValue.Body = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddFacesRequestBody();
             inValue.Body.item = item;
-            return ((FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).AddFacesAsync(inValue);
+            return ((FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).AddFacesAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllMembersFacesResponse FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.FindAllMembersFaces(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllMembersFacesRequest request) {
+        FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersFacesResponse FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.FindAllMembersFaces(FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersFacesRequest request) {
             return base.Channel.FindAllMembersFaces(request);
         }
         
-        public FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Faces_dto[] FindAllMembersFaces() {
-            FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllMembersFacesRequest inValue = new FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllMembersFacesRequest();
-            inValue.Body = new FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllMembersFacesRequestBody();
-            FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllMembersFacesResponse retVal = ((FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).FindAllMembersFaces(inValue);
+        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.Faces_dto[] FindAllMembersFaces() {
+            FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersFacesRequest inValue = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersFacesRequest();
+            inValue.Body = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersFacesRequestBody();
+            FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersFacesResponse retVal = ((FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).FindAllMembersFaces(inValue);
             return retVal.Body.FindAllMembersFacesResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllMembersFacesResponse> FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.FindAllMembersFacesAsync(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllMembersFacesRequest request) {
+        System.Threading.Tasks.Task<FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersFacesResponse> FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.FindAllMembersFacesAsync(FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersFacesRequest request) {
             return base.Channel.FindAllMembersFacesAsync(request);
         }
         
-        public System.Threading.Tasks.Task<FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllMembersFacesResponse> FindAllMembersFacesAsync() {
-            FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllMembersFacesRequest inValue = new FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllMembersFacesRequest();
-            inValue.Body = new FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindAllMembersFacesRequestBody();
-            return ((FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).FindAllMembersFacesAsync(inValue);
+        public System.Threading.Tasks.Task<FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersFacesResponse> FindAllMembersFacesAsync() {
+            FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersFacesRequest inValue = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersFacesRequest();
+            inValue.Body = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersFacesRequestBody();
+            return ((FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).FindAllMembersFacesAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddStaffResponse FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.AddStaff(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddStaffRequest request) {
+        FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddStaffResponse FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.AddStaff(FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddStaffRequest request) {
             return base.Channel.AddStaff(request);
         }
         
-        public void AddStaff(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Staff_dto item) {
-            FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddStaffRequest inValue = new FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddStaffRequest();
-            inValue.Body = new FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddStaffRequestBody();
+        public void AddStaff(FelicitySecurity.Core.FelicitySecurityDataServiceReference.Staff_dto item) {
+            FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddStaffRequest inValue = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddStaffRequest();
+            inValue.Body = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddStaffRequestBody();
             inValue.Body.item = item;
-            FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddStaffResponse retVal = ((FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).AddStaff(inValue);
+            FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddStaffResponse retVal = ((FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).AddStaff(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddStaffResponse> FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.AddStaffAsync(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddStaffRequest request) {
+        System.Threading.Tasks.Task<FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddStaffResponse> FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.AddStaffAsync(FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddStaffRequest request) {
             return base.Channel.AddStaffAsync(request);
         }
         
-        public System.Threading.Tasks.Task<FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddStaffResponse> AddStaffAsync(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Staff_dto item) {
-            FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddStaffRequest inValue = new FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddStaffRequest();
-            inValue.Body = new FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.AddStaffRequestBody();
+        public System.Threading.Tasks.Task<FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddStaffResponse> AddStaffAsync(FelicitySecurity.Core.FelicitySecurityDataServiceReference.Staff_dto item) {
+            FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddStaffRequest inValue = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddStaffRequest();
+            inValue.Body = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddStaffRequestBody();
             inValue.Body.item = item;
-            return ((FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).AddStaffAsync(inValue);
+            return ((FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).AddStaffAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindALLStaffResponse FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.FindALLStaff(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindALLStaffRequest request) {
-            return base.Channel.FindALLStaff(request);
+        FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllStaffResponse FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.FindAllStaff(FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllStaffRequest request) {
+            return base.Channel.FindAllStaff(request);
         }
         
-        public FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Staff_dto[] FindALLStaff(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Staff_dto item) {
-            FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindALLStaffRequest inValue = new FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindALLStaffRequest();
-            inValue.Body = new FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindALLStaffRequestBody();
-            inValue.Body.item = item;
-            FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindALLStaffResponse retVal = ((FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).FindALLStaff(inValue);
-            return retVal.Body.FindALLStaffResult;
+        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.Staff_dto[] FindAllStaff() {
+            FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllStaffRequest inValue = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllStaffRequest();
+            inValue.Body = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllStaffRequestBody();
+            FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllStaffResponse retVal = ((FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).FindAllStaff(inValue);
+            return retVal.Body.FindAllStaffResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindALLStaffResponse> FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.FindALLStaffAsync(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindALLStaffRequest request) {
-            return base.Channel.FindALLStaffAsync(request);
+        System.Threading.Tasks.Task<FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllStaffResponse> FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.FindAllStaffAsync(FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllStaffRequest request) {
+            return base.Channel.FindAllStaffAsync(request);
         }
         
-        public System.Threading.Tasks.Task<FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindALLStaffResponse> FindALLStaffAsync(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Staff_dto item) {
-            FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindALLStaffRequest inValue = new FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindALLStaffRequest();
-            inValue.Body = new FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FindALLStaffRequestBody();
-            inValue.Body.item = item;
-            return ((FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).FindALLStaffAsync(inValue);
+        public System.Threading.Tasks.Task<FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllStaffResponse> FindAllStaffAsync() {
+            FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllStaffRequest inValue = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllStaffRequest();
+            inValue.Body = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllStaffRequestBody();
+            return ((FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).FindAllStaffAsync(inValue);
         }
         
         public void RemoveAdministrator(int administratorId) {
@@ -1767,27 +1667,27 @@ namespace FelicitySecurity.Applications.Config.FelicitySecurityDataServiceRefere
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.UpdateAdministratorResponse FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.UpdateAdministrator(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.UpdateAdministratorRequest request) {
+        FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateAdministratorResponse FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.UpdateAdministrator(FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateAdministratorRequest request) {
             return base.Channel.UpdateAdministrator(request);
         }
         
-        public void UpdateAdministrator(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Administrators_dto item) {
-            FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.UpdateAdministratorRequest inValue = new FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.UpdateAdministratorRequest();
-            inValue.Body = new FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.UpdateAdministratorRequestBody();
+        public void UpdateAdministrator(FelicitySecurity.Core.FelicitySecurityDataServiceReference.Administrators_dto item) {
+            FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateAdministratorRequest inValue = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateAdministratorRequest();
+            inValue.Body = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateAdministratorRequestBody();
             inValue.Body.item = item;
-            FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.UpdateAdministratorResponse retVal = ((FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).UpdateAdministrator(inValue);
+            FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateAdministratorResponse retVal = ((FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).UpdateAdministrator(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.UpdateAdministratorResponse> FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.UpdateAdministratorAsync(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.UpdateAdministratorRequest request) {
+        System.Threading.Tasks.Task<FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateAdministratorResponse> FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.UpdateAdministratorAsync(FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateAdministratorRequest request) {
             return base.Channel.UpdateAdministratorAsync(request);
         }
         
-        public System.Threading.Tasks.Task<FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.UpdateAdministratorResponse> UpdateAdministratorAsync(FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.Administrators_dto item) {
-            FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.UpdateAdministratorRequest inValue = new FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.UpdateAdministratorRequest();
-            inValue.Body = new FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.UpdateAdministratorRequestBody();
+        public System.Threading.Tasks.Task<FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateAdministratorResponse> UpdateAdministratorAsync(FelicitySecurity.Core.FelicitySecurityDataServiceReference.Administrators_dto item) {
+            FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateAdministratorRequest inValue = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateAdministratorRequest();
+            inValue.Body = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateAdministratorRequestBody();
             inValue.Body.item = item;
-            return ((FelicitySecurity.Applications.Config.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).UpdateAdministratorAsync(inValue);
+            return ((FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).UpdateAdministratorAsync(inValue);
         }
     }
 }

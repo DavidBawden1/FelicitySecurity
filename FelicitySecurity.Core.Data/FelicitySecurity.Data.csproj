@@ -84,7 +84,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessLogic\FelicitySecurityBusinessLogic.cs" />
     <Compile Include="DataModel\AdminTable.cs">
       <DependentUpon>FelicitySecurity.tt</DependentUpon>
     </Compile>

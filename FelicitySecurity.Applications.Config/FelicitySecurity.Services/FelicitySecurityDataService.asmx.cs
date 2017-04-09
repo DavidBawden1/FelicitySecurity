@@ -1,32 +1,25 @@
-﻿using FelicitySecurity.Core.BusinessLogic;
-using FelicitySecurity.Core.DataTransferObjects;
-using System;
+﻿using FelicitySecurity.Core.Data.Repository;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using FelicitySecurity.Core.DataTransferObjects;
 using System.Web.Services;
-using System.Xml.Serialization;
+using System.ServiceModel;
 
 namespace FelicitySecurity.Services
 {
     /// <summary>
-    /// Summary description for FelicitySecurityDataService
+    /// Handles all data operations between the configuration Client and the Server. 
     /// </summary>
     [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
-    // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
-    // [System.Web.Script.Services.ScriptService]
-    public class FelicitySecurityDataService : System.Web.Services.WebService
+    public class FelicitySecurityDataService : WebService, IFelicitySecurityDataService
     {
-        FelicitySecurityBusinessLogic businessLogic = new FelicitySecurityBusinessLogic();
+        #region Decalarations
+        FelicitySecurityRepository repository = new FelicitySecurityRepository();
+        #endregion
 
-        [WebMethod]
-        public string HelloWorld()
-        {
-            return "Hello World";
-        }
-
+        #region Methods
+        [OperationContract]
         [WebMethod]
         /// <summary>
         /// calls the Add Administrator businessLogic method
@@ -34,98 +27,107 @@ namespace FelicitySecurity.Services
         /// <param name="item">Administrators_dto</param>
         public void AddAdministrator(Administrators_dto item)
         {
-            businessLogic.AddAdministrator(item);
+            repository.AddAdministrator(item);
         }
 
         [WebMethod]
+        [OperationContract]
         /// <summary>
         /// calls the Find All Administrator businessLogic method
         /// </summary>
         /// <param name="item">Administrators_dto</param>
         public List<Administrators_dto> FindAllAdministrators()
         {
-            return businessLogic.FindAllAdministrators();
+            return repository.FindAllAdministrators();
         }
 
         [WebMethod]
+        [OperationContract]
         /// <summary>
         /// calls the Add Member businessLogic method
         /// </summary>
         /// <param name="item">Members_dto</param>
         public void AddMember(Members_dto item)
         {
-            businessLogic.AddMember(item);
+            repository.AddMember(item);
         }
 
         [WebMethod]
+        [OperationContract]
         /// <summary>
         /// calls the Find All Members businessLogic method
         /// </summary>
         /// <param name="item">Members_dto</param>
         public List<Members_dto> FindAllMembers()
         {
-            return businessLogic.FindAllMembers();
+            return repository.FindAllMembers();
         }
 
         [WebMethod]
+        [OperationContract]
         /// <summary>
         /// calls the Add Faces businessLogic method
         /// </summary>
         /// <param name="item">Faces_dto</param>
         public void AddFaces(Faces_dto item)
         {
-            businessLogic.AddFaces(item);
+            repository.AddFaces(item);
         }
 
         [WebMethod]
+        [OperationContract]
         /// <summary>
         /// calls the Find All Faces businessLogic method
         /// </summary>
         /// <param name="item">Faces_dto</param>
         public List<Faces_dto> FindAllMembersFaces()
         {
-            return businessLogic.FindAllMembersFaces();
+            return repository.FindAllMembersFaces();
         }
 
         [WebMethod]
+        [OperationContract]
         /// <summary>
         /// calls the Add Staff businessLogic method
         /// </summary>
         /// <param name="item">Staff_dto</param>
         public void AddStaff(Staff_dto item)
         {
-            businessLogic.AddStaff(item);
+            repository.AddStaff(item);
         }
 
         [WebMethod]
+        [OperationContract]
         /// <summary>
         /// calls the Find All Staff businessLogic method
         /// </summary>
         /// <param name="item">Staff_dto</param>
-        public List<Staff_dto> FindALLStaff(Staff_dto item)
+        public List<Staff_dto> FindAllStaff()
         {
-            return businessLogic.FindAllStaff(item);
+            return repository.FindAllStaff();
         }
 
         [WebMethod]
+        [OperationContract]
         /// <summary>
         /// Calls the Remove Administrator businessLogic method
         /// </summary>
         /// <param name="administratorId"></param>
         public void RemoveAdministrator(int administratorId)
         {
-            businessLogic.RemoveAdministrator(administratorId);
+            repository.RemoveAdministrator(administratorId);
         }
 
         [WebMethod]
+        [OperationContract]
         /// <summary>
         /// Calls the Update Administrator businessLogic method
         /// </summary>
         /// <param name="item"></param>
         public void UpdateAdministrator(Administrators_dto item)
         {
-            businessLogic.UpdateAdministrator(item);
+            repository.UpdateAdministrator(item);
         }
-
+        #endregion
     }
 }

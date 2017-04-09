@@ -1,13 +1,13 @@
-﻿using FelicitySecurity.Core.DataTransferObjects;
+﻿using FelicitySecurity.Core.BusinessLogic;
+using FelicitySecurity.Core.FelicitySecurityDataServiceReference;
 using FelicitySecurity.Core.Models;
-using FelicitySecurity.Services;
 using System.Collections.Generic;
 
 namespace FelicitySecurity.Applications.Config.Interfaces
 {
     public interface IAdministratorsController
     {
-        void IAdministratorsController(FelicitySecurityDataService engineRepository);
+        void IAdministratorsController(FelicitySecurityBusinessLogic engineRepository);
         void AddAdministrators(string email, string username, string pincode);
         List<AdministratorsModel> AllAdministratorsEmail(AdministratorsModel model);
         Administrators_dto ReturnAdministratorByEmail(string email);
