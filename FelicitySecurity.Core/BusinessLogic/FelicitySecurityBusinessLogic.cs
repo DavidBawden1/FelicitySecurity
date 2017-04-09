@@ -10,7 +10,7 @@ namespace FelicitySecurity.Core.BusinessLogic
     public class FelicitySecurityBusinessLogic
     {
         #region Declarations
-        FelicitySecurityDataServiceSoapClient client = new FelicitySecurityDataServiceSoapClient();
+        FelicitySecurityDataServiceSoapClient client = new FelicitySecurityDataServiceSoapClient("BasicHttpBinding_IFelicityDataService");
         #endregion
 
         #region Constructors
