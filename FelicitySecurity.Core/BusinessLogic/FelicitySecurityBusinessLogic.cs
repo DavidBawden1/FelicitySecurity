@@ -14,6 +14,11 @@ namespace FelicitySecurity.Core.BusinessLogic
         #endregion
 
         #region Constructors
+        public FelicitySecurityBusinessLogic()
+        {
+            client.ClientCredentials.UserName.UserName = "User";
+            client.ClientCredentials.UserName.Password = "Pass";
+        }
         #endregion
         #region Methods
         /// <summary>
