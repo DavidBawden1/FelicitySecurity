@@ -50,7 +50,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="FelicitySecurityEngineRepository_AddAdministratorUnitTests.cs" />
+    <Compile Include="DataSeed\DataSeedHelper.cs" />
+    <Compile Include="RepositoryTests\FelicitySecurityEngineRepository_AddAdministratorUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -63,6 +64,7 @@
       <Name>FelicitySecurity.Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
