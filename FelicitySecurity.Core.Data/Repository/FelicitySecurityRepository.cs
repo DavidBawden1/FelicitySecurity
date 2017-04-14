@@ -25,6 +25,10 @@ namespace FelicitySecurity.Core.Data.Repository
         {
 
         }
+        public FelicitySecurityRepository(FelicityLiveEntities context)
+        {
+            _context = context;
+        }
         /// <summary>
         /// initiates the Engine repository, responsible for handling database transactions for 
         /// administrators, members, facial image datasets and staff. Passes a database connection to the base repository layer 
@@ -66,6 +70,8 @@ namespace FelicitySecurity.Core.Data.Repository
                 return typeof(FelicityLiveEntities);
             }
         }
+
+        private FelicityLiveEntities _context;
         #endregion
 
         #region Methods
@@ -119,6 +125,7 @@ namespace FelicitySecurity.Core.Data.Repository
             }
             catch (Exception e)
             {
+                Console.WriteLine(e.Message);
                 Logging.LogErrorEvent(null, e);
             }
             return item;

@@ -1,6 +1,7 @@
 ﻿using FelicitySecurity.Core.Data.Repository;
 using FelicitySecurity.Core.DataTransferObjects;
 using System;
+using static FelicitySecurity.Core.Data.UnitTests.FelicitySecurityEngineRepository_AddAdministratorUnitTests;
 
 namespace FelicitySecurity.Core.Data.UnitTests.Helpers
 {
@@ -22,7 +23,7 @@ namespace FelicitySecurity.Core.Data.UnitTests.Helpers
                 AdminName = name,
                 AdminPinCode = pinCode
             };
-            return repository.AddAdministrator(dto);
+            return dto;
         }
 
         /// <summary>
