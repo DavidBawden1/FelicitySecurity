@@ -1,5 +1,4 @@
 ﻿using FelicitySecurity.Core.Data.DataModel;
-using FelicitySecurity.Data.Interfaces;
 using FelicitySecurity.Core.DataTransferObjects;
 using FelicitySecurity.Core.Utils;
 using System;
@@ -7,8 +6,9 @@ using System.Collections.Generic;
 using System.Data.Common;
 using System.Data.Entity;
 using System.Linq;
+using FelicitySecurity.Services.Data.Interfaces;
 
-namespace FelicitySecurity.Core.Data.Repository
+namespace FelicitySecurity.Services.Data.Repository
 {
     /// <summary>
     /// The Engine repository, responsible for handling database transactions for 
@@ -24,6 +24,10 @@ namespace FelicitySecurity.Core.Data.Repository
         public FelicitySecurityRepository() : base()
         {
 
+        }
+        public FelicitySecurityRepository(FelicityLiveEntities context)
+        {
+            _context = context;
         }
         /// <summary>
         /// initiates the Engine repository, responsible for handling database transactions for 
@@ -66,6 +70,8 @@ namespace FelicitySecurity.Core.Data.Repository
                 return typeof(FelicityLiveEntities);
             }
         }
+
+        private FelicityLiveEntities _context;
         #endregion
 
         #region Methods
@@ -119,6 +125,7 @@ namespace FelicitySecurity.Core.Data.Repository
             }
             catch (Exception e)
             {
+                Console.WriteLine(e.Message);
                 Logging.LogErrorEvent(null, e);
             }
             return item;
