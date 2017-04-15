@@ -85,6 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLogic\FelicitySecurityBusinessLogic.cs" />
+    <Compile Include="BusinessLogic\Interfaces\IFelicitySecurityBusinessLogic.cs" />
     <Compile Include="DataTransferObjects\Administrators_dto.cs" />
     <Compile Include="DataTransferObjects\Faces_dto.cs" />
     <Compile Include="DataTransferObjects\Members_dto.cs" />
