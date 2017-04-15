@@ -1,11 +1,7 @@
 ﻿using FelicitySecurity.Core.DataTransferObjects;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace FelicitySecurity.Data.Interfaces
+namespace FelicitySecurity.Services.Data.Interfaces
 {
     public interface IFelicitySecurityRepository
     {

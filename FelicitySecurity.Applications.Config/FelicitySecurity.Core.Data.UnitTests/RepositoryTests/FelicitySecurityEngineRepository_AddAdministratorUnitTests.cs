@@ -1,16 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using FelicitySecurity.Core.Data.Repository;
+using FelicitySecurity.Services.Data.Repository;
 using FelicitySecurity.Core.DataTransferObjects;
-using System.Collections.Generic;
 using FelicitySecurity.Core.Data.UnitTests.Helpers;
 using System.Data.Entity;
-using FelicitySecurity.Core.Data.DataModel;
 using Moq;
-using System;
-using System.Collections;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Linq.Expressions;
 using FelicitySecurity.Core.Data.UnitTests.Mockables.Interfaces;
 using FelicitySecurity.Core.Data.UnitTests.Mockables;
 

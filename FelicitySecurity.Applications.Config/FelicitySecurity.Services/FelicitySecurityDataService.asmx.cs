@@ -1,4 +1,4 @@
-﻿using FelicitySecurity.Core.Data.Repository;
+﻿using FelicitySecurity.Services.Data.Repository;
 using System.Collections.Generic;
 using FelicitySecurity.Core.DataTransferObjects;
 using System.Web.Services;

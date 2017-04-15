@@ -1,8 +1,8 @@
-﻿using FelicitySecurity.Core.Data.Repository;
+﻿using FelicitySecurity.Services.Data.Repository;
 using System.Data.Common;
 using System.Data.Entity;
 
-namespace FelicitySecurity.Data.Interfaces
+namespace FelicitySecurity.Services.Data.Interfaces
 {
     public interface IFelicitySecurityRepositoryBase
     {

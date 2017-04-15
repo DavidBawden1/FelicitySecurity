@@ -1,5 +1,4 @@
 ﻿using FelicitySecurity.Core.Data.DataModel;
-using FelicitySecurity.Data.Interfaces;
 using FelicitySecurity.Core.DataTransferObjects;
 using FelicitySecurity.Core.Utils;
 using System;
@@ -7,8 +6,9 @@ using System.Collections.Generic;
 using System.Data.Common;
 using System.Data.Entity;
 using System.Linq;
+using FelicitySecurity.Services.Data.Interfaces;
 
-namespace FelicitySecurity.Core.Data.Repository
+namespace FelicitySecurity.Services.Data.Repository
 {
     /// <summary>
     /// The Engine repository, responsible for handling database transactions for 
