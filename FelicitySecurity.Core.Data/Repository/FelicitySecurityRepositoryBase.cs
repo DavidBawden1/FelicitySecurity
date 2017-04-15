@@ -1,11 +1,10 @@
-﻿using FelicitySecurity.Data.Interfaces;
-using FelicitySecurity.Core.Utils;
+﻿using FelicitySecurity.Core.Utils;
+using FelicitySecurity.Services.Data.Interfaces;
 using System;
 using System.Data.Common;
 using System.Data.Entity;
-using FelicitySecurity.Core.DataTransferObjects;
 
-namespace FelicitySecurity.Core.Data.Repository
+namespace FelicitySecurity.Services.Data.Repository
 {
     /// <summary>
     /// The commit mode of the Repository
