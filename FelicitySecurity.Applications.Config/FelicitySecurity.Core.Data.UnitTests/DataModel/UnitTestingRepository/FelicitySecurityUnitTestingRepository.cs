@@ -105,9 +105,8 @@ namespace FelicitySecurity.Services.Data.Repository
         }
 
         /// <summary>
-        /// returns all of the administrators within the administrators table. 
+        /// Clears all of the tables within the FelicityTest Database
         /// </summary>
-        /// <returns>a result list of all administrators in the system</returns>
         public void ClearFelicityTestDatabase()
         {
             try

@@ -18,7 +18,19 @@ namespace FelicitySecurity.Core.Data.UnitTests
             administrator = (DataSeedHelper.CreateAdministrator(repository, 1, "dbawden@outlook.com", "David", "1234"));
             repository.AddAdministrator(administrator);
             var x = repository.FindAllAdministrators();
-            Assert.AreEqual(1, x.Count);          
+            Administrators_dto admin = new Administrators_dto();
+            foreach(var item in x)
+            {
+                admin.AdminID = item.AdminID;
+                admin.AdminEmail = item.AdminEmail;
+                admin.AdminName = item.AdminName;
+                admin.AdminPinCode = item.AdminPinCode;
+            }
+
+            Assert.AreEqual(1, x.Count);
+            Assert.AreEqual("dbawden@outlook.com", admin.AdminEmail);
+            Assert.AreEqual("David", admin.AdminName);
+            Assert.AreEqual("1234", admin.AdminPinCode);
         }
     }
 }
