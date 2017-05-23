@@ -2,10 +2,6 @@
 using FelicitySecurity.Services.Data.Repository;
 using FelicitySecurity.Core.DataTransferObjects;
 using FelicitySecurity.Core.Data.UnitTests.Helpers;
-using System.Data.Entity;
-using Moq;
-using FelicitySecurity.Core.Data.UnitTests.Mockables.Interfaces;
-using FelicitySecurity.Core.Data.UnitTests.Mockables;
 using FelicitySecurity.Core.Data.UnitTests.DataModel;
 
 namespace FelicitySecurity.Core.Data.UnitTests

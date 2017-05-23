@@ -114,13 +114,13 @@ namespace FelicitySecurity.Services.Data.Repository
             {
                 using (FelicityTestEntities dbContext = (FelicityTestEntities)GetDBContext())
                 {
-                    var admins = from a in dbContext.AdminTable select a;
+                    var admins = from AdministorTable in dbContext.AdminTable select AdministorTable;
                     dbContext.AdminTable.RemoveRange(admins);
-                    var members = from b in dbContext.MemberTable select b;
+                    var members = from memberTable in dbContext.MemberTable select memberTable;
                     dbContext.MemberTable.RemoveRange(members);
-                    var faces = from c in dbContext.FacesTable select c;
+                    var faces = from faceTable in dbContext.FacesTable select faceTable;
                     dbContext.FacesTable.RemoveRange(faces);
-                    var staff = from d in dbContext.StaffTable select d;
+                    var staff = from staffTable in dbContext.StaffTable select staffTable;
                     dbContext.StaffTable.RemoveRange(staff);
                     dbContext.SaveChanges();
                 }
