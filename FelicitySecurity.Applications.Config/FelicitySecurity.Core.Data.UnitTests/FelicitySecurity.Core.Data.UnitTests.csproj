@@ -101,12 +101,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FelicitySecurityTest.edmx</DependentUpon>
     </Compile>
+    <Compile Include="DataModel\Interfaces\IFelicitySecurityUnitTestingRepository.cs" />
+    <Compile Include="DataModel\Interfaces\IFelicitySecurityUnitTestingRepositoryBase.cs" />
     <Compile Include="DataModel\MemberTable.cs">
       <DependentUpon>FelicitySecurityTest.tt</DependentUpon>
     </Compile>
     <Compile Include="DataModel\StaffTable.cs">
       <DependentUpon>FelicitySecurityTest.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataModel\UnitTestingRepository\FelicitySecurityUnitTestingRepository.cs" />
+    <Compile Include="DataModel\UnitTestingRepository\FelicitySecurityUnitTestingRepositoryBase.cs" />
     <Compile Include="DataSeed\DataSeedHelper.cs" />
     <Compile Include="Mockables\FakeDbSet.cs" />
     <Compile Include="Mockables\Interfaces\IDbContext.cs" />
@@ -121,6 +125,10 @@
     <ProjectReference Include="..\..\FelicitySecurity.Core\FelicitySecurity.Core.csproj">
       <Project>{25F1241C-4143-4E6A-A5D4-FCC8CB7B98C9}</Project>
       <Name>FelicitySecurity.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FelicitySecurity.Utils\FelicitySecurity.Core.Utils.csproj">
+      <Project>{D9B6DF98-9C5F-48CA-8673-1A6BC7CD05B5}</Project>
+      <Name>FelicitySecurity.Core.Utils</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

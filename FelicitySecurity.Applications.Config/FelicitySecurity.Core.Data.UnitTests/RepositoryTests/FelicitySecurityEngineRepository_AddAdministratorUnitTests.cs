@@ -10,21 +10,17 @@ using FelicitySecurity.Core.Data.UnitTests.Mockables;
 namespace FelicitySecurity.Core.Data.UnitTests
 {
     [TestClass]
-    public class FelicitySecurityEngineRepository_AddAdministratorUnitTests : FelicitySecurityRepository
+    public class FelicitySecurityEngineRepository_AddAdministratorUnitTests : FelicitySecurityUnitTestingRepository
     {
         [TestMethod]
         public void TestAddAdministrators()
         {
-            FelicitySecurityRepository repository = new FelicitySecurityRepository();
+            FelicitySecurityUnitTestingRepository repository = new FelicitySecurityUnitTestingRepository();
             Administrators_dto administrator = new Administrators_dto();
-            administrator = (DataSeedHelper.CreateAdministrator(repository, "dbawden@outlook.com", "David", "1234"));
-            var mockSet = new Mock<DbSet<Administrators_dto>>();
-            var mockContext = new Mock<IDbContext>();
-            mockContext.Setup(m => m.Set<Administrators_dto>()).Returns(new FakeDbSet<Administrators_dto>
-            {
-                administrator
-            }
-            );
+            administrator = (DataSeedHelper.CreateAdministrator(repository, 1, "dbawden@outlook.com", "David", "1234"));
+            repository.AddAdministrator(administrator);
+            var x = repository.FindAllAdministrators();
+            Assert.AreEqual(1, x.Count);          
         }
     }
 }
