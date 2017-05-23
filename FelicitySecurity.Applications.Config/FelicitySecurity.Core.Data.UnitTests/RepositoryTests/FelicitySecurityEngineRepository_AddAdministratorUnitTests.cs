@@ -9,6 +9,9 @@ namespace FelicitySecurity.Core.Data.UnitTests
     [TestClass]
     public class FelicitySecurityEngineRepository_AddAdministratorUnitTests : FelicitySecurityUnitTestingRepository
     {
+        /// <summary>
+        /// Tests that an Administrator can be added to the database
+        /// </summary>
         [TestMethod]
         public void TestAddAdministrators()
         {
