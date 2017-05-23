@@ -1,4 +1,5 @@
-﻿using FelicitySecurity.Core.Utils;
+﻿using FelicitySecurity.Core.Data.UnitTests.DataModel;
+using FelicitySecurity.Core.Utils;
 using FelicitySecurity.Services.Data.Interfaces;
 using System;
 using System.Data.Common;
@@ -103,6 +104,8 @@ namespace FelicitySecurity.Services.Data.Repository
 
         public FelicitySecurityUnitTestingRepositoryBase()
         {
+            FelicityTestEntities en = new FelicityTestEntities();
+            _dbContext = en;
         }
         #endregion
         protected DbContext GetDBContext()

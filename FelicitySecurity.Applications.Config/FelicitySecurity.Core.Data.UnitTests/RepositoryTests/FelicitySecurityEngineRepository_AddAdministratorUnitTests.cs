@@ -12,8 +12,7 @@ namespace FelicitySecurity.Core.Data.UnitTests
         [TestMethod]
         public void TestAddAdministrators()
         {
-            FelicityTestEntities en = new FelicityTestEntities();
-            FelicitySecurityUnitTestingRepository repository = new FelicitySecurityUnitTestingRepository(en);
+            FelicitySecurityUnitTestingRepository repository = new FelicitySecurityUnitTestingRepository();
             repository.ClearFelicityTestDatabase();
             Administrators_dto administrator = new Administrators_dto();
             administrator = (DataSeedHelper.CreateAdministrator(repository, 1, "dbawden@outlook.com", "David", "1234"));
