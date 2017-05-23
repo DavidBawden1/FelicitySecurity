@@ -108,15 +108,20 @@ namespace FelicitySecurity.Services.Data.Repository
         /// returns all of the administrators within the administrators table. 
         /// </summary>
         /// <returns>a result list of all administrators in the system</returns>
-        public void DeleteAllAdministrators()
+        public void ClearFelicityTestDatabase()
         {
             try
             {
                 using (FelicityTestEntities dbContext = (FelicityTestEntities)GetDBContext())
                 {
-                    //dbContext.Database.ExecuteSqlCommand("TRUNCATE TABLE [AdminTable], [MemberTable]");
-                    var all = from c in dbContext.AdminTable select c;
-                    dbContext.AdminTable.RemoveRange(all);
+                    var admins = from a in dbContext.AdminTable select a;
+                    dbContext.AdminTable.RemoveRange(admins);
+                    var members = from b in dbContext.MemberTable select b;
+                    dbContext.MemberTable.RemoveRange(members);
+                    var faces = from c in dbContext.FacesTable select c;
+                    dbContext.FacesTable.RemoveRange(faces);
+                    var staff = from d in dbContext.StaffTable select d;
+                    dbContext.StaffTable.RemoveRange(staff);
                     dbContext.SaveChanges();
                 }
             }
