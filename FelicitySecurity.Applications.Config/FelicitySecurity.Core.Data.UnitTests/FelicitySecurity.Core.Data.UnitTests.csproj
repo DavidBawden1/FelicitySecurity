@@ -62,7 +62,10 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -77,6 +80,37 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="DataModel\AdminTable.cs">
+      <DependentUpon>FelicitySecurityTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\FacesTable.cs">
+      <DependentUpon>FelicitySecurityTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\FelicitySecurityTest.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FelicitySecurityTest.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\FelicitySecurityTest.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FelicitySecurityTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\FelicitySecurityTest.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FelicitySecurityTest.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\Interfaces\IFelicitySecurityUnitTestingRepository.cs" />
+    <Compile Include="DataModel\Interfaces\IFelicitySecurityUnitTestingRepositoryBase.cs" />
+    <Compile Include="DataModel\MemberTable.cs">
+      <DependentUpon>FelicitySecurityTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\StaffTable.cs">
+      <DependentUpon>FelicitySecurityTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\UnitTestingRepository\FelicitySecurityUnitTestingRepository.cs" />
+    <Compile Include="DataModel\UnitTestingRepository\FelicitySecurityUnitTestingRepositoryBase.cs" />
     <Compile Include="DataSeed\DataSeedHelper.cs" />
     <Compile Include="Mockables\FakeDbSet.cs" />
     <Compile Include="Mockables\Interfaces\IDbContext.cs" />
@@ -92,10 +126,36 @@
       <Project>{25F1241C-4143-4E6A-A5D4-FCC8CB7B98C9}</Project>
       <Name>FelicitySecurity.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FelicitySecurity.Utils\FelicitySecurity.Core.Utils.csproj">
+      <Project>{D9B6DF98-9C5F-48CA-8673-1A6BC7CD05B5}</Project>
+      <Name>FelicitySecurity.Core.Utils</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <EntityDeploy Include="DataModel\FelicitySecurityTest.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>FelicitySecurityTest.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DataModel\FelicitySecurityTest.edmx.diagram">
+      <DependentUpon>FelicitySecurityTest.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DataModel\FelicitySecurityTest.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FelicitySecurityTest.edmx</DependentUpon>
+      <LastGenOutput>FelicitySecurityTest.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataModel\FelicitySecurityTest.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FelicitySecurityTest.edmx</DependentUpon>
+      <LastGenOutput>FelicitySecurityTest.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

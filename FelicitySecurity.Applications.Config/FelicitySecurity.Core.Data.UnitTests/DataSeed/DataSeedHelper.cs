@@ -14,10 +14,11 @@ namespace FelicitySecurity.Core.Data.UnitTests.Helpers
         /// <param name="name"></param>
         /// <param name="pinCode"></param>
         /// <returns></returns>
-        public static Administrators_dto CreateAdministrator(FelicitySecurityRepository repository, string email, string name, string pinCode)
+        public static Administrators_dto CreateAdministrator(FelicitySecurityUnitTestingRepository repository, int id, string email, string name, string pinCode)
         {
             var dto = new Administrators_dto()
             {
+                AdminID = id,
                 AdminEmail = email,
                 AdminName = name,
                 AdminPinCode = pinCode
@@ -33,7 +34,7 @@ namespace FelicitySecurity.Core.Data.UnitTests.Helpers
         /// <param name="name"></param>
         /// <param name="pinCode"></param>
         /// <returns></returns>
-        public static Members_dto CreateMember(FelicitySecurityRepository repository, string firstName, string lastName, DateTime dateOfBirth, DateTime dateOfRegistration, int responsibleAdministratorsId)
+        public static Members_dto CreateMember(FelicitySecurityUnitTestingRepository repository, string firstName, string lastName, DateTime dateOfBirth, DateTime dateOfRegistration, int responsibleAdministratorsId)
         {
             var dto = new Members_dto()
             {
