@@ -105,6 +105,28 @@ namespace FelicitySecurity.Services.Data.Repository
         }
 
         /// <summary>
+        /// returns all of the administrators within the administrators table. 
+        /// </summary>
+        /// <returns>a result list of all administrators in the system</returns>
+        public void DeleteAllAdministrators()
+        {
+            try
+            {
+                using (FelicityTestEntities dbContext = (FelicityTestEntities)GetDBContext())
+                {
+                    //dbContext.Database.ExecuteSqlCommand("TRUNCATE TABLE [AdminTable], [MemberTable]");
+                    var all = from c in dbContext.AdminTable select c;
+                    dbContext.AdminTable.RemoveRange(all);
+                    dbContext.SaveChanges();
+                }
+            }
+            catch (Exception e)
+            {
+                Logging.LogErrorEvent(null, e);
+            }
+        }
+
+        /// <summary>
         /// Adds an administer to the AdminTable when the registration scenario is applied. 
         /// </summary>
         public Administrators_dto AddAdministrator(Administrators_dto item)

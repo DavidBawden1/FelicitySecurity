@@ -6,6 +6,7 @@ using System.Data.Entity;
 using Moq;
 using FelicitySecurity.Core.Data.UnitTests.Mockables.Interfaces;
 using FelicitySecurity.Core.Data.UnitTests.Mockables;
+using FelicitySecurity.Core.Data.UnitTests.DataModel;
 
 namespace FelicitySecurity.Core.Data.UnitTests
 {
@@ -15,7 +16,9 @@ namespace FelicitySecurity.Core.Data.UnitTests
         [TestMethod]
         public void TestAddAdministrators()
         {
-            FelicitySecurityUnitTestingRepository repository = new FelicitySecurityUnitTestingRepository();
+            FelicityTestEntities en = new FelicityTestEntities();
+            FelicitySecurityUnitTestingRepository repository = new FelicitySecurityUnitTestingRepository(en);
+            repository.DeleteAllAdministrators();
             Administrators_dto administrator = new Administrators_dto();
             administrator = (DataSeedHelper.CreateAdministrator(repository, 1, "dbawden@outlook.com", "David", "1234"));
             repository.AddAdministrator(administrator);
