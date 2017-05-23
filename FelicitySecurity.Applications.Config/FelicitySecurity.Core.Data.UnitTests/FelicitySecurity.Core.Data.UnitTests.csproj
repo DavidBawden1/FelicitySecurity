@@ -112,8 +112,6 @@
     <Compile Include="DataModel\UnitTestingRepository\FelicitySecurityUnitTestingRepository.cs" />
     <Compile Include="DataModel\UnitTestingRepository\FelicitySecurityUnitTestingRepositoryBase.cs" />
     <Compile Include="DataSeed\DataSeedHelper.cs" />
-    <Compile Include="Mockables\FakeDbSet.cs" />
-    <Compile Include="Mockables\Interfaces\IDbContext.cs" />
     <Compile Include="RepositoryTests\FelicitySecurityEngineRepository_AddAdministratorUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
