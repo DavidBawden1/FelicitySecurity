@@ -4,10 +4,7 @@ using Emgu.CV.Structure;
 using FelicitySecurity.Applications.Config.Resources.ImageProcessing.FaceRecognition;
 using FelicitySecurity.Applications.Config.Views;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
-using System.Reflection;
 using System.Threading;
 
 namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraFeeds
