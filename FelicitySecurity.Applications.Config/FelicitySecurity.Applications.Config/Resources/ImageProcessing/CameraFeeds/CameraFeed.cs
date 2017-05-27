@@ -4,7 +4,10 @@ using Emgu.CV.Structure;
 using FelicitySecurity.Applications.Config.Resources.ImageProcessing.FaceRecognition;
 using FelicitySecurity.Applications.Config.Views;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
+using System.Reflection;
 using System.Threading;
 
 namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraFeeds
@@ -14,16 +17,43 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraF
         #region Declarations
         RegisterMembers_Form registerMembersForm = new RegisterMembers_Form();
         SuspectFacialPrediction suspectFacialPrediction = new SuspectFacialPrediction();
+        public delegate Suspect SetSuspectDetails(Suspect recognisedSuspect);
+        #endregion
+        #region Properties
         private int _captureInstance = 0;
+        public int CaptureInstance
+        {
+            get
+            {
+                return _captureInstance;
+            }
+            set
+            {
+
+            }
+        }
         public Capture ChannelFeed
         {
-            get;
-            set;
+            get
+            {
+                Capture channelFeedInstance = new Capture(CaptureInstance);
+                return channelFeedInstance;
+            }
+            set
+            {
+
+            }
         }
         public CascadeClassifier Cascade
         {
-            get;
-            set;
+            get
+            {
+                return Cascade = new CascadeClassifier("FelicitySecurity.Applications.Config/Resources/ImageProcessing/FaceDetection/lbpcascade_frontalface.xml");
+            }
+            set
+            {
+
+            }
         }
 
         public Image<Bgr, Byte> RawCameraFeedImage
@@ -38,42 +68,52 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraF
             set;
         }
         #endregion
-        #region Properties
-        #endregion
+
         #region Constructors
-        public CameraFeed SpecifyCameraInstance(int cameraInstance)
+        public CameraFeed SpecifyCameraInstance(int captureInstance)
         {
+            _captureInstance = captureInstance;
             CameraFeed cameraFeed = new CameraFeed();
-            Capture SelectedCaptureInstance = new Capture(cameraInstance);
+            Capture SelectedCaptureInstance = new Capture(CaptureInstance);
             cameraFeed.ChannelFeed = SelectedCaptureInstance;
+            ProcessCameraFeedInput();
             return cameraFeed;
         }
         #endregion
+
         #region Methods
-        public void DisplayFoundFace(Image<Gray, Byte> ImgFound, string NameOfMember, string lastname, string postcode, int MatchValue)
+        public Emgu.CV.IImage GetFoundFace(Image<Gray, Byte> ImgFound, string NameOfMember, string lastname, string postcode, int MatchValue)
         {
-            registerMembersForm.RecognisedMember_EmguImageBox.Image = ImgFound;//display img found in the found image imagebox
+            return registerMembersForm.RecognisedMember_EmguImageBox.Image = ImgFound;
         }
         public void DisplayFoundFace(Emgu.CV.UI.ImageBox imageBox, Image<Gray, Byte> ImgFound, string NameOfMember, string lastname, string postcode, int MatchValue)
         {
-            registerMembersForm.RecognisedMember_EmguImageBox.Image = ImgFound;//display img found in the found image imagebox
+            imageBox.Image = ImgFound;
+        }
+        public Suspect GetSuspectDetails(Suspect suspect)
+        {
+            SetSuspectDetails suspectDetails = new SetSuspectDetails(GetSuspectDetails);
+            //Invoke(suspectDetails, new List<Suspect> { suspect });
+            return suspect;
         }
         #endregion
-        public void RunCameraFeed()
+
+        /// <summary>
+        /// Processes the camera feed input with facial detection & recognition. 
+        /// </summary>
+        public void ProcessCameraFeedInput()
         {
             try
             {
                 using (RawCameraFeedImage = ChannelFeed.QueryFrame().ToImage<Bgr, Byte>())
                 {
-                    //if imageoriginal isnt empty run detect faces 
                     if (RawCameraFeedImage != null)
                     {
                         registerMembersForm.CameraFeed_ImageBox.BackColor = Color.Transparent;
                         registerMembersForm.CameraFeed_ImageBox.BackgroundImage = null;
-                        //CONVERT FROM COLOUR TO GRAY 
-                        var grayframe = RawCameraFeedImage.Convert<Gray, Byte>();
+                        var grayscaleFrameImage = RawCameraFeedImage.Convert<Gray, Byte>();
                         Rectangle[] Faces =
-                        Cascade.DetectMultiScale(grayframe, 8.0, 1, new Size(100, 100), new Size(800, 800)); //run cascade file over gray image with precision of three as 1.2 is very fast but inaccurate, 3.0 is slower but accurate and 0 min next neighbours rather than 10 because of accuracy too. 
+                        Cascade.DetectMultiScale(grayscaleFrameImage, 8.0, 1, new Size(100, 100), new Size(800, 800)); //run cascade file over gray image with precision of three as 1.2 is very fast but inaccurate, 3.0 is slower but accurate and 0 min next neighbours rather than 10 because of accuracy too. 
 
                         //if i is less than the length of data within the faces array remove it from image 
                         for (int i = 0; i < Faces.Length; i++)
@@ -82,7 +122,6 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraF
                             Faces[i].Y += (int)(Faces[i].Width * 0.30);//enlarge image of face 
                             Faces[i].Height -= (int)(Faces[i].Height * 0.3);//remove anything that isnt a face
                             Faces[i].Width -= (int)(Faces[i].Width * 0.35);//remove anything that isnt a face
-
 
                             GrayscaledCroppedFace = RawCameraFeedImage.Copy(Faces[i]).Convert<Gray, Byte>().Resize(100, 100, Inter.Cubic);
                             GrayscaledCroppedFace._EqualizeHist();
@@ -98,12 +137,10 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraF
                                 string postcode = suspectFacialPrediction.GetPositiveMatchOnFacialRecognition(GrayscaledCroppedFace);
                                 int MatchValue = (int)suspectFacialPrediction.NeighbourDistance;
 
-                                /*DisplayFoundFace(FaceCrop, name, MatchValue, Lastname, Postcode);*/
-                                //DisplayFoundFace(GrayscaledCroppedFace, name, lastname, postcode, MatchValue);
-
-                                //RecognisedPersonGB.Text = ("Recognised Person: " + ""  );
-                                //groupboxdatarecieved(registerMembersForm.RecognisedMember_GroupBox.Text.ToString());
-
+                                GetFoundFace(GrayscaledCroppedFace, name, lastname, postcode, MatchValue);
+                                Suspect suspect = new Suspect();
+                                suspect.FirstName = name;
+                                GetSuspectDetails(suspect);
                             }
                         }
                     }
@@ -111,7 +148,6 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraF
                     {
                         //UsersFace.back
                         registerMembersForm.CameraFeed_ImageBox.BackColor = Color.Black;
-
                     }
                     registerMembersForm.CameraFeed_ImageBox.Image = RawCameraFeedImage;//show feed 
                     registerMembersForm.CroppedDetectedFace_EmguImageBox.Image = GrayscaledCroppedFace;//show new resized feed

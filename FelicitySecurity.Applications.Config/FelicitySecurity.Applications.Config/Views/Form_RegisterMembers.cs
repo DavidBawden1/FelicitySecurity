@@ -21,12 +21,21 @@ namespace FelicitySecurity.Applications.Config.Views
         private void CameraFeed_BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             CameraFeed cameraFeed = new CameraFeed();
-            cameraFeed.RunCameraFeed();
+            cameraFeed.SpecifyCameraInstance(0);
         }
 
         private void RegisterMembers_Form_Load(object sender, EventArgs e)
         {
-
+            try
+            {
+               if(!CameraFeed_BackgroundWorker.IsBusy)
+                {
+                    CameraFeed_BackgroundWorker.RunWorkerAsync();
+                } 
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
