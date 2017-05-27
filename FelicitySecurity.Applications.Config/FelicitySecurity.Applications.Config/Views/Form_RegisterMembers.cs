@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraFeeds;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,17 @@ namespace FelicitySecurity.Applications.Config.Views
         public RegisterMembers_Form()
         {
             InitializeComponent();
+        }
+
+        private void CameraFeed_BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            CameraFeed cameraFeed = new CameraFeed();
+            cameraFeed.RunCameraFeed();
+        }
+
+        private void RegisterMembers_Form_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

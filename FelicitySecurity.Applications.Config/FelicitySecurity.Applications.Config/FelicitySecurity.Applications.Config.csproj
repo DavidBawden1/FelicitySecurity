@@ -95,6 +95,7 @@
     <Compile Include="Interfaces\IValidation.cs" />
     <Compile Include="Models\AdministratorsModel.cs" />
     <Compile Include="Resources\Controls\ListboxItem.cs" />
+    <Compile Include="Resources\ImageProcessing\CameraFeeds\CameraFeed.cs" />
     <Compile Include="Resources\ImageProcessing\FaceRecognition\SuspectFacialPrediction.cs" />
     <Compile Include="Resources\Validation\ValidateExistingEmail.cs" />
     <Compile Include="Resources\Validation\ValidationBase.cs" />

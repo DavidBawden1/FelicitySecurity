@@ -34,7 +34,7 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RegisterMembersBackground_TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.MembersFacialCameraFeed_GroupBox = new System.Windows.Forms.GroupBox();
-            this.UsersFace = new Emgu.CV.UI.ImageBox();
+            this.CameraFeed_ImageBox = new Emgu.CV.UI.ImageBox();
             this.NewMemberCredentialsAndCameraControls_TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.NewMemberCredentials_GroupBox = new System.Windows.Forms.GroupBox();
             this.CameraOperations_GroupBox = new System.Windows.Forms.GroupBox();
@@ -75,10 +75,11 @@
             this.ClearFields_Button = new System.Windows.Forms.Button();
             this.DeleteMember_Button = new System.Windows.Forms.Button();
             this.UpdateMember_Button = new System.Windows.Forms.Button();
+            this.CameraFeed_BackgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.GeneralControls_MenuStrip.SuspendLayout();
             this.RegisterMembersBackground_TableLayoutPanel.SuspendLayout();
             this.MembersFacialCameraFeed_GroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.UsersFace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CameraFeed_ImageBox)).BeginInit();
             this.NewMemberCredentialsAndCameraControls_TableLayoutPanel.SuspendLayout();
             this.NewMemberCredentials_GroupBox.SuspendLayout();
             this.CameraOperations_GroupBox.SuspendLayout();
@@ -129,7 +130,7 @@
             // 
             // MembersFacialCameraFeed_GroupBox
             // 
-            this.MembersFacialCameraFeed_GroupBox.Controls.Add(this.UsersFace);
+            this.MembersFacialCameraFeed_GroupBox.Controls.Add(this.CameraFeed_ImageBox);
             this.MembersFacialCameraFeed_GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MembersFacialCameraFeed_GroupBox.Location = new System.Drawing.Point(3, 3);
             this.MembersFacialCameraFeed_GroupBox.Name = "MembersFacialCameraFeed_GroupBox";
@@ -138,19 +139,19 @@
             this.MembersFacialCameraFeed_GroupBox.TabStop = false;
             this.MembersFacialCameraFeed_GroupBox.Text = "New Member Images";
             // 
-            // UsersFace
+            // CameraFeed_ImageBox
             // 
-            this.UsersFace.BackColor = System.Drawing.Color.Transparent;
-            this.UsersFace.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("UsersFace.BackgroundImage")));
-            this.UsersFace.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.UsersFace.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UsersFace.Location = new System.Drawing.Point(3, 16);
-            this.UsersFace.Margin = new System.Windows.Forms.Padding(2);
-            this.UsersFace.Name = "UsersFace";
-            this.UsersFace.Size = new System.Drawing.Size(744, 302);
-            this.UsersFace.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.UsersFace.TabIndex = 5;
-            this.UsersFace.TabStop = false;
+            this.CameraFeed_ImageBox.BackColor = System.Drawing.Color.Transparent;
+            this.CameraFeed_ImageBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CameraFeed_ImageBox.BackgroundImage")));
+            this.CameraFeed_ImageBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.CameraFeed_ImageBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CameraFeed_ImageBox.Location = new System.Drawing.Point(3, 16);
+            this.CameraFeed_ImageBox.Margin = new System.Windows.Forms.Padding(2);
+            this.CameraFeed_ImageBox.Name = "CameraFeed_ImageBox";
+            this.CameraFeed_ImageBox.Size = new System.Drawing.Size(744, 302);
+            this.CameraFeed_ImageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.CameraFeed_ImageBox.TabIndex = 5;
+            this.CameraFeed_ImageBox.TabStop = false;
             // 
             // NewMemberCredentialsAndCameraControls_TableLayoutPanel
             // 
@@ -664,6 +665,10 @@
             this.UpdateMember_Button.Text = "Update Member";
             this.UpdateMember_Button.UseVisualStyleBackColor = true;
             // 
+            // CameraFeed_BackgroundWorker
+            // 
+            this.CameraFeed_BackgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.CameraFeed_BackgroundWorker_DoWork);
+            // 
             // RegisterMembers_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -675,11 +680,12 @@
             this.MinimumSize = new System.Drawing.Size(1025, 608);
             this.Name = "RegisterMembers_Form";
             this.Text = "Register Members";
+            this.Load += new System.EventHandler(this.RegisterMembers_Form_Load);
             this.GeneralControls_MenuStrip.ResumeLayout(false);
             this.GeneralControls_MenuStrip.PerformLayout();
             this.RegisterMembersBackground_TableLayoutPanel.ResumeLayout(false);
             this.MembersFacialCameraFeed_GroupBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.UsersFace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CameraFeed_ImageBox)).EndInit();
             this.NewMemberCredentialsAndCameraControls_TableLayoutPanel.ResumeLayout(false);
             this.NewMemberCredentials_GroupBox.ResumeLayout(false);
             this.NewMemberCredentials_GroupBox.PerformLayout();
@@ -718,9 +724,8 @@
         private System.Windows.Forms.TableLayoutPanel ExistingMembersListboxSorting_TableLayoutPanel;
         private System.Windows.Forms.GroupBox MembersListSortingControls_GroupBox;
         public System.Windows.Forms.ListBox ExistingMembers_ListBox;
-        public Emgu.CV.UI.ImageBox UsersFace;
+        public Emgu.CV.UI.ImageBox CameraFeed_ImageBox;
         private System.Windows.Forms.GroupBox CroppedFace_GroupBox;
-        private System.Windows.Forms.GroupBox RecognisedMember_GroupBox;
         public Emgu.CV.UI.ImageBox CroppedDetectedFace_EmguImageBox;
         public Emgu.CV.UI.ImageBox RecognisedMember_EmguImageBox;
         private System.Windows.Forms.Label FirstName_Label;
@@ -748,5 +753,7 @@
         private System.Windows.Forms.Button ClearFields_Button;
         private System.Windows.Forms.Button DeleteMember_Button;
         private System.Windows.Forms.Button UpdateMember_Button;
+        private System.ComponentModel.BackgroundWorker CameraFeed_BackgroundWorker;
+        public System.Windows.Forms.GroupBox RecognisedMember_GroupBox;
     }
 }
