@@ -45,7 +45,7 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraF
         {
             get
             {
-                return Cascade = new CascadeClassifier("FelicitySecurity.Applications.Config/Resources/ImageProcessing/FaceDetection/lbpcascade_frontalface.xml");
+                return Cascade = new CascadeClassifier("FaceDetection\\lbpcascade_frontalface.xml");
             }
             set
             {
@@ -153,7 +153,6 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraF
             }
             catch (Exception ex)
             {
-
                 return;
             }
         }
