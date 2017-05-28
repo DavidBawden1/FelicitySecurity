@@ -667,7 +667,7 @@
             // 
             // CameraFeed_BackgroundWorker
             // 
-            this.CameraFeed_BackgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.CameraFeed_BackgroundWorker_DoWork);
+            this.CameraFeed_BackgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.CameraFeedBackgroundWorkerDoWork);
             // 
             // RegisterMembers_Form
             // 

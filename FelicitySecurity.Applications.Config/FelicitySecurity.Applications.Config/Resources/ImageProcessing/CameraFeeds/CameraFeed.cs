@@ -14,7 +14,7 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraF
         #region Declarations
         RegisterMembers_Form registerMembersForm = new RegisterMembers_Form();
         SuspectFacialPrediction suspectFacialPrediction = new SuspectFacialPrediction();
-        public delegate Suspect SetSuspectDetails(Suspect recognisedSuspect);
+        
         #endregion
         #region Properties
         private int _captureInstance = 0;
@@ -73,7 +73,6 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraF
             CameraFeed cameraFeed = new CameraFeed();
             Capture SelectedCaptureInstance = new Capture(CaptureInstance);
             cameraFeed.ChannelFeed = SelectedCaptureInstance;
-            ProcessCameraFeedInput();
             return cameraFeed;
         }
         #endregion
@@ -87,12 +86,7 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraF
         {
             imageBox.Image = ImgFound;
         }
-        public Suspect GetSuspectDetails(Suspect suspect)
-        {
-            SetSuspectDetails suspectDetails = new SetSuspectDetails(GetSuspectDetails);
-            //Invoke(suspectDetails, new List<Suspect> { suspect });
-            return suspect;
-        }
+    
         #endregion
 
         /// <summary>
@@ -137,7 +131,7 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraF
                                 GetFoundFace(GrayscaledCroppedFace, name, lastname, postcode, MatchValue);
                                 Suspect suspect = new Suspect();
                                 suspect.FirstName = name;
-                                GetSuspectDetails(suspect);
+                                registerMembersForm.GetSuspectDetails(suspect);
                             }
                         }
                     }
