@@ -13,7 +13,7 @@ namespace FelicitySecurity.Applications.Config.Views
         /// <param name="detectedSubject">the detected subject details.</param>
         /// <returns>suspect</returns>
         public delegate Suspect SetSuspectDetails(Suspect detectedSubject);
-        
+
         /// <summary>
         /// a timer
         /// </summary>
@@ -30,9 +30,16 @@ namespace FelicitySecurity.Applications.Config.Views
         /// <param name="e"></param>
         private void CameraFeedBackgroundWorkerDoWork(object sender, DoWorkEventArgs e)
         {
-            CameraFeed cameraFeed = new CameraFeed();
-            cameraFeed = cameraFeed.SpecifyCameraInstance(0);
-            cameraFeed.ProcessCameraFeedInput();
+            try
+            {
+                CameraFeed cameraFeed = new CameraFeed();
+                cameraFeed = cameraFeed.SpecifyCameraInstance(0);
+                cameraFeed.ProcessCameraFeedInput();
+            }
+            catch(Exception ex)
+            {
+                return;
+            }
         }
 
         /// <summary>
@@ -41,7 +48,7 @@ namespace FelicitySecurity.Applications.Config.Views
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void RunThreadOverTimer(object sender, EventArgs e)
-        { 
+        {
             try
             {
                 StartCameraFeedBackgroundWorker();
