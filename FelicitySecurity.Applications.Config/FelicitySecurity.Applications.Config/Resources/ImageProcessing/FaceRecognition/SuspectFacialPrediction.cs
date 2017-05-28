@@ -20,8 +20,9 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.FaceRec
         #region Constructors
         public SuspectFacialPrediction ChooseTrainingModel(TrainingModel trainingModel)
         {
-            var x = new SuspectFacialPrediction();
-            return x;
+            var suspectFacialPrediction = new SuspectFacialPrediction();
+            suspectFacialPrediction.ChooseTrainingModel(trainingModel);
+            return suspectFacialPrediction;
         }
         #endregion
 
