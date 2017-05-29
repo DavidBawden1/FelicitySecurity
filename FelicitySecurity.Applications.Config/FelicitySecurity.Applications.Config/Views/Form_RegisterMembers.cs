@@ -34,7 +34,7 @@ namespace FelicitySecurity.Applications.Config.Views
             {
                 CameraFeed cameraFeed = new CameraFeed();
                 cameraFeed = cameraFeed.SpecifyCameraInstance(0);
-                cameraFeed.ProcessCameraFeedInput();
+                cameraFeed.ProcessCameraFeedInput(cameraFeed);
             }
             catch(Exception ex)
             {
@@ -66,13 +66,13 @@ namespace FelicitySecurity.Applications.Config.Views
         /// <param name="e"></param>
         private void RegisterMembers_Form_Load(object sender, EventArgs e)
         {
-            StartTimer();
+            Application.Idle += StartTimer;
         }
 
         /// <summary>
         /// Starts the timer to trigger background worker thread. 
         /// </summary>
-        private void StartTimer()
+        void StartTimer(object sender, EventArgs e)
         {
             _timer.Tick += new EventHandler(RunThreadOverTimer);
             _timer.Interval = 1;

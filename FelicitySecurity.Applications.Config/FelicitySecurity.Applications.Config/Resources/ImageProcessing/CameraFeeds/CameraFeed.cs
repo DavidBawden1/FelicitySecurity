@@ -33,8 +33,8 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraF
         {
             get
             {
-                Capture channelFeedInstance = new Capture(CaptureInstance);
-                return channelFeedInstance;
+                ChannelFeed =  new Capture(CaptureInstance);
+                return ChannelFeed;
             }
             set
             {
@@ -92,7 +92,7 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraF
         /// <summary>
         /// Processes the camera feed input with facial detection & recognition. 
         /// </summary>
-        public void ProcessCameraFeedInput()
+        public void ProcessCameraFeedInput(CameraFeed selectedCaptureInstance)
         {
             try
             {
