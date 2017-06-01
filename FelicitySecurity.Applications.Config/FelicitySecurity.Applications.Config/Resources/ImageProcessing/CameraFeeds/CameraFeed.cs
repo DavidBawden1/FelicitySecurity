@@ -68,6 +68,12 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraF
         }
         #endregion
 
+        public static Capture GetCameraCaptureInstance(int captureInstance)
+        {
+            Capture cameraCaptureInstance = new Capture(captureInstance);
+            return cameraCaptureInstance;
+        }
+
         #region Constructors
         public CameraFeed SpecifyCameraInstance(int captureInstance)
         {
@@ -105,11 +111,11 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraF
         /// <summary>
         /// Processes the camera feed input with facial detection & recognition. 
         /// </summary>
-        public void ProcessCameraFeedInput(CameraFeed selectedCaptureInstance)
+        public void ProcessCameraFeedInput(Capture captureInstance)
         {
             try
             {
-                using (RawCameraFeedImage = ChannelFeed.QueryFrame().ToImage<Bgr, Byte>())
+                using (RawCameraFeedImage = captureInstance.QueryFrame().ToImage<Bgr, Byte>())
                 {
                     if (RawCameraFeedImage != null)
                     {
