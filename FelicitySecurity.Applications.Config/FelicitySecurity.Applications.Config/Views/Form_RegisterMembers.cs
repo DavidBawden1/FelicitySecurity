@@ -76,11 +76,11 @@ namespace FelicitySecurity.Applications.Config.Views
         /// a timer
         /// </summary>
         private Timer _timer = new Timer();
-        private Capture initialiseCameraInstance;
+        private Capture defaultCameraInstance;
 
         public RegisterMembers_Form()
         {
-            initialiseCameraInstance = CameraFeed.GetCameraCaptureInstance(CaptureInstance);
+            defaultCameraInstance = CameraFeed.GetCameraCaptureInstance(CaptureInstance);
             InitializeComponent();
         }
 
@@ -93,7 +93,8 @@ namespace FelicitySecurity.Applications.Config.Views
         {
             try
             {
-                ProcessCameraFeedInput();
+                CameraFeed cameraFeed = new CameraFeed();
+                cameraFeed.ProcessCameraFeedInput(defaultCameraInstance, this);
                // Application.Idle += RunThreadOverTimer;
             }
             catch (Exception ex)
@@ -274,7 +275,7 @@ namespace FelicitySecurity.Applications.Config.Views
         {
             try
             {
-                using (RawCameraFeedImage = initialiseCameraInstance.QueryFrame().ToImage<Bgr, Byte>())
+                using (RawCameraFeedImage = defaultCameraInstance.QueryFrame().ToImage<Bgr, Byte>())
                 {
                     if (RawCameraFeedImage != null)
                     {

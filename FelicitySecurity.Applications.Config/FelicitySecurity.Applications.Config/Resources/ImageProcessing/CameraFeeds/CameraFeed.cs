@@ -13,10 +13,9 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraF
     public class CameraFeed : InstantiateCameraFeed
     {
         #region Declarations
-        
         SuspectFacialPrediction suspectFacialPrediction = new SuspectFacialPrediction();
-
         #endregion
+
         #region Properties
         private int _captureInstance = 0;
         public int CaptureInstance
@@ -67,13 +66,12 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraF
             set;
         }
         #endregion
-        
+
 
         #region Methods
-        public Emgu.CV.IImage GetFoundFace(Image<Gray, Byte> imageOfFoundFace)
+        public Emgu.CV.IImage GetFoundFace(Image<Gray, Byte> imageOfFoundFace, RegisterMembers_Form form)
         {
-            RegisterMembers_Form registerMembersForm = new RegisterMembers_Form();
-            return registerMembersForm.RecognisedMember_EmguImageBox.Image = imageOfFoundFace;
+            return form.RecognisedMember_EmguImageBox.Image = imageOfFoundFace;
         }
 
         /// <summary>
@@ -92,29 +90,27 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraF
         }
 
         #endregion
-
         /// <summary>
         /// Processes the camera feed input with facial detection & recognition. 
         /// </summary>
-        public void ProcessCameraFeedInput(Capture captureInstance)
+        public void ProcessCameraFeedInput(Capture captureInstance, RegisterMembers_Form form)
         {
-            RegisterMembers_Form registerMembersForm = new RegisterMembers_Form();
             try
             {
                 using (RawCameraFeedImage = captureInstance.QueryFrame().ToImage<Bgr, Byte>())
                 {
                     if (RawCameraFeedImage != null)
                     {
-                        registerMembersForm.CameraFeed_ImageBox = SetWorkingCameraFeedProperties();
+                        form.CameraFeed_ImageBox = SetWorkingCameraFeedProperties(form);
                         Rectangle[] detectedFace = GetDetectedFace();
                         GetCroppedDetectedFace(detectedFace);
-                        RecogniseDetectedFace();
+                        RecogniseDetectedFace(form);
                     }
                     else
                     {
-                        DisplaySwitchedOffCameraFeed();
+                        DisplaySwitchedOffCameraFeed(form);
                     }
-                    ReturnCameraFeedsToUI();
+                    ReturnCameraFeedsToUI(form);
                 }
             }
             catch (Exception ex)
@@ -126,22 +122,20 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraF
         /// <summary>
         /// Displays the camera feed to the UI controls on the form. 
         /// </summary>
-        private void ReturnCameraFeedsToUI()
+        private void ReturnCameraFeedsToUI(RegisterMembers_Form form)
         {
-            RegisterMembers_Form registerMembersForm = new RegisterMembers_Form();
-            registerMembersForm.CameraFeed_ImageBox.Image = RawCameraFeedImage;//show feed 
-            registerMembersForm.CroppedDetectedFace_EmguImageBox.Image = GrayscaledCroppedFace;//show new resized feed
+            form.CameraFeed_ImageBox.Image = RawCameraFeedImage;//show feed 
+            form.CroppedDetectedFace_EmguImageBox.Image = GrayscaledCroppedFace;//show new resized feed
         }
 
         /// <summary>
         /// Displays a broken Circuit image to the UI control to resemble no camera feed activity.
         /// </summary>
         /// <returns>Imagebox</returns>
-        private ImageBox DisplaySwitchedOffCameraFeed()
+        private ImageBox DisplaySwitchedOffCameraFeed(RegisterMembers_Form form)
         {
-            RegisterMembers_Form registerMembersForm = new RegisterMembers_Form();
-            registerMembersForm.CameraFeed_ImageBox.BackColor = Color.Black;
-            return registerMembersForm.CameraFeed_ImageBox;
+            form.CameraFeed_ImageBox.BackColor = Color.Black;
+            return form.CameraFeed_ImageBox;
         }
 
         /// <summary>
@@ -165,9 +159,8 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraF
         /// <summary>
         /// Recognises the details of the detected subject
         /// </summary>
-        private void RecogniseDetectedFace()
+        private void RecogniseDetectedFace(RegisterMembers_Form form)
         {
-            RegisterMembers_Form registerMembersForm = new RegisterMembers_Form();
             if (suspectFacialPrediction.IsDataSetPopulated)
             {
                 Suspect suspect = new Suspect();
@@ -175,8 +168,8 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraF
                 suspect.LastName = suspectFacialPrediction.GetPositiveMatchOnFacialRecognition(GrayscaledCroppedFace);
                 suspect.PostCode = suspectFacialPrediction.GetPositiveMatchOnFacialRecognition(GrayscaledCroppedFace);
                 int matchValue = (int)suspectFacialPrediction.NeighbourDistance;
-                GetFoundFace(GrayscaledCroppedFace);
-                registerMembersForm.GetSuspectDetails(suspect);
+                GetFoundFace(GrayscaledCroppedFace, form);
+                form.GetSuspectDetails(suspect);
             }
         }
 
@@ -196,12 +189,11 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraF
         /// Configures the camera feeds Image box properties to that of an operational camera. 
         /// </summary>
         /// <returns>an image box</returns>
-        private ImageBox SetWorkingCameraFeedProperties()
+        private ImageBox SetWorkingCameraFeedProperties(RegisterMembers_Form form)
         {
-            RegisterMembers_Form registerMembersForm = new RegisterMembers_Form();
-            registerMembersForm.CameraFeed_ImageBox.BackColor = Color.Transparent;
-            registerMembersForm.CameraFeed_ImageBox.BackgroundImage = null;
-            return registerMembersForm.CameraFeed_ImageBox;
+            form.CameraFeed_ImageBox.BackColor = Color.Transparent;
+            form.CameraFeed_ImageBox.BackgroundImage = null;
+            return form.CameraFeed_ImageBox;
         }
     }
 }
