@@ -96,6 +96,7 @@
     <Compile Include="Models\AdministratorsModel.cs" />
     <Compile Include="Resources\Controls\ListboxItem.cs" />
     <Compile Include="Resources\ImageProcessing\CameraFeeds\CameraFeed.cs" />
+    <Compile Include="Resources\ImageProcessing\CameraFeeds\InstantiateCameraFeed.cs" />
     <Compile Include="Resources\ImageProcessing\CameraFeeds\Suspect.cs" />
     <Compile Include="Resources\ImageProcessing\FaceRecognition\SuspectFacialPrediction.cs" />
     <Compile Include="Resources\Validation\ValidateExistingEmail.cs" />

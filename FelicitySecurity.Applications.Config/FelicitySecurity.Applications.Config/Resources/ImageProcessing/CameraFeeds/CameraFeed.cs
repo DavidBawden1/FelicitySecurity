@@ -10,10 +10,10 @@ using System.Threading;
 
 namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraFeeds
 {
-    public class CameraFeed
+    public class CameraFeed : InstantiateCameraFeed
     {
         #region Declarations
-        RegisterMembers_Form registerMembersForm = new RegisterMembers_Form();
+        
         SuspectFacialPrediction suspectFacialPrediction = new SuspectFacialPrediction();
 
         #endregion
@@ -67,27 +67,12 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraF
             set;
         }
         #endregion
-
-        public static Capture GetCameraCaptureInstance(int captureInstance)
-        {
-            Capture cameraCaptureInstance = new Capture(captureInstance);
-            return cameraCaptureInstance;
-        }
-
-        #region Constructors
-        public CameraFeed SpecifyCameraInstance(int captureInstance)
-        {
-            _captureInstance = captureInstance;
-            CameraFeed cameraFeed = new CameraFeed();
-            Capture SelectedCaptureInstance = new Capture(CaptureInstance);
-            cameraFeed.ChannelFeed = SelectedCaptureInstance;
-            return cameraFeed;
-        }
-        #endregion
+        
 
         #region Methods
         public Emgu.CV.IImage GetFoundFace(Image<Gray, Byte> imageOfFoundFace)
         {
+            RegisterMembers_Form registerMembersForm = new RegisterMembers_Form();
             return registerMembersForm.RecognisedMember_EmguImageBox.Image = imageOfFoundFace;
         }
 
@@ -113,6 +98,7 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraF
         /// </summary>
         public void ProcessCameraFeedInput(Capture captureInstance)
         {
+            RegisterMembers_Form registerMembersForm = new RegisterMembers_Form();
             try
             {
                 using (RawCameraFeedImage = captureInstance.QueryFrame().ToImage<Bgr, Byte>())
@@ -142,6 +128,7 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraF
         /// </summary>
         private void ReturnCameraFeedsToUI()
         {
+            RegisterMembers_Form registerMembersForm = new RegisterMembers_Form();
             registerMembersForm.CameraFeed_ImageBox.Image = RawCameraFeedImage;//show feed 
             registerMembersForm.CroppedDetectedFace_EmguImageBox.Image = GrayscaledCroppedFace;//show new resized feed
         }
@@ -152,6 +139,7 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraF
         /// <returns>Imagebox</returns>
         private ImageBox DisplaySwitchedOffCameraFeed()
         {
+            RegisterMembers_Form registerMembersForm = new RegisterMembers_Form();
             registerMembersForm.CameraFeed_ImageBox.BackColor = Color.Black;
             return registerMembersForm.CameraFeed_ImageBox;
         }
@@ -179,6 +167,7 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraF
         /// </summary>
         private void RecogniseDetectedFace()
         {
+            RegisterMembers_Form registerMembersForm = new RegisterMembers_Form();
             if (suspectFacialPrediction.IsDataSetPopulated)
             {
                 Suspect suspect = new Suspect();
@@ -209,6 +198,7 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraF
         /// <returns>an image box</returns>
         private ImageBox SetWorkingCameraFeedProperties()
         {
+            RegisterMembers_Form registerMembersForm = new RegisterMembers_Form();
             registerMembersForm.CameraFeed_ImageBox.BackColor = Color.Transparent;
             registerMembersForm.CameraFeed_ImageBox.BackgroundImage = null;
             return registerMembersForm.CameraFeed_ImageBox;
