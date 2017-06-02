@@ -94,6 +94,7 @@
     <Compile Include="Interfaces\IAdministratorsViewModel.cs" />
     <Compile Include="Interfaces\IValidation.cs" />
     <Compile Include="Models\AdministratorsModel.cs" />
+    <Compile Include="Models\MemberModel.cs" />
     <Compile Include="Resources\Controls\ListboxItem.cs" />
     <Compile Include="Resources\ImageProcessing\CameraFeeds\CameraFeed.cs" />
     <Compile Include="Resources\ImageProcessing\CameraFeeds\InstantiateCameraFeed.cs" />
