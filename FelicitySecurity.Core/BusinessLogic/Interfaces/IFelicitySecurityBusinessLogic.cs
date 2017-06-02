@@ -30,18 +30,6 @@ namespace FelicitySecurity.Services.Data.Interfaces
         List<Members_dto> FindAllMembers();
 
         /// <summary>
-        /// calls the Add Faces Repository method
-        /// </summary>
-        /// <param name="item">Faces_dto</param>
-        void AddFaces(Faces_dto item);
-
-        /// <summary>
-        /// calls the Find All Faces Repository method
-        /// </summary>
-        /// <param name="item">Faces_dto</param>
-        List<Faces_dto> FindAllMembersFaces();
-
-        /// <summary>
         /// calls the Add Staff Repository method
         /// </summary>
         /// <param name="item">Staff_dto</param>
