@@ -117,8 +117,6 @@ namespace FelicitySecurity.Services.Data.Repository
                     dbContext.AdminTable.RemoveRange(admins);
                     var members = from memberTable in dbContext.MemberTable select memberTable;
                     dbContext.MemberTable.RemoveRange(members);
-                    var faces = from faceTable in dbContext.FacesTable select faceTable;
-                    dbContext.FacesTable.RemoveRange(faces);
                     var staff = from staffTable in dbContext.StaffTable select staffTable;
                     dbContext.StaffTable.RemoveRange(staff);
                     dbContext.SaveChanges();

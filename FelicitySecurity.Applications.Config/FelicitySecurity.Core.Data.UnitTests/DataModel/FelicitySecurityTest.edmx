@@ -4,49 +4,21 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="FelicityTestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="FelicityTestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AdminTable">
           <Key>
             <PropertyRef Name="AdminID" />
           </Key>
-          <Property Name="AdminID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdminID" Type="int" Nullable="false" />
           <Property Name="AdminName" Type="varchar(max)" />
           <Property Name="AdminEmail" Type="varchar(max)" />
           <Property Name="AdminPinCode" Type="varchar(max)" />
-        </EntityType>
-        <EntityType Name="FacesTable">
-          <Key>
-            <PropertyRef Name="FaceID" />
-          </Key>
-          <Property Name="FaceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MemFace0" Type="image" />
-          <Property Name="MemFace1" Type="image" />
-          <Property Name="MemFace2" Type="image" />
-          <Property Name="MemFace3" Type="image" />
-          <Property Name="MemFace4" Type="image" />
-          <Property Name="MemFace5" Type="image" />
-          <Property Name="MemFace6" Type="image" />
-          <Property Name="MemFace7" Type="image" />
-          <Property Name="MemFace8" Type="image" />
-          <Property Name="MemFace9" Type="image" />
-          <Property Name="MemFace10" Type="image" />
-          <Property Name="MemFace11" Type="image" />
-          <Property Name="MemFace12" Type="image" />
-          <Property Name="MemFace13" Type="image" />
-          <Property Name="MemFace14" Type="image" />
-          <Property Name="MemFace15" Type="image" />
-          <Property Name="MemFace16" Type="image" />
-          <Property Name="MemFace17" Type="image" />
-          <Property Name="MemFace18" Type="image" />
-          <Property Name="MemFace19" Type="image" />
-          <Property Name="MemFace20" Type="image" />
-          <Property Name="MemID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="MemberTable">
           <Key>
             <PropertyRef Name="MemID" />
           </Key>
-          <Property Name="MemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MemID" Type="int" Nullable="false" />
           <Property Name="MemFirstname" Type="varchar(max)" />
           <Property Name="MemLastname" Type="varchar(max)" />
           <Property Name="MemPhonenumber" Type="varchar(max)" />
@@ -54,42 +26,18 @@
           <Property Name="MemPostcode" Type="varchar(max)" />
           <Property Name="MemStatus" Type="bit" />
           <Property Name="MemRegDate" Type="date" />
-          <Property Name="AdminID" Type="int" Nullable="false" />
           <Property Name="IsStaff" Type="bit" />
+          <Property Name="MemFacialImage" Type="image" />
         </EntityType>
         <EntityType Name="StaffTable">
           <Key>
             <PropertyRef Name="StaffID" />
           </Key>
-          <Property Name="StaffID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StaffID" Type="int" Nullable="false" />
           <Property Name="BadgeNo" Type="int" />
           <Property Name="MemID" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="FK__FacesTabl__MemID__32E0915F">
-          <End Role="MemberTable" Type="Self.MemberTable" Multiplicity="1" />
-          <End Role="FacesTable" Type="Self.FacesTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MemberTable">
-              <PropertyRef Name="MemID" />
-            </Principal>
-            <Dependent Role="FacesTable">
-              <PropertyRef Name="MemID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__MemberTab__Admin__49C3F6B7">
-          <End Role="AdminTable" Type="Self.AdminTable" Multiplicity="1" />
-          <End Role="MemberTable" Type="Self.MemberTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AdminTable">
-              <PropertyRef Name="AdminID" />
-            </Principal>
-            <Dependent Role="MemberTable">
-              <PropertyRef Name="AdminID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__StaffTabl__MemID__33D4B598">
+        <Association Name="FK__StaffTabl__MemID__286302EC">
           <End Role="MemberTable" Type="Self.MemberTable" Multiplicity="1" />
           <End Role="StaffTable" Type="Self.StaffTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -103,71 +51,40 @@
         </Association>
         <EntityContainer Name="FelicityTestModelStoreContainer">
           <EntitySet Name="AdminTable" EntityType="Self.AdminTable" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="FacesTable" EntityType="Self.FacesTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MemberTable" EntityType="Self.MemberTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StaffTable" EntityType="Self.StaffTable" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__FacesTabl__MemID__32E0915F" Association="Self.FK__FacesTabl__MemID__32E0915F">
-            <End Role="MemberTable" EntitySet="MemberTable" />
-            <End Role="FacesTable" EntitySet="FacesTable" />
-          </AssociationSet>
-          <AssociationSet Name="FK__MemberTab__Admin__49C3F6B7" Association="Self.FK__MemberTab__Admin__49C3F6B7">
-            <End Role="AdminTable" EntitySet="AdminTable" />
-            <End Role="MemberTable" EntitySet="MemberTable" />
-          </AssociationSet>
-          <AssociationSet Name="FK__StaffTabl__MemID__33D4B598" Association="Self.FK__StaffTabl__MemID__33D4B598">
+          <AssociationSet Name="FK__StaffTabl__MemID__286302EC" Association="Self.FK__StaffTabl__MemID__286302EC">
             <End Role="MemberTable" EntitySet="MemberTable" />
             <End Role="StaffTable" EntitySet="StaffTable" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="FelicityTestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="FelicityTestEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AdminTable" EntityType="FelicityTestModel.AdminTable" />
+          <EntitySet Name="MemberTable" EntityType="FelicityTestModel.MemberTable" />
+          <EntitySet Name="StaffTable" EntityType="FelicityTestModel.StaffTable" />
+          <AssociationSet Name="FK__StaffTabl__MemID__286302EC" Association="FelicityTestModel.FK__StaffTabl__MemID__286302EC">
+            <End Role="MemberTable" EntitySet="MemberTable" />
+            <End Role="StaffTable" EntitySet="StaffTable" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="AdminTable">
           <Key>
             <PropertyRef Name="AdminID" />
           </Key>
-          <Property Name="AdminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdminID" Type="Int32" Nullable="false" />
           <Property Name="AdminName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="AdminEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="AdminPinCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="MemberTable" Relationship="Self.FK__MemberTab__Admin__49C3F6B7" FromRole="AdminTable" ToRole="MemberTable" />
-        </EntityType>
-        <EntityType Name="FacesTable">
-          <Key>
-            <PropertyRef Name="FaceID" />
-          </Key>
-          <Property Name="FaceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MemFace0" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="MemFace1" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="MemFace2" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="MemFace3" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="MemFace4" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="MemFace5" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="MemFace6" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="MemFace7" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="MemFace8" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="MemFace9" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="MemFace10" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="MemFace11" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="MemFace12" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="MemFace13" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="MemFace14" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="MemFace15" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="MemFace16" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="MemFace17" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="MemFace18" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="MemFace19" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="MemFace20" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="MemID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="MemberTable" Relationship="Self.FK__FacesTabl__MemID__32E0915F" FromRole="FacesTable" ToRole="MemberTable" />
         </EntityType>
         <EntityType Name="MemberTable">
           <Key>
             <PropertyRef Name="MemID" />
           </Key>
-          <Property Name="MemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MemID" Type="Int32" Nullable="false" />
           <Property Name="MemFirstname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="MemLastname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="MemPhonenumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
@@ -175,48 +92,22 @@
           <Property Name="MemPostcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="MemStatus" Type="Boolean" />
           <Property Name="MemRegDate" Type="DateTime" Precision="0" />
-          <Property Name="AdminID" Type="Int32" Nullable="false" />
           <Property Name="IsStaff" Type="Boolean" />
-          <NavigationProperty Name="AdminTable" Relationship="Self.FK__MemberTab__Admin__49C3F6B7" FromRole="MemberTable" ToRole="AdminTable" />
-          <NavigationProperty Name="FacesTable" Relationship="Self.FK__FacesTabl__MemID__32E0915F" FromRole="MemberTable" ToRole="FacesTable" />
-          <NavigationProperty Name="StaffTable" Relationship="Self.FK__StaffTabl__MemID__33D4B598" FromRole="MemberTable" ToRole="StaffTable" />
+          <Property Name="MemFacialImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="StaffTable" Relationship="FelicityTestModel.FK__StaffTabl__MemID__286302EC" FromRole="MemberTable" ToRole="StaffTable" />
         </EntityType>
         <EntityType Name="StaffTable">
           <Key>
             <PropertyRef Name="StaffID" />
           </Key>
-          <Property Name="StaffID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StaffID" Type="Int32" Nullable="false" />
           <Property Name="BadgeNo" Type="Int32" />
           <Property Name="MemID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="MemberTable" Relationship="Self.FK__StaffTabl__MemID__33D4B598" FromRole="StaffTable" ToRole="MemberTable" />
+          <NavigationProperty Name="MemberTable" Relationship="FelicityTestModel.FK__StaffTabl__MemID__286302EC" FromRole="StaffTable" ToRole="MemberTable" />
         </EntityType>
-        <Association Name="FK__MemberTab__Admin__49C3F6B7">
-          <End Role="AdminTable" Type="Self.AdminTable" Multiplicity="1" />
-          <End Role="MemberTable" Type="Self.MemberTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AdminTable">
-              <PropertyRef Name="AdminID" />
-            </Principal>
-            <Dependent Role="MemberTable">
-              <PropertyRef Name="AdminID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__FacesTabl__MemID__32E0915F">
-          <End Role="MemberTable" Type="Self.MemberTable" Multiplicity="1" />
-          <End Role="FacesTable" Type="Self.FacesTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MemberTable">
-              <PropertyRef Name="MemID" />
-            </Principal>
-            <Dependent Role="FacesTable">
-              <PropertyRef Name="MemID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__StaffTabl__MemID__33D4B598">
-          <End Role="MemberTable" Type="Self.MemberTable" Multiplicity="1" />
-          <End Role="StaffTable" Type="Self.StaffTable" Multiplicity="*" />
+        <Association Name="FK__StaffTabl__MemID__286302EC">
+          <End Type="FelicityTestModel.MemberTable" Role="MemberTable" Multiplicity="1" />
+          <End Type="FelicityTestModel.StaffTable" Role="StaffTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MemberTable">
               <PropertyRef Name="MemID" />
@@ -226,24 +117,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="FelicityTestEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="AdminTable" EntityType="Self.AdminTable" />
-          <EntitySet Name="FacesTable" EntityType="Self.FacesTable" />
-          <EntitySet Name="MemberTable" EntityType="Self.MemberTable" />
-          <EntitySet Name="StaffTable" EntityType="Self.StaffTable" />
-          <AssociationSet Name="FK__MemberTab__Admin__49C3F6B7" Association="Self.FK__MemberTab__Admin__49C3F6B7">
-            <End Role="AdminTable" EntitySet="AdminTable" />
-            <End Role="MemberTable" EntitySet="MemberTable" />
-          </AssociationSet>
-          <AssociationSet Name="FK__FacesTabl__MemID__32E0915F" Association="Self.FK__FacesTabl__MemID__32E0915F">
-            <End Role="MemberTable" EntitySet="MemberTable" />
-            <End Role="FacesTable" EntitySet="FacesTable" />
-          </AssociationSet>
-          <AssociationSet Name="FK__StaffTabl__MemID__33D4B598" Association="Self.FK__StaffTabl__MemID__33D4B598">
-            <End Role="MemberTable" EntitySet="MemberTable" />
-            <End Role="StaffTable" EntitySet="StaffTable" />
-          </AssociationSet>
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -253,64 +126,35 @@
           <EntitySetMapping Name="AdminTable">
             <EntityTypeMapping TypeName="FelicityTestModel.AdminTable">
               <MappingFragment StoreEntitySet="AdminTable">
-                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
-                <ScalarProperty Name="AdminName" ColumnName="AdminName" />
-                <ScalarProperty Name="AdminEmail" ColumnName="AdminEmail" />
                 <ScalarProperty Name="AdminPinCode" ColumnName="AdminPinCode" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="FacesTable">
-            <EntityTypeMapping TypeName="FelicityTestModel.FacesTable">
-              <MappingFragment StoreEntitySet="FacesTable">
-                <ScalarProperty Name="FaceID" ColumnName="FaceID" />
-                <ScalarProperty Name="MemFace0" ColumnName="MemFace0" />
-                <ScalarProperty Name="MemFace1" ColumnName="MemFace1" />
-                <ScalarProperty Name="MemFace2" ColumnName="MemFace2" />
-                <ScalarProperty Name="MemFace3" ColumnName="MemFace3" />
-                <ScalarProperty Name="MemFace4" ColumnName="MemFace4" />
-                <ScalarProperty Name="MemFace5" ColumnName="MemFace5" />
-                <ScalarProperty Name="MemFace6" ColumnName="MemFace6" />
-                <ScalarProperty Name="MemFace7" ColumnName="MemFace7" />
-                <ScalarProperty Name="MemFace8" ColumnName="MemFace8" />
-                <ScalarProperty Name="MemFace9" ColumnName="MemFace9" />
-                <ScalarProperty Name="MemFace10" ColumnName="MemFace10" />
-                <ScalarProperty Name="MemFace11" ColumnName="MemFace11" />
-                <ScalarProperty Name="MemFace12" ColumnName="MemFace12" />
-                <ScalarProperty Name="MemFace13" ColumnName="MemFace13" />
-                <ScalarProperty Name="MemFace14" ColumnName="MemFace14" />
-                <ScalarProperty Name="MemFace15" ColumnName="MemFace15" />
-                <ScalarProperty Name="MemFace16" ColumnName="MemFace16" />
-                <ScalarProperty Name="MemFace17" ColumnName="MemFace17" />
-                <ScalarProperty Name="MemFace18" ColumnName="MemFace18" />
-                <ScalarProperty Name="MemFace19" ColumnName="MemFace19" />
-                <ScalarProperty Name="MemFace20" ColumnName="MemFace20" />
-                <ScalarProperty Name="MemID" ColumnName="MemID" />
+                <ScalarProperty Name="AdminEmail" ColumnName="AdminEmail" />
+                <ScalarProperty Name="AdminName" ColumnName="AdminName" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MemberTable">
             <EntityTypeMapping TypeName="FelicityTestModel.MemberTable">
               <MappingFragment StoreEntitySet="MemberTable">
-                <ScalarProperty Name="MemID" ColumnName="MemID" />
-                <ScalarProperty Name="MemFirstname" ColumnName="MemFirstname" />
-                <ScalarProperty Name="MemLastname" ColumnName="MemLastname" />
-                <ScalarProperty Name="MemPhonenumber" ColumnName="MemPhonenumber" />
-                <ScalarProperty Name="MemDOB" ColumnName="MemDOB" />
-                <ScalarProperty Name="MemPostcode" ColumnName="MemPostcode" />
-                <ScalarProperty Name="MemStatus" ColumnName="MemStatus" />
-                <ScalarProperty Name="MemRegDate" ColumnName="MemRegDate" />
-                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="MemFacialImage" ColumnName="MemFacialImage" />
                 <ScalarProperty Name="IsStaff" ColumnName="IsStaff" />
+                <ScalarProperty Name="MemRegDate" ColumnName="MemRegDate" />
+                <ScalarProperty Name="MemStatus" ColumnName="MemStatus" />
+                <ScalarProperty Name="MemPostcode" ColumnName="MemPostcode" />
+                <ScalarProperty Name="MemDOB" ColumnName="MemDOB" />
+                <ScalarProperty Name="MemPhonenumber" ColumnName="MemPhonenumber" />
+                <ScalarProperty Name="MemLastname" ColumnName="MemLastname" />
+                <ScalarProperty Name="MemFirstname" ColumnName="MemFirstname" />
+                <ScalarProperty Name="MemID" ColumnName="MemID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="StaffTable">
             <EntityTypeMapping TypeName="FelicityTestModel.StaffTable">
               <MappingFragment StoreEntitySet="StaffTable">
-                <ScalarProperty Name="StaffID" ColumnName="StaffID" />
-                <ScalarProperty Name="BadgeNo" ColumnName="BadgeNo" />
                 <ScalarProperty Name="MemID" ColumnName="MemID" />
+                <ScalarProperty Name="BadgeNo" ColumnName="BadgeNo" />
+                <ScalarProperty Name="StaffID" ColumnName="StaffID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
