@@ -1,8 +1,11 @@
 ﻿using Emgu.CV;
+using Emgu.CV.Structure;
 using FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraFeeds;
 using FelicitySecurity.Applications.Config.Resources.ImageProcessing.FaceRecognition;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace FelicitySecurity.Applications.Config.Views
@@ -10,8 +13,9 @@ namespace FelicitySecurity.Applications.Config.Views
     public partial class RegisterMembers_Form : Form
     {
         #region Properties
+        CameraFeed cameraFeed = new CameraFeed();
         private int _captureInstance = 0;
-        
+
         /// <summary>
         /// Specifies the index of the targeted camera feed to operate.
         /// </summary>
@@ -26,6 +30,48 @@ namespace FelicitySecurity.Applications.Config.Views
 
             }
         }
+
+        public List<Image<Gray, byte>> FacialImages = new List<Image<Gray, byte>>();
+        private Image<Gray, byte> facialImageComparison;
+        private int _facialImagesListPosition = 0;
+        public int FacialImagesListPosition
+        {
+            get
+            {
+                return _facialImagesListPosition;
+            }
+            set
+            {
+
+            }
+        }
+
+        private int _maximumNumberOfFaces = 20;
+        public int MaximumNumberOfFaces
+        {
+            get
+            {
+                return _maximumNumberOfFaces;
+            }
+            set
+            {
+
+            }
+        }
+
+        private bool _IsAbleToRecord = false;
+        public bool IsAbleToRecord
+        {
+            get
+            {
+                return _IsAbleToRecord;
+            }
+            set
+            {
+
+            }
+        }
+
         #endregion
         #region Declarations
         SuspectFacialPrediction suspectFacialPrediction = new SuspectFacialPrediction();
@@ -39,7 +85,7 @@ namespace FelicitySecurity.Applications.Config.Views
         /// <summary>
         /// a timer
         /// </summary>
-        private Timer _timer = new Timer();
+        private System.Windows.Forms.Timer _timer = new System.Windows.Forms.Timer();
         private Capture defaultCameraInstance;
         #endregion
 
@@ -58,7 +104,6 @@ namespace FelicitySecurity.Applications.Config.Views
         {
             try
             {
-                CameraFeed cameraFeed = new CameraFeed();
                 cameraFeed.ProcessCameraFeedInput(defaultCameraInstance, this);
             }
             catch (Exception ex)
@@ -131,6 +176,45 @@ namespace FelicitySecurity.Applications.Config.Views
             SetSuspectDetails suspectDetails = new SetSuspectDetails(GetSuspectDetails);
             Invoke(suspectDetails, new object[] { suspect });
             return suspect;
+        }
+
+        private void RecordImages_Button_Click(object sender, EventArgs e)
+        {
+            if (!IsAbleToRecord && FacialImages.Count < MaximumNumberOfFaces)
+            {
+                int facialImageCount = 0;
+                while (facialImageCount < MaximumNumberOfFaces)
+                {
+                    if (cameraFeed.GrayscaledCroppedFace != null && cameraFeed.GrayscaledCroppedFace != facialImageComparison)
+                    {
+                        FacialImages.Add(cameraFeed.GrayscaledCroppedFace);
+                        facialImageCount++;
+                        AcquiredImages_Label.Text = "Acquired Images: " + FacialImages.Count.ToString();
+                        facialImageComparison = cameraFeed.GrayscaledCroppedFace;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
+        }
+
+        public List<Image<Gray, byte>> GetFacialImageList()
+        {
+            var x = FacialImages;
+            return x;
+        }
+
+        private void ClearImageList_Button_Click(object sender, EventArgs e)
+        {
+            ClearFacialImageList();
+        }
+
+        private void ClearFacialImageList()
+        {
+            FacialImages.Clear();
+            AcquiredImages_Label.Text = "Acquired Images:"; 
         }
     }
 }
