@@ -5,7 +5,7 @@ using FelicitySecurity.Applications.Config.Resources.ImageProcessing.FaceRecogni
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Threading;
+using System.IO;
 using System.Windows.Forms;
 
 namespace FelicitySecurity.Applications.Config.Views
@@ -13,7 +13,7 @@ namespace FelicitySecurity.Applications.Config.Views
     public partial class RegisterMembers_Form : Form
     {
         #region Properties
-        CameraFeed cameraFeed = new CameraFeed();
+        private bool _isEnabled = false;
         private int _captureInstance = 0;
 
         /// <summary>
@@ -72,8 +72,17 @@ namespace FelicitySecurity.Applications.Config.Views
             }
         }
 
+        System.Drawing.Image _imageToConvertFromEmguCVtoDrawing;
+
+        public byte[] ByteArrayOfImageList
+        {
+            get;
+            set;
+        }
+
         #endregion
         #region Declarations
+        CameraFeed cameraFeed = new CameraFeed();
         SuspectFacialPrediction suspectFacialPrediction = new SuspectFacialPrediction();
         /// <summary>
         /// Sets the Suspect object to the details of the detected subject. 
@@ -182,22 +191,42 @@ namespace FelicitySecurity.Applications.Config.Views
         {
             if (!IsAbleToRecord && FacialImages.Count < MaximumNumberOfFaces)
             {
-                int facialImageCount = 0;
-                while (facialImageCount < MaximumNumberOfFaces)
+                if (cameraFeed.GrayscaledCroppedFace != null && cameraFeed.GrayscaledCroppedFace != facialImageComparison)
                 {
-                    if (cameraFeed.GrayscaledCroppedFace != null && cameraFeed.GrayscaledCroppedFace != facialImageComparison)
-                    {
-                        FacialImages.Add(cameraFeed.GrayscaledCroppedFace);
-                        facialImageCount++;
-                        AcquiredImages_Label.Text = "Acquired Images: " + FacialImages.Count.ToString();
-                        facialImageComparison = cameraFeed.GrayscaledCroppedFace;
-                    }
-                    else
-                    {
-                        break;
-                    }
+                    CreateTemporaryListOfFacialImages();
                 }
             }
+            else
+            {
+                NotifyUserOfCompleteListOfFacialImages();
+            }
+        }
+
+        private void NotifyUserOfCompleteListOfFacialImages()
+        {
+            _isEnabled = false;
+            SetRecordImagesButtonAccessibility(_isEnabled);
+            MessageBox.Show(string.Format("Successfully recorded {0} facial images", FacialImages.Count.ToString()), "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void CreateTemporaryListOfFacialImages()
+        {
+            FacialImages.Add(cameraFeed.GrayscaledCroppedFace);
+            AcquiredImages_Label.Text = "Acquired Images: " + FacialImages.Count.ToString();
+            facialImageComparison = cameraFeed.GrayscaledCroppedFace;
+        }
+
+        private byte[] ConvertImageToByteArray(Image<Gray, byte> facialImage)
+        {
+            MemoryStream memoryStream = new MemoryStream();
+            _imageToConvertFromEmguCVtoDrawing = facialImage.ToBitmap();
+            _imageToConvertFromEmguCVtoDrawing.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Bmp);
+            return memoryStream.ToArray();
+        }
+
+        private void SetRecordImagesButtonAccessibility(bool isEnabled)
+        {
+            RecordImages_Button.Enabled = isEnabled;
         }
 
         public List<Image<Gray, byte>> GetFacialImageList()
@@ -213,8 +242,18 @@ namespace FelicitySecurity.Applications.Config.Views
 
         private void ClearFacialImageList()
         {
+            _isEnabled = true;
             FacialImages.Clear();
-            AcquiredImages_Label.Text = "Acquired Images:"; 
+            AcquiredImages_Label.Text = "Acquired Images:";
+            SetRecordImagesButtonAccessibility(_isEnabled);
+        }
+
+        private void AddMember_Button_Click(object sender, EventArgs e)
+        {
+            foreach (var facialImage in FacialImages)
+            {
+                ByteArrayOfImageList = ConvertImageToByteArray(facialImage);
+            }
         }
     }
 }

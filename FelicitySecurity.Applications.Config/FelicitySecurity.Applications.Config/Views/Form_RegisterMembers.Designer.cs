@@ -405,6 +405,7 @@
             this.AddMember_Button.TabIndex = 38;
             this.AddMember_Button.Text = "Add Member";
             this.AddMember_Button.UseVisualStyleBackColor = true;
+            this.AddMember_Button.Click += new System.EventHandler(this.AddMember_Button_Click);
             // 
             // DeleteMember_Button
             // 
