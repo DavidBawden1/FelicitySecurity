@@ -18,6 +18,10 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraF
 
         #region Properties
         private int _captureInstance = 0;
+
+        /// <summary>
+        /// Provides a Camera index for a Capture object within a particular Camera Feed.
+        /// </summary>
         public int CaptureInstance
         {
             get
@@ -29,19 +33,10 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraF
 
             }
         }
-        private Capture _channelFeed;
-        public Capture ChannelFeed
-        {
-            get
-            {
-                _channelFeed = new Capture(CaptureInstance);
-                return _channelFeed;
-            }
-            set
-            {
-
-            }
-        }
+        
+        /// <summary>
+        /// The Cascade Classifier used to run facial detection over incoming camera feed data.
+        /// </summary>
         public CascadeClassifier Cascade
         {
             get
@@ -54,12 +49,18 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraF
             }
         }
 
+        /// <summary>
+        /// The Bgr CameraFeed image: Unprocessed images
+        /// </summary>
         public Image<Bgr, Byte> RawCameraFeedImage
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// The Grayscaled image of the facial image which is cropped and enlarged.
+        /// </summary>
         public Image<Gray, Byte> GrayscaledCroppedFace
         {
             get;
@@ -69,7 +70,13 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraF
 
 
         #region Methods
-        public Emgu.CV.IImage GetFoundFace(Image<Gray, Byte> imageOfFoundFace, RegisterMembers_Form form)
+        /// <summary>
+        /// Returns the detected face found in the camera feed.
+        /// </summary>
+        /// <param name="imageOfFoundFace"></param>
+        /// <param name="form"></param>
+        /// <returns>Image of the detected face</returns>
+        public IImage GetFoundFace(Image<Gray, Byte> imageOfFoundFace, RegisterMembers_Form form)
         {
             return form.RecognisedMember_EmguImageBox.Image = imageOfFoundFace;
         }
