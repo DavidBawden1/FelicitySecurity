@@ -137,26 +137,16 @@ namespace FelicitySecurity.Applications.Config.ViewModels
         #region Constructors
         #endregion
         #region Methods
-
         public void RegisterMember(MembersController controller, MemberModel model)
         {
             controller.AddMember(model);
         }
-        private static void SortMembersList(MembersController controller, MemberModel model, CurrentSortingType sortingType)
-        {
-            switch (sortingType)
-            {
-                case CurrentSortingType.Default:
-                    //controller.AllAdministratorsEmail(model);
-                    break;
-                case CurrentSortingType.Alphabetical:
-                    //controller.AllAdministratorsEmail(model).Sort((x, y) => string.Compare(x.AdminEmail, y.AdminEmail));
-                    break;
-                default:
-                    //controller.AllAdministratorsEmail(model);
-                    break;
-            }
-        }
+
+        /// <summary>
+        /// Binds the properties of the viewModel to the controls in 
+        /// </summary>
+        /// <param name="form"></param>
+        /// <param name="viewModel"></param>
         public void BindControls(RegisterMembers_Form form, MembersViewModel viewModel)
         {
             Binding memberFirstNameBinding = new Binding(form.FirstName_Textbox.Text, viewModel, "MemberFirstName");

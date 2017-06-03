@@ -80,7 +80,7 @@ namespace FelicitySecurity.Applications.Config.Views
             }
         }
 
-        System.Drawing.Image _imageToConvertFromEmguCVtoDrawing;
+        private System.Drawing.Image _imageToConvertFromEmguCVtoDrawing;
 
         public byte[] ByteArrayOfImageList
         {
@@ -195,6 +195,11 @@ namespace FelicitySecurity.Applications.Config.Views
             return suspect;
         }
 
+        /// <summary>
+        /// records a set of different facial images of the member or subject
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RecordImages_Button_Click(object sender, EventArgs e)
         {
             if (!IsAbleToRecord && FacialImages.Count < MaximumNumberOfFaces)
@@ -210,6 +215,9 @@ namespace FelicitySecurity.Applications.Config.Views
             }
         }
 
+        /// <summary>
+        /// Notifies the user that they cannot take any more photos
+        /// </summary>
         private void NotifyUserOfCompleteListOfFacialImages()
         {
             _isEnabled = false;
@@ -217,6 +225,9 @@ namespace FelicitySecurity.Applications.Config.Views
             MessageBox.Show(string.Format("Successfully recorded {0} facial images", FacialImages.Count.ToString()), "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        /// <summary>
+        /// Creates an image list of facial images of the subject.
+        /// </summary>
         private void CreateTemporaryListOfFacialImages()
         {
             FacialImages.Add(cameraFeed.GrayscaledCroppedFace);
@@ -224,6 +235,11 @@ namespace FelicitySecurity.Applications.Config.Views
             facialImageComparison = cameraFeed.GrayscaledCroppedFace;
         }
 
+        /// <summary>
+        /// Converts the EmguCV.image to an system.drawing.image and then writes it to a byte array.
+        /// </summary>
+        /// <param name="facialImage"></param>
+        /// <returns> byte array of images</returns>
         private byte[] ConvertImageToByteArray(Image<Gray, byte> facialImage)
         {
             MemoryStream memoryStream = new MemoryStream();
@@ -232,22 +248,28 @@ namespace FelicitySecurity.Applications.Config.Views
             return memoryStream.ToArray();
         }
 
+        /// <summary>
+        /// Sets the RecordImages button to enabled or disabled
+        /// </summary>
+        /// <param name="isEnabled"></param>
         private void SetRecordImagesButtonAccessibility(bool isEnabled)
         {
             RecordImages_Button.Enabled = isEnabled;
         }
 
-        public List<Image<Gray, byte>> GetFacialImageList()
-        {
-            var x = FacialImages;
-            return x;
-        }
-
+        /// <summary>
+        /// Calls the method to clear the image list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ClearImageList_Button_Click(object sender, EventArgs e)
         {
             ClearFacialImageList();
         }
 
+        /// <summary>
+        /// Clears the facial images list and updates the UI appropriately
+        /// </summary>
         private void ClearFacialImageList()
         {
             _isEnabled = true;
@@ -256,7 +278,33 @@ namespace FelicitySecurity.Applications.Config.Views
             SetRecordImagesButtonAccessibility(_isEnabled);
         }
 
+        /// <summary>
+        /// Validates the member information is sufficient and registers the member to the database.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddMember_Button_Click(object sender, EventArgs e)
+        {
+            AppendEachImageToByteArrayOfImageList();
+            PopulateMemberModel();
+            viewModel.RegisterMember(controller, model);
+        }
+
+        /// <summary>
+        /// Appends each image within FacialImages list to the byte array
+        /// </summary>
+        private void AppendEachImageToByteArrayOfImageList()
+        {
+            foreach (var facialImage in FacialImages)
+            {
+                ByteArrayOfImageList = ConvertImageToByteArray(facialImage);
+            }
+        }
+
+        /// <summary>
+        /// Populates the Member model with data contained in relevant UI controls
+        /// </summary>
+        private void PopulateMemberModel()
         {
             model.MemberFirstName = FirstName_Textbox.Text;
             model.MemberLastName = LastName_Textbox.Text;
@@ -266,13 +314,7 @@ namespace FelicitySecurity.Applications.Config.Views
             model.MemberDateOfRegistration = DateOfRegistration_DatePicker.Value;
             model.IsPersonARegisteredMember = MembershipStatus_Checkbox.Checked;
             model.IsPersonAStaffMember = StaffStatus_Checkbox.Checked;
-            
-            foreach (var facialImage in FacialImages)
-            {
-                ByteArrayOfImageList = ConvertImageToByteArray(facialImage);
-            }
             model.MemberFacialImages = ByteArrayOfImageList;
-            viewModel.RegisterMember(controller, model);
         }
     }
 }
