@@ -8,26 +8,19 @@ namespace FelicitySecurity.Applications.Config.Controllers
     public class MembersController
     {
         FelicitySecurityBusinessLogic businessLogic = new FelicitySecurityBusinessLogic();
-        public List<MemberModel> AllAdministratorsEmail(MemberModel model)
+        public void AddMember(MemberModel model)
         {
-            List<Members_dto> allAdministrators = businessLogic.FindAllMembers();
 
-            foreach(Members_dto memberDto in allAdministrators)
-            {
-                MemberModel memberModel = new MemberModel();
-                memberModel.MemberId = memberDto.MemID;
-                memberModel.MemberFirstName = memberDto.MemFirstname;
-                memberModel.MemberLastName = memberDto.MemLastname;
-                memberModel.MemberDateOfBirth = memberDto.MemDOB.Value.Date;
-                memberModel.MemberPostCode = memberDto.MemPostcode;
-                memberModel.MemberDateOfRegistration = memberDto.MemRegDate.Value.Date;
-                memberModel.MemberPhoneNumber = memberDto.MemPhonenumber;
-                memberModel.IsPersonARegisteredMember = memberDto.MemStatus.Value;
-                memberModel.IsPersonAStaffMember = memberDto.IsStaff.Value;
-                memberModel.MemberFacialImages = memberDto.MemFacialImage;
-                model.ListOfMembers.Add(memberModel);
-            }
-            return model.ListOfMembers;
+            Members_dto memberDto = new Members_dto();
+            memberDto.MemFirstname = model.MemberFirstName;
+            memberDto.MemLastname = model.MemberLastName =
+            //memberDto.MemDOB = memberModel.MemberDateOfBirth.Date;
+            memberDto.MemPostcode = model.MemberPostCode;
+            //memberDto.MemRegDate.Value.Date = model.MemberDateOfRegistration;
+            memberDto.MemPhonenumber = model.MemberPhoneNumber;
+            memberDto.MemStatus = model.IsPersonARegisteredMember;
+            memberDto.IsStaff = model.IsPersonAStaffMember;
+            memberDto.MemFacialImage = model.MemberFacialImages;
         }
     }
 }

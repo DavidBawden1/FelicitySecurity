@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace FelicitySecurity.Core.DataTransferObjects
 {
@@ -18,9 +17,5 @@ namespace FelicitySecurity.Core.DataTransferObjects
         public DateTime? MemRegDate { get; set; }
         public bool? IsStaff { get; set; }
         public byte[] MemFacialImage { get; set; }
-
-        public virtual List<Administrators_dto> ResponsibleAdministrators { get; set; }
-  
-
     }
 }

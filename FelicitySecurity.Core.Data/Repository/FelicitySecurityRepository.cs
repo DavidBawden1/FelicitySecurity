@@ -164,7 +164,7 @@ namespace FelicitySecurity.Services.Data.Repository
         }
 
         /// <summary>
-        /// Adds a member and the id of the administrator whom added them to the MembersTable when the registration scenario is applied. 
+        /// Adds a member to the MembersTable when the registration scenario is applied. 
         /// </summary>
         public Members_dto AddMember(Members_dto item)
         {
@@ -181,6 +181,8 @@ namespace FelicitySecurity.Services.Data.Repository
                         MemStatus = item.MemStatus,
                         MemDOB = item.MemDOB,
                         MemRegDate = item.MemRegDate,
+                        IsStaff = item.IsStaff,
+                        MemFacialImage = item.MemFacialImage
                     };
                     dbContext.Entry(entity).State = EntityState.Added;
                     dbContext.SaveChanges();

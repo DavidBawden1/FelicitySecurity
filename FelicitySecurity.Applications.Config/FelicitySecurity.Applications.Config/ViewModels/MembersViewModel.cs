@@ -12,6 +12,7 @@ namespace FelicitySecurity.Applications.Config.ViewModels
         #region Declarations 
         public enum CurrentSortingType { Default, Alphabetical }
         public event PropertyChangedEventHandler PropertyChanged;
+     
         #endregion
         #region Properties
         public int MemberId { get; set; }
@@ -136,7 +137,12 @@ namespace FelicitySecurity.Applications.Config.ViewModels
         #region Constructors
         #endregion
         #region Methods
-        private static void AdministratorSorting(MembersController controller, MemberModel model, CurrentSortingType sortingType)
+
+        public void RegisterMember(MembersController controller, MemberModel model)
+        {
+            controller.AddMember(model);
+        }
+        private static void SortMembersList(MembersController controller, MemberModel model, CurrentSortingType sortingType)
         {
             switch (sortingType)
             {

@@ -1,7 +1,10 @@
 ﻿using Emgu.CV;
 using Emgu.CV.Structure;
+using FelicitySecurity.Applications.Config.Controllers;
+using FelicitySecurity.Applications.Config.Models;
 using FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraFeeds;
 using FelicitySecurity.Applications.Config.Resources.ImageProcessing.FaceRecognition;
+using FelicitySecurity.Applications.Config.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,6 +15,11 @@ namespace FelicitySecurity.Applications.Config.Views
 {
     public partial class RegisterMembers_Form : Form
     {
+        #region Declarations 
+        MembersViewModel viewModel = new MembersViewModel();
+        MembersController controller = new MembersController();
+        MemberModel model = new MemberModel();
+        #endregion
         #region Properties
         private bool _isEnabled = false;
         private int _captureInstance = 0;
@@ -250,10 +258,21 @@ namespace FelicitySecurity.Applications.Config.Views
 
         private void AddMember_Button_Click(object sender, EventArgs e)
         {
+            model.MemberFirstName = FirstName_Textbox.Text;
+            model.MemberLastName = LastName_Textbox.Text;
+            model.MemberPostCode = PostCode_Textbox.Text;
+            model.MemberDateOfBirth = DateOfBirth_DatePicker.Value;
+            model.MemberPhoneNumber = PhoneNumber_Textbox.Text;
+            model.MemberDateOfRegistration = DateOfRegistration_DatePicker.Value;
+            model.IsPersonARegisteredMember = MembershipStatus_Checkbox.Checked;
+            model.IsPersonAStaffMember = StaffStatus_Checkbox.Checked;
+            
             foreach (var facialImage in FacialImages)
             {
                 ByteArrayOfImageList = ConvertImageToByteArray(facialImage);
             }
+            model.MemberFacialImages = ByteArrayOfImageList;
+            viewModel.RegisterMember(controller, model);
         }
     }
 }
