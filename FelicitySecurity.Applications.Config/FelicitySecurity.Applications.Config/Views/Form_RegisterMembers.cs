@@ -15,7 +15,7 @@ namespace FelicitySecurity.Applications.Config.Views
     /// <summary>
     /// The Register Members View
     /// </summary>
-    public partial class RegisterMembers_Form : Form
+    public partial class RegisterMembers_Form : Form, IDataErrorInfo
     {
         #region Declarations 
         MembersViewModel viewModel = new MembersViewModel();
@@ -41,7 +41,6 @@ namespace FelicitySecurity.Applications.Config.Views
             }
         }
 
-        
         private Image<Gray, byte> facialImageComparison;
         private int _facialImagesListPosition = 0;
         public int FacialImagesListPosition
@@ -82,6 +81,64 @@ namespace FelicitySecurity.Applications.Config.Views
             }
         }
 
+        public string Error
+        {
+            get
+            {
+                return RegisterMembersFieldValidation();
+            }
+        }
+
+        public string this[string columnName]
+        {
+            get
+            {
+                return Error;
+            }
+        }
+
+        /// <summary>
+        /// Validates all fields that can be validated for the register members form 
+        /// </summary>
+        /// <returns>a validation error string</returns>
+        private string RegisterMembersFieldValidation()
+        {
+            if (string.IsNullOrEmpty(FirstName_Textbox.Text) && string.IsNullOrEmpty(LastName_Textbox.Text) &&
+                DateOfBirth_DatePicker.Value == null && string.IsNullOrEmpty(PostCode_Textbox.Text) &&
+                DateOfRegistration_DatePicker.Value == null && string.IsNullOrEmpty(PhoneNumber_Textbox.Text))
+            {
+                return "Please fill in the details!";
+            }
+            if (string.IsNullOrEmpty(FirstName_Textbox.Text))
+            {
+                return "You must supply a firstname!";
+            }
+            if (string.IsNullOrEmpty(LastName_Textbox.Text))
+            {
+                return "You must supply a lastname!";
+            }
+            if (string.IsNullOrEmpty(PostCode_Textbox.Text))
+            {
+                return "You must supply a postcode!";
+            }
+            if (string.IsNullOrEmpty(PhoneNumber_Textbox.Text))
+            {
+                return "You must supply a phone number!";
+            }
+            if (DateOfBirth_DatePicker.Value == null)
+            {
+                return "You must supply a date of birth!";
+            }
+            if (DateOfRegistration_DatePicker.Value == null)
+            {
+                return "You must supply a date of registration!";
+            }
+            if(viewModel.FacialImages.Count != MaximumNumberOfFaces)
+            {
+                return string.Format("You must supply {0} facial images of the member!", MaximumNumberOfFaces);
+            }
+            return string.Empty;
+        }
 
         #endregion
         #region Declarations
@@ -267,10 +324,14 @@ namespace FelicitySecurity.Applications.Config.Views
         /// <param name="e"></param>
         private void AddMember_Button_Click(object sender, EventArgs e)
         {
-            ImageConversions imageConversions = new ImageConversions();
-            imageConversions.AppendEachImageToByteArrayOfImageList(viewModel);
-            viewModel.PopulateMemberModel(this, model);
-            viewModel.RegisterMember(controller, model);
+            if (string.IsNullOrEmpty(Error))
+            {
+                ImageConversions imageConversions = new ImageConversions();
+                imageConversions.AppendEachImageToByteArrayOfImageList(viewModel);
+                viewModel.PopulateMemberModel(this, model);
+                viewModel.RegisterMember(controller, model);
+            }
+            MessageBox.Show(Error, "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }
