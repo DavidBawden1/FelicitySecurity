@@ -1,4 +1,5 @@
 ﻿using FelicitySecurity.Applications.Config.Controllers;
+using FelicitySecurity.Applications.Config.Interfaces;
 using FelicitySecurity.Applications.Config.Models;
 using FelicitySecurity.Applications.Config.Views;
 using System;
@@ -10,7 +11,7 @@ namespace FelicitySecurity.Applications.Config.ViewModels
     /// <summary>
     /// The Members ViewModel handles data passed to and from controller and view. 
     /// </summary>
-    public class MembersViewModel : INotifyPropertyChanged
+    public class MembersViewModel : IMembersViewModel, INotifyPropertyChanged
     {
         #region Declarations 
         public enum CurrentSortingType { Default, Alphabetical }

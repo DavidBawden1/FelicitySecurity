@@ -93,6 +93,8 @@
     <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Interfaces\IAdministratorsController.cs" />
     <Compile Include="Interfaces\IAdministratorsViewModel.cs" />
+    <Compile Include="Interfaces\IMembersController.cs" />
+    <Compile Include="Interfaces\IMembersViewModel.cs" />
     <Compile Include="Interfaces\IValidation.cs" />
     <Compile Include="Models\AdministratorsModel.cs" />
     <Compile Include="Models\MemberModel.cs" />

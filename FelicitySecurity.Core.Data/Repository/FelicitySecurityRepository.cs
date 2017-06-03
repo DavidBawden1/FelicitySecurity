@@ -153,6 +153,7 @@ namespace FelicitySecurity.Services.Data.Repository
                         dto.MemRegDate = item.MemRegDate;
                         dto.MemStatus = item.MemStatus;
                         dto.IsStaff = item.IsStaff;
+                        dto.MemFacialImage = item.MemFacialImage;
                     }
                 }
             }

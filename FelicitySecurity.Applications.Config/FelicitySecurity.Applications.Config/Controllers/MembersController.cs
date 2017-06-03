@@ -1,16 +1,27 @@
-﻿using FelicitySecurity.Applications.Config.Models;
+﻿using FelicitySecurity.Applications.Config.Interfaces;
+using FelicitySecurity.Applications.Config.Models;
 using FelicitySecurity.Core.BusinessLogic;
 using FelicitySecurity.Core.FelicitySecurityDataServiceReference;
 using System.Collections.Generic;
 
 namespace FelicitySecurity.Applications.Config.Controllers
 {
-    public class MembersController
+    /// <summary>
+    /// The Members Controller, handles data to and from the repository and ViewModel
+    /// </summary>
+    public class MembersController : IMembersController
     {
+        #region Declarations
         FelicitySecurityBusinessLogic businessLogic = new FelicitySecurityBusinessLogic();
+        #endregion
+        #region Methods
+
+        /// <summary>
+        /// Passes the new Member object to the repository
+        /// </summary>
+        /// <param name="model"></param>
         public void AddMember(MemberModel model)
         {
-
             Members_dto memberDto = new Members_dto();
             memberDto.MemFirstname = model.MemberFirstName;
             memberDto.MemLastname = model.MemberLastName;
@@ -23,5 +34,6 @@ namespace FelicitySecurity.Applications.Config.Controllers
             memberDto.MemFacialImage = model.MemberFacialImages;
             businessLogic.AddMember(memberDto);
         }
+        #endregion
     }
 }

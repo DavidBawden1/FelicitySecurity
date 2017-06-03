@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace FelicitySecurity.Applications.Config.Models
 {
+    /// <summary>
+    /// The Member Model contains personal member information
+    /// </summary>
     public class MemberModel
     {
         public int MemberId { get; set; }

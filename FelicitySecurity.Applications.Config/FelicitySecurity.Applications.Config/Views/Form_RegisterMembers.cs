@@ -13,6 +13,9 @@ using System.Windows.Forms;
 
 namespace FelicitySecurity.Applications.Config.Views
 {
+    /// <summary>
+    /// The Register Members View
+    /// </summary>
     public partial class RegisterMembers_Form : Form
     {
         #region Declarations 
