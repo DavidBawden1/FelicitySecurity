@@ -87,7 +87,6 @@
     <Compile Include="BusinessLogic\FelicitySecurityBusinessLogic.cs" />
     <Compile Include="BusinessLogic\Interfaces\IFelicitySecurityBusinessLogic.cs" />
     <Compile Include="DataTransferObjects\Administrators_dto.cs" />
-    <Compile Include="DataTransferObjects\Faces_dto.cs" />
     <Compile Include="DataTransferObjects\Members_dto.cs" />
     <Compile Include="DataTransferObjects\Staff_dto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -107,9 +106,6 @@
     <None Include="Service References\FelicitySecurityDataServiceReference\FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddAdministratorResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\FelicitySecurityDataServiceReference\FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddFacesResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\FelicitySecurityDataServiceReference\FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddMemberResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -119,13 +115,7 @@
     <None Include="Service References\FelicitySecurityDataServiceReference\FelicitySecurity.Core.FelicitySecurityDataServiceReference.Administrators_dto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\FelicitySecurityDataServiceReference\FelicitySecurity.Core.FelicitySecurityDataServiceReference.Faces_dto.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\FelicitySecurityDataServiceReference\FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllAdministratorsResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\FelicitySecurityDataServiceReference\FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersFacesResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\FelicitySecurityDataServiceReference\FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllMembersResponse.datasource">

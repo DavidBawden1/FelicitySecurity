@@ -66,28 +66,6 @@ namespace FelicitySecurity.Services
         [WebMethod]
         [OperationContract]
         /// <summary>
-        /// calls the Add Faces businessLogic method
-        /// </summary>
-        /// <param name="item">Faces_dto</param>
-        public void AddFaces(Faces_dto item)
-        {
-            repository.AddFaces(item);
-        }
-
-        [WebMethod]
-        [OperationContract]
-        /// <summary>
-        /// calls the Find All Faces businessLogic method
-        /// </summary>
-        /// <param name="item">Faces_dto</param>
-        public List<Faces_dto> FindAllMembersFaces()
-        {
-            return repository.FindAllMembersFaces();
-        }
-
-        [WebMethod]
-        [OperationContract]
-        /// <summary>
         /// calls the Add Staff businessLogic method
         /// </summary>
         /// <param name="item">Staff_dto</param>

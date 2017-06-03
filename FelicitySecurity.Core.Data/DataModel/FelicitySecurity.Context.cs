@@ -26,7 +26,6 @@ namespace FelicitySecurity.Core.Data.DataModel
         }
     
         public virtual DbSet<AdminTable> AdminTable { get; set; }
-        public virtual DbSet<FacesTable> FacesTable { get; set; }
         public virtual DbSet<MemberTable> MemberTable { get; set; }
         public virtual DbSet<StaffTable> StaffTable { get; set; }
     }
