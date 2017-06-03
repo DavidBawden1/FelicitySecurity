@@ -2,7 +2,6 @@
 using FelicitySecurity.Applications.Config.Models;
 using FelicitySecurity.Core.BusinessLogic;
 using FelicitySecurity.Core.FelicitySecurityDataServiceReference;
-using System.Collections.Generic;
 
 namespace FelicitySecurity.Applications.Config.Controllers
 {

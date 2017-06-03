@@ -1,8 +1,12 @@
-﻿using FelicitySecurity.Applications.Config.Controllers;
+﻿using Emgu.CV;
+using Emgu.CV.Structure;
+using FelicitySecurity.Applications.Config.Controllers;
 using FelicitySecurity.Applications.Config.Interfaces;
 using FelicitySecurity.Applications.Config.Models;
+using FelicitySecurity.Applications.Config.Resources.ImageProcessing;
 using FelicitySecurity.Applications.Config.Views;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 
@@ -125,6 +129,8 @@ namespace FelicitySecurity.Applications.Config.ViewModels
             }
         }
 
+        public List<Image<Gray, byte>> FacialImages = new List<Image<Gray, byte>>();
+
         private byte[] _memberFacialImages;
         public byte[] MemberFacialImages
         {
@@ -137,6 +143,14 @@ namespace FelicitySecurity.Applications.Config.ViewModels
                 OnPropertyChanged("MemberFacialImages");
             }
         }
+
+        public byte[] ByteArrayOfImageList
+        {
+            get;
+            set;
+        }
+
+
         #endregion
         #region Constructors
         #endregion
@@ -161,6 +175,7 @@ namespace FelicitySecurity.Applications.Config.ViewModels
             Binding memberPhoneNumber = new Binding(form.PhoneNumber_Textbox.Text, viewModel, "MemberPhoneNumber");
             Binding isPersonARegisteredMember = new Binding(form.MembershipStatus_Checkbox.Text, viewModel, "IsPersonARegisteredMember");
             Binding isPersonAStaffMember = new Binding(form.StaffStatus_Checkbox.Text, viewModel, "IsPersonAStaffMember");
+            Binding memberFacialImages = new Binding(ByteArrayOfImageList.ToString(), viewModel, "MemberFacialImages");
         }
 
         /// <summary>
@@ -173,6 +188,22 @@ namespace FelicitySecurity.Applications.Config.ViewModels
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
+        }
+
+        /// <summary>
+        /// Populates the Member model with data contained in relevant UI controls
+        /// </summary>
+        public void PopulateMemberModel(RegisterMembers_Form form, MemberModel model)
+        {
+            model.MemberFirstName = form.FirstName_Textbox.Text;
+            model.MemberLastName = form.LastName_Textbox.Text;
+            model.MemberPostCode = form.PostCode_Textbox.Text;
+            model.MemberDateOfBirth = form.DateOfBirth_DatePicker.Value;
+            model.MemberPhoneNumber = form.PhoneNumber_Textbox.Text;
+            model.MemberDateOfRegistration = form.DateOfRegistration_DatePicker.Value;
+            model.IsPersonARegisteredMember = form.MembershipStatus_Checkbox.Checked;
+            model.IsPersonAStaffMember = form.StaffStatus_Checkbox.Checked;
+            model.MemberFacialImages = ByteArrayOfImageList;
         }
         #endregion
     }

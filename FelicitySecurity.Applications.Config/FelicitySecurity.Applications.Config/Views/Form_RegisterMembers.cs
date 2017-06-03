@@ -2,13 +2,12 @@
 using Emgu.CV.Structure;
 using FelicitySecurity.Applications.Config.Controllers;
 using FelicitySecurity.Applications.Config.Models;
+using FelicitySecurity.Applications.Config.Resources.ImageProcessing;
 using FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraFeeds;
 using FelicitySecurity.Applications.Config.Resources.ImageProcessing.FaceRecognition;
 using FelicitySecurity.Applications.Config.ViewModels;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.IO;
 using System.Windows.Forms;
 
 namespace FelicitySecurity.Applications.Config.Views
@@ -42,7 +41,7 @@ namespace FelicitySecurity.Applications.Config.Views
             }
         }
 
-        public List<Image<Gray, byte>> FacialImages = new List<Image<Gray, byte>>();
+        
         private Image<Gray, byte> facialImageComparison;
         private int _facialImagesListPosition = 0;
         public int FacialImagesListPosition
@@ -83,13 +82,6 @@ namespace FelicitySecurity.Applications.Config.Views
             }
         }
 
-        private System.Drawing.Image _imageToConvertFromEmguCVtoDrawing;
-
-        public byte[] ByteArrayOfImageList
-        {
-            get;
-            set;
-        }
 
         #endregion
         #region Declarations
@@ -105,7 +97,7 @@ namespace FelicitySecurity.Applications.Config.Views
         /// <summary>
         /// a timer
         /// </summary>
-        private System.Windows.Forms.Timer _timer = new System.Windows.Forms.Timer();
+        private Timer _timer = new Timer();
         private Capture defaultCameraInstance;
         #endregion
 
@@ -205,7 +197,7 @@ namespace FelicitySecurity.Applications.Config.Views
         /// <param name="e"></param>
         private void RecordImages_Button_Click(object sender, EventArgs e)
         {
-            if (!IsAbleToRecord && FacialImages.Count < MaximumNumberOfFaces)
+            if (!IsAbleToRecord && viewModel.FacialImages.Count < MaximumNumberOfFaces)
             {
                 if (cameraFeed.GrayscaledCroppedFace != null && cameraFeed.GrayscaledCroppedFace != facialImageComparison)
                 {
@@ -225,30 +217,17 @@ namespace FelicitySecurity.Applications.Config.Views
         {
             _isEnabled = false;
             SetRecordImagesButtonAccessibility(_isEnabled);
-            MessageBox.Show(string.Format("Successfully recorded {0} facial images", FacialImages.Count.ToString()), "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(string.Format("Successfully recorded {0} facial images", viewModel.FacialImages.Count.ToString()), "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         /// <summary>
         /// Creates an image list of facial images of the subject.
         /// </summary>
-        private void CreateTemporaryListOfFacialImages()
+        public void CreateTemporaryListOfFacialImages()
         {
-            FacialImages.Add(cameraFeed.GrayscaledCroppedFace);
-            AcquiredImages_Label.Text = "Acquired Images: " + FacialImages.Count.ToString();
+            viewModel.FacialImages.Add(cameraFeed.GrayscaledCroppedFace);
+            AcquiredImages_Label.Text = "Acquired Images: " + viewModel.FacialImages.Count.ToString();
             facialImageComparison = cameraFeed.GrayscaledCroppedFace;
-        }
-
-        /// <summary>
-        /// Converts the EmguCV.image to an system.drawing.image and then writes it to a byte array.
-        /// </summary>
-        /// <param name="facialImage"></param>
-        /// <returns> byte array of images</returns>
-        private byte[] ConvertImageToByteArray(Image<Gray, byte> facialImage)
-        {
-            MemoryStream memoryStream = new MemoryStream();
-            _imageToConvertFromEmguCVtoDrawing = facialImage.ToBitmap();
-            _imageToConvertFromEmguCVtoDrawing.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Bmp);
-            return memoryStream.ToArray();
         }
 
         /// <summary>
@@ -276,7 +255,7 @@ namespace FelicitySecurity.Applications.Config.Views
         private void ClearFacialImageList()
         {
             _isEnabled = true;
-            FacialImages.Clear();
+            viewModel.FacialImages.Clear();
             AcquiredImages_Label.Text = "Acquired Images:";
             SetRecordImagesButtonAccessibility(_isEnabled);
         }
@@ -288,36 +267,10 @@ namespace FelicitySecurity.Applications.Config.Views
         /// <param name="e"></param>
         private void AddMember_Button_Click(object sender, EventArgs e)
         {
-            AppendEachImageToByteArrayOfImageList();
-            PopulateMemberModel();
+            ImageConversions imageConversions = new ImageConversions();
+            imageConversions.AppendEachImageToByteArrayOfImageList(viewModel);
+            viewModel.PopulateMemberModel(this, model);
             viewModel.RegisterMember(controller, model);
-        }
-
-        /// <summary>
-        /// Appends each image within FacialImages list to the byte array
-        /// </summary>
-        private void AppendEachImageToByteArrayOfImageList()
-        {
-            foreach (var facialImage in FacialImages)
-            {
-                ByteArrayOfImageList = ConvertImageToByteArray(facialImage);
-            }
-        }
-
-        /// <summary>
-        /// Populates the Member model with data contained in relevant UI controls
-        /// </summary>
-        private void PopulateMemberModel()
-        {
-            model.MemberFirstName = FirstName_Textbox.Text;
-            model.MemberLastName = LastName_Textbox.Text;
-            model.MemberPostCode = PostCode_Textbox.Text;
-            model.MemberDateOfBirth = DateOfBirth_DatePicker.Value;
-            model.MemberPhoneNumber = PhoneNumber_Textbox.Text;
-            model.MemberDateOfRegistration = DateOfRegistration_DatePicker.Value;
-            model.IsPersonARegisteredMember = MembershipStatus_Checkbox.Checked;
-            model.IsPersonAStaffMember = StaffStatus_Checkbox.Checked;
-            model.MemberFacialImages = ByteArrayOfImageList;
         }
     }
 }
