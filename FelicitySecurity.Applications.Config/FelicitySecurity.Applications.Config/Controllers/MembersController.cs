@@ -13,14 +13,15 @@ namespace FelicitySecurity.Applications.Config.Controllers
 
             Members_dto memberDto = new Members_dto();
             memberDto.MemFirstname = model.MemberFirstName;
-            memberDto.MemLastname = model.MemberLastName =
-            //memberDto.MemDOB = memberModel.MemberDateOfBirth.Date;
+            memberDto.MemLastname = model.MemberLastName;
+            memberDto.MemDOB = model.MemberDateOfBirth;
             memberDto.MemPostcode = model.MemberPostCode;
-            //memberDto.MemRegDate.Value.Date = model.MemberDateOfRegistration;
+            memberDto.MemRegDate = model.MemberDateOfRegistration;
             memberDto.MemPhonenumber = model.MemberPhoneNumber;
             memberDto.MemStatus = model.IsPersonARegisteredMember;
             memberDto.IsStaff = model.IsPersonAStaffMember;
             memberDto.MemFacialImage = model.MemberFacialImages;
+            businessLogic.AddMember(memberDto);
         }
     }
 }

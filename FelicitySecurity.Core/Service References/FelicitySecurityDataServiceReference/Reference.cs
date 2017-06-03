@@ -139,9 +139,6 @@ namespace FelicitySecurity.Core.FelicitySecurityDataServiceReference {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private byte[] MemFacialImageField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private FelicitySecurity.Core.FelicitySecurityDataServiceReference.Administrators_dto[] ResponsibleAdministratorsField;
-        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -278,19 +275,6 @@ namespace FelicitySecurity.Core.FelicitySecurityDataServiceReference {
                 if ((object.ReferenceEquals(this.MemFacialImageField, value) != true)) {
                     this.MemFacialImageField = value;
                     this.RaisePropertyChanged("MemFacialImage");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=10)]
-        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.Administrators_dto[] ResponsibleAdministrators {
-            get {
-                return this.ResponsibleAdministratorsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ResponsibleAdministratorsField, value) != true)) {
-                    this.ResponsibleAdministratorsField = value;
-                    this.RaisePropertyChanged("ResponsibleAdministrators");
                 }
             }
         }

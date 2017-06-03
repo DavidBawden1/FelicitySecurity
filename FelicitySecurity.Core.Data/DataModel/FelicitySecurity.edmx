@@ -10,31 +10,31 @@
             <PropertyRef Name="AdminID" />
           </Key>
           <Property Name="AdminID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="AdminName" Type="varchar(max)" />
-          <Property Name="AdminEmail" Type="varchar(max)" />
-          <Property Name="AdminPinCode" Type="varchar(max)" />
+          <Property Name="AdminName" Type="varchar(max)" Nullable="false" />
+          <Property Name="AdminEmail" Type="varchar(max)" Nullable="false" />
+          <Property Name="AdminPinCode" Type="varchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="MemberTable">
           <Key>
             <PropertyRef Name="MemID" />
           </Key>
           <Property Name="MemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MemFirstname" Type="varchar(max)" />
-          <Property Name="MemLastname" Type="varchar(max)" />
-          <Property Name="MemPhonenumber" Type="varchar(max)" />
-          <Property Name="MemDOB" Type="date" />
-          <Property Name="MemPostcode" Type="varchar(max)" />
-          <Property Name="MemStatus" Type="bit" />
-          <Property Name="MemRegDate" Type="date" />
-          <Property Name="IsStaff" Type="bit" />
-          <Property Name="MemFacialImage" Type="image" />
+          <Property Name="MemFirstname" Type="varchar(max)" Nullable="false" />
+          <Property Name="MemLastname" Type="varchar(max)" Nullable="false" />
+          <Property Name="MemPhonenumber" Type="varchar(max)" Nullable="false" />
+          <Property Name="MemDOB" Type="date" Nullable="false" />
+          <Property Name="MemPostcode" Type="varchar(max)" Nullable="false" />
+          <Property Name="MemStatus" Type="bit" Nullable="false" />
+          <Property Name="MemRegDate" Type="date" Nullable="false" />
+          <Property Name="IsStaff" Type="bit" Nullable="false" />
+          <Property Name="MemFacialImage" Type="image" Nullable="false" />
         </EntityType>
         <EntityType Name="StaffTable">
           <Key>
             <PropertyRef Name="StaffID" />
           </Key>
           <Property Name="StaffID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="BadgeNo" Type="int" />
+          <Property Name="BadgeNo" Type="int" Nullable="false" />
           <Property Name="MemID" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK__StaffTabl__MemID__33D4B598">
@@ -76,24 +76,24 @@
             <PropertyRef Name="AdminID" />
           </Key>
           <Property Name="AdminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="AdminName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="AdminEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="AdminPinCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AdminName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AdminEmail" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AdminPinCode" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="MemberTable">
           <Key>
             <PropertyRef Name="MemID" />
           </Key>
           <Property Name="MemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MemFirstname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="MemLastname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="MemPhonenumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="MemDOB" Type="DateTime" Precision="0" />
-          <Property Name="MemPostcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="MemStatus" Type="Boolean" />
-          <Property Name="MemRegDate" Type="DateTime" Precision="0" />
-          <Property Name="IsStaff" Type="Boolean" />
-          <Property Name="MemFacialImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="MemFirstname" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MemLastname" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MemPhonenumber" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MemDOB" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="MemPostcode" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MemStatus" Type="Boolean" Nullable="false" />
+          <Property Name="MemRegDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IsStaff" Type="Boolean" Nullable="false" />
+          <Property Name="MemFacialImage" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="StaffTable" Relationship="FelicityLiveModel.FK__StaffTabl__MemID__33D4B598" FromRole="MemberTable" ToRole="StaffTable" />
         </EntityType>
         <EntityType Name="StaffTable">
@@ -101,7 +101,7 @@
             <PropertyRef Name="StaffID" />
           </Key>
           <Property Name="StaffID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="BadgeNo" Type="Int32" />
+          <Property Name="BadgeNo" Type="Int32" Nullable="false" />
           <Property Name="MemID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="MemberTable" Relationship="FelicityLiveModel.FK__StaffTabl__MemID__33D4B598" FromRole="StaffTable" ToRole="MemberTable" />
         </EntityType>

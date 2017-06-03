@@ -178,10 +178,10 @@ namespace FelicitySecurity.Services.Data.Repository
                         MemLastname = item.MemLastname,
                         MemPhonenumber = item.MemPhonenumber,
                         MemPostcode = item.MemPostcode,
-                        MemStatus = item.MemStatus,
-                        MemDOB = item.MemDOB,
-                        MemRegDate = item.MemRegDate,
-                        IsStaff = item.IsStaff,
+                        MemStatus = item.MemStatus.Value,
+                        MemDOB = item.MemDOB.Value,
+                        MemRegDate = item.MemRegDate.Value,
+                        IsStaff = item.IsStaff.Value,
                         MemFacialImage = item.MemFacialImage
                     };
                     dbContext.Entry(entity).State = EntityState.Added;
@@ -206,7 +206,7 @@ namespace FelicitySecurity.Services.Data.Repository
                 {
                     var entity = new StaffTable()
                     {
-                        BadgeNo = item.BadgeNo,
+                        BadgeNo = item.BadgeNo.Value,
                         MemID = item.MemID
                     };
                     dbContext.Entry(entity).State = EntityState.Added;

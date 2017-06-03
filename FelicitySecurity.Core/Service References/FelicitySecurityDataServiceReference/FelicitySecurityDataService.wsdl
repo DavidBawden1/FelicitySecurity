@@ -54,7 +54,6 @@
           <s:element minOccurs="1" maxOccurs="1" name="MemRegDate" nillable="true" type="s:dateTime" />
           <s:element minOccurs="1" maxOccurs="1" name="IsStaff" nillable="true" type="s:boolean" />
           <s:element minOccurs="0" maxOccurs="1" name="MemFacialImage" type="s:base64Binary" />
-          <s:element minOccurs="0" maxOccurs="1" name="ResponsibleAdministrators" type="tns:ArrayOfAdministrators_dto" />
         </s:sequence>
       </s:complexType>
       <s:element name="AddMemberResponse">
