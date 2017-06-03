@@ -90,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AdministratorsController.cs" />
+    <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Interfaces\IAdministratorsController.cs" />
     <Compile Include="Interfaces\IAdministratorsViewModel.cs" />
     <Compile Include="Interfaces\IValidation.cs" />

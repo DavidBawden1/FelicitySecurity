@@ -1,4 +1,6 @@
-﻿using FelicitySecurity.Applications.Config.Views;
+﻿using FelicitySecurity.Applications.Config.Controllers;
+using FelicitySecurity.Applications.Config.Models;
+using FelicitySecurity.Applications.Config.Views;
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
@@ -8,6 +10,7 @@ namespace FelicitySecurity.Applications.Config.ViewModels
     public class MembersViewModel : INotifyPropertyChanged
     {
         #region Declarations 
+        public enum CurrentSortingType { Default, Alphabetical }
         public event PropertyChangedEventHandler PropertyChanged;
         #endregion
         #region Properties
@@ -133,6 +136,21 @@ namespace FelicitySecurity.Applications.Config.ViewModels
         #region Constructors
         #endregion
         #region Methods
+        private static void AdministratorSorting(MembersController controller, MemberModel model, CurrentSortingType sortingType)
+        {
+            switch (sortingType)
+            {
+                case CurrentSortingType.Default:
+                    //controller.AllAdministratorsEmail(model);
+                    break;
+                case CurrentSortingType.Alphabetical:
+                    //controller.AllAdministratorsEmail(model).Sort((x, y) => string.Compare(x.AdminEmail, y.AdminEmail));
+                    break;
+                default:
+                    //controller.AllAdministratorsEmail(model);
+                    break;
+            }
+        }
         public void BindControls(RegisterMembers_Form form, MembersViewModel viewModel)
         {
             Binding memberFirstNameBinding = new Binding(form.FirstName_Textbox.Text, viewModel, "MemberFirstName");

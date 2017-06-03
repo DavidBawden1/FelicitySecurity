@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace FelicitySecurity.Applications.Config.Models
 {
@@ -14,5 +15,7 @@ namespace FelicitySecurity.Applications.Config.Models
         public bool IsPersonARegisteredMember { get; set; }
         public bool IsPersonAStaffMember { get; set; }
         public byte[] MemberFacialImages { get; set; }
+
+        public List<MemberModel> ListOfMembers = new List<MemberModel>();
     }
 }

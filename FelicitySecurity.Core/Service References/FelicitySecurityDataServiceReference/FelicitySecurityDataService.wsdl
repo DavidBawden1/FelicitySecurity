@@ -53,7 +53,7 @@
           <s:element minOccurs="1" maxOccurs="1" name="MemStatus" nillable="true" type="s:boolean" />
           <s:element minOccurs="1" maxOccurs="1" name="MemRegDate" nillable="true" type="s:dateTime" />
           <s:element minOccurs="1" maxOccurs="1" name="IsStaff" nillable="true" type="s:boolean" />
-          <s:element minOccurs="1" maxOccurs="1" name="AdminID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemFacialImage" type="s:base64Binary" />
           <s:element minOccurs="0" maxOccurs="1" name="ResponsibleAdministrators" type="tns:ArrayOfAdministrators_dto" />
         </s:sequence>
       </s:complexType>
@@ -73,59 +73,6 @@
       <s:complexType name="ArrayOfMembers_dto">
         <s:sequence>
           <s:element minOccurs="0" maxOccurs="unbounded" name="Members_dto" nillable="true" type="tns:Members_dto" />
-        </s:sequence>
-      </s:complexType>
-      <s:element name="AddFaces">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="item" type="tns:Faces_dto" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:complexType name="Faces_dto">
-        <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="FaceID" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="MemFace0" type="s:base64Binary" />
-          <s:element minOccurs="0" maxOccurs="1" name="MemFace1" type="s:base64Binary" />
-          <s:element minOccurs="0" maxOccurs="1" name="MemFace2" type="s:base64Binary" />
-          <s:element minOccurs="0" maxOccurs="1" name="MemFace3" type="s:base64Binary" />
-          <s:element minOccurs="0" maxOccurs="1" name="MemFace4" type="s:base64Binary" />
-          <s:element minOccurs="0" maxOccurs="1" name="MemFace5" type="s:base64Binary" />
-          <s:element minOccurs="0" maxOccurs="1" name="MemFace6" type="s:base64Binary" />
-          <s:element minOccurs="0" maxOccurs="1" name="MemFace7" type="s:base64Binary" />
-          <s:element minOccurs="0" maxOccurs="1" name="MemFace8" type="s:base64Binary" />
-          <s:element minOccurs="0" maxOccurs="1" name="MemFace9" type="s:base64Binary" />
-          <s:element minOccurs="0" maxOccurs="1" name="MemFace10" type="s:base64Binary" />
-          <s:element minOccurs="0" maxOccurs="1" name="MemFace11" type="s:base64Binary" />
-          <s:element minOccurs="0" maxOccurs="1" name="MemFace12" type="s:base64Binary" />
-          <s:element minOccurs="0" maxOccurs="1" name="MemFace13" type="s:base64Binary" />
-          <s:element minOccurs="0" maxOccurs="1" name="MemFace14" type="s:base64Binary" />
-          <s:element minOccurs="0" maxOccurs="1" name="MemFace15" type="s:base64Binary" />
-          <s:element minOccurs="0" maxOccurs="1" name="MemFace16" type="s:base64Binary" />
-          <s:element minOccurs="0" maxOccurs="1" name="MemFace17" type="s:base64Binary" />
-          <s:element minOccurs="0" maxOccurs="1" name="MemFace18" type="s:base64Binary" />
-          <s:element minOccurs="0" maxOccurs="1" name="MemFace19" type="s:base64Binary" />
-          <s:element minOccurs="0" maxOccurs="1" name="MemFace20" type="s:base64Binary" />
-          <s:element minOccurs="1" maxOccurs="1" name="MemID" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="MembersFaces" type="tns:ArrayOfMembers_dto" />
-        </s:sequence>
-      </s:complexType>
-      <s:element name="AddFacesResponse">
-        <s:complexType />
-      </s:element>
-      <s:element name="FindAllMembersFaces">
-        <s:complexType />
-      </s:element>
-      <s:element name="FindAllMembersFacesResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="FindAllMembersFacesResult" type="tns:ArrayOfFaces_dto" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:complexType name="ArrayOfFaces_dto">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="Faces_dto" nillable="true" type="tns:Faces_dto" />
         </s:sequence>
       </s:complexType>
       <s:element name="AddStaff">
@@ -208,18 +155,6 @@
   <wsdl:message name="FindAllMembersSoapOut">
     <wsdl:part name="parameters" element="tns:FindAllMembersResponse" />
   </wsdl:message>
-  <wsdl:message name="AddFacesSoapIn">
-    <wsdl:part name="parameters" element="tns:AddFaces" />
-  </wsdl:message>
-  <wsdl:message name="AddFacesSoapOut">
-    <wsdl:part name="parameters" element="tns:AddFacesResponse" />
-  </wsdl:message>
-  <wsdl:message name="FindAllMembersFacesSoapIn">
-    <wsdl:part name="parameters" element="tns:FindAllMembersFaces" />
-  </wsdl:message>
-  <wsdl:message name="FindAllMembersFacesSoapOut">
-    <wsdl:part name="parameters" element="tns:FindAllMembersFacesResponse" />
-  </wsdl:message>
   <wsdl:message name="AddStaffSoapIn">
     <wsdl:part name="parameters" element="tns:AddStaff" />
   </wsdl:message>
@@ -260,14 +195,6 @@
     <wsdl:operation name="FindAllMembers">
       <wsdl:input message="tns:FindAllMembersSoapIn" />
       <wsdl:output message="tns:FindAllMembersSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="AddFaces">
-      <wsdl:input message="tns:AddFacesSoapIn" />
-      <wsdl:output message="tns:AddFacesSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="FindAllMembersFaces">
-      <wsdl:input message="tns:FindAllMembersFacesSoapIn" />
-      <wsdl:output message="tns:FindAllMembersFacesSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="AddStaff">
       <wsdl:input message="tns:AddStaffSoapIn" />
@@ -317,24 +244,6 @@
     </wsdl:operation>
     <wsdl:operation name="FindAllMembers">
       <soap:operation soapAction="http://tempuri.org/FindAllMembers" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AddFaces">
-      <soap:operation soapAction="http://tempuri.org/AddFaces" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="FindAllMembersFaces">
-      <soap:operation soapAction="http://tempuri.org/FindAllMembersFaces" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -410,24 +319,6 @@
     </wsdl:operation>
     <wsdl:operation name="FindAllMembers">
       <soap12:operation soapAction="http://tempuri.org/FindAllMembers" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AddFaces">
-      <soap12:operation soapAction="http://tempuri.org/AddFaces" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="FindAllMembersFaces">
-      <soap12:operation soapAction="http://tempuri.org/FindAllMembersFaces" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
