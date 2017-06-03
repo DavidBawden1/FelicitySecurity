@@ -7,6 +7,9 @@ using System.Windows.Forms;
 
 namespace FelicitySecurity.Applications.Config.ViewModels
 {
+    /// <summary>
+    /// The Members ViewModel handles data passed to and from controller and view. 
+    /// </summary>
     public class MembersViewModel : INotifyPropertyChanged
     {
         #region Declarations 
