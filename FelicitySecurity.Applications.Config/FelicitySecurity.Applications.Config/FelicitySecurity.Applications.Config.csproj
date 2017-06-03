@@ -103,6 +103,7 @@
     <Compile Include="Resources\Validation\ValidateExistingEmail.cs" />
     <Compile Include="Resources\Validation\ValidationBase.cs" />
     <Compile Include="ViewModels\AdministratorsViewModel.cs" />
+    <Compile Include="ViewModels\MembersViewModel.cs" />
     <Compile Include="Views\Form_AuthenticateAdministrator.cs">
       <SubType>Form</SubType>
     </Compile>

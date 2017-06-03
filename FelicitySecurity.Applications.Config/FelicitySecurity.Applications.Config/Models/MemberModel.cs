@@ -4,14 +4,15 @@ namespace FelicitySecurity.Applications.Config.Models
 {
     public class MemberModel
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public DateTime DateOfBirth { get; set; }
-        public string PostCode { get; set; }
-        public DateTime DateOfRegistration { get; set; }
-        public string PhoneNumber { get; set; }
-        public bool IsMember { get; set; }
-        public bool IsStaff { get; set; }
-        public byte[] FacialImages { get; set; }
+        public int MemberId { get; set; }
+        public string MemberFirstName { get; set; }
+        public string MemberLastName { get; set; }
+        public DateTime MemberDateOfBirth { get; set; }
+        public string MemberPostCode { get; set; }
+        public DateTime MemberDateOfRegistration { get; set; }
+        public string MemberPhoneNumber { get; set; }
+        public bool IsPersonARegisteredMember { get; set; }
+        public bool IsPersonAStaffMember { get; set; }
+        public byte[] MemberFacialImages { get; set; }
     }
 }

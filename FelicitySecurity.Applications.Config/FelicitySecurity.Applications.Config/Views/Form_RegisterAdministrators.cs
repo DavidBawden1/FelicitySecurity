@@ -174,7 +174,7 @@ namespace FelicitySecurity.Applications.Config
             {
                 if (string.IsNullOrEmpty(Error.ToString()))
                 {
-                    viewModel.BindTextboxControls(this, viewModel, _textbox);
+                    viewModel.BindTextboxControls(this, viewModel);
                     controller.AddAdministrators(EnterEmail_TextBox.Text, CreateUsername_TextBox.Text, EnterPin_TextBox.Text);
                     MessageBox.Show("Administrator added successfully.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     viewModel.DisplayAdministratorEmails(this, controller, model, sortingType);
@@ -202,7 +202,7 @@ namespace FelicitySecurity.Applications.Config
             {
                 if (Administrators_ListBox.SelectedItem != null)
                 {
-                    viewModel.BindTextboxControls(this, viewModel, _textbox);
+                    viewModel.BindTextboxControls(this, viewModel);
                     PopulateModelWithSelectedAdminId();
                     controller.UpdateSelectedAdministrator(model);
                     RefreshUIPostUpdatingAdministrator();
