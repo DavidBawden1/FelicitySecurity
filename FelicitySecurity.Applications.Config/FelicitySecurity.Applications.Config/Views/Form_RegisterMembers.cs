@@ -133,7 +133,7 @@ namespace FelicitySecurity.Applications.Config.Views
             {
                 return "You must supply a date of registration!";
             }
-            if(viewModel.FacialImages.Count != MaximumNumberOfFaces)
+            if (viewModel.FacialImages.Count != MaximumNumberOfFaces)
             {
                 return string.Format("You must supply {0} facial images of the member!", MaximumNumberOfFaces);
             }
@@ -330,8 +330,12 @@ namespace FelicitySecurity.Applications.Config.Views
                 imageConversions.AppendEachImageToByteArrayOfImageList(viewModel);
                 viewModel.PopulateMemberModel(this, model);
                 viewModel.RegisterMember(controller, model);
+                MessageBox.Show(string.Format("{0} {1} registered successfully", FirstName_Textbox.Text, LastName_Textbox.Text), "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            MessageBox.Show(Error, "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+            {
+                MessageBox.Show(Error, "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
