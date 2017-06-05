@@ -13,7 +13,6 @@ namespace FelicitySecurity.Applications.Config
     public partial class RegisterAdministrators_Form : Form, IDataErrorInfo
     {
         #region Declarations
-        private TextBox _textbox;
         AdministratorsController controller = new AdministratorsController();
         AdministratorsModel model = new AdministratorsModel();
         AdministratorsViewModel viewModel = new AdministratorsViewModel();
@@ -174,7 +173,7 @@ namespace FelicitySecurity.Applications.Config
             {
                 if (string.IsNullOrEmpty(Error.ToString()))
                 {
-                    viewModel.BindTextboxControls(this, viewModel, _textbox);
+                    viewModel.BindTextboxControls(this, viewModel);
                     AddAdministrator();
                     viewModel.DisplayAdministratorEmails(this, controller, model, sortingType);
                 }
@@ -231,7 +230,7 @@ namespace FelicitySecurity.Applications.Config
         /// </summary>
         private void UpdateSelectedAdministrator()
         {
-            viewModel.BindTextboxControls(this, viewModel, _textbox);
+            viewModel.BindTextboxControls(this, viewModel);
             PopulateModelWithSelectedAdminId();
             viewModel.UpdateSelectedAdministrator(controller, model);
             RefreshUIPostUpdatingAdministrator();
