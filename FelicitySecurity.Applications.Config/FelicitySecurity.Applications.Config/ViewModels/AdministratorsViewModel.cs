@@ -171,7 +171,7 @@ namespace FelicitySecurity.Applications.Config.ViewModels
         }
 
         /// <summary>
-        /// 
+        /// Calls the RemoveSelectedAdministrator method on the controller. 
         /// </summary>
         /// <param name="model"></param>
         public void RemoveSelectedAdministrator(AdministratorsController controller, AdministratorsModel model)
