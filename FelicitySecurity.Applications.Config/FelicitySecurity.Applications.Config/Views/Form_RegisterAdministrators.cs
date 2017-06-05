@@ -175,7 +175,7 @@ namespace FelicitySecurity.Applications.Config
                 if (string.IsNullOrEmpty(Error.ToString()))
                 {
                     viewModel.BindTextboxControls(this, viewModel, _textbox);
-                    controller.AddAdministrators(EnterEmail_TextBox.Text, CreateUsername_TextBox.Text, EnterPin_TextBox.Text);
+                    viewModel.AddAdministrator(this, controller, EnterEmail_TextBox.Text, CreateUsername_TextBox.Text , EnterPin_TextBox.Text);
                     MessageBox.Show("Administrator added successfully.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     viewModel.DisplayAdministratorEmails(this, controller, model, sortingType);
                 }
