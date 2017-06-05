@@ -21,7 +21,6 @@ namespace FelicitySecurity.Applications.Config.ViewModels
         #endregion
 
         #region Properties 
-        private int _adminId;
         public int AdminID { get; set; }
         private string _email;
         public string Email
@@ -115,7 +114,7 @@ namespace FelicitySecurity.Applications.Config.ViewModels
         /// <param name="form"> The view</param>
         /// <param name="viewModel">The Administrators ViewModel</param>
         /// <param name="textbox"> The Textbox Controls</param>
-        public void BindTextboxControls(RegisterAdministrators_Form form, AdministratorsViewModel viewModel, TextBox textbox)
+        public void BindTextboxControls(RegisterAdministrators_Form form, AdministratorsViewModel viewModel)
         {
             Binding _emailBinding = new Binding(form.EnterEmail_TextBox.Text, viewModel, "Email");
             Binding _usernameBinding = new Binding(form.CreateUsername_TextBox.Text, viewModel, "Username");

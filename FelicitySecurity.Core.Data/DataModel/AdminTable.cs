@@ -14,18 +14,9 @@ namespace FelicitySecurity.Core.Data.DataModel
     
     public partial class AdminTable
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public AdminTable()
-        {
-            this.MemberTable = new HashSet<MemberTable>();
-        }
-    
         public int AdminID { get; set; }
         public string AdminName { get; set; }
         public string AdminEmail { get; set; }
         public string AdminPinCode { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MemberTable> MemberTable { get; set; }
     }
 }

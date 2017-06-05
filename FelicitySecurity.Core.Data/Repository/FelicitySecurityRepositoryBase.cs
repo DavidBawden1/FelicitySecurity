@@ -128,6 +128,7 @@ namespace FelicitySecurity.Services.Data.Repository
             catch (Exception e)
             {
                 //implement utility logs. 
+                Console.WriteLine(e.Message);
             }
 
             if(CommitMode == RepositoryCommitMode.Auto)

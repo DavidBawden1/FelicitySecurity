@@ -53,24 +53,6 @@ namespace FelicitySecurity.Core.BusinessLogic
         }
 
         /// <summary>
-        /// calls the Add Faces Repository method
-        /// </summary>
-        /// <param name="item">Faces_dto</param>
-        public void AddFaces(Faces_dto item)
-        {
-            client.AddFaces(item);
-        }
-
-        /// <summary>
-        /// calls the Find All Faces Repository method
-        /// </summary>
-        /// <param name="item">Faces_dto</param>
-        public List<Faces_dto> FindAllMembersFaces()
-        {
-            return client.FindAllMembersFaces().ToList();
-        }
-
-        /// <summary>
         /// calls the Add Staff Repository method
         /// </summary>
         /// <param name="item">Staff_dto</param>

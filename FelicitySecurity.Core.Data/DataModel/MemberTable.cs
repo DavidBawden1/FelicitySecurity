@@ -17,7 +17,6 @@ namespace FelicitySecurity.Core.Data.DataModel
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public MemberTable()
         {
-            this.FacesTable = new HashSet<FacesTable>();
             this.StaffTable = new HashSet<StaffTable>();
         }
     
@@ -25,16 +24,13 @@ namespace FelicitySecurity.Core.Data.DataModel
         public string MemFirstname { get; set; }
         public string MemLastname { get; set; }
         public string MemPhonenumber { get; set; }
-        public Nullable<System.DateTime> MemDOB { get; set; }
+        public System.DateTime MemDOB { get; set; }
         public string MemPostcode { get; set; }
-        public Nullable<bool> MemStatus { get; set; }
-        public Nullable<System.DateTime> MemRegDate { get; set; }
-        public int AdminID { get; set; }
-        public Nullable<bool> IsStaff { get; set; }
+        public bool MemStatus { get; set; }
+        public System.DateTime MemRegDate { get; set; }
+        public bool IsStaff { get; set; }
+        public byte[] MemFacialImage { get; set; }
     
-        public virtual AdminTable AdminTable { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FacesTable> FacesTable { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StaffTable> StaffTable { get; set; }
     }
