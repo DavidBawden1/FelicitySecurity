@@ -148,6 +148,38 @@ namespace FelicitySecurity.Applications.Config.ViewModels
         }
 
         /// <summary>
+        /// Calls the Add Administrator method on the controller. 
+        /// </summary>
+        /// <param name="form"></param>
+        /// <param name="controller"></param>
+        /// <param name="administratorEmail"></param>
+        /// <param name="administratorName"></param>
+        /// <param name="administratorPinCode"></param>
+        public void AddAdministrator(AdministratorsController controller, AdministratorsModel model)
+        {
+            controller.AddAdministrators(model.AdminEmail, model.AdminName, model.AdminPinCode);
+        }
+
+        /// <summary>
+        /// Calls the UpdateSelectedAdministrator method on the controller with the updated model.   
+        /// </summary>
+        /// <param name="controller"></param>
+        /// <param name="model"></param>
+        public void UpdateSelectedAdministrator(AdministratorsController controller, AdministratorsModel model)
+        {
+            controller.UpdateSelectedAdministrator(model);
+        }
+
+        /// <summary>
+        /// Calls the RemoveSelectedAdministrator method on the controller. 
+        /// </summary>
+        /// <param name="model"></param>
+        public void RemoveSelectedAdministrator(AdministratorsController controller, AdministratorsModel model)
+        {
+            controller.RemoveSelectedAdministrator(model);
+        }
+
+        /// <summary>
         /// Returns all of the administrators
         /// </summary>
         public void DisplayAdministratorEmails(AuthenticateAdministrators_Form form, AdministratorsController controller, AdministratorsModel model, CurrentSortingType sortingType)
