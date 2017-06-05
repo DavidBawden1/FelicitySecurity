@@ -13,7 +13,6 @@ namespace FelicitySecurity.Applications.Config
     public partial class RegisterAdministrators_Form : Form, IDataErrorInfo
     {
         #region Declarations
-        private TextBox _textbox;
         AdministratorsController controller = new AdministratorsController();
         AdministratorsModel model = new AdministratorsModel();
         AdministratorsViewModel viewModel = new AdministratorsViewModel();
@@ -175,8 +174,7 @@ namespace FelicitySecurity.Applications.Config
                 if (string.IsNullOrEmpty(Error.ToString()))
                 {
                     viewModel.BindTextboxControls(this, viewModel);
-                    controller.AddAdministrators(EnterEmail_TextBox.Text, CreateUsername_TextBox.Text, EnterPin_TextBox.Text);
-                    MessageBox.Show("Administrator added successfully.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    AddAdministrator();
                     viewModel.DisplayAdministratorEmails(this, controller, model, sortingType);
                 }
                 else
@@ -192,6 +190,18 @@ namespace FelicitySecurity.Applications.Config
         }
 
         /// <summary>
+        /// Updates the model with form data and calls the AddAdministrator method in the ViewModel
+        /// </summary>
+        private void AddAdministrator()
+        {
+            model.AdminEmail = EnterEmail_TextBox.Text;
+            model.AdminName = CreateUsername_TextBox.Text;
+            model.AdminPinCode = EnterPin_TextBox.Text;
+            viewModel.AddAdministrator(controller, model);
+            MessageBox.Show("Administrator added successfully.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        /// <summary>
         /// updates the selected Administrator with the new details provided.
         /// </summary>
         /// <param name="sender"></param>
@@ -202,10 +212,7 @@ namespace FelicitySecurity.Applications.Config
             {
                 if (Administrators_ListBox.SelectedItem != null)
                 {
-                    viewModel.BindTextboxControls(this, viewModel);
-                    PopulateModelWithSelectedAdminId();
-                    controller.UpdateSelectedAdministrator(model);
-                    RefreshUIPostUpdatingAdministrator();
+                    UpdateSelectedAdministrator();
                 }
                 else
                 {
@@ -216,6 +223,17 @@ namespace FelicitySecurity.Applications.Config
             {
                 MessageBox.Show(Error, "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        /// <summary>
+        /// Calls the UpdateSelectedAdministrator method on the ViewModel
+        /// </summary>
+        private void UpdateSelectedAdministrator()
+        {
+            viewModel.BindTextboxControls(this, viewModel);
+            PopulateModelWithSelectedAdminId();
+            viewModel.UpdateSelectedAdministrator(controller, model);
+            RefreshUIPostUpdatingAdministrator();
         }
 
         /// <summary>
@@ -281,10 +299,18 @@ namespace FelicitySecurity.Applications.Config
             }
             else
             {
-                PopulateModelWithSelectedAdminId();
-                controller.RemoveSelectedAdministrator(model);
-                RefreshUIPostDeletionOfAdmin();
+                RemoveSelectedAdministrator();
             }
+        }
+
+        /// <summary>
+        /// Calls the RemoveSelectedAdministrator method on the ViewModel
+        /// </summary>
+        private void RemoveSelectedAdministrator()
+        {
+            PopulateModelWithSelectedAdminId();
+            viewModel.RemoveSelectedAdministrator(controller, model);
+            RefreshUIPostDeletionOfAdmin();
         }
 
         /// <summary>

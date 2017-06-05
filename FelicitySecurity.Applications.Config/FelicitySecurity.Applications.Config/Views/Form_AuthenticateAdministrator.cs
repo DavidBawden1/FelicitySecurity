@@ -15,7 +15,6 @@ namespace FelicitySecurity.Applications.Config.Views
     public partial class AuthenticateAdministrators_Form : Form, IDataErrorInfo
     {
         #region Declarations 
-        private TextBox _textbox;
         AdministratorsController controller = new AdministratorsController();
         AdministratorsModel model = new AdministratorsModel();
         AdministratorsViewModel viewModel = new AdministratorsViewModel();
