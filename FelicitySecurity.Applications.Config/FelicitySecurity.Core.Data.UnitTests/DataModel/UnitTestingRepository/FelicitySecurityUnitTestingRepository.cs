@@ -117,8 +117,6 @@ namespace FelicitySecurity.Services.Data.Repository
                     dbContext.AdminTable.RemoveRange(admins);
                     var members = from memberTable in dbContext.MemberTable select memberTable;
                     dbContext.MemberTable.RemoveRange(members);
-                    var faces = from faceTable in dbContext.FacesTable select faceTable;
-                    dbContext.FacesTable.RemoveRange(faces);
                     var staff = from staffTable in dbContext.StaffTable select staffTable;
                     dbContext.StaffTable.RemoveRange(staff);
                     dbContext.SaveChanges();
@@ -179,7 +177,6 @@ namespace FelicitySecurity.Services.Data.Repository
                         dto.MemRegDate = item.MemRegDate;
                         dto.MemStatus = item.MemStatus;
                         dto.IsStaff = item.IsStaff;
-                        dto.AdminID = item.AdminID;
                     }
                 }
             }
@@ -208,7 +205,6 @@ namespace FelicitySecurity.Services.Data.Repository
                         MemStatus = item.MemStatus,
                         MemDOB = item.MemDOB,
                         MemRegDate = item.MemRegDate,
-                        AdminID = item.AdminID
                     };
                     dbContext.Entry(entity).State = EntityState.Added;
                     dbContext.SaveChanges();
@@ -220,101 +216,6 @@ namespace FelicitySecurity.Services.Data.Repository
             }
             return item;
         }
-
-
-
-        /// <summary>
-        /// returns all of the members faces 
-        /// </summary>
-        /// <returns>a result list of faces that can be used for a dataset to run recognition on.</returns>
-        public List<Faces_dto> FindAllMembersFaces()
-        {
-            List<Faces_dto> facesResult = new List<Faces_dto>();
-            try
-            {
-                using (FelicityTestEntities dbContext = (FelicityTestEntities)GetDBContext())
-                {
-                    foreach (var item in dbContext.FacesTable)
-                    {
-                        Faces_dto dto = new Faces_dto();
-                        dto.FaceID = item.FaceID;
-                        dto.MemFace0 = item.MemFace0;
-                        dto.MemFace1 = item.MemFace1;
-                        dto.MemFace2 = item.MemFace2;
-                        dto.MemFace3 = item.MemFace3;
-                        dto.MemFace4 = item.MemFace4;
-                        dto.MemFace5 = item.MemFace5;
-                        dto.MemFace6 = item.MemFace6;
-                        dto.MemFace7 = item.MemFace7;
-                        dto.MemFace8 = item.MemFace8;
-                        dto.MemFace9 = item.MemFace9;
-                        dto.MemFace10 = item.MemFace10;
-                        dto.MemFace11 = item.MemFace11;
-                        dto.MemFace12 = item.MemFace12;
-                        dto.MemFace13 = item.MemFace13;
-                        dto.MemFace14 = item.MemFace14;
-                        dto.MemFace15 = item.MemFace15;
-                        dto.MemFace16 = item.MemFace16;
-                        dto.MemFace17 = item.MemFace17;
-                        dto.MemFace18 = item.MemFace18;
-                        dto.MemFace19 = item.MemFace19;
-                        dto.MemFace20 = item.MemFace20;
-                        dto.MemID = item.MemID;
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                Logging.LogErrorEvent(null, e);
-            }
-            return facesResult.ToList();
-        }
-
-        /// <summary>
-        /// Adds a membersface to the FacesTable when the registration scenario is applied. 
-        /// </summary>
-        public Faces_dto AddFaces(Faces_dto item)
-        {
-            try
-            {
-                using (DbContext dbContext = (FelicityTestEntities)GetDBContext())
-                {
-                    var entity = new FacesTable()
-                    {
-                        MemFace0 = item.MemFace0,
-                        MemFace1 = item.MemFace1,
-                        MemFace2 = item.MemFace2,
-                        MemFace3 = item.MemFace3,
-                        MemFace4 = item.MemFace4,
-                        MemFace5 = item.MemFace5,
-                        MemFace6 = item.MemFace6,
-                        MemFace7 = item.MemFace7,
-                        MemFace8 = item.MemFace8,
-                        MemFace9 = item.MemFace9,
-                        MemFace10 = item.MemFace10,
-                        MemFace11 = item.MemFace11,
-                        MemFace12 = item.MemFace12,
-                        MemFace13 = item.MemFace13,
-                        MemFace14 = item.MemFace14,
-                        MemFace15 = item.MemFace15,
-                        MemFace16 = item.MemFace16,
-                        MemFace17 = item.MemFace17,
-                        MemFace18 = item.MemFace18,
-                        MemFace19 = item.MemFace19,
-                        MemFace20 = item.MemFace20,
-                        MemID = item.MemID
-                    };
-                    dbContext.Entry(entity).State = EntityState.Added;
-                    dbContext.SaveChanges();
-                }
-            }
-            catch (Exception e)
-            {
-                Logging.LogErrorEvent(null, e);
-            }
-            return item;
-        }
-
 
         /// <summary>
         /// Adds a staff members to the StaffTable when the registration scenario is applied. 

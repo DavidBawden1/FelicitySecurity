@@ -13,8 +13,6 @@ namespace FelicitySecurity.Core.Models
 
         public List<AdministratorsModel> ListOfAdministrators = new List<AdministratorsModel>();
 
-        public List<string> AdministratorEmails = new List<string>();
-
         public IEnumerator GetEnumerator()
         {
             throw new NotImplementedException();

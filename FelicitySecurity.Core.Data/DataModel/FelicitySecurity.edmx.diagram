@@ -5,12 +5,9 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="0877c09f72f2490eb186dfa4c78959e9" Name="Diagram1">
-        <EntityTypeShape EntityType="FelicityLiveModel.AdminTable" Width="1.5" PointX="0.75" PointY="4.375" />
-        <EntityTypeShape EntityType="FelicityLiveModel.FacesTable" Width="1.5" PointX="5.25" PointY="1.25" />
-        <EntityTypeShape EntityType="FelicityLiveModel.MemberTable" Width="1.5" PointX="3" PointY="3.5" />
-        <EntityTypeShape EntityType="FelicityLiveModel.StaffTable" Width="1.5" PointX="5.25" PointY="7.625" />
-        <AssociationConnector Association="FelicityLiveModel.FK__MemberTab__Admin__49C3F6B7" />
-        <AssociationConnector Association="FelicityLiveModel.FK__FacesTabl__MemID__32E0915F" />
+        <EntityTypeShape EntityType="FelicityLiveModel.AdminTable" Width="1.5" PointX="2.75" PointY="4.75" />
+        <EntityTypeShape EntityType="FelicityLiveModel.MemberTable" Width="1.5" PointX="0.75" PointY="1" />
+        <EntityTypeShape EntityType="FelicityLiveModel.StaffTable" Width="1.5" PointX="3" PointY="1.625" />
         <AssociationConnector Association="FelicityLiveModel.FK__StaffTabl__MemID__33D4B598" />
       </Diagram>
     </edmx:Diagrams>

@@ -21,7 +21,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\Build\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -90,14 +90,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AdministratorsController.cs" />
+    <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Interfaces\IAdministratorsController.cs" />
     <Compile Include="Interfaces\IAdministratorsViewModel.cs" />
+    <Compile Include="Interfaces\IMembersController.cs" />
+    <Compile Include="Interfaces\IMembersViewModel.cs" />
     <Compile Include="Interfaces\IValidation.cs" />
     <Compile Include="Models\AdministratorsModel.cs" />
+    <Compile Include="Models\MemberModel.cs" />
     <Compile Include="Resources\Controls\ListboxItem.cs" />
+    <Compile Include="Resources\ImageProcessing\CameraFeeds\CameraFeed.cs" />
+    <Compile Include="Resources\ImageProcessing\CameraFeeds\InstantiateCameraFeed.cs" />
+    <Compile Include="Resources\ImageProcessing\CameraFeeds\Suspect.cs" />
+    <Compile Include="Resources\ImageProcessing\FaceRecognition\SuspectFacialPrediction.cs" />
+    <Compile Include="Resources\ImageProcessing\ImageConversions.cs" />
     <Compile Include="Resources\Validation\ValidateExistingEmail.cs" />
     <Compile Include="Resources\Validation\ValidationBase.cs" />
     <Compile Include="ViewModels\AdministratorsViewModel.cs" />
+    <Compile Include="ViewModels\MembersViewModel.cs" />
     <Compile Include="Views\Form_AuthenticateAdministrator.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,7 +163,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\Face.Recognition.Models\" />
     <Folder Include="Resources\Images\" />
   </ItemGroup>
   <ItemGroup>
@@ -173,6 +182,26 @@
       <Project>{D9B6DF98-9C5F-48CA-8673-1A6BC7CD05B5}</Project>
       <Name>FelicitySecurity.Core.Utils</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\ImageProcessing\FaceDetection\haarcascade_eye.xml" />
+    <Content Include="Resources\ImageProcessing\FaceDetection\haarcascade_eye_tree_eyeglasses.xml" />
+    <Content Include="Resources\ImageProcessing\FaceDetection\haarcascade_frontalcatface.xml" />
+    <Content Include="Resources\ImageProcessing\FaceDetection\haarcascade_frontalcatface_extended.xml" />
+    <Content Include="Resources\ImageProcessing\FaceDetection\haarcascade_frontalface_alt.xml" />
+    <Content Include="Resources\ImageProcessing\FaceDetection\haarcascade_frontalface_alt2.xml" />
+    <Content Include="Resources\ImageProcessing\FaceDetection\haarcascade_frontalface_alt_tree.xml" />
+    <Content Include="Resources\ImageProcessing\FaceDetection\haarcascade_frontalface_default.xml" />
+    <Content Include="Resources\ImageProcessing\FaceDetection\haarcascade_fullbody.xml" />
+    <Content Include="Resources\ImageProcessing\FaceDetection\haarcascade_lefteye_2splits.xml" />
+    <Content Include="Resources\ImageProcessing\FaceDetection\haarcascade_licence_plate_rus_16stages.xml" />
+    <Content Include="Resources\ImageProcessing\FaceDetection\haarcascade_lowerbody.xml" />
+    <Content Include="Resources\ImageProcessing\FaceDetection\haarcascade_profileface.xml" />
+    <Content Include="Resources\ImageProcessing\FaceDetection\haarcascade_righteye_2splits.xml" />
+    <Content Include="Resources\ImageProcessing\FaceDetection\haarcascade_russian_plate_number.xml" />
+    <Content Include="Resources\ImageProcessing\FaceDetection\haarcascade_smile.xml" />
+    <Content Include="Resources\ImageProcessing\FaceDetection\haarcascade_upperbody.xml" />
+    <Content Include="Resources\ImageProcessing\FaceDetection\lbpcascade_frontalface.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

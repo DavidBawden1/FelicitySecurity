@@ -87,9 +87,6 @@
     <Compile Include="DataModel\AdminTable.cs">
       <DependentUpon>FelicitySecurity.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataModel\FacesTable.cs">
-      <DependentUpon>FelicitySecurity.tt</DependentUpon>
-    </Compile>
     <Compile Include="DataModel\FelicitySecurity.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

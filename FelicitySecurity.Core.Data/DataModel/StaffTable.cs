@@ -15,7 +15,7 @@ namespace FelicitySecurity.Core.Data.DataModel
     public partial class StaffTable
     {
         public int StaffID { get; set; }
-        public Nullable<int> BadgeNo { get; set; }
+        public int BadgeNo { get; set; }
         public int MemID { get; set; }
     
         public virtual MemberTable MemberTable { get; set; }
