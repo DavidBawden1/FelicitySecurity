@@ -18,24 +18,15 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing
         /// </summary>
         public void AppendEachImageToByteArrayOfImageList(MembersViewModel viewModel)
         {
-            ImageConversions imageConversion = new ImageConversions();
+            MemoryStream fullMemoryStream = new MemoryStream();
             foreach (var facialImage in viewModel.FacialImages)
             {
-                viewModel.ByteArrayOfImageList = imageConversion.ConvertImageToByteArray(facialImage);
+                MemoryStream individualMemoryStream = new MemoryStream();
+                _imageToConvertFromEmguCVToDrawing = facialImage.ToBitmap();
+                _imageToConvertFromEmguCVToDrawing.Save(individualMemoryStream, System.Drawing.Imaging.ImageFormat.Bmp);
+                individualMemoryStream.WriteTo(fullMemoryStream);
             }
-        }
-
-        /// <summary>
-        /// Converts the EmguCV.image to an system.drawing.image and then writes it to a byte array.
-        /// </summary>
-        /// <param name="facialImage"></param>
-        /// <returns> byte array of images</returns>
-        public byte[] ConvertImageToByteArray(Image<Gray, byte> facialImage)
-        {
-            MemoryStream memoryStream = new MemoryStream();
-            _imageToConvertFromEmguCVToDrawing = facialImage.ToBitmap();
-            _imageToConvertFromEmguCVToDrawing.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Bmp);
-            return memoryStream.ToArray();
+            viewModel.ByteArrayOfImageList = fullMemoryStream.ToArray();
         }
     }
 }
