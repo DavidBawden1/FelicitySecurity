@@ -38,7 +38,7 @@ namespace FelicitySecurity.Applications.Config.Controllers
         /// </summary>
         /// <param name="viewModel">Administrators ViewModel</param>
         /// <returns>model</returns>
-        public List<AdministratorsModel> AllAdministratorsEmail(AdministratorsModel model)
+        public List<AdministratorsModel> AllAdministrators(AdministratorsModel model)
         {
             List<Administrators_dto> allAdministrators = businessLogic.FindAllAdministrators();
 

@@ -9,7 +9,7 @@ namespace FelicitySecurity.Applications.Config.Interfaces
     {
         void IAdministratorsController(FelicitySecurityBusinessLogic engineRepository);
         void AddAdministrators(string email, string username, string pincode);
-        List<AdministratorsModel> AllAdministratorsEmail(AdministratorsModel model);
+        List<AdministratorsModel> AllAdministrators(AdministratorsModel model);
         Administrators_dto ReturnAdministratorByEmail(string email);
         Administrators_dto ReturnAdministratorByEmail(string email, string pinCode);
         void RemoveSelectedAdministrator(AdministratorsModel model);
