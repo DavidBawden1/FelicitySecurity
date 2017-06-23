@@ -3,7 +3,7 @@ using Emgu.CV.Structure;
 using FelicitySecurity.Applications.Config.Controllers;
 using FelicitySecurity.Applications.Config.Interfaces;
 using FelicitySecurity.Applications.Config.Models;
-using FelicitySecurity.Applications.Config.Resources.ImageProcessing;
+using FelicitySecurity.Applications.Config.Resources.Controls;
 using FelicitySecurity.Applications.Config.Views;
 using System;
 using System.Collections.Generic;
@@ -20,7 +20,7 @@ namespace FelicitySecurity.Applications.Config.ViewModels
         #region Declarations 
         public enum CurrentSortingType { Default, Alphabetical }
         public event PropertyChangedEventHandler PropertyChanged;
-     
+
         #endregion
         #region Properties
         public int MemberId { get; set; }
@@ -204,6 +204,31 @@ namespace FelicitySecurity.Applications.Config.ViewModels
             model.IsPersonARegisteredMember = form.MembershipStatus_Checkbox.Checked;
             model.IsPersonAStaffMember = form.StaffStatus_Checkbox.Checked;
             model.MemberFacialImages = ByteArrayOfImageList;
+        }
+
+        /// <summary>
+        /// Returns every members firstname to Listbox
+        /// </summary>
+        public void DisplayMemberNames(RegisterMembers_Form form, MembersController controller, MemberModel model)
+        {
+            form.ExistingMembers_ListBox.Items.Clear();
+            var listOfMembers = controller.FindAllMembers(model);
+            if (model.ListOfMembers.Count != 0)
+            {
+                foreach (var member in listOfMembers)
+                {
+                    ListboxItem memberItem = new ListboxItem();
+                    memberItem.Value = member.MemberId;
+                    memberItem.ItemText = member.MemberFirstName;
+                    memberItem.ItemText2 = member.MemberLastName;
+                    form.ExistingMembers_ListBox.Items.Add(memberItem);
+                }
+            }
+            else
+            {
+                form.ExistingMembers_ListBox.Items.Add("Add an Member");
+            }
+            model.ListOfMembers.Clear();
         }
         #endregion
     }

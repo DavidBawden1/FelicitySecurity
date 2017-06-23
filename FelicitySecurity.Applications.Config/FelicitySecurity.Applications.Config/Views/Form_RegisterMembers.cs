@@ -205,6 +205,7 @@ namespace FelicitySecurity.Applications.Config.Views
         /// <param name="e"></param>
         private void RegisterMembers_Form_Load(object sender, EventArgs e)
         {
+            viewModel.DisplayMemberNames(this, controller, model);
             Application.Idle += StartTimer;
         }
 

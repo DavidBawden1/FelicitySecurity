@@ -215,13 +215,13 @@ namespace FelicitySecurity.Applications.Config.ViewModels
             switch (sortingType)
             {
                 case CurrentSortingType.Default:
-                    controller.AllAdministratorsEmail(model);
+                    controller.AllAdministrators(model);
                     break;
                 case CurrentSortingType.Alphabetical:
-                    controller.AllAdministratorsEmail(model).Sort((x, y) => string.Compare(x.AdminEmail, y.AdminEmail));
+                    controller.AllAdministrators(model).Sort((x, y) => string.Compare(x.AdminEmail, y.AdminEmail));
                     break;
                 default:
-                    controller.AllAdministratorsEmail(model);
+                    controller.AllAdministrators(model);
                     break;
             }
         }
