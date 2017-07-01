@@ -233,10 +233,6 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.FaceRec
                     }
                 }
             }
-            predictedSuspect.FirstName = string.Empty;
-            predictedSuspect.LastName = string.Empty;
-            predictedSuspect.PostCode = string.Empty;
-            predictedSuspect.Face = new Image<Gray, byte>(0,0);
             return predictedSuspect;
         }
 

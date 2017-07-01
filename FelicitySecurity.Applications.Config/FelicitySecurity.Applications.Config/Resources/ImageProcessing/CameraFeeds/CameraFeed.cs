@@ -110,7 +110,7 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraF
                         form.CameraFeed_ImageBox = SetWorkingCameraFeedProperties(form);
                         Rectangle[] detectedFace = GetDetectedFace();
                         GetCroppedDetectedFace(detectedFace);
-                        RecogniseDetectedFace(form);
+                        //RecogniseDetectedFace(form, GrayscaledCroppedFace);
                     }
                     else
                     {
@@ -165,16 +165,15 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraF
         /// <summary>
         /// Recognises the details of the detected subject
         /// </summary>
-        private void RecogniseDetectedFace(RegisterMembers_Form form)
+        private void RecogniseDetectedFace(RegisterMembers_Form form, Image<Gray, byte> detectedFace)
         {
             if (suspectFacialPrediction.IsDataSetPopulated)
             {
                 Suspect suspect = new Suspect();
-                suspect = suspectFacialPrediction.GetPositiveMatchOnFacialRecognition(GrayscaledCroppedFace);
+                suspect = suspectFacialPrediction.GetPositiveMatchOnFacialRecognition(detectedFace);
                 int matchValue = (int)suspectFacialPrediction.NeighbourDistance;
                 GetFoundFace(GrayscaledCroppedFace, form);
-                //form.RecognisedMember_EmguImageBox.Image = suspect.Face;
-                //form.GetSuspectDetails(suspect);
+                form.GetSuspectDetails(suspect, detectedFace);
             }
         }
 
