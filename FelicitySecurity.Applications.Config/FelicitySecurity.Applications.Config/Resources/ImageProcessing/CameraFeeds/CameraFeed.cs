@@ -6,7 +6,6 @@ using FelicitySecurity.Applications.Config.Resources.ImageProcessing.FaceRecogni
 using FelicitySecurity.Applications.Config.Views;
 using System;
 using System.Drawing;
-using System.Threading;
 
 namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraFeeds
 {
@@ -171,12 +170,11 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraF
             if (suspectFacialPrediction.IsDataSetPopulated)
             {
                 Suspect suspect = new Suspect();
-                suspect.FirstName = suspectFacialPrediction.GetPositiveMatchOnFacialRecognition(GrayscaledCroppedFace);
-                suspect.LastName = suspectFacialPrediction.GetPositiveMatchOnFacialRecognition(GrayscaledCroppedFace);
-                suspect.PostCode = suspectFacialPrediction.GetPositiveMatchOnFacialRecognition(GrayscaledCroppedFace);
+                suspect = suspectFacialPrediction.GetPositiveMatchOnFacialRecognition(GrayscaledCroppedFace);
                 int matchValue = (int)suspectFacialPrediction.NeighbourDistance;
                 GetFoundFace(GrayscaledCroppedFace, form);
-                form.GetSuspectDetails(suspect);
+                //form.RecognisedMember_EmguImageBox.Image = suspect.Face;
+                //form.GetSuspectDetails(suspect);
             }
         }
 

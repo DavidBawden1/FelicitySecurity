@@ -1,10 +1,12 @@
 ﻿using Emgu.CV;
 using Emgu.CV.Face;
 using Emgu.CV.Structure;
+using FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraFeeds;
 using FelicitySecurity.Services.Data.Repository;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using System.Xml;
 
@@ -156,9 +158,10 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.FaceRec
         {
             get
             {
-                FelicitySecurityRepository repo = new FelicitySecurityRepository();
-                var x = repo.FindAllMembers();
-                if (x.Count == 0)
+                FelicitySecurityRepository repository = new FelicitySecurityRepository();
+                var membersDataSet = repository.FindAllMembers();
+                var memersFacialImageDataSet = membersDataSet.Select(x => x.MemFacialImage);
+                if (memersFacialImageDataSet == null)
                 {
                     _isDataSetPopulated = false;
                 }
@@ -195,37 +198,46 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.FaceRec
         /// <param name="inputImage"></param>
         /// <param name="threshold"></param>
         /// <returns>Positive matches name</returns>
-        public string GetPositiveMatchOnFacialRecognition(Image<Gray, byte> inputImage, int threshold = -1)
+        public Suspect GetPositiveMatchOnFacialRecognition(Image<Gray, byte> inputImage, int threshold = -1)
         {
+            Suspect predictedSuspect = new Suspect();
             //if the image is trained predict a result. 
             if (IsDataSetPopulated)
             {
-                FaceRecognizer.PredictionResult FishR = facerec.Predict(inputImage);
-                if (FishR.Label == -1)// -1 will be intruder but anything above -1 (positive)  will be a match. 
+                if (inputImage != null)
                 {
-                    _nameLabel = "Intruder Alert";
-                    _neighbourDistance = 0;
-                    return NameLabel;
-                }
-                else
-                {
-                    _nameLabel = NameList[FishR.Label];
-                    _lastNameLabel = LastNameList[FishR.Label];
-                    _postCodeLabel = PostCodeList[FishR.Label];
-                    _neighbourDistance = (float)FishR.Distance;
-
-                    if (_neighbourDistance > _modelThreshold)
+                    FaceRecognizer.PredictionResult FishR = facerec.Predict(inputImage);
+                    if (FishR.Label == -1)// -1 will be intruder but anything above -1 (positive)  will be a match. 
                     {
-                        _nameLabel = "Intruder Alert";
-                        return _nameLabel;
+                        predictedSuspect.FirstName = "Intruder Alert";
+                        _neighbourDistance = 0;
+                        return predictedSuspect;
                     }
                     else
                     {
-                        return _nameLabel;
+                        predictedSuspect.FirstName = NameList[FishR.Label];
+                        predictedSuspect.LastName = LastNameList[FishR.Label];
+                        predictedSuspect.PostCode = PostCodeList[FishR.Label];
+                        predictedSuspect.Face = inputImage;
+                        _neighbourDistance = (float)FishR.Distance;
+
+                        if (_neighbourDistance > _modelThreshold)
+                        {
+                            _nameLabel = "Intruder Alert";
+                            return predictedSuspect;
+                        }
+                        else
+                        {
+                            return predictedSuspect;
+                        }
                     }
                 }
             }
-            return threshold.ToString();
+            predictedSuspect.FirstName = string.Empty;
+            predictedSuspect.LastName = string.Empty;
+            predictedSuspect.PostCode = string.Empty;
+            predictedSuspect.Face = new Image<Gray, byte>(0,0);
+            return predictedSuspect;
         }
 
         /// <summary>

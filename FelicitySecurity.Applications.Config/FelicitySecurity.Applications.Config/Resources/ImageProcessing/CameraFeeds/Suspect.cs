@@ -1,4 +1,7 @@
-﻿namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraFeeds
+﻿using Emgu.CV;
+using Emgu.CV.Structure;
+
+namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraFeeds
 {
     /// <summary>
     /// The predicted Suspects identity.
@@ -8,6 +11,6 @@
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string PostCode { get; set; }
-        public string Face { get; set; }
+        public Image<Gray, byte> Face { get; set; }
     }   
 }
