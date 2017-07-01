@@ -19,12 +19,6 @@ namespace FelicitySecurity.Applications.Config.Resources.Controls
         public string ItemText { get; set; }
 
         /// <summary>
-        /// The list boxes second item text: first name or last name
-        /// </summary>
-
-        public string ItemText2 { get; set; }
-
-        /// <summary>
         /// ensures the returned text is of type: string
         /// </summary>
         /// <returns>Column one</returns>
