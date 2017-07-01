@@ -150,10 +150,12 @@ namespace FelicitySecurity.Services.Data.Repository
                         dto.MemLastname = item.MemLastname;
                         dto.MemPhonenumber = item.MemPhonenumber;
                         dto.MemDOB = item.MemDOB;
-                        dto.MemRegDate = item.MemRegDate;
+                        dto.MemPostcode = item.MemPostcode;
                         dto.MemStatus = item.MemStatus;
+                        dto.MemRegDate = item.MemRegDate;
                         dto.IsStaff = item.IsStaff;
                         dto.MemFacialImage = item.MemFacialImage;
+                        membersResult.Add(dto);
                     }
                 }
             }

@@ -12,11 +12,8 @@ namespace FelicitySecurity.Applications.Config.Interfaces
         string Username { get; set; }
         string PinCode { get; set; }
         string PinCodeConfirmed { get; set; }
-        void Clear(RegisterAdministrators_Form form);
-        void BindTextboxControls(RegisterAdministrators_Form form, AdministratorsViewModel viewModel);
         void DisplayAdministratorEmails(RegisterAdministrators_Form form, AdministratorsController controller, AdministratorsModel model, CurrentSortingType sortingType);
         bool IsPersonAuthorised(AuthenticateAdministrators_Form form, string email, string pinCode, AdministratorsController controller, AdministratorsModel model);
-        void OnPropertyChanged(string propertyName);
     }
 
 }
