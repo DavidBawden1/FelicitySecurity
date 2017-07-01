@@ -2,6 +2,7 @@
 using FelicitySecurity.Applications.Config.Models;
 using FelicitySecurity.Core.BusinessLogic;
 using FelicitySecurity.Core.FelicitySecurityDataServiceReference;
+using System.Collections.Generic;
 
 namespace FelicitySecurity.Applications.Config.Controllers
 {
@@ -32,6 +33,30 @@ namespace FelicitySecurity.Applications.Config.Controllers
             memberDto.IsStaff = model.IsPersonAStaffMember;
             memberDto.MemFacialImage = model.MemberFacialImages;
             businessLogic.AddMember(memberDto);
+        }
+
+        /// <summary>
+        /// Calls the FindAllMembers method in the business logic class. 
+        /// </summary>
+        public List<MemberModel> FindAllMembers(MemberModel model)
+        {
+            List<Members_dto> allMembers = businessLogic.FindAllMembers();
+            foreach(Members_dto member in allMembers)
+            {
+                MemberModel memberModel = new MemberModel();
+                memberModel.MemberId = member.MemID;
+                memberModel.MemberFirstName = member.MemFirstname;
+                memberModel.MemberLastName = member.MemLastname;
+                memberModel.MemberDateOfBirth = member.MemDOB.GetValueOrDefault();
+                memberModel.MemberPostCode = member.MemPostcode;
+                memberModel.MemberPhoneNumber = member.MemPhonenumber;
+                memberModel.MemberDateOfRegistration = member.MemRegDate.GetValueOrDefault();
+                memberModel.IsPersonARegisteredMember = member.MemStatus.Value;
+                memberModel.IsPersonAStaffMember = member.IsStaff.Value;
+                memberModel.MemberFacialImages = member.MemFacialImage;
+                model.ListOfMembers.Add(memberModel);
+            }
+            return model.ListOfMembers;
         }
         #endregion
     }

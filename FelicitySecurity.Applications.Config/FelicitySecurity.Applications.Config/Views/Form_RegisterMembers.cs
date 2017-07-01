@@ -149,7 +149,7 @@ namespace FelicitySecurity.Applications.Config.Views
         /// </summary>
         /// <param name="detectedSubject">the detected subject details.</param>
         /// <returns>suspect</returns>
-        public delegate Suspect SetSuspectDetails(Suspect detectedSubject);
+        public delegate void SetSuspectDetails(Suspect detectedSubject, Image<Gray, byte> detectedFace);
 
         /// <summary>
         /// a timer
@@ -205,6 +205,7 @@ namespace FelicitySecurity.Applications.Config.Views
         /// <param name="e"></param>
         private void RegisterMembers_Form_Load(object sender, EventArgs e)
         {
+            viewModel.DisplayMemberNames(this, controller, model);
             Application.Idle += StartTimer;
         }
 
@@ -240,11 +241,20 @@ namespace FelicitySecurity.Applications.Config.Views
         /// Gets the suspect details from the camera feed being run under the background worker thread. 
         /// </summary>
         /// <param name="suspect"></param>
-        public Suspect GetSuspectDetails(Suspect suspect)
+        public void GetSuspectDetails(Suspect suspect, Image<Gray, byte> detectedFace)
         {
-            SetSuspectDetails suspectDetails = new SetSuspectDetails(GetSuspectDetails);
-            Invoke(suspectDetails, new object[] { suspect });
-            return suspect;
+            if (InvokeRequired)
+            {
+                SetSuspectDetails suspectDetails = new SetSuspectDetails(GetSuspectDetails);
+                Invoke(suspectDetails, new object[] { suspect, detectedFace });
+            }
+            else
+            {
+                RecognisedMember_EmguImageBox.Image = suspect.Face;
+                FirstName_Textbox.Text = suspect.FirstName;
+                LastName_Textbox.Text = suspect.LastName;
+                PostCode_Textbox.Text = suspect.PostCode;
+            }
         }
 
         /// <summary>
