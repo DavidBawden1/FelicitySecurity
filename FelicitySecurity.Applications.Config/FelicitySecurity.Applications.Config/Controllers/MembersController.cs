@@ -47,10 +47,10 @@ namespace FelicitySecurity.Applications.Config.Controllers
                 memberModel.MemberId = member.MemID;
                 memberModel.MemberFirstName = member.MemFirstname;
                 memberModel.MemberLastName = member.MemLastname;
-                memberModel.MemberDateOfBirth = member.MemDOB.GetValueOrDefault();
+                memberModel.MemberDateOfBirth = member.MemDOB;
                 memberModel.MemberPostCode = member.MemPostcode;
                 memberModel.MemberPhoneNumber = member.MemPhonenumber;
-                memberModel.MemberDateOfRegistration = member.MemRegDate.GetValueOrDefault();
+                memberModel.MemberDateOfRegistration = member.MemRegDate;
                 memberModel.IsPersonARegisteredMember = member.MemStatus.Value;
                 memberModel.IsPersonAStaffMember = member.IsStaff.Value;
                 memberModel.MemberFacialImages = member.MemFacialImage;
