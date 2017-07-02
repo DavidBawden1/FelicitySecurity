@@ -11,10 +11,10 @@ namespace FelicitySecurity.Core.DataTransferObjects
         public string MemFirstname { get; set; }
         public string MemLastname { get; set; }
         public string MemPhonenumber { get; set; }
-        public DateTime? MemDOB { get; set; }
+        public DateTime MemDOB { get; set; }
         public string MemPostcode { get; set; }
         public bool? MemStatus { get; set; }
-        public DateTime? MemRegDate { get; set; }
+        public DateTime MemRegDate { get; set; }
         public bool? IsStaff { get; set; }
         public byte[] MemFacialImage { get; set; }
     }

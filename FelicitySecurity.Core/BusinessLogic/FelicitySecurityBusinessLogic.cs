@@ -87,6 +87,15 @@ namespace FelicitySecurity.Core.BusinessLogic
         {
             client.UpdateAdministrator(item);
         }
+
+        /// <summary>
+        /// Calls the Update Administrator Repository method
+        /// </summary>
+        /// <param name="item"></param>
+        public void UpdateMember(Members_dto item)
+        {
+            client.UpdateMember(item);
+        }
         #endregion
     }
 }

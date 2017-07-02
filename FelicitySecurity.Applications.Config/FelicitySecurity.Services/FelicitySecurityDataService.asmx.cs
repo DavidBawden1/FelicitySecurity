@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using FelicitySecurity.Core.DataTransferObjects;
 using System.Web.Services;
 using System.ServiceModel;
+using System;
 
 namespace FelicitySecurity.Services
 {
@@ -105,6 +106,17 @@ namespace FelicitySecurity.Services
         public void UpdateAdministrator(Administrators_dto item)
         {
             repository.UpdateAdministrator(item);
+        }
+
+        [WebMethod]
+        [OperationContract]
+        /// <summary>
+        /// Calls the Update Member businessLogic method and passes the member to update with
+        /// </summary>
+        /// <param name="item"></param>
+        public void UpdateMember(Members_dto item)
+        {
+            repository.UpdateMember(item);
         }
         #endregion
     }

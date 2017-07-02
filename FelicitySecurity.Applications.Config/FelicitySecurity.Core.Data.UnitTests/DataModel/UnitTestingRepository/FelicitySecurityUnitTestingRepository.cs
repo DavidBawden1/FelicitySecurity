@@ -173,8 +173,8 @@ namespace FelicitySecurity.Services.Data.Repository
                         dto.MemFirstname = item.MemFirstname;
                         dto.MemLastname = item.MemLastname;
                         dto.MemPhonenumber = item.MemPhonenumber;
-                        dto.MemDOB = item.MemDOB;
-                        dto.MemRegDate = item.MemRegDate;
+                        dto.MemDOB = item.MemDOB.GetValueOrDefault();
+                        dto.MemRegDate = item.MemRegDate.GetValueOrDefault();
                         dto.MemStatus = item.MemStatus;
                         dto.IsStaff = item.IsStaff;
                     }
