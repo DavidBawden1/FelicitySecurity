@@ -58,6 +58,28 @@ namespace FelicitySecurity.Applications.Config.Controllers
             }
             return model.ListOfMembers;
         }
+
+        /// <summary>
+        /// Updates the old Members dto with the new Members model. 
+        /// </summary>
+        /// <param name="model"></param>
+        public void UpdateSelectedMember(MemberModel model)
+        {
+            Members_dto member_dto = new Members_dto()
+            {
+                MemID = model.MemberId,
+                MemFirstname = model.MemberFirstName,
+                MemLastname = model.MemberLastName,
+                MemDOB = model.MemberDateOfBirth,
+                MemPhonenumber = model.MemberPhoneNumber,
+                MemPostcode = model.MemberPostCode,
+                MemStatus = model.IsPersonARegisteredMember,
+                MemRegDate = model.MemberDateOfRegistration,
+                MemFacialImage = model.MemberFacialImages,
+                IsStaff = model.IsPersonAStaffMember
+            };
+            businessLogic.UpdateMember(member_dto);
+        }
         #endregion
     }
 }

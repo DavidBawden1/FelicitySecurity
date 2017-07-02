@@ -432,6 +432,7 @@
             this.UpdateMember_Button.TabIndex = 22;
             this.UpdateMember_Button.Text = "Update Member";
             this.UpdateMember_Button.UseVisualStyleBackColor = true;
+            this.UpdateMember_Button.Click += new System.EventHandler(this.UpdateMember_Button_Click);
             // 
             // MoreMemberCredentials_GroupBox
             // 

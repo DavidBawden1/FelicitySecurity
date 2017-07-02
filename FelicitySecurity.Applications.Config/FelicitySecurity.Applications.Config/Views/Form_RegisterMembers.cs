@@ -2,6 +2,7 @@
 using Emgu.CV.Structure;
 using FelicitySecurity.Applications.Config.Controllers;
 using FelicitySecurity.Applications.Config.Models;
+using FelicitySecurity.Applications.Config.Resources.Controls;
 using FelicitySecurity.Applications.Config.Resources.ImageProcessing;
 using FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraFeeds;
 using FelicitySecurity.Applications.Config.Resources.ImageProcessing.FaceRecognition;
@@ -96,6 +97,11 @@ namespace FelicitySecurity.Applications.Config.Views
                 return Error;
             }
         }
+
+        /// <summary>
+        /// Set when the user selects a member from the list.
+        /// </summary>
+        public int SelectedMemberId { get; set; }
 
         /// <summary>
         /// Validates all fields that can be validated for the register members form 
@@ -346,6 +352,72 @@ namespace FelicitySecurity.Applications.Config.Views
             {
                 MessageBox.Show(Error, "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        /// <summary>
+        /// Validates the form data entry and updates the selected members information. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void UpdateMember_Button_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(Error))
+            {
+                if (ExistingMembers_ListBox.SelectedItem != null)
+                {
+                    UpdateSelectedMember();
+                    MessageBox.Show(string.Format("{0} {1} updated successfully", FirstName_Textbox.Text, LastName_Textbox.Text), "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Please select a member to update.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show(Error, "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void UpdateSelectedMember()
+        {
+            ImageConversions imageConversions = new ImageConversions();
+            imageConversions.AppendEachImageToByteArrayOfImageList(viewModel);
+            viewModel.BindControls(this, viewModel);
+            PopulateModelWithSelectedMemberId();
+            viewModel.UpdateSelectedMember(controller, model);
+            RefreshUIPostUpdatingMember();
+        }
+
+        private void RefreshUIPostUpdatingMember()
+        {
+            FirstName_Textbox.Clear();
+            LastName_Textbox.Clear();
+            PostCode_Textbox.Clear();
+            PhoneNumber_Textbox.Clear();
+            DateOfBirth_DatePicker.Value = DateTime.Today;
+            DateOfRegistration_DatePicker.Value = DateTime.Today;
+            MembershipStatus_Checkbox.Checked = false;
+            StaffStatus_Checkbox.Checked = false;
+            viewModel.DisplayMemberNames(this, controller, model);
+        }
+
+        /// <summary>
+        /// Populates the member model the properties of the selected member. 
+        /// </summary>
+        private void PopulateModelWithSelectedMemberId()
+        {
+            SelectedMemberId = (ExistingMembers_ListBox.SelectedItem as ListboxItem).Value;
+            model.MemberId = SelectedMemberId;
+            model.MemberFirstName = FirstName_Textbox.Text;
+            model.MemberLastName = LastName_Textbox.Text;
+            model.MemberPhoneNumber = PhoneNumber_Textbox.Text;
+            model.MemberDateOfBirth = DateOfBirth_DatePicker.Value;
+            model.MemberPostCode = PostCode_Textbox.Text;
+            model.IsPersonARegisteredMember = MembershipStatus_Checkbox.Checked;
+            model.MemberDateOfRegistration = DateOfRegistration_DatePicker.Value;
+            model.IsPersonAStaffMember = StaffStatus_Checkbox.Checked;
+            model.MemberFacialImages = viewModel.ByteArrayOfImageList;
         }
     }
 }
