@@ -47,16 +47,38 @@ namespace FelicitySecurity.Applications.Config.Controllers
                 memberModel.MemberId = member.MemID;
                 memberModel.MemberFirstName = member.MemFirstname;
                 memberModel.MemberLastName = member.MemLastname;
-                memberModel.MemberDateOfBirth = member.MemDOB.GetValueOrDefault();
+                memberModel.MemberDateOfBirth = member.MemDOB;
                 memberModel.MemberPostCode = member.MemPostcode;
                 memberModel.MemberPhoneNumber = member.MemPhonenumber;
-                memberModel.MemberDateOfRegistration = member.MemRegDate.GetValueOrDefault();
+                memberModel.MemberDateOfRegistration = member.MemRegDate;
                 memberModel.IsPersonARegisteredMember = member.MemStatus.Value;
                 memberModel.IsPersonAStaffMember = member.IsStaff.Value;
                 memberModel.MemberFacialImages = member.MemFacialImage;
                 model.ListOfMembers.Add(memberModel);
             }
             return model.ListOfMembers;
+        }
+
+        /// <summary>
+        /// Updates the old Members dto with the new Members model. 
+        /// </summary>
+        /// <param name="model"></param>
+        public void UpdateSelectedMember(MemberModel model)
+        {
+            Members_dto member_dto = new Members_dto()
+            {
+                MemID = model.MemberId,
+                MemFirstname = model.MemberFirstName,
+                MemLastname = model.MemberLastName,
+                MemDOB = model.MemberDateOfBirth,
+                MemPhonenumber = model.MemberPhoneNumber,
+                MemPostcode = model.MemberPostCode,
+                MemStatus = model.IsPersonARegisteredMember,
+                MemRegDate = model.MemberDateOfRegistration,
+                MemFacialImage = model.MemberFacialImages,
+                IsStaff = model.IsPersonAStaffMember
+            };
+            businessLogic.UpdateMember(member_dto);
         }
         #endregion
     }

@@ -125,14 +125,14 @@ namespace FelicitySecurity.Core.FelicitySecurityDataServiceReference {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string MemPhonenumberField;
         
-        private System.Nullable<System.DateTime> MemDOBField;
+        private System.DateTime MemDOBField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string MemPostcodeField;
         
         private System.Nullable<bool> MemStatusField;
         
-        private System.Nullable<System.DateTime> MemRegDateField;
+        private System.DateTime MemRegDateField;
         
         private System.Nullable<bool> IsStaffField;
         
@@ -202,7 +202,7 @@ namespace FelicitySecurity.Core.FelicitySecurityDataServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
-        public System.Nullable<System.DateTime> MemDOB {
+        public System.DateTime MemDOB {
             get {
                 return this.MemDOBField;
             }
@@ -241,7 +241,7 @@ namespace FelicitySecurity.Core.FelicitySecurityDataServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=7)]
-        public System.Nullable<System.DateTime> MemRegDate {
+        public System.DateTime MemRegDate {
             get {
                 return this.MemRegDateField;
             }
@@ -452,6 +452,13 @@ namespace FelicitySecurity.Core.FelicitySecurityDataServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateAdministrator", ReplyAction="*")]
         System.Threading.Tasks.Task<FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateAdministratorResponse> UpdateAdministratorAsync(FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateAdministratorRequest request);
+        
+        // CODEGEN: Generating message contract since element name item from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateMember", ReplyAction="*")]
+        FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateMemberResponse UpdateMember(FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateMemberRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateMember", ReplyAction="*")]
+        System.Threading.Tasks.Task<FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateMemberResponse> UpdateMemberAsync(FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateMemberRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -881,6 +888,67 @@ namespace FelicitySecurity.Core.FelicitySecurityDataServiceReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class UpdateMemberRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdateMember", Namespace="http://tempuri.org/", Order=0)]
+        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateMemberRequestBody Body;
+        
+        public UpdateMemberRequest() {
+        }
+        
+        public UpdateMemberRequest(FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateMemberRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class UpdateMemberRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.Members_dto item;
+        
+        public UpdateMemberRequestBody() {
+        }
+        
+        public UpdateMemberRequestBody(FelicitySecurity.Core.FelicitySecurityDataServiceReference.Members_dto item) {
+            this.item = item;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class UpdateMemberResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdateMemberResponse", Namespace="http://tempuri.org/", Order=0)]
+        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateMemberResponseBody Body;
+        
+        public UpdateMemberResponse() {
+        }
+        
+        public UpdateMemberResponse(FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateMemberResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class UpdateMemberResponseBody {
+        
+        public UpdateMemberResponseBody() {
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface FelicitySecurityDataServiceSoapChannel : FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap, System.ServiceModel.IClientChannel {
     }
@@ -1079,6 +1147,30 @@ namespace FelicitySecurity.Core.FelicitySecurityDataServiceReference {
             inValue.Body = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateAdministratorRequestBody();
             inValue.Body.item = item;
             return ((FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).UpdateAdministratorAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateMemberResponse FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.UpdateMember(FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateMemberRequest request) {
+            return base.Channel.UpdateMember(request);
+        }
+        
+        public void UpdateMember(FelicitySecurity.Core.FelicitySecurityDataServiceReference.Members_dto item) {
+            FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateMemberRequest inValue = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateMemberRequest();
+            inValue.Body = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateMemberRequestBody();
+            inValue.Body.item = item;
+            FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateMemberResponse retVal = ((FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).UpdateMember(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateMemberResponse> FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.UpdateMemberAsync(FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateMemberRequest request) {
+            return base.Channel.UpdateMemberAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateMemberResponse> UpdateMemberAsync(FelicitySecurity.Core.FelicitySecurityDataServiceReference.Members_dto item) {
+            FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateMemberRequest inValue = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateMemberRequest();
+            inValue.Body = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateMemberRequestBody();
+            inValue.Body.item = item;
+            return ((FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).UpdateMemberAsync(inValue);
         }
     }
 }
