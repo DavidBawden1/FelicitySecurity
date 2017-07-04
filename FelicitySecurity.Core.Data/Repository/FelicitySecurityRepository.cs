@@ -254,7 +254,7 @@ namespace FelicitySecurity.Services.Data.Repository
         /// Takes a specified administratorId and then removes the administrator associated with it.
         /// </summary>
         /// <param name="administratorId">The administrator to remove</param>
-        public new void RemoveAdministrator(int administratorId)
+        public void RemoveAdministrator(int administratorId)
         {
             try
             {
@@ -315,6 +315,7 @@ namespace FelicitySecurity.Services.Data.Repository
                     memberToUpdate.IsStaff = memberDto.IsStaff.Value;
                     memberToUpdate.MemRegDate = memberDto.MemRegDate;
                     memberToUpdate.MemFacialImage = memberDto.MemFacialImage;
+                    dbContext.SaveChanges();
                 }
             }catch(Exception e)
             {
