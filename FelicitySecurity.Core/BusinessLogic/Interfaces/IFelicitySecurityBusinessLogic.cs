@@ -52,6 +52,11 @@ namespace FelicitySecurity.Services.Data.Interfaces
         /// </summary>
         /// <param name="item"></param>
         void UpdateAdministrator(Administrators_dto item);
-       
+
+        /// <summary>
+        /// Calls the Update Member Repository method
+        /// </summary>
+        /// <param name="item"></param>
+        void UpdateMember(Members_dto item);
     }
 }

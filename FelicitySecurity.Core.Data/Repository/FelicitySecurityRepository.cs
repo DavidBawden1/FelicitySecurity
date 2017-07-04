@@ -182,8 +182,8 @@ namespace FelicitySecurity.Services.Data.Repository
                         MemPhonenumber = item.MemPhonenumber,
                         MemPostcode = item.MemPostcode,
                         MemStatus = item.MemStatus.Value,
-                        MemDOB = item.MemDOB.Value,
-                        MemRegDate = item.MemRegDate.Value,
+                        MemDOB = item.MemDOB,
+                        MemRegDate = item.MemRegDate,
                         IsStaff = item.IsStaff.Value,
                         MemFacialImage = item.MemFacialImage
                     };
@@ -254,7 +254,7 @@ namespace FelicitySecurity.Services.Data.Repository
         /// Takes a specified administratorId and then removes the administrator associated with it.
         /// </summary>
         /// <param name="administratorId">The administrator to remove</param>
-        public new void RemoveAdministrator(int administratorId)
+        public void RemoveAdministrator(int administratorId)
         {
             try
             {
@@ -275,21 +275,49 @@ namespace FelicitySecurity.Services.Data.Repository
         /// <summary>
         /// Updates the selected Administrator
         /// </summary>
-        /// <param name="admin_dto"></param>
-        public void UpdateAdministrator(Administrators_dto admin_dto)
+        /// <param name="adminDto"></param>
+        public void UpdateAdministrator(Administrators_dto adminDto)
         {
             try
             {
                 using (FelicityLiveEntities dbContext = (FelicityLiveEntities)GetDBContext())
                 {
-                    var administratorToUpdate = dbContext.AdminTable.SingleOrDefault(i => i.AdminID == admin_dto.AdminID);
-                    administratorToUpdate.AdminEmail = admin_dto.AdminEmail;
-                    administratorToUpdate.AdminName = admin_dto.AdminName;
-                    administratorToUpdate.AdminPinCode = admin_dto.AdminPinCode;
+                    var administratorToUpdate = dbContext.AdminTable.SingleOrDefault(administrator => administrator.AdminID == adminDto.AdminID);
+                    administratorToUpdate.AdminEmail = adminDto.AdminEmail;
+                    administratorToUpdate.AdminName = adminDto.AdminName;
+                    administratorToUpdate.AdminPinCode = adminDto.AdminPinCode;
                     dbContext.SaveChanges();
                 }
             }
             catch(Exception e)
+            {
+                Logging.LogErrorEvent(null, e);
+            }
+        }
+
+        /// <summary>
+        /// Updates the selected Member
+        /// </summary>
+        /// <param name="memberDto"></param>
+        public void UpdateMember(Members_dto memberDto)
+        {
+            try
+            {
+                using (FelicityLiveEntities dbContext = (FelicityLiveEntities)GetDBContext())
+                {
+                    var memberToUpdate = dbContext.MemberTable.SingleOrDefault(member => member.MemID == memberDto.MemID);
+                    memberToUpdate.MemFirstname = memberDto.MemFirstname;
+                    memberToUpdate.MemLastname = memberDto.MemLastname;
+                    memberToUpdate.MemPhonenumber = memberDto.MemPhonenumber;
+                    memberToUpdate.MemPostcode = memberDto.MemPostcode;
+                    memberToUpdate.MemDOB = memberDto.MemDOB;
+                    memberToUpdate.MemStatus = memberDto.MemStatus.Value;
+                    memberToUpdate.IsStaff = memberDto.IsStaff.Value;
+                    memberToUpdate.MemRegDate = memberDto.MemRegDate;
+                    memberToUpdate.MemFacialImage = memberDto.MemFacialImage;
+                    dbContext.SaveChanges();
+                }
+            }catch(Exception e)
             {
                 Logging.LogErrorEvent(null, e);
             }

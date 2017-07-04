@@ -161,6 +161,16 @@ namespace FelicitySecurity.Applications.Config.ViewModels
         }
 
         /// <summary>
+        /// Passes the new member model to the controller so it can update the old dto
+        /// </summary>
+        /// <param name="controller"></param>
+        /// <param name="model"></param>
+        public void UpdateSelectedMember(MembersController controller, MemberModel model)
+        {
+            controller.UpdateSelectedMember(model);
+        }
+
+        /// <summary>
         /// Binds the properties of the viewModel to the controls in 
         /// </summary>
         /// <param name="form"></param>
@@ -175,7 +185,7 @@ namespace FelicitySecurity.Applications.Config.ViewModels
             Binding memberPhoneNumber = new Binding(form.PhoneNumber_Textbox.Text, viewModel, "MemberPhoneNumber");
             Binding isPersonARegisteredMember = new Binding(form.MembershipStatus_Checkbox.Text, viewModel, "IsPersonARegisteredMember");
             Binding isPersonAStaffMember = new Binding(form.StaffStatus_Checkbox.Text, viewModel, "IsPersonAStaffMember");
-            Binding memberFacialImages = new Binding(ByteArrayOfImageList.ToString(), viewModel, "MemberFacialImages");
+            MemberFacialImages = ByteArrayOfImageList;
         }
 
         /// <summary>

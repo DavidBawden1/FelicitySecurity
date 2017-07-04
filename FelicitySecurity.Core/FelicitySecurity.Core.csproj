@@ -133,6 +133,9 @@
     <None Include="Service References\FelicitySecurityDataServiceReference\FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateAdministratorResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\FelicitySecurityDataServiceReference\FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateMemberResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\FelicitySecurityDataServiceReference\FelicitySecurityDataService.wsdl" />
   </ItemGroup>
   <ItemGroup>
