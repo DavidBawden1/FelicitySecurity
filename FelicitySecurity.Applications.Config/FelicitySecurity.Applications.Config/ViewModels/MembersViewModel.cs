@@ -8,6 +8,7 @@ using FelicitySecurity.Applications.Config.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace FelicitySecurity.Applications.Config.ViewModels
@@ -219,7 +220,7 @@ namespace FelicitySecurity.Applications.Config.ViewModels
         /// <summary>
         /// Returns every members firstname to Listbox
         /// </summary>
-        public void DisplayMemberNames(RegisterMembers_Form form, MembersController controller, MemberModel model)
+        public void DisplayMemberDetailsToListbox(RegisterMembers_Form form, MembersController controller, MemberModel model)
         {
             form.ExistingMembers_ListBox.Items.Clear();
             var listOfMembers = controller.FindAllMembers(model);
@@ -238,6 +239,29 @@ namespace FelicitySecurity.Applications.Config.ViewModels
                 form.ExistingMembers_ListBox.Items.Add("Add an Member");
             }
             model.ListOfMembers.Clear();
+        }
+
+        /// <summary>
+        /// Returns the selected members details to their relevant form fields.
+        /// </summary>
+        /// <param name="form"></param>
+        /// <param name="controller"></param>
+        /// <param name="model"></param>
+        public void DisplayMemberDetailsToFormControls(RegisterMembers_Form form, MembersController controller, MemberModel model)
+        {
+            if (model.MemberId > 0)
+            {
+                var selectedMemberModel = controller.FindAllMembers(model).Where(x => x.MemberId == model.MemberId).FirstOrDefault();
+                form.FirstName_Textbox.Text = selectedMemberModel.MemberFirstName;
+                form.LastName_Textbox.Text = selectedMemberModel.MemberLastName;
+                form.DateOfBirth_DatePicker.Value = selectedMemberModel.MemberDateOfBirth.Date;
+                form.PostCode_Textbox.Text = selectedMemberModel.MemberPostCode;
+                form.DateOfRegistration_DatePicker.Value = selectedMemberModel.MemberDateOfRegistration.Date;
+                form.PhoneNumber_Textbox.Text = selectedMemberModel.MemberPhoneNumber;
+                form.MembershipStatus_Checkbox.Checked = selectedMemberModel.IsPersonARegisteredMember;
+                form.StaffStatus_Checkbox.Checked = selectedMemberModel.IsPersonAStaffMember;
+                MemberFacialImages = selectedMemberModel.MemberFacialImages;
+            }
         }
         #endregion
     }
