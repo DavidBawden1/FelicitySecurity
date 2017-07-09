@@ -22,6 +22,7 @@ namespace FelicitySecurity.Applications.Config.Views
         MembersViewModel viewModel = new MembersViewModel();
         MembersController controller = new MembersController();
         MemberModel model = new MemberModel();
+        CurrentSortingType sortingType;
         #endregion
         #region Properties
         private bool _isEnabled = false;
@@ -211,7 +212,8 @@ namespace FelicitySecurity.Applications.Config.Views
         /// <param name="e"></param>
         private void RegisterMembers_Form_Load(object sender, EventArgs e)
         {
-            viewModel.DisplayMemberDetailsToListbox(this, controller, model);
+            InitialiseControlDataSources(this);
+            viewModel.DisplayMemberDetailsToListbox(this, controller, model, sortingType);
             Application.Idle += StartTimer;
         }
 
@@ -379,6 +381,9 @@ namespace FelicitySecurity.Applications.Config.Views
             }
         }
 
+        /// <summary>
+        /// Updates the selected member with the details in the form fields & images in the ByteArray. 
+        /// </summary>
         private void UpdateSelectedMember()
         {
             ImageConversions imageConversions = new ImageConversions();
@@ -389,6 +394,9 @@ namespace FelicitySecurity.Applications.Config.Views
             RefreshUIPostUpdatingMember();
         }
 
+        /// <summary>
+        /// Resets the form fields and refreshes the Existing Members Listbox. 
+        /// </summary>
         private void RefreshUIPostUpdatingMember()
         {
             FirstName_Textbox.Clear();
@@ -399,7 +407,7 @@ namespace FelicitySecurity.Applications.Config.Views
             DateOfRegistration_DatePicker.Value = DateTime.Today;
             MembershipStatus_Checkbox.Checked = false;
             StaffStatus_Checkbox.Checked = false;
-            viewModel.DisplayMemberDetailsToListbox(this, controller, model);
+            viewModel.DisplayMemberDetailsToListbox(this, controller, model, sortingType);
         }
 
         /// <summary>
@@ -420,6 +428,12 @@ namespace FelicitySecurity.Applications.Config.Views
             model.MemberFacialImages = viewModel.ByteArrayOfImageList;
         }
 
+        /// <summary>
+        /// Populates the MemberId with that of the selected member. 
+        /// Updates the form fields with the details of the selected member. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ExistingMembers_ListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -431,6 +445,26 @@ namespace FelicitySecurity.Applications.Config.Views
             {
                 MessageBox.Show("Please select a Member.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        /// <summary>
+        /// Selects the way in which the members list is sorted. i.e. default or alphabetical. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CurrentSort_Combobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Enum.TryParse(CurrentSort_ComboBox.SelectedValue.ToString(), out sortingType);
+            viewModel.DisplayMemberDetailsToListbox(this, controller, model, sortingType);
+        }
+
+        /// <summary>
+        /// populates the combobox with the sortying types.  
+        /// </summary>
+        /// <param name="form"></param>
+        public void InitialiseControlDataSources(RegisterMembers_Form form)
+        {
+            form.CurrentSort_ComboBox.DataSource = Enum.GetValues(typeof(CurrentSortingType));
         }
     }
 }

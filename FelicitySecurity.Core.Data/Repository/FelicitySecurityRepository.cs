@@ -99,7 +99,7 @@ namespace FelicitySecurity.Services.Data.Repository
             }
             catch (Exception e)
             {
-                Logging.LogErrorEvent(null, e);
+                Logging.LogErrorEvent(this, e);
             }
             return administratorsResult.ToList();
         }
@@ -126,7 +126,7 @@ namespace FelicitySecurity.Services.Data.Repository
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                Logging.LogErrorEvent(null, e);
+                Logging.LogErrorEvent(this, e);
             }
             return item;
         }
@@ -161,7 +161,7 @@ namespace FelicitySecurity.Services.Data.Repository
             }
             catch (Exception e)
             {
-                Logging.LogErrorEvent(null, e);
+                Logging.LogErrorEvent(this, e);
             }
             return membersResult.ToList();
         }
@@ -193,7 +193,7 @@ namespace FelicitySecurity.Services.Data.Repository
             }
             catch (Exception e)
             {
-                Logging.LogErrorEvent(null, e);
+                Logging.LogErrorEvent(this, e);
             }
             return item;
         }
@@ -218,7 +218,7 @@ namespace FelicitySecurity.Services.Data.Repository
             }
             catch (Exception e)
             {
-                Logging.LogErrorEvent(null, e);
+                Logging.LogErrorEvent(this, e);
             }
             return item;
         }
@@ -245,7 +245,7 @@ namespace FelicitySecurity.Services.Data.Repository
             }
             catch (Exception e)
             {
-                Logging.LogErrorEvent(null, e);
+                Logging.LogErrorEvent(this, e);
             }
             return staffResults.ToList();
         }
@@ -268,7 +268,7 @@ namespace FelicitySecurity.Services.Data.Repository
             }
             catch (Exception e)
             {
-                Logging.LogErrorEvent(null, e);
+                Logging.LogErrorEvent(this, e);
             }
         }
 
@@ -291,7 +291,7 @@ namespace FelicitySecurity.Services.Data.Repository
             }
             catch(Exception e)
             {
-                Logging.LogErrorEvent(null, e);
+                Logging.LogErrorEvent(this, e);
             }
         }
 
@@ -319,7 +319,7 @@ namespace FelicitySecurity.Services.Data.Repository
                 }
             }catch(Exception e)
             {
-                Logging.LogErrorEvent(null, e);
+                Logging.LogErrorEvent(this, e);
             }
         }
     }
