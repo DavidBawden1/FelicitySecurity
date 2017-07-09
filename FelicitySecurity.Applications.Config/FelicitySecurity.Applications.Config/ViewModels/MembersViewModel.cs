@@ -13,13 +13,13 @@ using System.Windows.Forms;
 
 namespace FelicitySecurity.Applications.Config.ViewModels
 {
+    
     /// <summary>
     /// The Members ViewModel handles data passed to and from controller and view. 
     /// </summary>
     public class MembersViewModel : IMembersViewModel, INotifyPropertyChanged
     {
         #region Declarations 
-        public enum CurrentSortingType { Default, Alphabetical }
         public event PropertyChangedEventHandler PropertyChanged;
 
         #endregion
@@ -220,13 +220,13 @@ namespace FelicitySecurity.Applications.Config.ViewModels
         /// <summary>
         /// Returns every members firstname to Listbox
         /// </summary>
-        public void DisplayMemberDetailsToListbox(RegisterMembers_Form form, MembersController controller, MemberModel model)
+        public void DisplayMemberDetailsToListbox(RegisterMembers_Form form, MembersController controller, MemberModel model, CurrentSortingType sortingType)
         {
             form.ExistingMembers_ListBox.Items.Clear();
-            var listOfMembers = controller.FindAllMembers(model);
+            MemberSorting(controller, model, sortingType);
             if (model.ListOfMembers.Count != 0)
             {
-                foreach (var member in listOfMembers)
+                foreach (var member in model.ListOfMembers)
                 {
                     ListboxItem memberItem = new ListboxItem();
                     memberItem.Value = member.MemberId;
@@ -236,7 +236,7 @@ namespace FelicitySecurity.Applications.Config.ViewModels
             }
             else
             {
-                form.ExistingMembers_ListBox.Items.Add("Add an Member");
+                form.ExistingMembers_ListBox.Items.Add("Add a Member");
             }
             model.ListOfMembers.Clear();
         }
@@ -261,6 +261,28 @@ namespace FelicitySecurity.Applications.Config.ViewModels
                 form.MembershipStatus_Checkbox.Checked = selectedMemberModel.IsPersonARegisteredMember;
                 form.StaffStatus_Checkbox.Checked = selectedMemberModel.IsPersonAStaffMember;
                 MemberFacialImages = selectedMemberModel.MemberFacialImages;
+            }
+        }
+
+        /// <summary>
+        /// Depending on the CurrentSortingType, the list of Members will be sorted with either: Default or Alphabetical. 
+        /// </summary>
+        /// <param name="controller"></param>
+        /// <param name="model"></param>
+        /// <param name="sortingType">default or alphabetical</param>
+        private static void MemberSorting(MembersController controller, MemberModel model, CurrentSortingType sortingType)
+        {
+            switch (sortingType)
+            {
+                case CurrentSortingType.Default:
+                    controller.FindAllMembers(model);
+                    break;
+                case CurrentSortingType.Alphabetical:
+                    controller.FindAllMembers(model).Sort((x, y) => string.Compare(x.MemberLastName, y.MemberLastName));
+                    break;
+                default:
+                    controller.FindAllMembers(model);
+                    break;
             }
         }
         #endregion
