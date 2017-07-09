@@ -211,7 +211,7 @@ namespace FelicitySecurity.Applications.Config.Views
         /// <param name="e"></param>
         private void RegisterMembers_Form_Load(object sender, EventArgs e)
         {
-            viewModel.DisplayMemberNames(this, controller, model);
+            viewModel.DisplayMemberDetailsToListbox(this, controller, model);
             Application.Idle += StartTimer;
         }
 
@@ -399,7 +399,7 @@ namespace FelicitySecurity.Applications.Config.Views
             DateOfRegistration_DatePicker.Value = DateTime.Today;
             MembershipStatus_Checkbox.Checked = false;
             StaffStatus_Checkbox.Checked = false;
-            viewModel.DisplayMemberNames(this, controller, model);
+            viewModel.DisplayMemberDetailsToListbox(this, controller, model);
         }
 
         /// <summary>
@@ -418,6 +418,19 @@ namespace FelicitySecurity.Applications.Config.Views
             model.MemberDateOfRegistration = DateOfRegistration_DatePicker.Value;
             model.IsPersonAStaffMember = StaffStatus_Checkbox.Checked;
             model.MemberFacialImages = viewModel.ByteArrayOfImageList;
+        }
+
+        private void ExistingMembers_ListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                model.MemberId = (ExistingMembers_ListBox.SelectedItem as ListboxItem).Value;
+                viewModel.DisplayMemberDetailsToFormControls(this, controller, model);
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Please select a Member.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

@@ -595,6 +595,7 @@
             this.ExistingMembers_ListBox.Name = "ExistingMembers_ListBox";
             this.ExistingMembers_ListBox.Size = new System.Drawing.Size(235, 149);
             this.ExistingMembers_ListBox.TabIndex = 1;
+            this.ExistingMembers_ListBox.SelectedIndexChanged += new System.EventHandler(this.ExistingMembers_ListBox_SelectedIndexChanged);
             // 
             // FacialDetectionFeedbackGroupBox
             // 
