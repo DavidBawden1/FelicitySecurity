@@ -379,6 +379,9 @@ namespace FelicitySecurity.Applications.Config.Views
             }
         }
 
+        /// <summary>
+        /// Updates the selected member with the details in the form fields & images in the ByteArray. 
+        /// </summary>
         private void UpdateSelectedMember()
         {
             ImageConversions imageConversions = new ImageConversions();
@@ -389,6 +392,9 @@ namespace FelicitySecurity.Applications.Config.Views
             RefreshUIPostUpdatingMember();
         }
 
+        /// <summary>
+        /// Resets the form fields and refreshes the Existing Members Listbox. 
+        /// </summary>
         private void RefreshUIPostUpdatingMember()
         {
             FirstName_Textbox.Clear();
@@ -420,6 +426,12 @@ namespace FelicitySecurity.Applications.Config.Views
             model.MemberFacialImages = viewModel.ByteArrayOfImageList;
         }
 
+        /// <summary>
+        /// Populates the MemberId with that of the selected member. 
+        /// Updates the form fields with the details of the selected member. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ExistingMembers_ListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
