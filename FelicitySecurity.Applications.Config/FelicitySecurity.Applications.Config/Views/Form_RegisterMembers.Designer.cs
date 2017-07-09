@@ -76,6 +76,8 @@
             this.RecognisedMember_GroupBox = new System.Windows.Forms.GroupBox();
             this.RecognisedMember_EmguImageBox = new Emgu.CV.UI.ImageBox();
             this.CameraFeed_BackgroundWorker = new System.ComponentModel.BackgroundWorker();
+            this.registerAdministratorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.GeneralControls_MenuStrip.SuspendLayout();
             this.RegisterMembersBackground_TableLayoutPanel.SuspendLayout();
             this.MembersFacialCameraFeed_GroupBox.SuspendLayout();
@@ -106,6 +108,9 @@
             // 
             // fileToolStripMenuItem
             // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.registerAdministratorToolStripMenuItem,
+            this.logoutToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -674,6 +679,18 @@
             // 
             this.CameraFeed_BackgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.CameraFeedBackgroundWorkerDoWork);
             // 
+            // registerAdministratorToolStripMenuItem
+            // 
+            this.registerAdministratorToolStripMenuItem.Name = "registerAdministratorToolStripMenuItem";
+            this.registerAdministratorToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.registerAdministratorToolStripMenuItem.Text = "Register Administrator";
+            // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.logoutToolStripMenuItem.Text = "Logout";
+            // 
             // RegisterMembers_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -760,5 +777,7 @@
         private System.Windows.Forms.Button UpdateMember_Button;
         private System.ComponentModel.BackgroundWorker CameraFeed_BackgroundWorker;
         public System.Windows.Forms.GroupBox RecognisedMember_GroupBox;
+        private System.Windows.Forms.ToolStripMenuItem registerAdministratorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
     }
 }
