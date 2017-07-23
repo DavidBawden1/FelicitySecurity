@@ -441,7 +441,7 @@ namespace FelicitySecurity.Applications.Config.Views
                 model.MemberId = (ExistingMembers_ListBox.SelectedItem as ListboxItem).Value;
                 viewModel.DisplayMemberDetailsToFormControls(this, controller, model);
             }
-            catch(Exception)
+            catch (Exception)
             {
                 MessageBox.Show("Please select a Member.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -465,6 +465,22 @@ namespace FelicitySecurity.Applications.Config.Views
         public void InitialiseControlDataSources(RegisterMembers_Form form)
         {
             form.CurrentSort_ComboBox.DataSource = Enum.GetValues(typeof(CurrentSortingType));
+        }
+
+        private void DeleteMember_Button_Click(object sender, EventArgs e)
+        {
+            if (ExistingMembers_ListBox.SelectedItem != null)
+            {
+                PopulateModelWithSelectedMemberId();
+                viewModel.DeleteMember(controller, model.MemberId);
+                MessageBox.Show(string.Format("{0} {1} Deleted successfully", FirstName_Textbox.Text, LastName_Textbox.Text), "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                viewModel.DisplayMemberDetailsToListbox(this, controller, model, CurrentSortingType.Default);
+            }
+            else
+            {
+                MessageBox.Show("Please select a member to delete.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }

@@ -11,8 +11,10 @@ namespace FelicitySecurity.Services.Data.Interfaces
         Members_dto AddMember(Members_dto item);
         Staff_dto AddStaff(Staff_dto item);
         List<Staff_dto> FindAllStaff();
-        void RemoveAdministrator(int administratorsId);
+        void DeleteAdministrator(int administratorsId);
         void UpdateAdministrator(Administrators_dto admin);
+        void UpdateMember(Members_dto member);
+        void DeleteMember(int memberId);
 
     }
 }

@@ -254,14 +254,13 @@ namespace FelicitySecurity.Services.Data.Repository
         /// Takes a specified administratorId and then removes the administrator associated with it.
         /// </summary>
         /// <param name="administratorId">The administrator to remove</param>
-        public void RemoveAdministrator(int administratorId)
+        public void DeleteAdministrator(int administratorId)
         {
             try
             {
                 using (FelicityLiveEntities dbContext = (FelicityLiveEntities)GetDBContext())
                 {
-                    AdminTable administratorToRemove = new AdminTable() { AdminID = administratorId };
-                    dbContext.AdminTable.Attach(administratorToRemove);
+                    AdminTable administratorToRemove = dbContext.AdminTable.SingleOrDefault(admin => admin.AdminID == administratorId);
                     dbContext.AdminTable.Remove(administratorToRemove);
                     dbContext.SaveChanges();
                 }
@@ -318,6 +317,27 @@ namespace FelicitySecurity.Services.Data.Repository
                     dbContext.SaveChanges();
                 }
             }catch(Exception e)
+            {
+                Logging.LogErrorEvent(this, e);
+            }
+        }
+
+        /// <summary>
+        /// Removes a Member from the Member table for a given MemberId
+        /// </summary>
+        /// <param name="memberId"></param>
+        public void DeleteMember(int memberId)
+        {
+            try
+            {
+                using (FelicityLiveEntities dbContext = (FelicityLiveEntities)GetDBContext())
+                {
+                    MemberTable memberToDelete = dbContext.MemberTable.SingleOrDefault(member => member.MemID == memberId);
+                    dbContext.MemberTable.Remove(memberToDelete);
+                    dbContext.SaveChanges();
+                }
+            }
+            catch(Exception e)
             {
                 Logging.LogErrorEvent(this, e);
             }

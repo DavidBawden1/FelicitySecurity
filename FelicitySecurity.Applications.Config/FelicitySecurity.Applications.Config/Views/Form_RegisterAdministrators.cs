@@ -309,7 +309,7 @@ namespace FelicitySecurity.Applications.Config
         private void RemoveSelectedAdministrator()
         {
             PopulateModelWithSelectedAdminId();
-            viewModel.RemoveSelectedAdministrator(controller, model);
+            viewModel.DeleteSelectedAdministrator(controller, model.AdminID);
             RefreshUIPostDeletionOfAdmin();
         }
 

@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace FelicitySecurity.Applications.Config.ViewModels
 {
-    
+
     /// <summary>
     /// The Members ViewModel handles data passed to and from controller and view. 
     /// </summary>
@@ -223,6 +223,7 @@ namespace FelicitySecurity.Applications.Config.ViewModels
         public void DisplayMemberDetailsToListbox(RegisterMembers_Form form, MembersController controller, MemberModel model, CurrentSortingType sortingType)
         {
             form.ExistingMembers_ListBox.Items.Clear();
+            model.ListOfMembers.Clear();
             MemberSorting(controller, model, sortingType);
             if (model.ListOfMembers.Count != 0)
             {
@@ -238,7 +239,6 @@ namespace FelicitySecurity.Applications.Config.ViewModels
             {
                 form.ExistingMembers_ListBox.Items.Add("Add a Member");
             }
-            model.ListOfMembers.Clear();
         }
 
         /// <summary>
@@ -283,6 +283,14 @@ namespace FelicitySecurity.Applications.Config.ViewModels
                 default:
                     controller.FindAllMembers(model);
                     break;
+            }
+        }
+
+        public void DeleteMember(MembersController controller, int memberId)
+        {
+            if (memberId > 0)
+            {
+                controller.DeleteMember(memberId);
             }
         }
         #endregion

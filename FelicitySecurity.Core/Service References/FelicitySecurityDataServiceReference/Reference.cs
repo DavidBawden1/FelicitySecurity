@@ -459,6 +459,12 @@ namespace FelicitySecurity.Core.FelicitySecurityDataServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateMember", ReplyAction="*")]
         System.Threading.Tasks.Task<FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateMemberResponse> UpdateMemberAsync(FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateMemberRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeleteMember", ReplyAction="*")]
+        void DeleteMember(int memberId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeleteMember", ReplyAction="*")]
+        System.Threading.Tasks.Task DeleteMemberAsync(int memberId);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1171,6 +1177,14 @@ namespace FelicitySecurity.Core.FelicitySecurityDataServiceReference {
             inValue.Body = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.UpdateMemberRequestBody();
             inValue.Body.item = item;
             return ((FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).UpdateMemberAsync(inValue);
+        }
+        
+        public void DeleteMember(int memberId) {
+            base.Channel.DeleteMember(memberId);
+        }
+        
+        public System.Threading.Tasks.Task DeleteMemberAsync(int memberId) {
+            return base.Channel.DeleteMemberAsync(memberId);
         }
     }
 }
