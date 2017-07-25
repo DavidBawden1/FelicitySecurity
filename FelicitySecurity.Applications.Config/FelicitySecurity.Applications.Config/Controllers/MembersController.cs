@@ -3,6 +3,7 @@ using FelicitySecurity.Applications.Config.Models;
 using FelicitySecurity.Core.BusinessLogic;
 using FelicitySecurity.Core.FelicitySecurityDataServiceReference;
 using System.Collections.Generic;
+using System;
 
 namespace FelicitySecurity.Applications.Config.Controllers
 {
@@ -35,13 +36,14 @@ namespace FelicitySecurity.Applications.Config.Controllers
             businessLogic.AddMember(memberDto);
         }
 
+
         /// <summary>
         /// Calls the FindAllMembers method in the business logic class. 
         /// </summary>
         public List<MemberModel> FindAllMembers(MemberModel model)
         {
             List<Members_dto> allMembers = businessLogic.FindAllMembers();
-            foreach(Members_dto member in allMembers)
+            foreach (Members_dto member in allMembers)
             {
                 MemberModel memberModel = new MemberModel();
                 memberModel.MemberId = member.MemID;
@@ -79,6 +81,15 @@ namespace FelicitySecurity.Applications.Config.Controllers
                 IsStaff = model.IsPersonAStaffMember
             };
             businessLogic.UpdateMember(member_dto);
+        }
+
+        /// <summary>
+        /// Deletes the Member with the supplied memberId
+        /// </summary>
+        /// <param name="memberId"></param>
+        public void DeleteMember(int memberId)
+        {
+            businessLogic.DeleteMember(memberId);
         }
         #endregion
     }

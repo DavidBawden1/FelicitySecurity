@@ -439,6 +439,7 @@
             this.DeleteMember_Button.TabIndex = 23;
             this.DeleteMember_Button.Text = "Delete Member";
             this.DeleteMember_Button.UseVisualStyleBackColor = true;
+            this.DeleteMember_Button.Click += new System.EventHandler(this.DeleteMember_Button_Click);
             // 
             // UpdateMember_Button
             // 

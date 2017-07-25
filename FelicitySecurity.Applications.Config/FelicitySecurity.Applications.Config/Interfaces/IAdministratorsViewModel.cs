@@ -13,6 +13,8 @@ namespace FelicitySecurity.Applications.Config.Interfaces
         string PinCode { get; set; }
         string PinCodeConfirmed { get; set; }
         void DisplayAdministratorEmails(RegisterAdministrators_Form form, AdministratorsController controller, AdministratorsModel model, CurrentSortingType sortingType);
+        void UpdateSelectedAdministrator(AdministratorsController controller, AdministratorsModel model);
+        void DeleteSelectedAdministrator(AdministratorsController controller, int administratorId);
         bool IsPersonAuthorised(AuthenticateAdministrators_Form form, string email, string pinCode, AdministratorsController controller, AdministratorsModel model);
     }
 
