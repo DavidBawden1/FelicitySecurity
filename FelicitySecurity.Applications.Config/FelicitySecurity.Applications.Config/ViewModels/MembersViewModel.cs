@@ -231,7 +231,7 @@ namespace FelicitySecurity.Applications.Config.ViewModels
                 {
                     ListboxItem memberItem = new ListboxItem();
                     memberItem.Value = member.MemberId;
-                    memberItem.ItemText = string.Format(member.MemberFirstName + " " + member.MemberLastName + " " + member.MemberPostCode.ToUpper());
+                    memberItem.ItemText = $"{member.MemberFirstName} {member.MemberLastName} {member.MemberPostCode.ToUpper()}";
                     form.ExistingMembers_ListBox.Items.Add(memberItem);
                 }
             }

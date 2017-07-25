@@ -349,6 +349,7 @@ namespace FelicitySecurity.Applications.Config.Views
                 viewModel.PopulateMemberModel(this, model);
                 viewModel.RegisterMember(controller, model);
                 MessageBox.Show(string.Format("{0} {1} registered successfully", FirstName_Textbox.Text, LastName_Textbox.Text), "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                viewModel.DisplayMemberDetailsToListbox(this, controller, model, sortingType);
             }
             else
             {
