@@ -78,9 +78,9 @@ namespace FelicitySecurity.Applications.Config.Controllers
         /// Calls the repository to remove the specified administrator. 
         /// </summary>
         /// <param name="model"></param>
-        public void RemoveSelectedAdministrator(AdministratorsModel model)
+        public void DeleteSelectedAdministrator(int administratorId)
         {
-            businessLogic.RemoveAdministrator(model.AdminID);
+            businessLogic.DeleteAdministrator(administratorId);
         }
 
         /// <summary>

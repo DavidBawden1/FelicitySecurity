@@ -94,7 +94,7 @@ namespace FelicitySecurity.Services
         /// <param name="administratorId"></param>
         public void RemoveAdministrator(int administratorId)
         {
-            repository.RemoveAdministrator(administratorId);
+            repository.DeleteAdministrator(administratorId);
         }
 
         [WebMethod]
@@ -117,6 +117,17 @@ namespace FelicitySecurity.Services
         public void UpdateMember(Members_dto item)
         {
             repository.UpdateMember(item);
+        }
+
+        [WebMethod]
+        [OperationContract]
+        /// <summary>
+        /// Calls the Delete Member businessLogic method and passes the id to delete with
+        /// </summary>
+        /// <param name="memberId"></param>
+        public void DeleteMember(int memberId)
+        {
+            repository.DeleteMember(memberId);
         }
         #endregion
     }

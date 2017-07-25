@@ -138,6 +138,16 @@
       <s:element name="UpdateMemberResponse">
         <s:complexType />
       </s:element>
+      <s:element name="DeleteMember">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="memberId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteMemberResponse">
+        <s:complexType />
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="AddAdministratorSoapIn">
@@ -194,6 +204,12 @@
   <wsdl:message name="UpdateMemberSoapOut">
     <wsdl:part name="parameters" element="tns:UpdateMemberResponse" />
   </wsdl:message>
+  <wsdl:message name="DeleteMemberSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteMember" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMemberSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteMemberResponse" />
+  </wsdl:message>
   <wsdl:portType name="FelicitySecurityDataServiceSoap">
     <wsdl:operation name="AddAdministrator">
       <wsdl:input message="tns:AddAdministratorSoapIn" />
@@ -230,6 +246,10 @@
     <wsdl:operation name="UpdateMember">
       <wsdl:input message="tns:UpdateMemberSoapIn" />
       <wsdl:output message="tns:UpdateMemberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMember">
+      <wsdl:input message="tns:DeleteMemberSoapIn" />
+      <wsdl:output message="tns:DeleteMemberSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="FelicitySecurityDataServiceSoap" type="tns:FelicitySecurityDataServiceSoap">
@@ -315,6 +335,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="DeleteMember">
+      <soap:operation soapAction="http://tempuri.org/DeleteMember" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="FelicitySecurityDataServiceSoap12" type="tns:FelicitySecurityDataServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -392,6 +421,15 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateMember">
       <soap12:operation soapAction="http://tempuri.org/UpdateMember" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMember">
+      <soap12:operation soapAction="http://tempuri.org/DeleteMember" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

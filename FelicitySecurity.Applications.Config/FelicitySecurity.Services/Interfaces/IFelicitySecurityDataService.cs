@@ -19,5 +19,6 @@ namespace FelicitySecurity.Services
         void RemoveAdministrator(int administratorId);
         void UpdateAdministrator(Administrators_dto item);
         void UpdateMember(Members_dto item);
+        void DeleteMember(int memberId);
     }
 }

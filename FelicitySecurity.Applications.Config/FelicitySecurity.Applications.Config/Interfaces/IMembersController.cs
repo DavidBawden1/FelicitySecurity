@@ -8,5 +8,7 @@ namespace FelicitySecurity.Applications.Config.Interfaces
     public interface IMembersController
     {
         void AddMember(MemberModel model);
+        void UpdateSelectedMember(MemberModel model);
+        void DeleteMember(int memberId);
     }
 }
