@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterMembers_Form));
             this.GeneralControls_MenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registerAdministratorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RegisterMembersBackground_TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.MembersFacialCameraFeed_GroupBox = new System.Windows.Forms.GroupBox();
             this.CameraFeed_ImageBox = new Emgu.CV.UI.ImageBox();
@@ -68,6 +70,8 @@
             this.ExistingMembers_GroupBox = new System.Windows.Forms.GroupBox();
             this.ExistingMembersListboxSorting_TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.MembersListSortingControls_GroupBox = new System.Windows.Forms.GroupBox();
+            this.CurrentSort_ComboBox = new System.Windows.Forms.ComboBox();
+            this.OrderList_Label = new System.Windows.Forms.Label();
             this.ExistingMembers_ListBox = new System.Windows.Forms.ListBox();
             this.FacialDetectionFeedbackGroupBox = new System.Windows.Forms.GroupBox();
             this.FacialDetectionFeedBackImages_TableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
@@ -87,6 +91,7 @@
             this.MoreMemberCredentials_GroupBox.SuspendLayout();
             this.ExistingMembers_GroupBox.SuspendLayout();
             this.ExistingMembersListboxSorting_TableLayoutPanel.SuspendLayout();
+            this.MembersListSortingControls_GroupBox.SuspendLayout();
             this.FacialDetectionFeedbackGroupBox.SuspendLayout();
             this.FacialDetectionFeedBackImages_TableLayoutPanel.SuspendLayout();
             this.CroppedFace_GroupBox.SuspendLayout();
@@ -106,9 +111,24 @@
             // 
             // fileToolStripMenuItem
             // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.registerAdministratorToolStripMenuItem,
+            this.logoutToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
+            // 
+            // registerAdministratorToolStripMenuItem
+            // 
+            this.registerAdministratorToolStripMenuItem.Name = "registerAdministratorToolStripMenuItem";
+            this.registerAdministratorToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.registerAdministratorToolStripMenuItem.Text = "Register Administrator";
+            // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.logoutToolStripMenuItem.Text = "Logout";
             // 
             // RegisterMembersBackground_TableLayoutPanel
             // 
@@ -419,6 +439,7 @@
             this.DeleteMember_Button.TabIndex = 23;
             this.DeleteMember_Button.Text = "Delete Member";
             this.DeleteMember_Button.UseVisualStyleBackColor = true;
+            this.DeleteMember_Button.Click += new System.EventHandler(this.DeleteMember_Button_Click);
             // 
             // UpdateMember_Button
             // 
@@ -432,6 +453,7 @@
             this.UpdateMember_Button.TabIndex = 22;
             this.UpdateMember_Button.Text = "Update Member";
             this.UpdateMember_Button.UseVisualStyleBackColor = true;
+            this.UpdateMember_Button.Click += new System.EventHandler(this.UpdateMember_Button_Click);
             // 
             // MoreMemberCredentials_GroupBox
             // 
@@ -579,12 +601,34 @@
             // 
             // MembersListSortingControls_GroupBox
             // 
+            this.MembersListSortingControls_GroupBox.Controls.Add(this.CurrentSort_ComboBox);
+            this.MembersListSortingControls_GroupBox.Controls.Add(this.OrderList_Label);
             this.MembersListSortingControls_GroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MembersListSortingControls_GroupBox.Location = new System.Drawing.Point(3, 3);
             this.MembersListSortingControls_GroupBox.Name = "MembersListSortingControls_GroupBox";
             this.MembersListSortingControls_GroupBox.Size = new System.Drawing.Size(235, 32);
             this.MembersListSortingControls_GroupBox.TabIndex = 0;
             this.MembersListSortingControls_GroupBox.TabStop = false;
+            // 
+            // CurrentSort_ComboBox
+            // 
+            this.CurrentSort_ComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.CurrentSort_ComboBox.FormattingEnabled = true;
+            this.CurrentSort_ComboBox.Location = new System.Drawing.Point(111, 11);
+            this.CurrentSort_ComboBox.Name = "CurrentSort_ComboBox";
+            this.CurrentSort_ComboBox.Size = new System.Drawing.Size(121, 21);
+            this.CurrentSort_ComboBox.TabIndex = 1;
+            this.CurrentSort_ComboBox.SelectedIndexChanged += new System.EventHandler(this.CurrentSort_Combobox_SelectedIndexChanged);
+            // 
+            // OrderList_Label
+            // 
+            this.OrderList_Label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.OrderList_Label.AutoSize = true;
+            this.OrderList_Label.Location = new System.Drawing.Point(53, 14);
+            this.OrderList_Label.Name = "OrderList_Label";
+            this.OrderList_Label.Size = new System.Drawing.Size(52, 13);
+            this.OrderList_Label.TabIndex = 0;
+            this.OrderList_Label.Text = "Order List";
             // 
             // ExistingMembers_ListBox
             // 
@@ -594,6 +638,7 @@
             this.ExistingMembers_ListBox.Name = "ExistingMembers_ListBox";
             this.ExistingMembers_ListBox.Size = new System.Drawing.Size(235, 149);
             this.ExistingMembers_ListBox.TabIndex = 1;
+            this.ExistingMembers_ListBox.SelectedIndexChanged += new System.EventHandler(this.ExistingMembers_ListBox_SelectedIndexChanged);
             // 
             // FacialDetectionFeedbackGroupBox
             // 
@@ -699,6 +744,8 @@
             this.MoreMemberCredentials_GroupBox.PerformLayout();
             this.ExistingMembers_GroupBox.ResumeLayout(false);
             this.ExistingMembersListboxSorting_TableLayoutPanel.ResumeLayout(false);
+            this.MembersListSortingControls_GroupBox.ResumeLayout(false);
+            this.MembersListSortingControls_GroupBox.PerformLayout();
             this.FacialDetectionFeedbackGroupBox.ResumeLayout(false);
             this.FacialDetectionFeedBackImages_TableLayoutPanel.ResumeLayout(false);
             this.CroppedFace_GroupBox.ResumeLayout(false);
@@ -758,5 +805,9 @@
         private System.Windows.Forms.Button UpdateMember_Button;
         private System.ComponentModel.BackgroundWorker CameraFeed_BackgroundWorker;
         public System.Windows.Forms.GroupBox RecognisedMember_GroupBox;
+        private System.Windows.Forms.ToolStripMenuItem registerAdministratorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
+        public System.Windows.Forms.ComboBox CurrentSort_ComboBox;
+        public System.Windows.Forms.Label OrderList_Label;
     }
 }

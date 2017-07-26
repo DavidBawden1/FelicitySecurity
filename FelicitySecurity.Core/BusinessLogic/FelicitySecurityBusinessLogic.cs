@@ -74,7 +74,7 @@ namespace FelicitySecurity.Core.BusinessLogic
         /// Calls the Remove Administrator Repository method
         /// </summary>
         /// <param name="administratorId"></param>
-        public void RemoveAdministrator(int administratorId)
+        public void DeleteAdministrator(int administratorId)
         {
             client.RemoveAdministrator(administratorId);
         }
@@ -86,6 +86,24 @@ namespace FelicitySecurity.Core.BusinessLogic
         public void UpdateAdministrator(Administrators_dto item)
         {
             client.UpdateAdministrator(item);
+        }
+
+        /// <summary>
+        /// Calls the Update Administrator Repository method
+        /// </summary>
+        /// <param name="item"></param>
+        public void UpdateMember(Members_dto item)
+        {
+            client.UpdateMember(item);
+        }
+
+        /// <summary>
+        /// Calls the Delete Member Repository method supplies a given memberId
+        /// </summary>
+        /// <param name="memberId"></param>
+        public void DeleteMember(int memberId)
+        {
+            client.DeleteMember(memberId);
         }
         #endregion
     }

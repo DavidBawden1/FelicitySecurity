@@ -269,9 +269,9 @@ namespace FelicitySecurity.Applications.Config
                 string administratorsEmail = (Administrators_ListBox.SelectedItem as ListboxItem).ItemText;
                 viewModel.DisplayAdministratorsDetails(this, administratorsEmail, controller, model);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message + "\n\nYou must select an Administrator.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("You must select an Administrator.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -309,7 +309,7 @@ namespace FelicitySecurity.Applications.Config
         private void RemoveSelectedAdministrator()
         {
             PopulateModelWithSelectedAdminId();
-            viewModel.RemoveSelectedAdministrator(controller, model);
+            viewModel.DeleteSelectedAdministrator(controller, model.AdminID);
             RefreshUIPostDeletionOfAdmin();
         }
 

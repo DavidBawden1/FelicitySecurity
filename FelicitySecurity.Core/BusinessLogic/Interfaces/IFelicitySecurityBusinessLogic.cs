@@ -45,13 +45,24 @@ namespace FelicitySecurity.Services.Data.Interfaces
         /// Calls the Remove Administrator Repository method
         /// </summary>
         /// <param name="administratorId"></param>
-        void RemoveAdministrator(int administratorId);
+        void DeleteAdministrator(int administratorId);
 
         /// <summary>
         /// Calls the Update Administrator Repository method
         /// </summary>
         /// <param name="item"></param>
         void UpdateAdministrator(Administrators_dto item);
-       
+
+        /// <summary>
+        /// Calls the Update Member Repository method
+        /// </summary>
+        /// <param name="item"></param>
+        void UpdateMember(Members_dto item);
+
+        /// <summary>
+        /// Calls the Delete Member repository method
+        /// </summary>
+        /// <param name="memberId"></param>
+        void DeleteMember(int memberId);
     }
 }

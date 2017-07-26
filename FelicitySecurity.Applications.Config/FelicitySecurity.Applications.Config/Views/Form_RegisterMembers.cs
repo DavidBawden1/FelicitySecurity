@@ -2,6 +2,7 @@
 using Emgu.CV.Structure;
 using FelicitySecurity.Applications.Config.Controllers;
 using FelicitySecurity.Applications.Config.Models;
+using FelicitySecurity.Applications.Config.Resources.Controls;
 using FelicitySecurity.Applications.Config.Resources.ImageProcessing;
 using FelicitySecurity.Applications.Config.Resources.ImageProcessing.CameraFeeds;
 using FelicitySecurity.Applications.Config.Resources.ImageProcessing.FaceRecognition;
@@ -21,6 +22,7 @@ namespace FelicitySecurity.Applications.Config.Views
         MembersViewModel viewModel = new MembersViewModel();
         MembersController controller = new MembersController();
         MemberModel model = new MemberModel();
+        CurrentSortingType sortingType;
         #endregion
         #region Properties
         private bool _isEnabled = false;
@@ -96,6 +98,11 @@ namespace FelicitySecurity.Applications.Config.Views
                 return Error;
             }
         }
+
+        /// <summary>
+        /// Set when the user selects a member from the list.
+        /// </summary>
+        public int SelectedMemberId { get; set; }
 
         /// <summary>
         /// Validates all fields that can be validated for the register members form 
@@ -205,7 +212,8 @@ namespace FelicitySecurity.Applications.Config.Views
         /// <param name="e"></param>
         private void RegisterMembers_Form_Load(object sender, EventArgs e)
         {
-            viewModel.DisplayMemberNames(this, controller, model);
+            InitialiseControlDataSources(this);
+            viewModel.DisplayMemberDetailsToListbox(this, controller, model, sortingType);
             Application.Idle += StartTimer;
         }
 
@@ -341,11 +349,139 @@ namespace FelicitySecurity.Applications.Config.Views
                 viewModel.PopulateMemberModel(this, model);
                 viewModel.RegisterMember(controller, model);
                 MessageBox.Show(string.Format("{0} {1} registered successfully", FirstName_Textbox.Text, LastName_Textbox.Text), "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                viewModel.DisplayMemberDetailsToListbox(this, controller, model, sortingType);
             }
             else
             {
                 MessageBox.Show(Error, "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        /// <summary>
+        /// Validates the form data entry and updates the selected members information. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void UpdateMember_Button_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(Error))
+            {
+                if (ExistingMembers_ListBox.SelectedItem != null)
+                {
+                    UpdateSelectedMember();
+                    MessageBox.Show(string.Format("{0} {1} updated successfully", FirstName_Textbox.Text, LastName_Textbox.Text), "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Please select a member to update.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show(Error, "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Updates the selected member with the details in the form fields & images in the ByteArray. 
+        /// </summary>
+        private void UpdateSelectedMember()
+        {
+            ImageConversions imageConversions = new ImageConversions();
+            imageConversions.AppendEachImageToByteArrayOfImageList(viewModel);
+            viewModel.BindControls(this, viewModel);
+            PopulateModelWithSelectedMemberId();
+            viewModel.UpdateSelectedMember(controller, model);
+            RefreshUIPostUpdatingMember();
+        }
+
+        /// <summary>
+        /// Resets the form fields and refreshes the Existing Members Listbox. 
+        /// </summary>
+        private void RefreshUIPostUpdatingMember()
+        {
+            FirstName_Textbox.Clear();
+            LastName_Textbox.Clear();
+            PostCode_Textbox.Clear();
+            PhoneNumber_Textbox.Clear();
+            DateOfBirth_DatePicker.Value = DateTime.Today;
+            DateOfRegistration_DatePicker.Value = DateTime.Today;
+            MembershipStatus_Checkbox.Checked = false;
+            StaffStatus_Checkbox.Checked = false;
+            viewModel.DisplayMemberDetailsToListbox(this, controller, model, sortingType);
+        }
+
+        /// <summary>
+        /// Populates the member model the properties of the selected member. 
+        /// </summary>
+        private void PopulateModelWithSelectedMemberId()
+        {
+            SelectedMemberId = (ExistingMembers_ListBox.SelectedItem as ListboxItem).Value;
+            model.MemberId = SelectedMemberId;
+            model.MemberFirstName = FirstName_Textbox.Text;
+            model.MemberLastName = LastName_Textbox.Text;
+            model.MemberPhoneNumber = PhoneNumber_Textbox.Text;
+            model.MemberDateOfBirth = DateOfBirth_DatePicker.Value;
+            model.MemberPostCode = PostCode_Textbox.Text;
+            model.IsPersonARegisteredMember = MembershipStatus_Checkbox.Checked;
+            model.MemberDateOfRegistration = DateOfRegistration_DatePicker.Value;
+            model.IsPersonAStaffMember = StaffStatus_Checkbox.Checked;
+            model.MemberFacialImages = viewModel.ByteArrayOfImageList;
+        }
+
+        /// <summary>
+        /// Populates the MemberId with that of the selected member. 
+        /// Updates the form fields with the details of the selected member. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ExistingMembers_ListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                model.MemberId = (ExistingMembers_ListBox.SelectedItem as ListboxItem).Value;
+                viewModel.DisplayMemberDetailsToFormControls(this, controller, model);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Please select a Member.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        /// <summary>
+        /// Selects the way in which the members list is sorted. i.e. default or alphabetical. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CurrentSort_Combobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Enum.TryParse(CurrentSort_ComboBox.SelectedValue.ToString(), out sortingType);
+            viewModel.DisplayMemberDetailsToListbox(this, controller, model, sortingType);
+        }
+
+        /// <summary>
+        /// populates the combobox with the sortying types.  
+        /// </summary>
+        /// <param name="form"></param>
+        public void InitialiseControlDataSources(RegisterMembers_Form form)
+        {
+            form.CurrentSort_ComboBox.DataSource = Enum.GetValues(typeof(CurrentSortingType));
+        }
+
+        private void DeleteMember_Button_Click(object sender, EventArgs e)
+        {
+            if (ExistingMembers_ListBox.SelectedItem != null)
+            {
+                PopulateModelWithSelectedMemberId();
+                viewModel.DeleteMember(controller, model.MemberId);
+                MessageBox.Show(string.Format("{0} {1} Deleted successfully", FirstName_Textbox.Text, LastName_Textbox.Text), "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                viewModel.DisplayMemberDetailsToListbox(this, controller, model, CurrentSortingType.Default);
+            }
+            else
+            {
+                MessageBox.Show("Please select a member to delete.", "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }

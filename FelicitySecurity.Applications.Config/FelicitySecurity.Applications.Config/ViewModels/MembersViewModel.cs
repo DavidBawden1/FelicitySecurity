@@ -8,17 +8,18 @@ using FelicitySecurity.Applications.Config.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace FelicitySecurity.Applications.Config.ViewModels
 {
+
     /// <summary>
     /// The Members ViewModel handles data passed to and from controller and view. 
     /// </summary>
     public class MembersViewModel : IMembersViewModel, INotifyPropertyChanged
     {
         #region Declarations 
-        public enum CurrentSortingType { Default, Alphabetical }
         public event PropertyChangedEventHandler PropertyChanged;
 
         #endregion
@@ -161,6 +162,16 @@ namespace FelicitySecurity.Applications.Config.ViewModels
         }
 
         /// <summary>
+        /// Passes the new member model to the controller so it can update the old dto
+        /// </summary>
+        /// <param name="controller"></param>
+        /// <param name="model"></param>
+        public void UpdateSelectedMember(MembersController controller, MemberModel model)
+        {
+            controller.UpdateSelectedMember(model);
+        }
+
+        /// <summary>
         /// Binds the properties of the viewModel to the controls in 
         /// </summary>
         /// <param name="form"></param>
@@ -175,7 +186,7 @@ namespace FelicitySecurity.Applications.Config.ViewModels
             Binding memberPhoneNumber = new Binding(form.PhoneNumber_Textbox.Text, viewModel, "MemberPhoneNumber");
             Binding isPersonARegisteredMember = new Binding(form.MembershipStatus_Checkbox.Text, viewModel, "IsPersonARegisteredMember");
             Binding isPersonAStaffMember = new Binding(form.StaffStatus_Checkbox.Text, viewModel, "IsPersonAStaffMember");
-            Binding memberFacialImages = new Binding(ByteArrayOfImageList.ToString(), viewModel, "MemberFacialImages");
+            MemberFacialImages = ByteArrayOfImageList;
         }
 
         /// <summary>
@@ -209,25 +220,78 @@ namespace FelicitySecurity.Applications.Config.ViewModels
         /// <summary>
         /// Returns every members firstname to Listbox
         /// </summary>
-        public void DisplayMemberNames(RegisterMembers_Form form, MembersController controller, MemberModel model)
+        public void DisplayMemberDetailsToListbox(RegisterMembers_Form form, MembersController controller, MemberModel model, CurrentSortingType sortingType)
         {
             form.ExistingMembers_ListBox.Items.Clear();
-            var listOfMembers = controller.FindAllMembers(model);
+            model.ListOfMembers.Clear();
+            MemberSorting(controller, model, sortingType);
             if (model.ListOfMembers.Count != 0)
             {
-                foreach (var member in listOfMembers)
+                foreach (var member in model.ListOfMembers)
                 {
                     ListboxItem memberItem = new ListboxItem();
                     memberItem.Value = member.MemberId;
-                    memberItem.ItemText = string.Format(member.MemberFirstName + " " + member.MemberLastName + " " + member.MemberPostCode.ToUpper());
+                    memberItem.ItemText = $"{member.MemberFirstName} {member.MemberLastName} {member.MemberPostCode.ToUpper()}";
                     form.ExistingMembers_ListBox.Items.Add(memberItem);
                 }
             }
             else
             {
-                form.ExistingMembers_ListBox.Items.Add("Add an Member");
+                form.ExistingMembers_ListBox.Items.Add("Add a Member");
             }
-            model.ListOfMembers.Clear();
+        }
+
+        /// <summary>
+        /// Returns the selected members details to their relevant form fields.
+        /// </summary>
+        /// <param name="form"></param>
+        /// <param name="controller"></param>
+        /// <param name="model"></param>
+        public void DisplayMemberDetailsToFormControls(RegisterMembers_Form form, MembersController controller, MemberModel model)
+        {
+            if (model.MemberId > 0)
+            {
+                var selectedMemberModel = controller.FindAllMembers(model).Where(x => x.MemberId == model.MemberId).FirstOrDefault();
+                form.FirstName_Textbox.Text = selectedMemberModel.MemberFirstName;
+                form.LastName_Textbox.Text = selectedMemberModel.MemberLastName;
+                form.DateOfBirth_DatePicker.Value = selectedMemberModel.MemberDateOfBirth.Date;
+                form.PostCode_Textbox.Text = selectedMemberModel.MemberPostCode;
+                form.DateOfRegistration_DatePicker.Value = selectedMemberModel.MemberDateOfRegistration.Date;
+                form.PhoneNumber_Textbox.Text = selectedMemberModel.MemberPhoneNumber;
+                form.MembershipStatus_Checkbox.Checked = selectedMemberModel.IsPersonARegisteredMember;
+                form.StaffStatus_Checkbox.Checked = selectedMemberModel.IsPersonAStaffMember;
+                MemberFacialImages = selectedMemberModel.MemberFacialImages;
+            }
+        }
+
+        /// <summary>
+        /// Depending on the CurrentSortingType, the list of Members will be sorted with either: Default or Alphabetical. 
+        /// </summary>
+        /// <param name="controller"></param>
+        /// <param name="model"></param>
+        /// <param name="sortingType">default or alphabetical</param>
+        private static void MemberSorting(MembersController controller, MemberModel model, CurrentSortingType sortingType)
+        {
+            switch (sortingType)
+            {
+                case CurrentSortingType.Default:
+                    controller.FindAllMembers(model);
+                    break;
+                case CurrentSortingType.Alphabetical:
+                    controller.FindAllMembers(model).Sort((x, y) => string.Compare(x.MemberLastName, y.MemberLastName));
+                    break;
+                default:
+                    controller.FindAllMembers(model);
+                    break;
+            }
+        }
+
+        public void DeleteMember(MembersController controller, int memberId)
+        {
+            if (memberId > 0)
+            {
+                controller.DeleteMember(memberId);
+            }
         }
         #endregion
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using FelicitySecurity.Core.DataTransferObjects;
 using System.Web.Services;
 using System.ServiceModel;
+using System;
 
 namespace FelicitySecurity.Services
 {
@@ -93,7 +94,7 @@ namespace FelicitySecurity.Services
         /// <param name="administratorId"></param>
         public void RemoveAdministrator(int administratorId)
         {
-            repository.RemoveAdministrator(administratorId);
+            repository.DeleteAdministrator(administratorId);
         }
 
         [WebMethod]
@@ -105,6 +106,28 @@ namespace FelicitySecurity.Services
         public void UpdateAdministrator(Administrators_dto item)
         {
             repository.UpdateAdministrator(item);
+        }
+
+        [WebMethod]
+        [OperationContract]
+        /// <summary>
+        /// Calls the Update Member businessLogic method and passes the member to update with
+        /// </summary>
+        /// <param name="item"></param>
+        public void UpdateMember(Members_dto item)
+        {
+            repository.UpdateMember(item);
+        }
+
+        [WebMethod]
+        [OperationContract]
+        /// <summary>
+        /// Calls the Delete Member businessLogic method and passes the id to delete with
+        /// </summary>
+        /// <param name="memberId"></param>
+        public void DeleteMember(int memberId)
+        {
+            repository.DeleteMember(memberId);
         }
         #endregion
     }

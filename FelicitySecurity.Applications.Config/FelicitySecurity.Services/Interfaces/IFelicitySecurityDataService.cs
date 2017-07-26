@@ -18,5 +18,7 @@ namespace FelicitySecurity.Services
         List<Staff_dto> FindAllStaff();
         void RemoveAdministrator(int administratorId);
         void UpdateAdministrator(Administrators_dto item);
+        void UpdateMember(Members_dto item);
+        void DeleteMember(int memberId);
     }
 }
