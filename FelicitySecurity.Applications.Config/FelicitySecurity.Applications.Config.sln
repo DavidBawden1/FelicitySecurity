@@ -27,7 +27,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{007A3C88-D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FelicitySecurity.Services", "FelicitySecurity.Services\FelicitySecurity.Services.csproj", "{D49BBD9C-05F3-4A87-856D-2021AAE0BB00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemberRecognitionLocation", "MemberRecognitionLocation\MemberRecognitionLocation.csproj", "{781B901D-60BC-4272-848D-04640069251E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FelicitySecurity.CCTV", "MemberRecognitionLocation\FelicitySecurity.CCTV.csproj", "{781B901D-60BC-4272-848D-04640069251E}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{BD479E14-667B-4A1C-82A5-77409E389C63}"
 EndProject
