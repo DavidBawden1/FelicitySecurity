@@ -27,6 +27,12 @@ namespace FelicitySecurity.CCTV.Controllers
             return View();
         }
 
+        public IActionResult Admin()
+        {
+            ViewData["Message"] = "Sign in.";
+            return View();
+        }
+
         public IActionResult Error()
         {
             return View();
