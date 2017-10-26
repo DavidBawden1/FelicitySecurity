@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  felicitysecurity.cctv:
+    image: felicitysecurity.cctv
+    build:
+      context: ./FelicitySecurity.CCTV
+      dockerfile: Dockerfile
