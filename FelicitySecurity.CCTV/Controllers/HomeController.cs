@@ -32,6 +32,12 @@ namespace FelicitySecurity.CCTV.Controllers
             ViewData["Message"] = "Sign in.";
             return View();
         }
+        [HttpPost]
+        public IActionResult AuthenticateAdmin(string emailAddress, string password)
+        {
+            ViewData["Message"] = $"Welcome {emailAddress}";
+            return View();
+        }
 
         public IActionResult Error()
         {
