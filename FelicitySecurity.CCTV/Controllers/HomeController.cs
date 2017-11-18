@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using FelicitySecurity.CCTV.Models;
 
 namespace FelicitySecurity.CCTV.Controllers
 {
@@ -31,13 +32,13 @@ namespace FelicitySecurity.CCTV.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult AuthenticateAdmin(string emailAddress, string password)
+        public IActionResult AuthenticateAdmin(AdministratorModel model)
         {
-            if (string.IsNullOrEmpty(emailAddress) || string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(model.EmailAddress) || string.IsNullOrEmpty(model.Password))
             {
                 return new NotFoundResult();
             }
-            ViewData["Message"] = $"Welcome {emailAddress}";
+            ViewData["Message"] = $"Welcome {model.EmailAddress}";
             return View();
         }
 

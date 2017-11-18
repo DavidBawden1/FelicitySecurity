@@ -23,14 +23,14 @@
         //Submit Sign in form.
         $(document).ready(function () {
             $("#signInForm").submit(function () {
-                var email = $("#emailAddress").serialize();
-                var password = $("#password").serialize();
+                var email = $("#emailAddress").val();
+                var password = $("#password").val();
                 $.ajax({
                     type: "POST",
                     url: "AuthenticateAdmin",
                     data: {
-                        email: email,
-                        password: password
+                        "EmailAddress": email,
+                        "Password": password
                     },
                     success: function (result) {
                         alert('Signing in');
