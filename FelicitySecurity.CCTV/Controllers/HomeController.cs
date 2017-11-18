@@ -33,6 +33,10 @@ namespace FelicitySecurity.CCTV.Controllers
         [HttpPost]
         public IActionResult AuthenticateAdmin(string emailAddress, string password)
         {
+            if (string.IsNullOrEmpty(emailAddress) || string.IsNullOrEmpty(password))
+            {
+                return new NotFoundResult();
+            }
             ViewData["Message"] = $"Welcome {emailAddress}";
             return View();
         }
