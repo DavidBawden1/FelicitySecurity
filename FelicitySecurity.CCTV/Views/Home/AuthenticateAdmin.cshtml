@@ -5,34 +5,42 @@
 <h3>@ViewData["Message"]</h3>
 <div class="row">
     <div class="col-lg-8">
-        <form id="SignInForm" action="Home/AuthenticateAdmin" method="post">
+        <form id="signInForm" action="Home/AuthenticateAdmin" method="post">
             <div class="form-group">
                 <label for="exampleInputEmail1">Email Address</label>
                 <input type="email" class="form-control" id="emailAddress" aria-describedby="emailHelp" placeholder="john.doe@gmail.com">
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="********" onsubmit="submitSignInForm">
+                <input type="password" class="form-control" id="password" placeholder="********">
             </div>
+            <button type="submit" class="btn btn-outline-secondary" onsubmit="submitSignInForm">Submit</button>
         </form>
-        <button type="button" class="btn btn-outline-secondary">Submit</button>
     </div>
 </div>
+@section scripts{
+    <script language="javascript" type="text/javascript">
+        //Submit Sign in form.
+        $(document).ready(function () {
+            $("#signInForm").submit(function () {
+                var email = $("#emailAddress").serialize();
+                var password = $("#password").serialize();
+                $.ajax({
+                    type: "POST",
+                    url: "AuthenticateAdmin",
+                    data: {
+                        email: email,
+                        password: password
+                    },
+                    success: function (result) {
+                        alert('Signing in');
+                    },
+                    error: function (result) {
+                        alert('Invalid request ' + result.statusText);
+                    }
+                });
+            });
+        });
+    </script>
+}
 
-<script language="javascript" type="text/javascript">
-    //Submit Sign in form.
-    function submitSignInForm() {
-        $('#SignInForm').on("submit", function(e) {
-            alert("somethings happening");
-            var email = $('.emailAddress').text;
-            var password = $('.password').text;
-            $.post("Home/AuthenticateAdmin", email, password, text)
-                .done(function (response, status) {
-                    alert("Success")
-                })
-                .fail(function (status, error) {
-                    alert("fail")
-                })
-        })
-    }
-</script>
