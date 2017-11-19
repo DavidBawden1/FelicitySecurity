@@ -26,11 +26,22 @@ namespace FelicitySecurity.CCTV.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Load the Administrators log in page.
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
         public IActionResult AuthenticateAdmin()
         {
             ViewData["Message"] = "Sign in.";
             return View();
         }
+
+        /// <summary>
+        /// Authenticate the provided credentials.
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns>new page or an error </returns>
         [HttpPost]
         public IActionResult AuthenticateAdmin(AdministratorModel model)
         {
@@ -38,8 +49,23 @@ namespace FelicitySecurity.CCTV.Controllers
             {
                 return new NotFoundResult();
             }
+            //TODO retrieve credentials from db and match. If match redirect to admin session. else return validation error. 
+            return RedirectToAction("AdminSession", "Home", model);
+        }
+
+        /// <summary>
+        /// Load the administrators session page. 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public IActionResult AdminSession(AdministratorModel model)
+        {
+            if (string.IsNullOrEmpty(model.EmailAddress))
+            {
+                return new NotFoundResult();
+            }
             ViewData["Message"] = $"Welcome {model.EmailAddress}";
-            return View();
+            return View(model);
         }
 
         public IActionResult Error()
