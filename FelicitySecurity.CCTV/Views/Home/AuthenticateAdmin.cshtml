@@ -34,10 +34,10 @@
                         "Password": password
                     },
                     success: function (result) {
-                        alert(result.statusText);
+                        alert("Access granted");
                     },
                     error: function (result) {
-                        alert(result.statusText);
+                        alert("Error: " + result.statusText);
                     }
                 });
             });
