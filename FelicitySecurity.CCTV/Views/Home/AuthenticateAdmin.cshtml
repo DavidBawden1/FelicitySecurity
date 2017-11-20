@@ -22,7 +22,8 @@
     <script language="javascript" type="text/javascript">
         //Submit Sign in form.
         $(document).ready(function () {
-            $("#signInForm").submit(function () {
+            $("#signInForm").submit(function (e) {
+                e.preventDefault();
                 var email = $("#emailAddress").val();
                 var password = $("#password").val();
                 $.ajax({
