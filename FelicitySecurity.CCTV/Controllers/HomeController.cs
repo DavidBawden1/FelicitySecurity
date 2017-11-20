@@ -49,7 +49,7 @@ namespace FelicitySecurity.CCTV.Controllers
             {
                 return new NotFoundResult();
             }
-            if(model.EmailAddress !="dbawden@outlook.com" && model.Password != "abc123")
+            if(model.EmailAddress !="dbawden@outlook.com" || model.Password != "abc123")
             {
                 return Json("Invalid credentials");
             }
