@@ -37,7 +37,7 @@
                         alert(email + " logged in successfully");
                     },
                     error: function (data, status, xhr) {
-                        alert("Error: " + status, +", " + xhr.toString());
+                        alert(xhr + " Invalid credentials");
                     }
                 });
             });

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using FelicitySecurity.CCTV.Models;
+using System.Net;
+using System.Net.Http;
 
 namespace FelicitySecurity.CCTV.Controllers
 {
@@ -47,11 +49,13 @@ namespace FelicitySecurity.CCTV.Controllers
         {
             if (string.IsNullOrEmpty(model.EmailAddress) || string.IsNullOrEmpty(model.Password))
             {
-                return new NotFoundResult();
+                var response = new HttpResponseMessage(HttpStatusCode.BadRequest);
+                throw new Exception(response.ReasonPhrase);
             }
-            if(model.EmailAddress !="dbawden@outlook.com" || model.Password != "abc123")
+            if (model.EmailAddress != "dbawden@outlook.com" || model.Password != "abc123")
             {
-                return Json("Invalid credentials");
+                var response = new HttpResponseMessage(HttpStatusCode.Unauthorized);
+                throw new Exception(response.ReasonPhrase);
             }
             //TODO retrieve credentials from db and match. If match redirect to admin session. else return validation error. 
             return RedirectToAction("AdminSession", "Home", model);
@@ -66,7 +70,8 @@ namespace FelicitySecurity.CCTV.Controllers
         {
             if (string.IsNullOrEmpty(model.EmailAddress))
             {
-                return Json("Error");
+                var response = new HttpResponseMessage(HttpStatusCode.BadRequest);
+                throw new Exception(response.ReasonPhrase);
             }
             ViewData["Message"] = $"Welcome {model.EmailAddress}";
             return View(model);
