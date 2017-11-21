@@ -33,11 +33,11 @@
                         "EmailAddress": email,
                         "Password": password
                     },
-                    success: function (result) {
-                        alert("Access granted");
+                    success: function (data, status, xhr) {
+                        alert(email + " logged in successfully");
                     },
-                    error: function (result) {
-                        alert("Error: " + result.statusText);
+                    error: function (data, status, xhr) {
+                        alert("Error: " + status, +", " + xhr.toString());
                     }
                 });
             });
