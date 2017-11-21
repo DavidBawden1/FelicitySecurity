@@ -47,15 +47,9 @@ namespace FelicitySecurity.CCTV.Controllers
         [HttpPost]
         public IActionResult AuthenticateAdmin(AdministratorModel model)
         {
-            if (string.IsNullOrEmpty(model.EmailAddress) || string.IsNullOrEmpty(model.Password))
-            {
-                var response = new HttpResponseMessage(HttpStatusCode.BadRequest);
-                throw new Exception(response.ReasonPhrase);
-            }
             if (model.EmailAddress != "dbawden@outlook.com" || model.Password != "abc123")
             {
-                var response = new HttpResponseMessage(HttpStatusCode.Unauthorized);
-                throw new Exception(response.ReasonPhrase);
+                return BadRequest();
             }
             //TODO retrieve credentials from db and match. If match redirect to admin session. else return validation error. 
             return RedirectToAction("AdminSession", "Home", model);
@@ -68,11 +62,6 @@ namespace FelicitySecurity.CCTV.Controllers
         /// <returns></returns>
         public IActionResult AdminSession(AdministratorModel model)
         {
-            if (string.IsNullOrEmpty(model.EmailAddress))
-            {
-                var response = new HttpResponseMessage(HttpStatusCode.BadRequest);
-                throw new Exception(response.ReasonPhrase);
-            }
             ViewData["Message"] = $"Welcome {model.EmailAddress}";
             return View(model);
         }
