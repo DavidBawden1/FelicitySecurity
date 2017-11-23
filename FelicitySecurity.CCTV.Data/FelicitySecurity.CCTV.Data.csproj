@@ -45,6 +45,7 @@
     <Compile Include="Interfaces\ICCTVRepository.cs" />
     <Compile Include="Models\AdministratorModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\CCTVRepository.cs" />
     <Compile Include="Repository\CCTVRepositoryBase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
