@@ -52,7 +52,7 @@ namespace FelicitySecurity.CCTV.Controllers
                 return BadRequest();
             }
             //TODO retrieve credentials from db and match. If match redirect to admin session. else return validation error. 
-            return RedirectToAction("AdminSession", "Home", model);
+            return Json(model);
         }
 
         /// <summary>

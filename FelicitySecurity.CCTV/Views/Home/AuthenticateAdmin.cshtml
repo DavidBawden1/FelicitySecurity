@@ -33,11 +33,12 @@
                         "EmailAddress": email,
                         "Password": password
                     },
+                    dataType: 'json',
                     success: function (data, status, xhr) {
-                        alert(email + " logged in successfully");
+                        alert(data.emailAddress + " logged in successfully");
                     },
-                    error: function (data, status, xhr) {
-                        alert(xhr + " Invalid credentials");
+                    error: function (xhr, status) {
+                        alert(status + " Invalid credentials");
                     }
                 });
             });

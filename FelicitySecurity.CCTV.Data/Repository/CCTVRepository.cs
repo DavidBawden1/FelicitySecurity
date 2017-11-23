@@ -16,6 +16,8 @@ namespace FelicitySecurity.CCTV.Data.Repository
         public bool IsAdminAuthorised(AdministratorModel model)
         {
             var connection = this.ConnectionString;
+            connection.Execute("");
+
             return false;
         }
     }
