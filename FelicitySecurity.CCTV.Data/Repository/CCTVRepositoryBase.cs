@@ -1,18 +1,26 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
-using System.Data;
 using System.Data.Common;
-using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace FelicitySecurity.CCTV.Data
+namespace FelicitySecurity.CCTV.Data.Repository
 {
     public class CCTVRepositoryBase
     {
-        private DbConnection _connectionString;
-        private Configuration configuration;
-        public CCTVRepositoryBase(Configuration configuration, DbConnection connectionString)
+        public CCTVRepositoryBase(Configuration configuration, string connectionString)
         {
-            connectionString = _connectionString;
+            connectionString = ConnectionString;
+        }
+
+        protected string ConnectionString
+        {
+            get
+            {
+                return ConfigurationManager.ConnectionStrings["FelicitySecurityEntities"].ConnectionString;
+            }
         }
     }
 }
