@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using FelicitySecurity.CCTV.Models;
-using System.Net;
-using System.Net.Http;
+using FelicitySecurity.CCTV.Data.Repository;
 
 namespace FelicitySecurity.CCTV.Controllers
 {
@@ -47,12 +42,16 @@ namespace FelicitySecurity.CCTV.Controllers
         [HttpPost]
         public IActionResult AuthenticateAdmin(AdministratorModel model)
         {
-            if (model.EmailAddress != "dbawden@outlook.com" || model.Password != "abc123")
+            CCTVRepository repo = new CCTVRepository();
+
+            if (repo.IsAdminAuthorised(model.EmailAddress, model.Password))
+            {
+                return Json(model);
+            }
+            else
             {
                 return BadRequest();
             }
-            //TODO retrieve credentials from db and match. If match redirect to admin session. else return validation error. 
-            return Json(model);
         }
 
         /// <summary>

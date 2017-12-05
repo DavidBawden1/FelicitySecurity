@@ -11,6 +11,10 @@ namespace FelicitySecurity.CCTV.Data.Repository
             connectionString = ConnectionString;
         }
 
+        public CCTVRepositoryBase()
+        {
+
+        }
         
         protected IDbConnection ConnectionString
         {
