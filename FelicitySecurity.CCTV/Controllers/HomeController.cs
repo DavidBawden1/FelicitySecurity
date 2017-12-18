@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using FelicitySecurity.CCTV.Models;
-using FelicitySecurity.CCTV.Data.Repository;
+using FelicitySecurity.CCTV.Repository.Repository;
 
 namespace FelicitySecurity.CCTV.Controllers
 {
