@@ -27,10 +27,9 @@ namespace FelicitySecurity.CCTV.Repository.Repository
             try
             {
                 var connection = this.ConnectionString;
-                connection.Query<AdministratorModel>("select AdminID, AdminName, AdminEmail, AdminPinCode from AdminTable"
-                    + "where AdminEmail = @email and AdminPinCode = @pinCode",
+                connection.Query<AdministratorModel>("select AdminTable.AdminID, AdminTable.AdminName, AdminTable.AdminEmail, AdminTable.AdminPinCode" +
+                    " from AdminTable where AdminEmail = '@email' and AdminPinCode = 'pinCode'",
                     new { email = email, pinCode = password});
-
             }
             catch (Exception ex)
             {
