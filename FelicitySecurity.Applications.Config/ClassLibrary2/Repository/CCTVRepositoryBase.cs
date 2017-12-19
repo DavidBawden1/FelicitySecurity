@@ -15,13 +15,12 @@ namespace FelicitySecurity.CCTV.Repository.Repository
         {
 
         }
-        
+
         protected IDbConnection ConnectionString
         {
             get
             {
-                // return new SqlConnection(ConfigurationManager.ConnectionStrings["FelicitySecurityEntities"].ConnectionString);
-                return new SqlConnection();
+                return new SqlConnection(@"Data Source=DESKTOP-T69TDHC\MSSQLSERVER1;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             }
         }
     }
