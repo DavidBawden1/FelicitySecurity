@@ -3,6 +3,7 @@ using System.Data.SqlClient;
 using Dapper;
 using System;
 using System.Configuration;
+using System.Linq;
 
 namespace FelicitySecurity.CCTV.Repository.Repository
 {
@@ -21,21 +22,25 @@ namespace FelicitySecurity.CCTV.Repository.Repository
         }
         public bool IsAdminAuthorised(string email, string password)
         {
-            SqlParameter emailParameter = new SqlParameter("@email", email);
-            SqlParameter pinCodeParameter = new SqlParameter("@pinCode", password);
+            var authParameters = new
+            {
+                email = email,
+                pinCode = password
+            };
 
             try
             {
-                var connection = this.ConnectionString;
-                connection.Query<AdministratorModel>("select AdminTable.AdminID, AdminTable.AdminName, AdminTable.AdminEmail, AdminTable.AdminPinCode" +
-                    " from AdminTable where AdminEmail = '@email' and AdminPinCode = 'pinCode'",
-                    new { email = email, pinCode = password});
+                using (var connection = this.ConnectionString)
+                {   
+                    var administrator = connection.Query<AdministratorModel>("select AdminTable.AdminID AS AdminId, AdminTable.AdminName AS Username, AdminTable.AdminEmail AS EmailAddress, AdminTable.AdminPinCode AS Password" +
+                        " from AdminTable where AdminEmail = '@email' and AdminPinCode = '@pinCode'", authParameters);
+                    return administrator.Any();
+                }
             }
             catch (Exception ex)
             {
                 throw new Exception("Failure executing query.", ex);
             }
-            return false;
         }
     }
 }
