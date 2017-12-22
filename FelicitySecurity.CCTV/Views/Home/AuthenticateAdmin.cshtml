@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Administration";
+}
+<h2>@ViewData["Title"].</h2>
+<h3>@ViewData["Message"]</h3>
+
+@Html.Hidden("AdminSession", Url.Action("AdminSession", "Home"))
+<div class="row">
+    <div class="col-lg-8">
+        <form id="signInForm">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email Address</label>
+                <input required type="email" class="form-control" id="emailAddress" aria-describedby="emailHelp" placeholder="john.doe@gmail.com">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Password</label>
+                <input required type="password" class="form-control" id="password" placeholder="********">
+            </div>
+            <button type="submit" class="btn btn-outline-secondary" onsubmit="submitSignInForm">Submit</button>
+        </form>
+    </div>
+</div>
+@section scripts{
+    <script language="javascript" type="text/javascript">
+        //Submit Sign in form.
+        $(document).ready(function () {
+            $("#signInForm").submit(function (e) {
+                e.preventDefault();
+                var email = $("#emailAddress").val();
+                var password = $("#password").val();
+                var url = $("#AdminSession").val();
+                $.ajax({
+                    type: "POST",
+                    url: "AuthenticateAdmin",
+                    data: {
+                        "EmailAddress": email,
+                        "Password": password
+                    },
+                    dataType: 'json',
+                    success: function (data, status, xhr) {
+                        localStorage.setItem('emailAddress', email); 
+                        alert(data.emailAddress + " logged in successfully");
+                        location.href = url;
+                    },
+                    error: function (xhr, status) {
+                        alert(status + " Invalid credentials");
+                    }
+                });
+            });
+        });
+    </script>
+}
+

@@ -18,8 +18,8 @@
     @Html.Raw(JavaScriptSnippet.FullScript)
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -34,10 +34,23 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    <li class="dropdown">
+                        <div class="navbar-form">
+                            <div class="btn-group">
+                                <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">Admin<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a asp-area="" asp-controller="Home" asp-action="AuthenticateAdmin">Sign In</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
-                <p class="nav navbar-text navbar-right">Hello, @User.Identity.Name!</p>
+                <ul class="nav navbar-nav">
+                    <li><p class="nav navbar-text navbar-right navbar-right">Hello, @User.Identity.Name!</p></li>
+                </ul>
             </div>
         </div>
+       
     </nav>
     <div class="container body-content">
         @RenderBody()
