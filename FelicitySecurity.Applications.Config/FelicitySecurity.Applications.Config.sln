@@ -29,7 +29,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FelicitySecurity.Services",
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{B3E2BAB8-7B5E-447D-B989-11DBD8EC7A8B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FelicitySecurity.CCTV", "..\FelicitySecurity.CCTV\FelicitySecurity.CCTV.csproj", "{B058FB26-0302-4D07-A867-63E10134234A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FelicitySecurity.CCTV", "..\FelicitySecurity.CCTV\FelicitySecurity.CCTV.csproj", "{B058FB26-0302-4D07-A867-63E10134234A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FelicitySecurity.CCTV.Repository", "ClassLibrary2\FelicitySecurity.CCTV.Repository.csproj", "{436183BB-ED48-481C-A2FA-E6FF2CECC4E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,6 +75,10 @@ Global
 		{B058FB26-0302-4D07-A867-63E10134234A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B058FB26-0302-4D07-A867-63E10134234A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B058FB26-0302-4D07-A867-63E10134234A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{436183BB-ED48-481C-A2FA-E6FF2CECC4E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{436183BB-ED48-481C-A2FA-E6FF2CECC4E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{436183BB-ED48-481C-A2FA-E6FF2CECC4E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{436183BB-ED48-481C-A2FA-E6FF2CECC4E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -88,5 +94,6 @@ Global
 		{D49BBD9C-05F3-4A87-856D-2021AAE0BB00} = {A38A4764-5FC8-4E8A-9D23-7D6AF84C6542}
 		{B3E2BAB8-7B5E-447D-B989-11DBD8EC7A8B} = {B48BEEDA-DDBD-4B11-8D3B-481C5D0E6B5D}
 		{B058FB26-0302-4D07-A867-63E10134234A} = {B48BEEDA-DDBD-4B11-8D3B-481C5D0E6B5D}
+		{436183BB-ED48-481C-A2FA-E6FF2CECC4E5} = {8C71C395-F9D8-4438-A670-CCF82170484A}
 	EndGlobalSection
 EndGlobal
