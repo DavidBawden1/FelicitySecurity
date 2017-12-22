@@ -1,10 +1,18 @@
 ﻿@{
     ViewData["Title"] = "Administration";
 }
-<h2>@ViewData["Title"].</h2>
-<h3>@ViewData["Message"]</h3>
+<h2>@ViewData["Title"]</h2>
 <div class="row">
     <div class="col-lg-8">
-       Welcome @ViewData["Message"]!
+        <h5 id="welcomeUser"></h5>
     </div>
 </div>
+
+@section scripts
+{
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $("#welcomeUser").html("Welcome " + localStorage.getItem('emailAddress'));
+        })
+    </script>
+}

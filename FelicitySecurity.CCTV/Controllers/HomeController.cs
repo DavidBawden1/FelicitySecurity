@@ -59,10 +59,9 @@ namespace FelicitySecurity.CCTV.Controllers
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public IActionResult AdminSession(AdministratorModel model)
+        public IActionResult AdminSession()
         {
-            ViewData["Message"] = $"Welcome {model.EmailAddress}";
-            return View(model);
+            return View();
         }
 
         public IActionResult Error()
