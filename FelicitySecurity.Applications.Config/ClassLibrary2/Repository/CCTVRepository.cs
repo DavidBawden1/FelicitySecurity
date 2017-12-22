@@ -20,6 +20,13 @@ namespace FelicitySecurity.CCTV.Repository.Repository
         {
 
         }
+        
+        /// <summary>
+        /// returns true if credentials return an administrator. 
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public bool IsAdminAuthorised(string email, string password)
         {
             var authParameters = new
@@ -32,7 +39,6 @@ namespace FelicitySecurity.CCTV.Repository.Repository
             {
                 using (var connection = this.ConnectionString)
                 {
-                    
                     var administrator = connection.Query<AdministratorModel>("select AdminTable.AdminID AS AdminId, AdminTable.AdminName AS Username, AdminTable.AdminEmail AS EmailAddress, AdminTable.AdminPinCode AS Password" +
                         " from AdminTable where AdminEmail = @email and AdminPinCode = @pinCode", authParameters);
                     return administrator.Any();
