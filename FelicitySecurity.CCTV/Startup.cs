@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using FelicitySecurity.CCTV.Repository.Repository;
 
 namespace FelicitySecurity.CCTV
 {
@@ -29,7 +30,15 @@ namespace FelicitySecurity.CCTV
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-            services.AddMvc();
+
+            services.AddMvc()
+                .AddViewLocalization()
+                .AddDataAnnotationsLocalization();
+
+            var connectionString = Configuration.GetConnectionString("ClientAppRepository");
+            services.AddTransient<CCTVRepository>(s => new CCTVRepository(connectionString));
+            services.AddOptions();
+            services.AddSingleton<IConfiguration>(s => { return Configuration; });//allow injection of config into solution. 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
