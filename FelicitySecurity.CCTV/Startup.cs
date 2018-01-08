@@ -19,7 +19,7 @@ namespace FelicitySecurity.CCTV
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
-                .AddJsonFile($"Configuration/EnvironmentSettings.{env.EnvironmentName}", optional: false, reloadOnChange:true)
+                .AddJsonFile($"Configuration/EnvironmentSettings.{env.EnvironmentName}.json", optional: false, reloadOnChange:true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
         }
