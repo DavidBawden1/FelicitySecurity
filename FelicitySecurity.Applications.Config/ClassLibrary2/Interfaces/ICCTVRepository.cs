@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FelicitySecurity.CCTV.Repository.Interfaces
 {
-    interface ICCTVRepository
+    public interface ICCTVRepository
     {
         bool IsAdminAuthorised(string email, string pinCode);
     }
