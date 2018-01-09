@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using NLog.Extensions.Logging;
+using NLog.Web;
 
 namespace FelicitySecurity.CCTV
 {
@@ -36,6 +38,7 @@ namespace FelicitySecurity.CCTV
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+            loggerFactory.AddNLog();
 
             if (env.IsDevelopment())
             {
@@ -47,8 +50,8 @@ namespace FelicitySecurity.CCTV
                 app.UseExceptionHandler("/Home/Error");
             }
 
+            app.AddNLogWeb();
             app.UseStaticFiles();
-
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

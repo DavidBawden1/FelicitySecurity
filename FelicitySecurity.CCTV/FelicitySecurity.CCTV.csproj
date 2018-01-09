@@ -22,5 +22,10 @@
   <ItemGroup>
     <ProjectReference Include="..\FelicitySecurity.Applications.Config\ClassLibrary2\FelicitySecurity.CCTV.Repository.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Update="nlog.config.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 
 </Project>
