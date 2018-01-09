@@ -17,7 +17,7 @@
                 layout="${longdate}|${event-properties:item=EventId.Id}|${logger}|${uppercase:${level}}|${message} ${exception}" />
 
     <!-- another file log, only own logs. Uses some ASP.NET core renderers -->
-    <target xsi:type="File" name="ownFile-web" fileName="c:\temp\nlog-own-${shortdate}.log"
+    <target xsi:type="File" name="ownFile-web" fileName="F:\Logs${shortdate}.log"
             layout="${longdate}|${event-properties:item=EventId.Id}|${logger}|${uppercase:${level}}|  ${message} ${exception}|url: ${aspnet-request-url}|action: ${aspnet-mvc-action}" />
 
     <!-- write to the void aka just remove -->
