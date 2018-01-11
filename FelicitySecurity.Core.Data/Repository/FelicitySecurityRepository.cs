@@ -14,7 +14,7 @@ namespace FelicitySecurity.Services.Data.Repository
     /// The Engine repository, responsible for handling database transactions for 
     /// administrators, members, facial image datasets and staff. 
     /// </summary>
-    public class FelicitySecurityRepository : FelicitySecurityRepositoryBase, IFelicitySecurityRepository, IFelicitySecurityRepositoryBase
+    public class FelicitySecurityRepository : FelicitySecurityRepositoryBase, IFelicitySecurityRepository
     {
         #region Constructors
         /// <summary>
@@ -25,6 +25,7 @@ namespace FelicitySecurity.Services.Data.Repository
         {
 
         }
+
         public FelicitySecurityRepository(FelicityLiveEntities context)
         {
             _context = context;
@@ -38,25 +39,6 @@ namespace FelicitySecurity.Services.Data.Repository
 
         }
 
-        /// <summary>
-        /// initiates the Engine repository, responsible for handling database transactions for 
-        /// administrators, members, facial image datasets and staff. Passes a database commitMode to the base repository layer 
-        /// </summary>
-        public FelicitySecurityRepository(RepositoryCommitMode commitMode)
-            : base(commitMode)
-        {
-
-        }
-
-        /// <summary>
-        /// initiates the Engine repository, responsible for handling database transactions for 
-        /// administrators, members, facial image datasets and staff. Passes a database connection and commitMode to the base repository layer 
-        /// </summary>
-        public FelicitySecurityRepository(DbConnection connection, RepositoryCommitMode commitMode)
-            : base(connection, commitMode)
-        {
-
-        }
         #endregion
 
         #region Properties 

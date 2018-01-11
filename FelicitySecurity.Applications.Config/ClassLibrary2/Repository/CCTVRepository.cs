@@ -4,19 +4,14 @@ using Dapper;
 using System;
 using System.Configuration;
 using System.Linq;
+using FelicitySecurity.CCTV.Repository.Interfaces;
 
 namespace FelicitySecurity.CCTV.Repository.Repository
 {
-    public class CCTVRepository : CCTVRepositoryBase
+    public class CCTVRepository : CCTVRepositoryBase, ICCTVRepository
     {
-        public CCTVRepository(Configuration configuration, SqlConnection connectionString)
-            : base(configuration, connectionString)
-        {
-
-        }
-
-        public CCTVRepository()
-          : base()
+        public CCTVRepository(string connectionString):
+            base(connectionString)
         {
 
         }
@@ -37,7 +32,7 @@ namespace FelicitySecurity.CCTV.Repository.Repository
 
             try
             {
-                using (var connection = this.ConnectionString)
+                using (var connection = new SqlConnection(ConnectionString))
                 {
                     var administrator = connection.Query<AdministratorModel>("select AdminTable.AdminID AS AdminId, AdminTable.AdminName AS Username, AdminTable.AdminEmail AS EmailAddress, AdminTable.AdminPinCode AS Password" +
                         " from AdminTable where AdminEmail = @email and AdminPinCode = @pinCode", authParameters);
