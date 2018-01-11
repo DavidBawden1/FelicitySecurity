@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using FelicitySecurity.CCTV.Models;
-using FelicitySecurity.CCTV.Repository.Repository;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Configuration;
 using FelicitySecurity.CCTV.Repository.Interfaces;
 
 namespace FelicitySecurity.CCTV.Controllers
