@@ -7,11 +7,6 @@ using System.Data.Entity;
 namespace FelicitySecurity.Services.Data.Repository
 {
     /// <summary>
-    /// The commit mode of the Repository
-    /// </summary>
-    public enum RepositoryCommitMode { Auto, Manual }
-
-    /// <summary>
     /// the base repository layer. implements IDisposable for dud connections. 
     /// </summary>
     public class FelicitySecurityRepositoryBase : IDisposable
@@ -60,16 +55,6 @@ namespace FelicitySecurity.Services.Data.Repository
         public FelicitySecurityRepositoryBase(string connectionString)
         {
             _connectionString = connectionString;
-        }
-
-        /// <summary>
-        /// Initialises the constructor: accepts a connection and commit mode. sets fetch child objects to true
-        /// </summary>
-        /// <param name="connection"></param>
-        /// <param name="commitMode"></param>
-        public FelicitySecurityRepositoryBase(DbConnection connection, RepositoryCommitMode commitMode)
-        {
-            _connection = connection;
         }
 
         public FelicitySecurityRepositoryBase()

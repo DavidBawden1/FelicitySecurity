@@ -6,10 +6,17 @@ using FelicitySecurity.CCTV.Repository.Interfaces;
 
 namespace FelicitySecurity.CCTV.Controllers
 {
+    /// <summary>
+    /// The home controller implementing the repository pattern with Dependency injection 
+    /// </summary>
     public class HomeController : Controller
     {
-        private ICCTVRepository repository;
-        private IConfiguration configuration; 
+        private ICCTVRepository _repository;
+
+        public HomeController(ICCTVRepository repository)
+        {
+            this._repository = repository;
+        }
         public IActionResult Index()
         {
             return View();
@@ -46,7 +53,7 @@ namespace FelicitySecurity.CCTV.Controllers
         [HttpPost]
         public IActionResult AuthenticateAdmin(AdministratorModel model)
         {
-            if (repository.IsAdminAuthorised(model.EmailAddress, model.Password))
+            if (_repository.IsAdminAuthorised(model.EmailAddress, model.Password))
             {
                 return Json(model);
             }

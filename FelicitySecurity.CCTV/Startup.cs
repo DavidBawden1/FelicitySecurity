@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using FelicitySecurity.CCTV.Repository.Repository;
+using FelicitySecurity.CCTV.Repository.Interfaces;
 
 namespace FelicitySecurity.CCTV
 {
@@ -36,7 +37,7 @@ namespace FelicitySecurity.CCTV
                 .AddDataAnnotationsLocalization();
 
             var connectionString = Configuration.GetConnectionString("ClientAppRepository");
-            services.AddTransient<CCTVRepository>(s => new CCTVRepository(connectionString));
+            services.AddTransient<ICCTVRepository>(s => new CCTVRepository(connectionString));
             services.AddOptions();
             services.AddSingleton<IConfiguration>(s => { return Configuration; });//allow injection of config into solution. 
         }
