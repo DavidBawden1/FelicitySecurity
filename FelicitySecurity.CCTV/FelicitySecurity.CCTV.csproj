@@ -20,6 +20,9 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.1" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Configuration\EnvironmentSettings.Development.json" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\FelicitySecurity.Applications.Config\ClassLibrary2\FelicitySecurity.CCTV.Repository.csproj" />
   </ItemGroup>
   <ItemGroup>
