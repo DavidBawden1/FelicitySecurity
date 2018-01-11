@@ -1,27 +1,16 @@
-﻿using System.Configuration;
-using System.Data;
-using System.Data.SqlClient;
-
-namespace FelicitySecurity.CCTV.Repository.Repository
+﻿namespace FelicitySecurity.CCTV.Repository.Repository
 {
     public class CCTVRepositoryBase
     {
-        public CCTVRepositoryBase(Configuration configuration, IDbConnection connectionString)
-        {
-            connectionString = ConnectionString;
-        }
+        protected readonly string ConnectionString;
 
-        public CCTVRepositoryBase()
+        /// <summary>
+        /// Constructs the CCTVRepositoryBase with the supplied connection string. 
+        /// </summary>
+        /// <param name="connectionString">Connection string passed down from EnvironmentSettings.dev/prod.json</param>
+        public CCTVRepositoryBase(string connectionString)
         {
-
-        }
-
-        protected IDbConnection ConnectionString
-        {
-            get
-            {
-                return new SqlConnection(@"Data Source=DESKTOP-T69TDHC\MSSQLSERVER1;Initial Catalog=FelicityLive;Integrated Security=True;");
-            }
+            this.ConnectionString = connectionString;
         }
     }
 }

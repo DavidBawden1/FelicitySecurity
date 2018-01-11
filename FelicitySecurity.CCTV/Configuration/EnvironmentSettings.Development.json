@@ -1,0 +1,5 @@
+﻿{
+  "ConnectionStrings": {
+    "ClientAppRepository": "Data Source=DESKTOP-T69TDHC\\MSSQLSERVER1;Initial Catalog=FelicityLive;Integrated Security=True;"
+  }
+}
