@@ -13,14 +13,10 @@ namespace FelicitySecurity.CCTV.Controllers
         private ICCTVRepository _repository;
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ICCTVRepository repository)
+        public HomeController(ICCTVRepository repository, ILogger<HomeController> logger)
         {
             this._repository = repository;
-        }
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
+            this._logger = logger;
         }
 
         public IActionResult Index()
