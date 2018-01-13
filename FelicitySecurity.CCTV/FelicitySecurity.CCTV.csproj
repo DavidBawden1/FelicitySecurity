@@ -23,7 +23,7 @@
     <None Include="Configuration\EnvironmentSettings.Development.json" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FelicitySecurity.Applications.Config\ClassLibrary2\FelicitySecurity.CCTV.Repository.csproj" />
+    <ProjectReference Include="..\FelicitySecurity.Applications.Config\FelicitySecurity.CCTV.Repository\FelicitySecurity.CCTV.Repository.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Update="nlog.config.xml">
