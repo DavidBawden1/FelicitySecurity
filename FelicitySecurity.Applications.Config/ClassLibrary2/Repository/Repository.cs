@@ -5,7 +5,11 @@ using System.Linq;
 
 namespace FelicitySecurity.CCTV.Repository.Repository
 {
-    public class Repository<T> : EntityBase, IRepository<T> where T : EntityBase
+    /// <summary>
+    /// Generic repository for all CRUD operations. 
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public class Repository<T> : RepositoryBase, IRepository<T> where T : class
     {
         public Repository(string connectionString) :
             base(connectionString)
@@ -23,12 +27,18 @@ namespace FelicitySecurity.CCTV.Repository.Repository
 
         public T Update(T entity)
         {
-            return entity;
+            using (var connection = new SqlConnection(ConnectionString))
+            {
+                return entity = connection.Query<T>("", entity).First();
+            }
         }
 
-        public T Delete(T entity)
+        public void Delete(T entity)
         {
-            return entity;
+            using (var connection = new SqlConnection(ConnectionString))
+            {
+               connection.Query<T>("", entity);
+            }
         }
     }
 }
