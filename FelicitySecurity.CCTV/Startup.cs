@@ -35,7 +35,7 @@ namespace FelicitySecurity.CCTV
                 .AddDataAnnotationsLocalization();
 
             var connectionString = Configuration.GetConnectionString("ClientAppRepository");
-            services.AddTransient<ICCTVRepository>(s => new CCTVRepository(connectionString));
+            services.AddTransient<IAdministratorRepository>(s => new AdministratorRepository(connectionString));
             services.AddOptions();
             services.AddSingleton<IConfiguration>(s => { return Configuration; });//allow injection of config into solution. 
         }
