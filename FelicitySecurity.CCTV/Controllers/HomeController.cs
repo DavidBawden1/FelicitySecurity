@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using FelicitySecurity.CCTV.Models;
-using FelicitySecurity.CCTV.Repository.Repository;
-using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using FelicitySecurity.CCTV.Repository.Interfaces;
 
 namespace FelicitySecurity.CCTV.Controllers
@@ -12,13 +11,17 @@ namespace FelicitySecurity.CCTV.Controllers
     public class HomeController : Controller
     {
         private ICCTVRepository _repository;
+        private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ICCTVRepository repository)
+        public HomeController(ICCTVRepository repository, ILogger<HomeController> logger)
         {
             this._repository = repository;
+            this._logger = logger;
         }
+
         public IActionResult Index()
         {
+            _logger.LogInformation($"{this.ToString()} starting index page.");
             return View();
         }
 
