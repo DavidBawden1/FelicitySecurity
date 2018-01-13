@@ -1,14 +1,13 @@
-﻿using FelicitySecurity.CCTV.Repository.Repository;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace FelicitySecurity.CCTV.Repository.Interfaces
+﻿namespace FelicitySecurity.CCTV.Repository.Interfaces
 {
-    public interface IRepository<T> where T : EntityBase
+    /// <summary>
+    /// Generic repository interface for all CRUD operations. 
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public interface IRepository<T> where T : class
     {
-        T Delete(T entity);
-        T Update(T entity);
         T Add(T entity);
+        T Update(T entity);
+        void Delete(T entity);
     }
 }

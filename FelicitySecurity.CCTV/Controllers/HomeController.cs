@@ -6,14 +6,14 @@ using FelicitySecurity.CCTV.Repository.Interfaces;
 namespace FelicitySecurity.CCTV.Controllers
 {
     /// <summary>
-    /// The home controller implementing the repository pattern with Dependency injection 
+    /// The Home Controller
     /// </summary>
     public class HomeController : Controller
     {
-        private ICCTVRepository _repository;
+        private IAdministratorRepository _repository;
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ICCTVRepository repository, ILogger<HomeController> logger)
+        public HomeController(IAdministratorRepository repository, ILogger<HomeController> logger)
         {
             this._repository = repository;
             this._logger = logger;
