@@ -158,7 +158,7 @@ namespace FelicitySecurity.Applications.Config.Resources.ImageProcessing.FaceRec
         {
             get
             {
-                FelicitySecurityRepository repository = new FelicitySecurityRepository();
+                MemberRepository repository = new MemberRepository();
                 var membersDataSet = repository.FindAllMembers();
                 var memersFacialImageDataSet = membersDataSet.Select(x => x.MemFacialImage);
                 if (memersFacialImageDataSet == null)

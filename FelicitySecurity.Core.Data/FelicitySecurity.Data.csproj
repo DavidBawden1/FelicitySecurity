@@ -67,6 +67,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
@@ -108,15 +109,21 @@
     <Compile Include="DataModel\StaffTable.cs">
       <DependentUpon>FelicitySecurity.tt</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\IFelicitySecurityRepository.cs" />
+    <Compile Include="Interfaces\IAdministratorRepository.cs" />
+    <Compile Include="Interfaces\IMemberRepository.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Interfaces\IStaffRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Repository\FelicitySecurityRepository.cs" />
-    <Compile Include="Repository\FelicitySecurityRepositoryBase.cs" />
+    <Compile Include="Repository\AdministratorRepository.cs" />
+    <Compile Include="Repository\MemberRepository.cs" />
+    <Compile Include="Repository\Repository.cs" />
+    <Compile Include="Repository\RepositoryBase.cs" />
+    <Compile Include="Repository\StaffRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FelicitySecurity.Applications.Config\FelicitySecurity.Utils\FelicitySecurity.Core.Utils.csproj">
