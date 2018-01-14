@@ -24,6 +24,17 @@ namespace FelicitySecurity.Services.Data.Repository
 
         }
 
+        /// <summary>
+        /// gets the dbContext of type FelicityLiveEntities
+        /// </summary>
+        protected override Type DbContextType
+        {
+            get
+            {
+                return typeof(FelicityLiveEntities);
+            }
+        }
+
         public List<T> Find()
         {
             try
