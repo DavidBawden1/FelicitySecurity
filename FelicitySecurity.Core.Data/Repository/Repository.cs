@@ -28,31 +28,20 @@ namespace FelicitySecurity.Services.Data.Repository
 
         }
 
-
-        public List<T> Find()
+        public T Add(T entity)
         {
-            try
+            if (entity != null)
             {
                 using (FelicityLiveEntities dbContext = (FelicityLiveEntities)GetDBContext())
                 {
-                    List<T> list = new List<T>();
-                    foreach (var entity in Entities)
-                    {
-                        list.Add(Entities.Find());
-                    }
-                    return list;
+                    return Entities.Add(entity);
                 }
             }
-            catch (Exception e)
+            else
             {
+                throw new Exception("Entity was null");
 
             }
-            return new List<T>();
-        }
-
-        public T Add(T entity)
-        {
-            return Entities.Add(entity);
         }
 
         public void Update(T entity)
@@ -64,11 +53,25 @@ namespace FelicitySecurity.Services.Data.Repository
                     dbContext.SaveChanges();
                 }
             }
+            else
+            {
+                throw new Exception("Entity was null.");
+            }
         }
 
         public void Delete(T entity)
         {
-            Entities.Remove(entity);
+            if (entity != null)
+            {
+                using (FelicityLiveEntities dbContext = (FelicityLiveEntities)GetDBContext())
+                {
+                    Entities.Remove(entity);
+                }
+            }
+            else
+            {
+                throw new Exception($"Entity was null.");
+            }
         }
     }
 }
