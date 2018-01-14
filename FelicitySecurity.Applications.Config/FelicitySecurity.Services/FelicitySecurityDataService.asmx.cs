@@ -43,7 +43,7 @@ namespace FelicitySecurity.Services
         /// <param name="item">Administrators_dto</param>
         public List<Administrators_dto> FindAllAdministrators()
         {
-            return administratorBaseRepo.Find();
+            return administratorRepository.FindAllAdministrators();
         }
 
         [WebMethod]
