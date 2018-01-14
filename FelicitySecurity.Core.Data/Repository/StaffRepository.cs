@@ -22,17 +22,6 @@ namespace FelicitySecurity.Services.Data.Repository
         }
 
         /// <summary>
-        /// gets the dbContext of type FelicityLiveEntities
-        /// </summary>
-        protected override Type DbContextType
-        {
-            get
-            {
-                return typeof(FelicityLiveEntities);
-            }
-        }
-
-        /// <summary>
         /// Adds a staff members to the StaffTable when the registration scenario is applied. 
         /// </summary>
         public Staff_dto AddStaff(Staff_dto item)

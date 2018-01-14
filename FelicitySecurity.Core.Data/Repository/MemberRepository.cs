@@ -22,17 +22,6 @@ namespace FelicitySecurity.Services.Data.Repository
         }
 
         /// <summary>
-        /// gets the dbContext of type FelicityLiveEntities
-        /// </summary>
-        protected override Type DbContextType
-        {
-            get
-            {
-                return typeof(FelicityLiveEntities);
-            }
-        }
-
-        /// <summary>
         /// Adds a member to the MembersTable when the registration scenario is applied. 
         /// </summary>
         public Members_dto AddMember(Members_dto item)

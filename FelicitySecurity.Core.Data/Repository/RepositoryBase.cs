@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FelicitySecurity.Core.Data.DataModel;
+using System;
 using System.Configuration;
 using System.Data.Entity;
 
@@ -18,7 +19,7 @@ namespace FelicitySecurity.Services.Data.Repository
         {
             get
             {
-                throw new NotImplementedException();
+                return typeof(FelicityLiveEntities);
             }
         }
 
