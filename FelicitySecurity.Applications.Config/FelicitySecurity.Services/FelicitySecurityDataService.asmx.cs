@@ -19,6 +19,8 @@ namespace FelicitySecurity.Services
         AdministratorRepository administratorRepository = new AdministratorRepository();
         MemberRepository memberRepository = new MemberRepository();
         StaffRepository staffRepository = new StaffRepository();
+        Repository<Administrators_dto> administratorBaseRepo = new Repository<Administrators_dto>();
+        Repository<Members_dto> memberBaseRepo = new Repository<Members_dto>();
         #endregion
 
         #region Methods
@@ -30,7 +32,7 @@ namespace FelicitySecurity.Services
         /// <param name="item">Administrators_dto</param>
         public void AddAdministrator(Administrators_dto item)
         {
-            administratorRepository.AddAdministrator(item);
+            administratorBaseRepo.Add(item);
         }
 
         [WebMethod]
@@ -41,7 +43,7 @@ namespace FelicitySecurity.Services
         /// <param name="item">Administrators_dto</param>
         public List<Administrators_dto> FindAllAdministrators()
         {
-            return administratorRepository.FindAllAdministrators();
+            return administratorBaseRepo.Find();
         }
 
         [WebMethod]
@@ -52,7 +54,7 @@ namespace FelicitySecurity.Services
         /// <param name="item">Members_dto</param>
         public void AddMember(Members_dto item)
         {
-            memberRepository.AddMember(item);
+            memberBaseRepo.Add(item);
         }
 
         [WebMethod]
@@ -107,7 +109,7 @@ namespace FelicitySecurity.Services
         /// <param name="item"></param>
         public void UpdateAdministrator(Administrators_dto item)
         {
-            administratorRepository.UpdateAdministrator(item);
+            administratorBaseRepo.Update(item);
         }
 
         [WebMethod]
@@ -118,7 +120,7 @@ namespace FelicitySecurity.Services
         /// <param name="item"></param>
         public void UpdateMember(Members_dto item)
         {
-            memberRepository.UpdateMember(item);
+            memberBaseRepo.Update(item);
         }
 
         [WebMethod]

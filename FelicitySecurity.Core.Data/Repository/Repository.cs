@@ -4,6 +4,7 @@ using System.Linq;
 using System;
 using System.Collections.Generic;
 using FelicitySecurity.Core.Data.DataModel;
+using System.Data.Entity;
 
 namespace FelicitySecurity.Services.Data.Repository
 {
@@ -11,8 +12,11 @@ namespace FelicitySecurity.Services.Data.Repository
     /// Generic repository for all CRUD operations. 
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public abstract class Repository<T> : RepositoryBase, IRepository<T> where T : class
+    public class Repository<T> : RepositoryBase, IRepository<T> where T : class
     {
+        private IDbSet<T> _entities;
+        public IDbSet<T> Entities { get => _entities; set => _entities = value; }
+
         public Repository(string connectionString) :
             base(connectionString)
         {
@@ -31,7 +35,12 @@ namespace FelicitySecurity.Services.Data.Repository
             {
                 using (FelicityLiveEntities dbContext = (FelicityLiveEntities)GetDBContext())
                 {
-                    return Find();
+                    List<T> list = new List<T>();
+                    foreach (var entity in Entities)
+                    {
+                        list.Add(Entities.Find());
+                    }
+                    return list;
                 }
             }
             catch (Exception e)
@@ -43,17 +52,23 @@ namespace FelicitySecurity.Services.Data.Repository
 
         public T Add(T entity)
         {
-            return Add(entity);
+            return Entities.Add(entity);
         }
 
         public void Update(T entity)
         {
-            Update(entity);
+            if (entity != null)
+            {
+                using (FelicityLiveEntities dbContext = (FelicityLiveEntities)GetDBContext())
+                {
+                    dbContext.SaveChanges();
+                }
+            }
         }
 
         public void Delete(T entity)
         {
-            Delete(entity);
+            Entities.Remove(entity);
         }
     }
 }
