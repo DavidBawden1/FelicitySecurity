@@ -98,7 +98,7 @@ namespace FelicitySecurity.Services
         /// <param name="administratorId"></param>
         public void RemoveAdministrator(Administrators_dto item)
         {
-            administratorRepository.DeleteAdministrator(item);
+            administratorBaseRepo.Delete(item);
         }
 
         [WebMethod]
@@ -131,7 +131,7 @@ namespace FelicitySecurity.Services
         /// <param name="memberId"></param>
         public void DeleteMember(Members_dto item)
         {
-            memberRepository.DeleteMember(item);
+            memberBaseRepo.Delete(item);
         }
         #endregion
     }

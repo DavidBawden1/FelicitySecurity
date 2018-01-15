@@ -28,13 +28,14 @@ namespace FelicitySecurity.Services.Data.Repository
 
         }
 
-        public T Add(T entity)
+        public void Add(T entity)
         {
             if (entity != null)
             {
                 using (FelicityLiveEntities dbContext = (FelicityLiveEntities)GetDBContext())
                 {
-                    return Entities.Add(entity);
+                    dbContext.Set<T>().Add(entity);
+                    dbContext.SaveChanges();
                 }
             }
             else
@@ -50,6 +51,7 @@ namespace FelicitySecurity.Services.Data.Repository
             {
                 using (FelicityLiveEntities dbContext = (FelicityLiveEntities)GetDBContext())
                 {
+                    dbContext.Entry(entity).State = EntityState.Modified;
                     dbContext.SaveChanges();
                 }
             }
@@ -65,7 +67,8 @@ namespace FelicitySecurity.Services.Data.Repository
             {
                 using (FelicityLiveEntities dbContext = (FelicityLiveEntities)GetDBContext())
                 {
-                    Entities.Remove(entity);
+                    dbContext.Set<T>().Remove(entity);
+                    dbContext.SaveChanges();
                 }
             }
             else
