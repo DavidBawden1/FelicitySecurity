@@ -111,7 +111,7 @@
       <s:element name="RemoveAdministrator">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="administratorId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="item" type="tns:Administrators_dto" />
           </s:sequence>
         </s:complexType>
       </s:element>

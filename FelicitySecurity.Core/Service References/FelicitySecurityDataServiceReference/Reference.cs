@@ -440,11 +440,12 @@ namespace FelicitySecurity.Core.FelicitySecurityDataServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FindAllStaff", ReplyAction="*")]
         System.Threading.Tasks.Task<FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllStaffResponse> FindAllStaffAsync(FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllStaffRequest request);
         
+        // CODEGEN: Generating message contract since element name item from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RemoveAdministrator", ReplyAction="*")]
-        void RemoveAdministrator(int administratorId);
+        FelicitySecurity.Core.FelicitySecurityDataServiceReference.RemoveAdministratorResponse RemoveAdministrator(FelicitySecurity.Core.FelicitySecurityDataServiceReference.RemoveAdministratorRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RemoveAdministrator", ReplyAction="*")]
-        System.Threading.Tasks.Task RemoveAdministratorAsync(int administratorId);
+        System.Threading.Tasks.Task<FelicitySecurity.Core.FelicitySecurityDataServiceReference.RemoveAdministratorResponse> RemoveAdministratorAsync(FelicitySecurity.Core.FelicitySecurityDataServiceReference.RemoveAdministratorRequest request);
         
         // CODEGEN: Generating message contract since element name item from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateAdministrator", ReplyAction="*")]
@@ -837,6 +838,67 @@ namespace FelicitySecurity.Core.FelicitySecurityDataServiceReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class RemoveAdministratorRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="RemoveAdministrator", Namespace="http://tempuri.org/", Order=0)]
+        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.RemoveAdministratorRequestBody Body;
+        
+        public RemoveAdministratorRequest() {
+        }
+        
+        public RemoveAdministratorRequest(FelicitySecurity.Core.FelicitySecurityDataServiceReference.RemoveAdministratorRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class RemoveAdministratorRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.Administrators_dto item;
+        
+        public RemoveAdministratorRequestBody() {
+        }
+        
+        public RemoveAdministratorRequestBody(FelicitySecurity.Core.FelicitySecurityDataServiceReference.Administrators_dto item) {
+            this.item = item;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class RemoveAdministratorResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="RemoveAdministratorResponse", Namespace="http://tempuri.org/", Order=0)]
+        public FelicitySecurity.Core.FelicitySecurityDataServiceReference.RemoveAdministratorResponseBody Body;
+        
+        public RemoveAdministratorResponse() {
+        }
+        
+        public RemoveAdministratorResponse(FelicitySecurity.Core.FelicitySecurityDataServiceReference.RemoveAdministratorResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class RemoveAdministratorResponseBody {
+        
+        public RemoveAdministratorResponseBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class UpdateAdministratorRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdateAdministrator", Namespace="http://tempuri.org/", Order=0)]
@@ -1123,12 +1185,28 @@ namespace FelicitySecurity.Core.FelicitySecurityDataServiceReference {
             return ((FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).FindAllStaffAsync(inValue);
         }
         
-        public void RemoveAdministrator(int administratorId) {
-            base.Channel.RemoveAdministrator(administratorId);
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        FelicitySecurity.Core.FelicitySecurityDataServiceReference.RemoveAdministratorResponse FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.RemoveAdministrator(FelicitySecurity.Core.FelicitySecurityDataServiceReference.RemoveAdministratorRequest request) {
+            return base.Channel.RemoveAdministrator(request);
         }
         
-        public System.Threading.Tasks.Task RemoveAdministratorAsync(int administratorId) {
-            return base.Channel.RemoveAdministratorAsync(administratorId);
+        public void RemoveAdministrator(FelicitySecurity.Core.FelicitySecurityDataServiceReference.Administrators_dto item) {
+            FelicitySecurity.Core.FelicitySecurityDataServiceReference.RemoveAdministratorRequest inValue = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.RemoveAdministratorRequest();
+            inValue.Body = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.RemoveAdministratorRequestBody();
+            inValue.Body.item = item;
+            FelicitySecurity.Core.FelicitySecurityDataServiceReference.RemoveAdministratorResponse retVal = ((FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).RemoveAdministrator(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<FelicitySecurity.Core.FelicitySecurityDataServiceReference.RemoveAdministratorResponse> FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap.RemoveAdministratorAsync(FelicitySecurity.Core.FelicitySecurityDataServiceReference.RemoveAdministratorRequest request) {
+            return base.Channel.RemoveAdministratorAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<FelicitySecurity.Core.FelicitySecurityDataServiceReference.RemoveAdministratorResponse> RemoveAdministratorAsync(FelicitySecurity.Core.FelicitySecurityDataServiceReference.Administrators_dto item) {
+            FelicitySecurity.Core.FelicitySecurityDataServiceReference.RemoveAdministratorRequest inValue = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.RemoveAdministratorRequest();
+            inValue.Body = new FelicitySecurity.Core.FelicitySecurityDataServiceReference.RemoveAdministratorRequestBody();
+            inValue.Body.item = item;
+            return ((FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).RemoveAdministratorAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

@@ -136,6 +136,9 @@
     <None Include="Service References\FelicitySecurityDataServiceReference\FelicitySecurity.Core.FelicitySecurityDataServiceReference.Members_dto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\FelicitySecurityDataServiceReference\FelicitySecurity.Core.FelicitySecurityDataServiceReference.RemoveAdministratorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\FelicitySecurityDataServiceReference\FelicitySecurity.Core.FelicitySecurityDataServiceReference.Staff_dto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

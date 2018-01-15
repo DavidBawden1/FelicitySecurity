@@ -74,9 +74,9 @@ namespace FelicitySecurity.Core.BusinessLogic
         /// Calls the Remove Administrator Repository method
         /// </summary>
         /// <param name="administratorId"></param>
-        public void DeleteAdministrator(int administratorId)
+        public void DeleteAdministrator(Administrators_dto item)
         {
-            client.RemoveAdministrator(administratorId);
+            client.RemoveAdministrator(item);
         }
 
         /// <summary>

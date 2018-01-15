@@ -96,9 +96,9 @@ namespace FelicitySecurity.Services
         /// Calls the Remove Administrator businessLogic method
         /// </summary>
         /// <param name="administratorId"></param>
-        public void RemoveAdministrator(int administratorId)
+        public void RemoveAdministrator(Administrators_dto item)
         {
-            administratorRepository.DeleteAdministrator(administratorId);
+            administratorRepository.DeleteAdministrator(item);
         }
 
         [WebMethod]

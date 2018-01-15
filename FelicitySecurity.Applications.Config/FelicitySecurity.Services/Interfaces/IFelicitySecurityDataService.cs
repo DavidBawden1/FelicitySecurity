@@ -16,7 +16,7 @@ namespace FelicitySecurity.Services
         List<Members_dto> FindAllMembers();
         void AddStaff(Staff_dto item);
         List<Staff_dto> FindAllStaff();
-        void RemoveAdministrator(int administratorId);
+        void RemoveAdministrator(Administrators_dto item);
         void UpdateAdministrator(Administrators_dto item);
         void UpdateMember(Members_dto item);
         void DeleteMember(int memberId);

@@ -109,13 +109,13 @@ namespace FelicitySecurity.Services.Data.Repository
         /// Takes a specified administratorId and then removes the administrator associated with it.
         /// </summary>
         /// <param name="administratorId">The administrator to remove</param>
-        public void DeleteAdministrator(int administratorId)
+        public void DeleteAdministrator(Administrators_dto adminDto)
         {
             try
             {
                 using (FelicityLiveEntities dbContext = (FelicityLiveEntities)GetDBContext())
                 {
-                    AdminTable administratorToRemove = dbContext.AdminTable.SingleOrDefault(admin => admin.AdminID == administratorId);
+                    AdminTable administratorToRemove = dbContext.AdminTable.SingleOrDefault(admin => admin.AdminID == adminDto.AdminID);
                     dbContext.AdminTable.Remove(administratorToRemove);
                     dbContext.SaveChanges();
                 }
