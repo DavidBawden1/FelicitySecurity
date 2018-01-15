@@ -124,6 +124,9 @@
     <None Include="Service References\FelicitySecurityDataServiceReference\FelicitySecurity.Core.FelicitySecurityDataServiceReference.Administrators_dto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\FelicitySecurityDataServiceReference\FelicitySecurity.Core.FelicitySecurityDataServiceReference.DeleteMemberResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\FelicitySecurityDataServiceReference\FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllAdministratorsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
