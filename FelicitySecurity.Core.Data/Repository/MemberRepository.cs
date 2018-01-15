@@ -121,13 +121,13 @@ namespace FelicitySecurity.Services.Data.Repository
         /// Removes a Member from the Member table for a given MemberId
         /// </summary>
         /// <param name="memberId"></param>
-        public void DeleteMember(Members_dto model)
+        public void DeleteMember(int memberId)
         {
             try
             {
                 using (FelicityLiveEntities dbContext = (FelicityLiveEntities)GetDBContext())
                 {
-                    MemberTable memberToDelete = dbContext.MemberTable.SingleOrDefault(member => member.MemID == model.MemID);
+                    MemberTable memberToDelete = dbContext.MemberTable.SingleOrDefault(member => member.MemID == memberId);
                     dbContext.MemberTable.Remove(memberToDelete);
                     dbContext.SaveChanges();
                 }

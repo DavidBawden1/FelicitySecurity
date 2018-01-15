@@ -1257,8 +1257,8 @@ namespace FelicitySecurity.Core.FelicitySecurityDataServiceReference {
             return ((FelicitySecurity.Core.FelicitySecurityDataServiceReference.FelicitySecurityDataServiceSoap)(this)).UpdateMemberAsync(inValue);
         }
         
-        public void DeleteMember(Members_dto model) {
-            base.Channel.DeleteMember(model);
+        public void DeleteMember(int memberId) {
+            base.Channel.DeleteMember(memberId);
         }
         
         public System.Threading.Tasks.Task DeleteMemberAsync(int memberId) {

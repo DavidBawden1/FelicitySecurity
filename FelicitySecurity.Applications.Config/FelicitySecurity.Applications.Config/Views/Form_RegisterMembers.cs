@@ -473,7 +473,7 @@ namespace FelicitySecurity.Applications.Config.Views
             if (ExistingMembers_ListBox.SelectedItem != null)
             {
                 PopulateModelWithSelectedMemberId();
-                viewModel.DeleteMember(controller, model);
+                viewModel.DeleteMember(controller, model.MemberId);
                 MessageBox.Show(string.Format("{0} {1} Deleted successfully", FirstName_Textbox.Text, LastName_Textbox.Text), "Felicity Security", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 viewModel.DisplayMemberDetailsToListbox(this, controller, model, CurrentSortingType.Default);
             }

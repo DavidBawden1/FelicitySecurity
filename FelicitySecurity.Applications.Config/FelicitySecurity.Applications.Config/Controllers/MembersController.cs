@@ -87,22 +87,9 @@ namespace FelicitySecurity.Applications.Config.Controllers
         /// Deletes the Member with the supplied memberId
         /// </summary>
         /// <param name="memberId"></param>
-        public void DeleteMember(MemberModel model)
+        public void DeleteMember(int memberId)
         {
-            Members_dto member_dto = new Members_dto()
-            {
-                MemID = model.MemberId,
-                MemFirstname = model.MemberFirstName,
-                MemLastname = model.MemberLastName,
-                MemDOB = model.MemberDateOfBirth,
-                MemPhonenumber = model.MemberPhoneNumber,
-                MemPostcode = model.MemberPostCode,
-                MemStatus = model.IsPersonARegisteredMember,
-                MemRegDate = model.MemberDateOfRegistration,
-                MemFacialImage = model.MemberFacialImages,
-                IsStaff = model.IsPersonAStaffMember
-            };
-            businessLogic.DeleteMember(member_dto);
+            businessLogic.DeleteMember(memberId);
         }
         #endregion
     }
