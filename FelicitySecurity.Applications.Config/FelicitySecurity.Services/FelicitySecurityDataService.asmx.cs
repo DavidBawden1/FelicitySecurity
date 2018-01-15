@@ -129,9 +129,9 @@ namespace FelicitySecurity.Services
         /// Calls the Delete Member businessLogic method and passes the id to delete with
         /// </summary>
         /// <param name="memberId"></param>
-        public void DeleteMember(int memberId)
+        public void DeleteMember(Members_dto model)
         {
-            memberRepository.DeleteMember(memberId);
+            memberRepository.DeleteMember(model);
         }
         #endregion
     }

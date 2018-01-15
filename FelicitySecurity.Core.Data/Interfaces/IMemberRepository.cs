@@ -8,7 +8,6 @@ namespace FelicitySecurity.Services.Data.Interfaces
         List<Members_dto> FindAllMembers();
         Members_dto AddMember(Members_dto item);
         void UpdateMember(Members_dto member);
-        void DeleteMember(int memberId);
-
+        void DeleteMember(Members_dto item);
     }
 }
