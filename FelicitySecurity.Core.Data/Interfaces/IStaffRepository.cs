@@ -1,12 +1,12 @@
-﻿using FelicitySecurity.Core.DataTransferObjects;
+﻿using FelicitySecurity.Core.Data.DataModel;
 using System.Collections.Generic;
 
 namespace FelicitySecurity.Core.Data.Interfaces
 {
     public interface IStaffRepository
     {
-        Staff_dto AddStaff(Staff_dto item);
-        List<Staff_dto> FindAllStaff();
+        StaffTable AddStaff(StaffTable item);
+        List<StaffTable> FindAllStaff();
         void UpdateStaff();
         void DeleteStaff();
     }

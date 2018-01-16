@@ -1,5 +1,4 @@
 ﻿using FelicitySecurity.Core.Data.DataModel;
-using FelicitySecurity.Core.DataTransferObjects;
 using FelicitySecurity.Services.Data.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -8,7 +7,7 @@ using System.Linq;
 
 namespace FelicitySecurity.Services.Data.Repository
 {
-    public class MemberRepository : Repository<Members_dto>, IMemberRepository
+    public class MemberRepository : Repository<MemberTable>, IMemberRepository
     {
         public MemberRepository(string connectionString) 
             : base(connectionString)
@@ -24,7 +23,7 @@ namespace FelicitySecurity.Services.Data.Repository
         /// <summary>
         /// Adds a member to the MembersTable when the registration scenario is applied. 
         /// </summary>
-        public Members_dto AddMember(Members_dto item)
+        public MemberTable AddMember(MemberTable item)
         {
             try
             {
@@ -36,10 +35,10 @@ namespace FelicitySecurity.Services.Data.Repository
                         MemLastname = item.MemLastname,
                         MemPhonenumber = item.MemPhonenumber,
                         MemPostcode = item.MemPostcode,
-                        MemStatus = item.MemStatus.Value,
+                        MemStatus = item.MemStatus,
                         MemDOB = item.MemDOB,
                         MemRegDate = item.MemRegDate,
-                        IsStaff = item.IsStaff.Value,
+                        IsStaff = item.IsStaff,
                         MemFacialImage = item.MemFacialImage
                     };
                     dbContext.Entry(entity).State = EntityState.Added;
@@ -57,16 +56,16 @@ namespace FelicitySecurity.Services.Data.Repository
         /// returns a list of all members and their data. 
         /// </summary>
         /// <returns> a result list of all members of the system</returns>
-        public List<Members_dto> FindAllMembers()
+        public List<MemberTable> FindAllMembers()
         {
-            List<Members_dto> membersResult = new List<Members_dto>();
+            List<MemberTable> membersResult = new List<MemberTable>();
             try
             {
                 using (FelicityLiveEntities dbContext = (FelicityLiveEntities)GetDBContext())
                 {
                     foreach (var item in dbContext.MemberTable)
                     {
-                        Members_dto dto = new Members_dto();
+                        MemberTable dto = new MemberTable();
                         dto.MemID = item.MemID;
                         dto.MemFirstname = item.MemFirstname;
                         dto.MemLastname = item.MemLastname;
@@ -93,7 +92,7 @@ namespace FelicitySecurity.Services.Data.Repository
         /// Updates the selected Member
         /// </summary>
         /// <param name="memberDto"></param>
-        public void UpdateMember(Members_dto memberDto)
+        public void UpdateMember(MemberTable memberDto)
         {
             try
             {
@@ -105,8 +104,8 @@ namespace FelicitySecurity.Services.Data.Repository
                     memberToUpdate.MemPhonenumber = memberDto.MemPhonenumber;
                     memberToUpdate.MemPostcode = memberDto.MemPostcode;
                     memberToUpdate.MemDOB = memberDto.MemDOB;
-                    memberToUpdate.MemStatus = memberDto.MemStatus.Value;
-                    memberToUpdate.IsStaff = memberDto.IsStaff.Value;
+                    memberToUpdate.MemStatus = memberDto.MemStatus;
+                    memberToUpdate.IsStaff = memberDto.IsStaff;
                     memberToUpdate.MemRegDate = memberDto.MemRegDate;
                     memberToUpdate.MemFacialImage = memberDto.MemFacialImage;
                     dbContext.SaveChanges();
@@ -121,7 +120,7 @@ namespace FelicitySecurity.Services.Data.Repository
         /// Removes a Member from the Member table for a given MemberId
         /// </summary>
         /// <param name="memberId"></param>
-        public void DeleteMember(Members_dto model)
+        public void DeleteMember(MemberTable model)
         {
             try
             {

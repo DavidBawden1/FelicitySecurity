@@ -1,4 +1,4 @@
-﻿using FelicitySecurity.Core.DataTransferObjects;
+﻿using FelicitySecurity.Core.Data.DataModel;
 using System.Collections.Generic;
 
 namespace FelicitySecurity.Services.Data.Interfaces
@@ -8,9 +8,9 @@ namespace FelicitySecurity.Services.Data.Interfaces
     /// </summary>
     public interface IAdministratorRepository
     {
-        List<Administrators_dto> FindAllAdministrators();
-        Administrators_dto AddAdministrator(Administrators_dto item);
-        void UpdateAdministrator(Administrators_dto admin);
-        void DeleteAdministrator(Administrators_dto admin);
+        List<AdminTable> FindAllAdministrators();
+        AdminTable AddAdministrator(AdminTable item);
+        void UpdateAdministrator(AdminTable admin);
+        void DeleteAdministrator(AdminTable admin);
     }
 }

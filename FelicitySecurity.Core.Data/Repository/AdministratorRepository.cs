@@ -13,7 +13,7 @@ namespace FelicitySecurity.Services.Data.Repository
     /// The Engine repository, responsible for handling database transactions for 
     /// administrators, members, facial image datasets and staff. 
     /// </summary>
-    public class AdministratorRepository : Repository<Administrators_dto>,  IAdministratorRepository
+    public class AdministratorRepository : Repository<AdminTable>,  IAdministratorRepository
     {
         public AdministratorRepository(string connectionString):
             base(connectionString)
@@ -30,16 +30,16 @@ namespace FelicitySecurity.Services.Data.Repository
         /// returns all of the administrators within the administrators table. 
         /// </summary>
         /// <returns>a result list of all administrators in the system</returns>
-        public List<Administrators_dto> FindAllAdministrators()
+        public List<AdminTable> FindAllAdministrators()
         {
-            List<Administrators_dto> administratorsResult = new List<Administrators_dto>();
+            List<AdminTable> administratorsResult = new List<AdminTable>();
             try
             {
                 using (FelicityLiveEntities dbContext = (FelicityLiveEntities)GetDBContext())
                 {
                     foreach (var item in dbContext.AdminTable)
                     {
-                        Administrators_dto dto = new Administrators_dto();
+                        AdminTable dto = new AdminTable();
                         dto.AdminID = item.AdminID;
                         dto.AdminEmail = item.AdminEmail;
                         dto.AdminName = item.AdminName;
@@ -58,7 +58,7 @@ namespace FelicitySecurity.Services.Data.Repository
         /// <summary>
         /// Adds an administer to the AdminTable when the registration scenario is applied. 
         /// </summary>
-        public Administrators_dto AddAdministrator(Administrators_dto item)
+        public AdminTable AddAdministrator(AdminTable item)
         {
             try
             {
@@ -86,7 +86,7 @@ namespace FelicitySecurity.Services.Data.Repository
         /// Updates the selected Administrator
         /// </summary>
         /// <param name="adminDto"></param>
-        public void UpdateAdministrator(Administrators_dto adminDto)
+        public void UpdateAdministrator(AdminTable adminDto)
         {
             try
             {
@@ -109,7 +109,7 @@ namespace FelicitySecurity.Services.Data.Repository
         /// Takes a specified administratorId and then removes the administrator associated with it.
         /// </summary>
         /// <param name="administratorId">The administrator to remove</param>
-        public void DeleteAdministrator(Administrators_dto adminDto)
+        public void DeleteAdministrator(AdminTable adminDto)
         {
             try
             {

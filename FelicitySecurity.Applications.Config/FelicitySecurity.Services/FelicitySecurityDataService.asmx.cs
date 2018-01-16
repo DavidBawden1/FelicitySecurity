@@ -1,9 +1,9 @@
 ﻿using FelicitySecurity.Services.Data.Repository;
 using System.Collections.Generic;
-using FelicitySecurity.Core.DataTransferObjects;
 using System.Web.Services;
 using System.ServiceModel;
 using System;
+using FelicitySecurity.Core.Data.DataModel;
 
 namespace FelicitySecurity.Services
 {
@@ -19,8 +19,8 @@ namespace FelicitySecurity.Services
         AdministratorRepository administratorRepository = new AdministratorRepository();
         MemberRepository memberRepository = new MemberRepository();
         StaffRepository staffRepository = new StaffRepository();
-        Repository<Administrators_dto> administratorBaseRepo = new Repository<Administrators_dto>();
-        Repository<Members_dto> memberBaseRepo = new Repository<Members_dto>();
+        Repository<AdminTable> administratorBaseRepo = new Repository<AdminTable>();
+        Repository<MemberTable> memberBaseRepo = new Repository<MemberTable>();
         #endregion
 
         #region Methods
@@ -29,8 +29,8 @@ namespace FelicitySecurity.Services
         /// <summary>
         /// calls the Add Administrator businessLogic method
         /// </summary>
-        /// <param name="item">Administrators_dto</param>
-        public void AddAdministrator(Administrators_dto item)
+        /// <param name="item">AdminTable</param>
+        public void AddAdministrator(AdminTable item)
         {
             administratorBaseRepo.Add(item);
         }
@@ -40,8 +40,8 @@ namespace FelicitySecurity.Services
         /// <summary>
         /// calls the Find All Administrator businessLogic method
         /// </summary>
-        /// <param name="item">Administrators_dto</param>
-        public List<Administrators_dto> FindAllAdministrators()
+        /// <param name="item">AdminTable</param>
+        public List<AdminTable> FindAllAdministrators()
         {
             return administratorRepository.FindAllAdministrators();
         }
@@ -51,8 +51,8 @@ namespace FelicitySecurity.Services
         /// <summary>
         /// calls the Add Member businessLogic method
         /// </summary>
-        /// <param name="item">Members_dto</param>
-        public void AddMember(Members_dto item)
+        /// <param name="item">MemberTable</param>
+        public void AddMember(MemberTable item)
         {
             memberBaseRepo.Add(item);
         }
@@ -62,8 +62,8 @@ namespace FelicitySecurity.Services
         /// <summary>
         /// calls the Find All Members businessLogic method
         /// </summary>
-        /// <param name="item">Members_dto</param>
-        public List<Members_dto> FindAllMembers()
+        /// <param name="item">MemberTable</param>
+        public List<MemberTable> FindAllMembers()
         {
             return memberRepository.FindAllMembers();
         }
@@ -73,8 +73,8 @@ namespace FelicitySecurity.Services
         /// <summary>
         /// calls the Add Staff businessLogic method
         /// </summary>
-        /// <param name="item">Staff_dto</param>
-        public void AddStaff(Staff_dto item)
+        /// <param name="item">StaffTable</param>
+        public void AddStaff(StaffTable item)
         {
             staffRepository.AddStaff(item);
         }
@@ -84,8 +84,8 @@ namespace FelicitySecurity.Services
         /// <summary>
         /// calls the Find All Staff businessLogic method
         /// </summary>
-        /// <param name="item">Staff_dto</param>
-        public List<Staff_dto> FindAllStaff()
+        /// <param name="item">StaffTable</param>
+        public List<StaffTable> FindAllStaff()
         {
             return staffRepository.FindAllStaff();
         }
@@ -96,7 +96,7 @@ namespace FelicitySecurity.Services
         /// Calls the Remove Administrator businessLogic method
         /// </summary>
         /// <param name="administratorId"></param>
-        public void RemoveAdministrator(Administrators_dto item)
+        public void RemoveAdministrator(AdminTable item)
         {
             administratorBaseRepo.Delete(item);
         }
@@ -107,7 +107,7 @@ namespace FelicitySecurity.Services
         /// Calls the Update Administrator businessLogic method
         /// </summary>
         /// <param name="item"></param>
-        public void UpdateAdministrator(Administrators_dto item)
+        public void UpdateAdministrator(AdminTable item)
         {
             administratorBaseRepo.Update(item);
         }
@@ -118,7 +118,7 @@ namespace FelicitySecurity.Services
         /// Calls the Update Member businessLogic method and passes the member to update with
         /// </summary>
         /// <param name="item"></param>
-        public void UpdateMember(Members_dto item)
+        public void UpdateMember(MemberTable item)
         {
             memberBaseRepo.Update(item);
         }
@@ -129,7 +129,7 @@ namespace FelicitySecurity.Services
         /// Calls the Delete Member businessLogic method and passes the id to delete with
         /// </summary>
         /// <param name="memberId"></param>
-        public void DeleteMember(Members_dto item)
+        public void DeleteMember(MemberTable item)
         {
             memberBaseRepo.Delete(item);
         }
