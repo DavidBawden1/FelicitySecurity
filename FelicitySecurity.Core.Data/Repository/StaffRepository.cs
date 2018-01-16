@@ -1,5 +1,6 @@
 ﻿using FelicitySecurity.Core.Data.DataModel;
 using FelicitySecurity.Core.Data.Interfaces;
+using FelicitySecurity.Core.DataTransferObjects;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -7,7 +8,7 @@ using System.Linq;
 
 namespace FelicitySecurity.Services.Data.Repository
 {
-    public class StaffRepository : Repository<StaffTable>, IStaffRepository
+    public class StaffRepository : Repository<Staff_dto>, IStaffRepository
     {
         public StaffRepository(string connectionString) 
             : base(connectionString)
@@ -23,7 +24,7 @@ namespace FelicitySecurity.Services.Data.Repository
         /// <summary>
         /// Adds a staff members to the StaffTable when the registration scenario is applied. 
         /// </summary>
-        public StaffTable AddStaff(StaffTable item)
+        public Staff_dto AddStaff(Staff_dto item)
         {
             try
             {
@@ -31,7 +32,7 @@ namespace FelicitySecurity.Services.Data.Repository
                 {
                     var entity = new StaffTable()
                     {
-                        BadgeNo = item.BadgeNo,
+                        BadgeNo = item.BadgeNo.Value,
                         MemID = item.MemID
                     };
                     dbContext.Entry(entity).State = EntityState.Added;
@@ -49,16 +50,16 @@ namespace FelicitySecurity.Services.Data.Repository
         /// returns a list of all staff and their data. 
         /// </summary>
         /// <returns>a result list of all staff members within the system</returns>
-        public List<StaffTable> FindAllStaff()
+        public List<Staff_dto> FindAllStaff()
         {
-            List<StaffTable> staffResults = new List<StaffTable>();
+            List<Staff_dto> staffResults = new List<Staff_dto>();
             try
             {
                 using (FelicityLiveEntities dbContext = (FelicityLiveEntities)GetDBContext())
                 {
                     foreach (var item in dbContext.StaffTable)
                     {
-                        StaffTable dto = new StaffTable();
+                        Staff_dto dto = new Staff_dto();
                         dto.StaffID = item.StaffID;
                         dto.BadgeNo = item.BadgeNo;
                         dto.MemID = item.MemID;
