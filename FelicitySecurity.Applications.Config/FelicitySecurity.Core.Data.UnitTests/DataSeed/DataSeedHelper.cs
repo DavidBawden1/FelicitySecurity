@@ -1,6 +1,6 @@
 ﻿using FelicitySecurity.Services.Data.Repository;
-using FelicitySecurity.Core.DataTransferObjects;
 using System;
+using FelicitySecurity.Core.Data.DataModel;
 
 namespace FelicitySecurity.Core.Data.UnitTests.Helpers
 {
@@ -14,16 +14,15 @@ namespace FelicitySecurity.Core.Data.UnitTests.Helpers
         /// <param name="name"></param>
         /// <param name="pinCode"></param>
         /// <returns></returns>
-        public static Administrators_dto CreateAdministrator(FelicitySecurityUnitTestingRepository repository, int id, string email, string name, string pinCode)
+        public static AdminTable CreateAdministrator(Repository<AdminTable> repository, string email, string name, string pinCode)
         {
-            var dto = new Administrators_dto()
+            var entity = new AdminTable()
             {
-                AdminID = id,
                 AdminEmail = email,
                 AdminName = name,
                 AdminPinCode = pinCode
             };
-            return dto;
+            return entity;
         }
 
         /// <summary>
@@ -34,9 +33,9 @@ namespace FelicitySecurity.Core.Data.UnitTests.Helpers
         /// <param name="name"></param>
         /// <param name="pinCode"></param>
         /// <returns></returns>
-        public static Members_dto CreateMember(FelicitySecurityUnitTestingRepository repository, string firstName, string lastName, DateTime dateOfBirth, DateTime dateOfRegistration, int responsibleAdministratorsId)
+        public static MemberTable CreateMember(Repository<MemberTable> repository, string firstName, string lastName, DateTime dateOfBirth, DateTime dateOfRegistration, int responsibleAdministratorsId)
         {
-            var dto = new Members_dto()
+            var entity = new MemberTable()
             {
                 MemFirstname = firstName,
                 MemLastname = lastName,
@@ -46,7 +45,7 @@ namespace FelicitySecurity.Core.Data.UnitTests.Helpers
                 MemPhonenumber = "07712728891",
                 MemStatus = true
             };
-            return repository.AddMember(dto);
+            return entity;
         }
     }
 }
