@@ -1,5 +1,4 @@
 ﻿using FelicitySecurity.Services.Data.Repository;
-using FelicitySecurity.Core.DataTransferObjects;
 using System;
 using FelicitySecurity.Core.Data.DataModel;
 
@@ -15,11 +14,10 @@ namespace FelicitySecurity.Core.Data.UnitTests.Helpers
         /// <param name="name"></param>
         /// <param name="pinCode"></param>
         /// <returns></returns>
-        public static AdminTable CreateAdministrator(Repository<AdminTable> repository, int id, string email, string name, string pinCode)
+        public static AdminTable CreateAdministrator(Repository<AdminTable> repository, string email, string name, string pinCode)
         {
             var dto = new AdminTable()
             {
-                AdminID = id,
                 AdminEmail = email,
                 AdminName = name,
                 AdminPinCode = pinCode

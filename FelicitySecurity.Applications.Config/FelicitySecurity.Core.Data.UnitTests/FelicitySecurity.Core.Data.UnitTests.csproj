@@ -82,6 +82,7 @@
   <ItemGroup>
     <Compile Include="DataSeed\DataSeedHelper.cs" />
     <Compile Include="DataSeed\TestEntityMapper.cs" />
+    <Compile Include="RepositoryTests\RepositoryUnitTestBase.cs" />
     <Compile Include="RepositoryTests\RepositoryUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
