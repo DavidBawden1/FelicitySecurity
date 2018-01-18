@@ -80,36 +80,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="DataModel\AdminTable.cs">
-      <DependentUpon>FelicitySecurityTest.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataModel\FelicitySecurityTest.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FelicitySecurityTest.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataModel\FelicitySecurityTest.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FelicitySecurityTest.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataModel\FelicitySecurityTest.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FelicitySecurityTest.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="DataModel\Interfaces\IFelicitySecurityUnitTestingRepository.cs" />
-    <Compile Include="DataModel\Interfaces\IFelicitySecurityUnitTestingRepositoryBase.cs" />
-    <Compile Include="DataModel\MemberTable.cs">
-      <DependentUpon>FelicitySecurityTest.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataModel\StaffTable.cs">
-      <DependentUpon>FelicitySecurityTest.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataModel\UnitTestingRepository\FelicitySecurityUnitTestingRepository.cs" />
-    <Compile Include="DataModel\UnitTestingRepository\FelicitySecurityUnitTestingRepositoryBase.cs" />
     <Compile Include="DataSeed\DataSeedHelper.cs" />
-    <Compile Include="RepositoryTests\FelicitySecurityEngineRepository_AddAdministratorUnitTests.cs" />
+    <Compile Include="DataSeed\TestEntityMapper.cs" />
+    <Compile Include="RepositoryTests\RepositoryUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -128,26 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="DataModel\FelicitySecurityTest.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>FelicitySecurityTest.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="DataModel\FelicitySecurityTest.edmx.diagram">
-      <DependentUpon>FelicitySecurityTest.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="DataModel\FelicitySecurityTest.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FelicitySecurityTest.edmx</DependentUpon>
-      <LastGenOutput>FelicitySecurityTest.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="DataModel\FelicitySecurityTest.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FelicitySecurityTest.edmx</DependentUpon>
-      <LastGenOutput>FelicitySecurityTest.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
