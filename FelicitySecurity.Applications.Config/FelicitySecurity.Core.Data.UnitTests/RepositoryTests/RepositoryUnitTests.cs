@@ -41,11 +41,8 @@ namespace FelicitySecurity.Core.Data.UnitTests
             AdminTable administrator = (DataSeedHelper.CreateAdministrator(adminBaseRepository, "testEmail", "testName", "1234"));
             adminBaseRepository.Add(administrator);
             administrator = (DataSeedHelper.CreateAdministrator(adminBaseRepository, "testEmail", "testName2", "5565"));
-
-            Repository<AdminTable> adminBaseRepository2 = new Repository<AdminTable>();
-            adminBaseRepository2.Update(administrator);
+            adminBaseRepository.Update(administrator);
             var administators = adminRepo.FindAllAdministrators().Where(x => x.AdminEmail == "testEmail" && x.AdminName == "testName2" && x.AdminPinCode == "5565").FirstOrDefault();
-
             Assert.AreEqual("testEmail", administators.AdminEmail);
             Assert.AreEqual("testName2", administators.AdminName);
             Assert.AreEqual("5565", administators.AdminPinCode);
