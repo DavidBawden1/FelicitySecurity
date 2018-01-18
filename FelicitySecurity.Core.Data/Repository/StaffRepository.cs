@@ -22,31 +22,6 @@ namespace FelicitySecurity.Services.Data.Repository
         }
 
         /// <summary>
-        /// Adds a staff members to the StaffTable when the registration scenario is applied. 
-        /// </summary>
-        public Staff_dto AddStaff(Staff_dto item)
-        {
-            try
-            {
-                using (DbContext dbContext = (FelicityLiveEntities)GetDBContext())
-                {
-                    var entity = new StaffTable()
-                    {
-                        BadgeNo = item.BadgeNo.Value,
-                        MemID = item.MemID
-                    };
-                    dbContext.Entry(entity).State = EntityState.Added;
-                    dbContext.SaveChanges();
-                }
-            }
-            catch (Exception e)
-            {
-
-            }
-            return item;
-        }
-
-        /// <summary>
         /// returns a list of all staff and their data. 
         /// </summary>
         /// <returns>a result list of all staff members within the system</returns>
@@ -72,17 +47,5 @@ namespace FelicitySecurity.Services.Data.Repository
             }
             return staffResults.ToList();
         }
-
-        public void UpdateStaff()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteStaff()
-        {
-            throw new NotImplementedException();
-        }
-
-
     }
 }

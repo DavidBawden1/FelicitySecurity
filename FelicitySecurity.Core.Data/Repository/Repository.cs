@@ -67,8 +67,9 @@ namespace FelicitySecurity.Services.Data.Repository
             {
                 using (FelicityLiveEntities dbContext = (FelicityLiveEntities)GetDBContext())
                 {
-                    dbContext.Set<T>().Remove(entity);
+                    dbContext.Entry(entity).State = System.Data.Entity.EntityState.Deleted;
                     dbContext.SaveChanges();
+
                 }
             }
             else

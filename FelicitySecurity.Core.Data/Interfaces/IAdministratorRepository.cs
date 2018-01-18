@@ -9,8 +9,5 @@ namespace FelicitySecurity.Services.Data.Interfaces
     public interface IAdministratorRepository
     {
         List<Administrators_dto> FindAllAdministrators();
-        Administrators_dto AddAdministrator(Administrators_dto item);
-        void UpdateAdministrator(Administrators_dto admin);
-        void DeleteAdministrator(Administrators_dto admin);
     }
 }
