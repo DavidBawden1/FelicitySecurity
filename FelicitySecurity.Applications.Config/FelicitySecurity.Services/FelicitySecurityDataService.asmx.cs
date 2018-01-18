@@ -4,8 +4,8 @@ using FelicitySecurity.Core.DataTransferObjects;
 using System.Web.Services;
 using System.ServiceModel;
 using System;
-using AutoMapper;
 using FelicitySecurity.Core.Data.DataModel;
+using FelicitySecurity.Services.Helpers;
 
 namespace FelicitySecurity.Services
 {
@@ -28,12 +28,7 @@ namespace FelicitySecurity.Services
 
         public FelicitySecurityDataService()
         {
-            Mapper.Initialize(conifg =>
-            {
-                conifg.CreateMap<Administrators_dto, AdminTable>();
-                conifg.CreateMap<Members_dto, MemberTable>();
-                conifg.CreateMap<Staff_dto, StaffTable>();
-            });
+
         }
         #region Methods
         [OperationContract]
@@ -44,7 +39,7 @@ namespace FelicitySecurity.Services
         /// <param name="item">Administrators_dto</param>
         public void AddAdministrator(Administrators_dto item)
         {
-            var entity = Mapper.Map<AdminTable>(item);
+            AdminTable entity = EntityMapper.MapEntityFromDto(item);
             administratorBaseRepo.Add(entity);
         }
 
@@ -67,7 +62,7 @@ namespace FelicitySecurity.Services
         /// <param name="item">Members_dto</param>
         public void AddMember(Members_dto item)
         {
-            var entity = Mapper.Map<MemberTable>(item);
+            var entity = EntityMapper.MapEntityFromDto(item);
             memberBaseRepo.Add(entity);
         }
 
@@ -90,7 +85,7 @@ namespace FelicitySecurity.Services
         /// <param name="item">Staff_dto</param>
         public void AddStaff(Staff_dto item)
         {
-            var entity = Mapper.Map<StaffTable>(item);
+            var entity = EntityMapper.MapEntityFromDto(item);
             staffBaseRepo.Add(entity);
         }
 
@@ -113,7 +108,7 @@ namespace FelicitySecurity.Services
         /// <param name="administratorId"></param>
         public void RemoveAdministrator(Administrators_dto item)
         {
-            var entity = Mapper.Map<AdminTable>(item);
+            AdminTable entity = EntityMapper.MapEntityFromDto(item);
             administratorBaseRepo.Delete(entity);
         }
 
@@ -125,7 +120,7 @@ namespace FelicitySecurity.Services
         /// <param name="item"></param>
         public void UpdateAdministrator(Administrators_dto item)
         {
-            var entity = Mapper.Map<AdminTable>(item);
+            AdminTable entity = EntityMapper.MapEntityFromDto(item);
             administratorBaseRepo.Update(entity);
         }
 
@@ -137,7 +132,7 @@ namespace FelicitySecurity.Services
         /// <param name="item"></param>
         public void UpdateMember(Members_dto item)
         {
-            var entity = Mapper.Map<MemberTable>(item);
+            var entity = EntityMapper.MapEntityFromDto(item);
             memberBaseRepo.Update(entity);
         }
 
@@ -149,7 +144,7 @@ namespace FelicitySecurity.Services
         /// <param name="memberId"></param>
         public void DeleteMember(Members_dto item)
         {
-            var entity = Mapper.Map<MemberTable>(item);
+            var entity = EntityMapper.MapEntityFromDto(item);
             memberBaseRepo.Delete(entity);
         }
         #endregion
