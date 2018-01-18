@@ -74,13 +74,21 @@ namespace FelicitySecurity.Applications.Config.Controllers
         {
             return businessLogic.FindAllAdministrators().Where(e => e.AdminEmail == email && e.AdminPinCode == pinCode).FirstOrDefault();
         }
+
         /// <summary>
         /// Calls the repository to remove the specified administrator. 
         /// </summary>
         /// <param name="model"></param>
-        public void DeleteSelectedAdministrator(int administratorId)
+        public void DeleteSelectedAdministrator(AdministratorsModel model)
         {
-            businessLogic.DeleteAdministrator(administratorId);
+            Administrators_dto adminDto = new Administrators_dto()
+            {
+                AdminID = model.AdminID,
+                AdminEmail = model.AdminEmail,
+                AdminName = model.AdminName,
+                AdminPinCode = model.AdminPinCode
+            };
+            businessLogic.DeleteAdministrator(adminDto);
         }
 
         /// <summary>

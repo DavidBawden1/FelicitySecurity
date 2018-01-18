@@ -9,6 +9,6 @@ namespace FelicitySecurity.Applications.Config.Interfaces
     {
         void AddMember(MemberModel model);
         void UpdateSelectedMember(MemberModel model);
-        void DeleteMember(int memberId);
+        void DeleteMember(MemberModel model);
     }
 }

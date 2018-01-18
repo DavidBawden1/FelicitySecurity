@@ -14,7 +14,7 @@ namespace FelicitySecurity.Applications.Config.Interfaces
         string PinCodeConfirmed { get; set; }
         void DisplayAdministratorEmails(RegisterAdministrators_Form form, AdministratorsController controller, AdministratorsModel model, CurrentSortingType sortingType);
         void UpdateSelectedAdministrator(AdministratorsController controller, AdministratorsModel model);
-        void DeleteSelectedAdministrator(AdministratorsController controller, int administratorId);
+        void DeleteSelectedAdministrator(AdministratorsController controller, AdministratorsModel model);
         bool IsPersonAuthorised(AuthenticateAdministrators_Form form, string email, string pinCode, AdministratorsController controller, AdministratorsModel model);
     }
 
