@@ -286,11 +286,15 @@ namespace FelicitySecurity.Applications.Config.ViewModels
             }
         }
 
-        public void DeleteMember(MembersController controller, int memberId)
+        public void DeleteMember(MembersController controller, MemberModel model)
         {
-            if (memberId > 0)
+            if (model != null)
             {
-                controller.DeleteMember(memberId);
+                controller.DeleteMember(model);
+            }
+            else
+            {
+                throw new Exception("Member model was null.");
             }
         }
         #endregion

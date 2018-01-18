@@ -4,6 +4,8 @@ using FelicitySecurity.Core.DataTransferObjects;
 using System.Web.Services;
 using System.ServiceModel;
 using System;
+using FelicitySecurity.Core.Data.DataModel;
+using FelicitySecurity.Services.Helpers;
 
 namespace FelicitySecurity.Services
 {
@@ -16,9 +18,18 @@ namespace FelicitySecurity.Services
     public class FelicitySecurityDataService : WebService, IFelicitySecurityDataService
     {
         #region Decalarations
-        FelicitySecurityRepository repository = new FelicitySecurityRepository();
+        AdministratorRepository administratorRepository = new AdministratorRepository();
+        MemberRepository memberRepository = new MemberRepository();
+        StaffRepository staffRepository = new StaffRepository();
+        Repository<AdminTable> administratorBaseRepo = new Repository<AdminTable>();
+        Repository<MemberTable> memberBaseRepo = new Repository<MemberTable>();
+        Repository<StaffTable> staffBaseRepo = new Repository<StaffTable>();
         #endregion
 
+        public FelicitySecurityDataService()
+        {
+
+        }
         #region Methods
         [OperationContract]
         [WebMethod]
@@ -28,7 +39,8 @@ namespace FelicitySecurity.Services
         /// <param name="item">Administrators_dto</param>
         public void AddAdministrator(Administrators_dto item)
         {
-            repository.AddAdministrator(item);
+            AdminTable entity = EntityMapper.MapEntityFromDto(item);
+            administratorBaseRepo.Add(entity);
         }
 
         [WebMethod]
@@ -39,7 +51,7 @@ namespace FelicitySecurity.Services
         /// <param name="item">Administrators_dto</param>
         public List<Administrators_dto> FindAllAdministrators()
         {
-            return repository.FindAllAdministrators();
+            return administratorRepository.FindAllAdministrators();
         }
 
         [WebMethod]
@@ -50,7 +62,8 @@ namespace FelicitySecurity.Services
         /// <param name="item">Members_dto</param>
         public void AddMember(Members_dto item)
         {
-            repository.AddMember(item);
+            var entity = EntityMapper.MapEntityFromDto(item);
+            memberBaseRepo.Add(entity);
         }
 
         [WebMethod]
@@ -61,7 +74,7 @@ namespace FelicitySecurity.Services
         /// <param name="item">Members_dto</param>
         public List<Members_dto> FindAllMembers()
         {
-            return repository.FindAllMembers();
+            return memberRepository.FindAllMembers();
         }
 
         [WebMethod]
@@ -72,7 +85,8 @@ namespace FelicitySecurity.Services
         /// <param name="item">Staff_dto</param>
         public void AddStaff(Staff_dto item)
         {
-            repository.AddStaff(item);
+            var entity = EntityMapper.MapEntityFromDto(item);
+            staffBaseRepo.Add(entity);
         }
 
         [WebMethod]
@@ -83,7 +97,7 @@ namespace FelicitySecurity.Services
         /// <param name="item">Staff_dto</param>
         public List<Staff_dto> FindAllStaff()
         {
-            return repository.FindAllStaff();
+            return staffRepository.FindAllStaff();
         }
 
         [WebMethod]
@@ -92,9 +106,10 @@ namespace FelicitySecurity.Services
         /// Calls the Remove Administrator businessLogic method
         /// </summary>
         /// <param name="administratorId"></param>
-        public void RemoveAdministrator(int administratorId)
+        public void RemoveAdministrator(Administrators_dto item)
         {
-            repository.DeleteAdministrator(administratorId);
+            AdminTable entity = EntityMapper.MapEntityFromDto(item);
+            administratorBaseRepo.Delete(entity);
         }
 
         [WebMethod]
@@ -105,7 +120,8 @@ namespace FelicitySecurity.Services
         /// <param name="item"></param>
         public void UpdateAdministrator(Administrators_dto item)
         {
-            repository.UpdateAdministrator(item);
+            AdminTable entity = EntityMapper.MapEntityFromDto(item);
+            administratorBaseRepo.Update(entity);
         }
 
         [WebMethod]
@@ -116,7 +132,8 @@ namespace FelicitySecurity.Services
         /// <param name="item"></param>
         public void UpdateMember(Members_dto item)
         {
-            repository.UpdateMember(item);
+            var entity = EntityMapper.MapEntityFromDto(item);
+            memberBaseRepo.Update(entity);
         }
 
         [WebMethod]
@@ -125,9 +142,10 @@ namespace FelicitySecurity.Services
         /// Calls the Delete Member businessLogic method and passes the id to delete with
         /// </summary>
         /// <param name="memberId"></param>
-        public void DeleteMember(int memberId)
+        public void DeleteMember(Members_dto item)
         {
-            repository.DeleteMember(memberId);
+            var entity = EntityMapper.MapEntityFromDto(item);
+            memberBaseRepo.Delete(entity);
         }
         #endregion
     }

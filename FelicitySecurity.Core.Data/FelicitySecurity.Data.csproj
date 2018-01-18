@@ -53,6 +53,9 @@
       <HintPath>..\FelicitySecurity.Applications.Config\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\FelicitySecurity.Applications.Config\packages\NLog.4.4.12\lib\net45\NLog.dll</HintPath>
+    </Reference>
     <Reference Include="OpenTK, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
       <HintPath>..\FelicitySecurity.Applications.Config\packages\OpenTK.1.1.2225.0\lib\net20\OpenTK.dll</HintPath>
       <Private>True</Private>
@@ -67,6 +70,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
@@ -108,15 +112,21 @@
     <Compile Include="DataModel\StaffTable.cs">
       <DependentUpon>FelicitySecurity.tt</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\IFelicitySecurityRepository.cs" />
+    <Compile Include="Interfaces\IAdministratorRepository.cs" />
+    <Compile Include="Interfaces\IMemberRepository.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Interfaces\IStaffRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Repository\FelicitySecurityRepository.cs" />
-    <Compile Include="Repository\FelicitySecurityRepositoryBase.cs" />
+    <Compile Include="Repository\AdministratorRepository.cs" />
+    <Compile Include="Repository\MemberRepository.cs" />
+    <Compile Include="Repository\Repository.cs" />
+    <Compile Include="Repository\RepositoryBase.cs" />
+    <Compile Include="Repository\StaffRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FelicitySecurity.Applications.Config\FelicitySecurity.Utils\FelicitySecurity.Core.Utils.csproj">
@@ -136,6 +146,12 @@
     </EntityDeploy>
     <None Include="DataModel\FelicitySecurity.edmx.diagram">
       <DependentUpon>FelicitySecurity.edmx</DependentUpon>
+    </None>
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
     </None>
     <None Include="OpenTK.dll.config" />
     <None Include="packages.config" />

@@ -53,6 +53,9 @@
       <HintPath>..\FelicitySecurity.Applications.Config\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\FelicitySecurity.Applications.Config\packages\NLog.4.4.12\lib\net45\NLog.dll</HintPath>
+    </Reference>
     <Reference Include="OpenTK, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
       <HintPath>..\FelicitySecurity.Applications.Config\packages\OpenTK.1.1.2225.0\lib\net20\OpenTK.dll</HintPath>
       <Private>True</Private>
@@ -101,6 +104,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="OpenTK.dll.config" />
     <None Include="packages.config" />
     <None Include="Service References\FelicitySecurityDataServiceReference\FelicitySecurity.Core.FelicitySecurityDataServiceReference.AddAdministratorResponse.datasource">
@@ -115,6 +124,9 @@
     <None Include="Service References\FelicitySecurityDataServiceReference\FelicitySecurity.Core.FelicitySecurityDataServiceReference.Administrators_dto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\FelicitySecurityDataServiceReference\FelicitySecurity.Core.FelicitySecurityDataServiceReference.DeleteMemberResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\FelicitySecurityDataServiceReference\FelicitySecurity.Core.FelicitySecurityDataServiceReference.FindAllAdministratorsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -125,6 +137,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\FelicitySecurityDataServiceReference\FelicitySecurity.Core.FelicitySecurityDataServiceReference.Members_dto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FelicitySecurityDataServiceReference\FelicitySecurity.Core.FelicitySecurityDataServiceReference.RemoveAdministratorResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\FelicitySecurityDataServiceReference\FelicitySecurity.Core.FelicitySecurityDataServiceReference.Staff_dto.datasource">
