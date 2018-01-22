@@ -8,9 +8,9 @@ using FelicitySecurity.CCTV.Repository.Interfaces;
 
 namespace FelicitySecurity.CCTV.Repository.Repository
 {
-    public class CCTVRepository : CCTVRepositoryBase, ICCTVRepository
+    public class AdministratorRepository : Repository<AdministratorModel>, IRepository<AdministratorModel>,  IAdministratorRepository
     {
-        public CCTVRepository(string connectionString):
+        public AdministratorRepository(string connectionString):
             base(connectionString)
         {
 

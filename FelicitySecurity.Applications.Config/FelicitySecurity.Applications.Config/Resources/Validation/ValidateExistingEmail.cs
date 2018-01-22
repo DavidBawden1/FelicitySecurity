@@ -17,7 +17,7 @@ namespace FelicitySecurity.Applications.Config.Resources.Validation
         public bool DoesEmailExist(string email)
         {
             bool isValid = false;
-            FelicitySecurityRepository repository = new FelicitySecurityRepository();
+            AdministratorRepository repository = new AdministratorRepository();
             Administrators_dto adminDto = new Administrators_dto();
             var emailList = repository.FindAllAdministrators().Where(e => e.AdminEmail == email);
             foreach (var item in emailList)

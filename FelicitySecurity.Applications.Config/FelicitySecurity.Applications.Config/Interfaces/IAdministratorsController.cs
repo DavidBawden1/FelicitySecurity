@@ -12,7 +12,7 @@ namespace FelicitySecurity.Applications.Config.Interfaces
         List<AdministratorsModel> AllAdministrators(AdministratorsModel model);
         Administrators_dto ReturnAdministratorByEmail(string email);
         Administrators_dto ReturnAdministratorByEmail(string email, string pinCode);
-        void DeleteSelectedAdministrator(int administratorId);
+        void DeleteSelectedAdministrator(AdministratorsModel model);
         void UpdateSelectedAdministrator(AdministratorsModel model);
     }
 }
