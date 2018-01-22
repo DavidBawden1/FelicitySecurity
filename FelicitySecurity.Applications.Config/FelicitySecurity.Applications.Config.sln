@@ -31,6 +31,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FelicitySecurity.CCTV", "..
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FelicitySecurity.CCTV.Repository", "FelicitySecurity.CCTV.Repository\FelicitySecurity.CCTV.Repository.csproj", "{ADC6A060-50DD-4826-86FC-79B022BD3A07}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FelicitySecurity.ImageProcessing.UnitTests", "..\FelicitySecurity.ImageProcessing.UnitTests\FelicitySecurity.ImageProcessing.UnitTests.csproj", "{B7A15EAA-9DC7-47EF-B302-27DDC50D56B9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +75,10 @@ Global
 		{ADC6A060-50DD-4826-86FC-79B022BD3A07}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADC6A060-50DD-4826-86FC-79B022BD3A07}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADC6A060-50DD-4826-86FC-79B022BD3A07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7A15EAA-9DC7-47EF-B302-27DDC50D56B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7A15EAA-9DC7-47EF-B302-27DDC50D56B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7A15EAA-9DC7-47EF-B302-27DDC50D56B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7A15EAA-9DC7-47EF-B302-27DDC50D56B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -88,5 +94,6 @@ Global
 		{B3E2BAB8-7B5E-447D-B989-11DBD8EC7A8B} = {B48BEEDA-DDBD-4B11-8D3B-481C5D0E6B5D}
 		{B058FB26-0302-4D07-A867-63E10134234A} = {B48BEEDA-DDBD-4B11-8D3B-481C5D0E6B5D}
 		{ADC6A060-50DD-4826-86FC-79B022BD3A07} = {8C71C395-F9D8-4438-A670-CCF82170484A}
+		{B7A15EAA-9DC7-47EF-B302-27DDC50D56B9} = {2A03F040-8940-498D-87EE-71188CBEBF84}
 	EndGlobalSection
 EndGlobal
